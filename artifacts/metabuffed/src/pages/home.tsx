@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
+import { Nav } from "@/components/Nav";
+import { BreakdownModal } from "@/components/BreakdownModal";
 import { 
   Upload, 
   Play, 
@@ -52,33 +55,12 @@ const Particles = ({ count = 20 }: { count?: number }) => {
 };
 
 export default function Home() {
+  const [isBreakdownOpen, setIsBreakdownOpen] = useState(false);
+  const [, setLocation] = useLocation();
+
   return (
     <div className="min-h-[100dvh] bg-black text-foreground selection:bg-primary/30 font-sans overflow-x-hidden">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/50 backdrop-blur-xl border-b border-white/5">
-        <div className="container mx-auto px-6 h-20 flex items-center justify-between">
-          <div className="flex items-center">
-            <img src={logoImg} alt="Metabuffed" className="h-20 w-auto" />
-          </div>
-          <div className="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-400">
-            <a href="#" className="hover:text-white transition-colors">Home</a>
-            <a href="#games" className="hover:text-white transition-colors">Upload Match</a>
-            <a href="#analysis" className="hover:text-white transition-colors">Breakdowns</a>
-            <a href="#coach" className="hover:text-white transition-colors">Ask Coach</a>
-          </div>
-          <div className="flex items-center gap-3">
-            <Button variant="ghost" className="hidden sm:flex text-zinc-300 hover:text-white hover:bg-white/10 font-medium text-sm" data-testid="btn-sign-in">
-              Sign In
-            </Button>
-            <Button variant="outline" className="hidden sm:flex border-white/20 text-white hover:bg-white/10 font-bold text-sm px-5" data-testid="btn-sign-up">
-              Sign Up
-            </Button>
-            <Button className="bg-primary text-black hover:bg-primary/90 font-bold uppercase tracking-wider text-xs px-6" data-testid="btn-upload-nav">
-              Upload
-            </Button>
-          </div>
-        </div>
-      </nav>
+      <Nav />
 
       <main>
         {/* HERO SECTION */}
@@ -102,7 +84,7 @@ export default function Home() {
                 <h1 className="text-[clamp(40px,4.5vw,64px)] font-black leading-[1.05] tracking-tighter mb-6 uppercase">
                   <span className="text-white block drop-shadow-lg">Built for</span>
                   <span className="text-white block drop-shadow-lg">Competitive</span>
-                  <span className="text-zinc-500 block mt-1">Players.</span>
+                  <span className="text-zinc-500 block mt-1">Players</span>
                 </h1>
                 
                 <p className="text-xl text-zinc-400 mb-10 leading-relaxed max-w-lg font-medium">
@@ -110,10 +92,12 @@ export default function Home() {
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-5">
-                  <Button size="lg" className="bg-primary text-black hover:bg-white hover:text-black transition-all duration-300 font-bold text-sm h-14 px-10 uppercase tracking-widest" data-testid="btn-hero-upload">
+                  <Button size="lg" className="bg-primary text-black hover:bg-white hover:text-black transition-all duration-300 font-bold text-sm h-14 px-10 uppercase tracking-widest w-full sm:w-auto" data-testid="btn-hero-upload" onClick={() => setLocation('/upload')}>
                     Upload Gameplay
                   </Button>
-                  <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 transition-all duration-300 font-bold text-sm h-14 px-10 uppercase tracking-widest backdrop-blur-sm" data-testid="btn-hero-explore">
+                  <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 transition-all duration-300 font-bold text-sm h-14 px-10 uppercase tracking-widest backdrop-blur-sm" data-testid="btn-hero-explore" onClick={() => {
+                    document.getElementById('games')?.scrollIntoView({ behavior: 'smooth' });
+                  }}>
                     Explore Games
                   </Button>
                 </div>
@@ -188,7 +172,7 @@ export default function Home() {
               className="mb-16"
             >
               <h2 className="text-sm font-mono text-zinc-500 uppercase tracking-[0.2em] mb-4">Featured Games</h2>
-              <p className="text-5xl md:text-6xl font-black text-white uppercase tracking-tighter">Your Game. Your Analysis.</p>
+              <p className="text-5xl md:text-6xl font-black text-white uppercase tracking-tighter">Choose Your Game</p>
             </motion.div>
 
             <div className="grid lg:grid-cols-3 gap-6 mb-6">
@@ -208,7 +192,7 @@ export default function Home() {
                   <h3 className="text-3xl font-black text-white uppercase tracking-tight mb-2 transform group-hover:-translate-y-2 transition-transform duration-300">Fight Night Champion</h3>
                   <p className="text-sm text-zinc-300 font-medium transform group-hover:-translate-y-2 transition-transform duration-300 delay-75">Pressure. Counters. Stamina. Timing.</p>
                   <div className="mt-6 overflow-hidden h-0 group-hover:h-12 transition-all duration-300">
-                    <Button className="w-full bg-white text-black hover:bg-zinc-200 uppercase font-bold text-xs tracking-widest rounded-none" data-testid="btn-analyze-fight-night">Analyze Matches</Button>
+                    <Button className="w-full bg-white text-black hover:bg-zinc-200 uppercase font-bold text-xs tracking-widest rounded-none" data-testid="btn-analyze-fight-night" onClick={() => setLocation('/upload?game=fight-night')}>Analyze Matches</Button>
                   </div>
                 </div>
               </motion.div>
@@ -230,7 +214,7 @@ export default function Home() {
                   <h3 className="text-3xl font-black text-white uppercase tracking-tight mb-2 transform group-hover:-translate-y-2 transition-transform duration-300">NBA 2K26</h3>
                   <p className="text-sm text-zinc-300 font-medium transform group-hover:-translate-y-2 transition-transform duration-300 delay-75">Spacing. Rotations. Shot Quality.</p>
                   <div className="mt-6 overflow-hidden h-0 group-hover:h-12 transition-all duration-300">
-                    <Button className="w-full bg-white text-black hover:bg-zinc-200 uppercase font-bold text-xs tracking-widest rounded-none" data-testid="btn-analyze-nba">Analyze Gameplay</Button>
+                    <Button className="w-full bg-white text-black hover:bg-zinc-200 uppercase font-bold text-xs tracking-widest rounded-none" data-testid="btn-analyze-nba" onClick={() => setLocation('/upload?game=nba')}>Analyze Matches</Button>
                   </div>
                 </div>
               </motion.div>
@@ -252,7 +236,7 @@ export default function Home() {
                   <h3 className="text-3xl font-black text-white uppercase tracking-tight mb-2 transform group-hover:-translate-y-2 transition-transform duration-300">Madden 26</h3>
                   <p className="text-sm text-zinc-300 font-medium transform group-hover:-translate-y-2 transition-transform duration-300 delay-75">Coverage Reads. Route Abuse. Playcalling.</p>
                   <div className="mt-6 overflow-hidden h-0 group-hover:h-12 transition-all duration-300">
-                    <Button className="w-full bg-white text-black hover:bg-zinc-200 uppercase font-bold text-xs tracking-widest rounded-none" data-testid="btn-analyze-madden">Break Down Film</Button>
+                    <Button className="w-full bg-white text-black hover:bg-zinc-200 uppercase font-bold text-xs tracking-widest rounded-none" data-testid="btn-analyze-madden" onClick={() => setLocation('/upload?game=madden')}>Analyze Matches</Button>
                   </div>
                 </div>
               </motion.div>
@@ -486,12 +470,20 @@ export default function Home() {
                     <p className="text-[10px] font-mono text-primary uppercase tracking-widest font-bold mb-1">Next Focus</p>
                     <p className="text-sm font-bold text-white uppercase tracking-wider">Control exchanges before round 3.</p>
                   </div>
-                  <Share2 className="w-5 h-5 text-zinc-500 hover:text-white cursor-pointer transition-colors" />
+                  <div className="flex gap-4">
+                    <Button variant="outline" className="border-white/20 bg-black text-white hover:bg-white/10 uppercase tracking-widest text-xs h-10 px-6 font-bold" onClick={() => setIsBreakdownOpen(true)} data-testid="btn-view-breakdown">
+                      View Full Breakdown
+                    </Button>
+                    <Share2 className="w-5 h-5 text-zinc-500 hover:text-white cursor-pointer transition-colors mt-2.5" />
+                  </div>
                 </div>
               </motion.div>
             </div>
           </div>
         </section>
+
+        {/* Breakdown Modal */}
+        <BreakdownModal isOpen={isBreakdownOpen} onClose={() => setIsBreakdownOpen(false)} />
 
         {/* SECTION 5: FUTURE VISION */}
         <section className="py-32 bg-[#050505] border-y border-white/5">
@@ -557,10 +549,10 @@ export default function Home() {
               </p>
               
               <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-16">
-                <Button size="lg" className="bg-primary text-black hover:bg-white hover:text-black transition-all duration-300 font-bold text-sm h-16 px-12 uppercase tracking-widest">
+                <Button size="lg" className="bg-primary text-black hover:bg-white hover:text-black transition-all duration-300 font-bold text-sm h-16 px-12 uppercase tracking-widest" onClick={() => setLocation('/upload')}>
                   Upload Gameplay
                 </Button>
-                <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 transition-all duration-300 font-bold text-sm h-16 px-12 uppercase tracking-widest backdrop-blur-sm">
+                <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 transition-all duration-300 font-bold text-sm h-16 px-12 uppercase tracking-widest backdrop-blur-sm" onClick={() => setLocation('/coach')}>
                   Enter the Platform
                 </Button>
               </div>
@@ -591,7 +583,7 @@ export default function Home() {
             {/* Brand */}
             <div className="md:col-span-1">
               <div className="mb-4">
-                <img src={logoImg} alt="Metabuffed" className="h-20 w-auto" />
+                <img src={logoImg} alt="Metabuffed" className="h-[88px] w-auto" />
               </div>
               <p className="text-sm text-zinc-500 leading-relaxed mb-6">
                 AI-powered gameplay analysis for competitive gamers. Upload. Analyze. Improve.

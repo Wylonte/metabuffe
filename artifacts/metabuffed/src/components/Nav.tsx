@@ -1,0 +1,42 @@
+import { Link, useLocation } from "wouter";
+import { Button } from "@/components/ui/button";
+import { useModals } from "@/hooks/use-modals";
+import logoImg from "@assets/Metabuffed_Official_Logo-removebg-preview_1778448740498.png";
+
+export function Nav() {
+  const [location, setLocation] = useLocation();
+  const { openModal } = useModals();
+
+  return (
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/50 backdrop-blur-xl border-b border-white/5">
+      <div className="container mx-auto px-6 h-20 flex items-center justify-between">
+        <div className="flex items-center">
+          <Link href="/">
+            <img src={logoImg} alt="Metabuffed" className="h-[88px] w-auto cursor-pointer" />
+          </Link>
+        </div>
+        <div className="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-400">
+          <Link href="/" className={`${location === "/" ? "text-white" : "hover:text-white"} transition-colors`}>Home</Link>
+          <Link href="/upload" className={`${location === "/upload" ? "text-white" : "hover:text-white"} transition-colors`}>Upload Match</Link>
+          {location === "/" ? (
+            <a href="#analysis" className="hover:text-white transition-colors">Breakdowns</a>
+          ) : (
+            <Link href="/#analysis" className="hover:text-white transition-colors">Breakdowns</Link>
+          )}
+          <Link href="/coach" className={`${location === "/coach" ? "text-white" : "hover:text-white"} transition-colors`}>Ask Coach</Link>
+        </div>
+        <div className="flex items-center gap-3">
+          <Button variant="ghost" className="hidden sm:flex text-zinc-300 hover:text-white hover:bg-white/10 font-medium text-sm" data-testid="btn-sign-in" onClick={() => openModal("signin")}>
+            Sign In
+          </Button>
+          <Button variant="outline" className="hidden sm:flex border-white/20 text-white hover:bg-white/10 font-bold text-sm px-5" data-testid="btn-sign-up" onClick={() => openModal("signup")}>
+            Sign Up
+          </Button>
+          <Button className="bg-primary text-black hover:bg-primary/90 font-bold uppercase tracking-wider text-xs px-6" data-testid="btn-upload-nav" onClick={() => setLocation('/upload')}>
+            Upload
+          </Button>
+        </div>
+      </div>
+    </nav>
+  );
+}
