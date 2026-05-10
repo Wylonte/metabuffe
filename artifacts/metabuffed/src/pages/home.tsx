@@ -5,15 +5,18 @@ import {
   Upload, 
   Play, 
   Activity, 
-  Crosshair, 
-  ShieldAlert, 
-  Share2, 
-  Clock, 
-  Focus,
-  Zap,
-  Target
+  Share2,
+  Twitter,
+  Instagram,
+  Youtube,
+  Facebook
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import fightNightImg from "@assets/5b3f385f18965c2191e551d83eafb76e_1778447744266.jpg";
+import maddenImg from "@assets/G6IWhecWMAkaOiu_1778447744264.jpg";
+import gta6Img from "@assets/GTA6_1778447744267.webp";
+import nba2kImg from "@assets/nba-2k26-standard-edition_1778447744265.avif";
+import undisputedImg from "@assets/characters-from-undisputed-game_1778447744257.avif";
 
 const Particles = ({ count = 20 }: { count?: number }) => {
   const [mounted, setMounted] = useState(false);
@@ -58,10 +61,17 @@ export default function Home() {
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-400">
             <a href="#games" className="hover:text-white transition-colors">Games</a>
-            <a href="#analysis" className="hover:text-white transition-colors">Analysis</a>
-            <a href="#identity" className="hover:text-white transition-colors">Identity</a>
+            <a href="#features" className="hover:text-white transition-colors">Features</a>
+            <a href="#analysis" className="hover:text-white transition-colors">Coach</a>
+            <a href="#identity" className="hover:text-white transition-colors">Pricing</a>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
+            <Button variant="ghost" className="hidden sm:flex text-zinc-300 hover:text-white hover:bg-white/10 font-medium text-sm" data-testid="btn-sign-in">
+              Sign In
+            </Button>
+            <Button variant="outline" className="hidden sm:flex border-white/20 text-white hover:bg-white/10 font-bold text-sm px-5" data-testid="btn-sign-up">
+              Sign Up
+            </Button>
             <Button className="bg-primary text-black hover:bg-primary/90 font-bold uppercase tracking-wider text-xs px-6" data-testid="btn-upload-nav">
               Upload
             </Button>
@@ -195,18 +205,14 @@ export default function Home() {
                 className="group relative h-[500px] rounded-2xl overflow-hidden bg-zinc-900 cursor-pointer sweep-hover"
                 data-testid="game-tile-fight-night"
               >
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(150,0,0,0.3)_0%,rgba(20,0,0,1)_100%)]" />
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 bg-white/10 blur-[60px] opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute inset-0 opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjEiIGZpbGw9IiNmZmYiLz48L3N2Zz4=')]" />
-                
-                {/* Abstract shape */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-64 bg-black/60 blur-xl rounded-full transform -rotate-12" />
-                
-                <div className="absolute inset-x-0 bottom-0 p-8 bg-gradient-to-t from-black via-black/80 to-transparent">
+                <img src={fightNightImg} alt="Fight Night Champion" className="absolute inset-0 w-full h-full object-cover object-center scale-105 group-hover:scale-110 transition-transform duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500" />
+                <div className="absolute inset-x-0 bottom-0 p-8">
                   <h3 className="text-3xl font-black text-white uppercase tracking-tight mb-2 transform group-hover:-translate-y-2 transition-transform duration-300">Fight Night Champion</h3>
-                  <p className="text-sm text-zinc-400 font-medium transform group-hover:-translate-y-2 transition-transform duration-300 delay-75">Pressure. Counters. Stamina. Timing.</p>
+                  <p className="text-sm text-zinc-300 font-medium transform group-hover:-translate-y-2 transition-transform duration-300 delay-75">Pressure. Counters. Stamina. Timing.</p>
                   <div className="mt-6 overflow-hidden h-0 group-hover:h-12 transition-all duration-300">
-                    <Button className="w-full bg-white text-black hover:bg-zinc-200 uppercase font-bold text-xs tracking-widest rounded-none">Analyze Matches</Button>
+                    <Button className="w-full bg-white text-black hover:bg-zinc-200 uppercase font-bold text-xs tracking-widest rounded-none" data-testid="btn-analyze-fight-night">Analyze Matches</Button>
                   </div>
                 </div>
               </motion.div>
@@ -221,18 +227,14 @@ export default function Home() {
                 className="group relative h-[500px] rounded-2xl overflow-hidden bg-zinc-900 cursor-pointer sweep-hover"
                 data-testid="game-tile-nba"
               >
-                <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(10,20,60,1)_0%,rgba(0,0,10,1)_100%)]" />
-                <div className="absolute top-0 right-0 w-64 h-64 bg-[#FFA500]/20 blur-[80px] group-hover:bg-[#FFA500]/40 transition-colors duration-500" />
-                
-                {/* Arc shapes */}
-                <div className="absolute top-10 left-10 w-[200%] h-40 border-t border-white/5 rounded-[100%] transform -rotate-12" />
-                <div className="absolute top-20 left-10 w-[200%] h-40 border-t border-white/5 rounded-[100%] transform -rotate-12" />
-
-                <div className="absolute inset-x-0 bottom-0 p-8 bg-gradient-to-t from-black via-black/80 to-transparent">
+                <img src={nba2kImg} alt="NBA 2K26" className="absolute inset-0 w-full h-full object-cover object-center scale-105 group-hover:scale-110 transition-transform duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500" />
+                <div className="absolute inset-x-0 bottom-0 p-8">
                   <h3 className="text-3xl font-black text-white uppercase tracking-tight mb-2 transform group-hover:-translate-y-2 transition-transform duration-300">NBA 2K26</h3>
-                  <p className="text-sm text-zinc-400 font-medium transform group-hover:-translate-y-2 transition-transform duration-300 delay-75">Spacing. Rotations. Shot Quality.</p>
+                  <p className="text-sm text-zinc-300 font-medium transform group-hover:-translate-y-2 transition-transform duration-300 delay-75">Spacing. Rotations. Shot Quality.</p>
                   <div className="mt-6 overflow-hidden h-0 group-hover:h-12 transition-all duration-300">
-                    <Button className="w-full bg-white text-black hover:bg-zinc-200 uppercase font-bold text-xs tracking-widest rounded-none">Analyze Gameplay</Button>
+                    <Button className="w-full bg-white text-black hover:bg-zinc-200 uppercase font-bold text-xs tracking-widest rounded-none" data-testid="btn-analyze-nba">Analyze Gameplay</Button>
                   </div>
                 </div>
               </motion.div>
@@ -247,17 +249,14 @@ export default function Home() {
                 className="group relative h-[500px] rounded-2xl overflow-hidden bg-zinc-900 cursor-pointer sweep-hover"
                 data-testid="game-tile-madden"
               >
-                <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(20,50,40,1)_0%,rgba(5,15,10,1)_100%)]" />
-                
-                {/* Field Lines */}
-                <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'linear-gradient(to bottom, transparent 48%, white 48%, white 52%, transparent 52%)', backgroundSize: '100% 40px' }} />
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[200%] bg-white/5 blur-[100px] group-hover:rotate-12 transition-transform duration-[2s]" />
-
-                <div className="absolute inset-x-0 bottom-0 p-8 bg-gradient-to-t from-black via-black/80 to-transparent z-10">
+                <img src={maddenImg} alt="Madden 26" className="absolute inset-0 w-full h-full object-cover object-center scale-105 group-hover:scale-110 transition-transform duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500" />
+                <div className="absolute inset-x-0 bottom-0 p-8">
                   <h3 className="text-3xl font-black text-white uppercase tracking-tight mb-2 transform group-hover:-translate-y-2 transition-transform duration-300">Madden 26</h3>
-                  <p className="text-sm text-zinc-400 font-medium transform group-hover:-translate-y-2 transition-transform duration-300 delay-75">Coverage Reads. Route Abuse. Playcalling.</p>
+                  <p className="text-sm text-zinc-300 font-medium transform group-hover:-translate-y-2 transition-transform duration-300 delay-75">Coverage Reads. Route Abuse. Playcalling.</p>
                   <div className="mt-6 overflow-hidden h-0 group-hover:h-12 transition-all duration-300">
-                    <Button className="w-full bg-white text-black hover:bg-zinc-200 uppercase font-bold text-xs tracking-widest rounded-none">Break Down Film</Button>
+                    <Button className="w-full bg-white text-black hover:bg-zinc-200 uppercase font-bold text-xs tracking-widest rounded-none" data-testid="btn-analyze-madden">Break Down Film</Button>
                   </div>
                 </div>
               </motion.div>
@@ -273,15 +272,14 @@ export default function Home() {
                 className="relative h-[240px] rounded-2xl overflow-hidden bg-zinc-900/50 border border-white/5"
                 data-testid="game-tile-gta6"
               >
-                <div className="absolute inset-0 bg-[linear-gradient(to_bottom_right,rgba(40,10,60,1)_0%,rgba(10,10,20,1)_100%)]" />
-                <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-[radial-gradient(ellipse_at_bottom_right,rgba(0,255,255,0.2)_0%,transparent_70%)]" />
-                <div className="absolute bottom-0 left-1/4 w-1/3 h-1/2 bg-[radial-gradient(ellipse_at_bottom,rgba(255,0,255,0.15)_0%,transparent_70%)]" />
+                <img src={gta6Img} alt="GTA 6" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/20" />
                 <div className="absolute top-6 right-6">
-                  <Badge variant="outline" className="bg-white/5 text-white border-white/20 uppercase tracking-widest text-[10px] px-3 py-1 font-bold backdrop-blur-md">Coming Soon</Badge>
+                  <Badge variant="outline" className="bg-black/60 text-white border-white/20 uppercase tracking-widest text-[10px] px-3 py-1 font-bold backdrop-blur-md">Coming Soon</Badge>
                 </div>
                 <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                  <h3 className="text-2xl font-black text-white uppercase tracking-tight mb-1 opacity-80">GTA 6</h3>
-                  <p className="text-xs text-zinc-500 font-medium uppercase tracking-wider">Open-World Analysis</p>
+                  <h3 className="text-2xl font-black text-white uppercase tracking-tight mb-1">GTA 6</h3>
+                  <p className="text-xs text-zinc-400 font-medium uppercase tracking-wider">Open-World Analysis</p>
                 </div>
               </motion.div>
 
@@ -294,14 +292,14 @@ export default function Home() {
                 className="relative h-[240px] rounded-2xl overflow-hidden bg-zinc-900/50 border border-white/5"
                 data-testid="game-tile-undisputed2"
               >
-                <div className="absolute inset-0 bg-[linear-gradient(to_bottom_right,rgba(60,40,0,1)_0%,rgba(15,10,0,1)_100%)]" />
-                <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top_left,rgba(200,150,0,0.15)_0%,transparent_60%)]" />
+                <img src={undisputedImg} alt="Undisputed 2" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/20" />
                 <div className="absolute top-6 right-6">
-                  <Badge variant="outline" className="bg-white/5 text-white border-white/20 uppercase tracking-widest text-[10px] px-3 py-1 font-bold backdrop-blur-md">Coming Soon</Badge>
+                  <Badge variant="outline" className="bg-black/60 text-white border-white/20 uppercase tracking-widest text-[10px] px-3 py-1 font-bold backdrop-blur-md">Coming Soon</Badge>
                 </div>
                 <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                  <h3 className="text-2xl font-black text-white uppercase tracking-tight mb-1 opacity-80">Undisputed 2</h3>
-                  <p className="text-xs text-zinc-500 font-medium uppercase tracking-wider">Boxing. Combos. Fight IQ.</p>
+                  <h3 className="text-2xl font-black text-white uppercase tracking-tight mb-1">Undisputed 2</h3>
+                  <p className="text-xs text-zinc-400 font-medium uppercase tracking-wider">Boxing. Combos. Fight IQ.</p>
                 </div>
               </motion.div>
 
@@ -589,6 +587,77 @@ export default function Home() {
           </div>
         </section>
       </main>
+
+      {/* FOOTER */}
+      <footer className="bg-black border-t border-white/5 pt-16 pb-10">
+        <div className="container mx-auto px-6">
+          <div className="grid md:grid-cols-4 gap-12 mb-12">
+            {/* Brand */}
+            <div className="md:col-span-1">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="text-lg font-black text-white uppercase tracking-tight">Metabuffed</span>
+                <div className="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(57,255,20,0.8)]" />
+              </div>
+              <p className="text-sm text-zinc-500 leading-relaxed mb-6">
+                AI-powered gameplay analysis for competitive gamers. Upload. Analyze. Improve.
+              </p>
+              <div className="flex items-center gap-4">
+                <a href="https://twitter.com/Metabuffed" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all" data-testid="link-twitter">
+                  <Twitter className="w-4 h-4" />
+                </a>
+                <a href="https://instagram.com/Metabuffed" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all" data-testid="link-instagram">
+                  <Instagram className="w-4 h-4" />
+                </a>
+                <a href="https://facebook.com/Metabuffed" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all" data-testid="link-facebook">
+                  <Facebook className="w-4 h-4" />
+                </a>
+                <a href="https://youtube.com/@Metabuffed" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all" data-testid="link-youtube">
+                  <Youtube className="w-4 h-4" />
+                </a>
+              </div>
+            </div>
+
+            {/* Platform */}
+            <div>
+              <h4 className="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-5 font-bold">Platform</h4>
+              <ul className="space-y-3">
+                {["Upload Gameplay", "AI Meta Breakdown", "Ask the Coach", "Player Card"].map(item => (
+                  <li key={item}><a href="#" className="text-sm text-zinc-400 hover:text-white transition-colors">{item}</a></li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Games */}
+            <div>
+              <h4 className="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-5 font-bold">Games</h4>
+              <ul className="space-y-3">
+                {["Fight Night Champion", "NBA 2K26", "Madden 26", "GTA 6 (Coming Soon)", "Undisputed 2 (Coming Soon)", "UFC 6 (Coming Soon)"].map(item => (
+                  <li key={item}><a href="#games" className="text-sm text-zinc-400 hover:text-white transition-colors">{item}</a></li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Company */}
+            <div>
+              <h4 className="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-5 font-bold">Company</h4>
+              <ul className="space-y-3">
+                {["About", "Blog", "Careers", "Contact", "Privacy Policy", "Terms of Service"].map(item => (
+                  <li key={item}><a href="#" className="text-sm text-zinc-400 hover:text-white transition-colors">{item}</a></li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div className="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="text-xs text-zinc-600 font-mono">© 2026 Metabuffed. All rights reserved.</p>
+            <div className="flex items-center gap-2 text-xs text-zinc-600 font-mono">
+              <span>Follow us</span>
+              <span className="text-primary font-bold">@Metabuffed</span>
+              <span>on all platforms</span>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
