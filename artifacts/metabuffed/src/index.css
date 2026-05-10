@@ -111,6 +111,10 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply font-sans antialiased bg-background text-foreground;
   }
@@ -144,3 +148,51 @@
 .hud-tr { top: -4px; right: -4px; border-left: none; border-bottom: none; }
 .hud-bl { bottom: -4px; left: -4px; border-right: none; border-top: none; }
 .hud-br { bottom: -4px; right: -4px; border-left: none; border-top: none; }
+
+@keyframes particle-drift {
+  0% { transform: translate(0, 0) scale(1); opacity: 0; }
+  50% { opacity: 0.8; }
+  100% { transform: translate(var(--tx, 100px), var(--ty, -100px)) scale(var(--s, 1.5)); opacity: 0; }
+}
+
+.particle {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  animation: particle-drift var(--duration, 10s) infinite linear;
+  opacity: 0;
+}
+
+@keyframes sweep {
+  0% { transform: translateX(-100%) skewX(-15deg); }
+  100% { transform: translateX(200%) skewX(-15deg); }
+}
+
+.sweep-hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.1), transparent);
+  transform: translateX(-150%) skewX(-15deg);
+  transition: transform 0.6s ease;
+}
+
+.sweep-hover:hover::after {
+  transform: translateX(250%) skewX(-15deg);
+}
+
+@keyframes slow-rotate {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  animation: slow-rotate 20s linear infinite;
+  transform-origin: center center;
+}

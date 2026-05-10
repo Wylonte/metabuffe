@@ -1,0 +1,302 @@
+Build a premium cinematic gaming platform website for “Metabuffed.”
+
+IMPORTANT:
+This should NOT feel like a generic AI SaaS website.
+Do NOT design it like a ChatGPT wrapper, dashboard app, or productivity startup.
+
+The website should feel like:
+a next-generation competitive gaming platform.
+
+The emotional feeling should be:
+fun
+immersive
+cinematic
+competitive
+alive
+modern
+social
+high-end
+
+The user should feel like they are entering:
+a world of competitive gaming analysis.
+
+INSPIRED BY:
+Players’ Lounge
+modern console dashboards
+PlayStation Store
+Netflix game browsing
+AAA sports game menus
+World Labs presentation quality
+
+DO NOT:
+- create tiny SaaS feature cards
+- make everything text-based
+- use generic chatbot layouts
+- use fake AI gradients
+- use cyberpunk clutter
+- create empty dark backgrounds
+- make the site feel corporate
+
+DO:
+- use cinematic game cover presentation
+- create large immersive game tiles
+- use gameplay atmosphere
+- create emotional gaming energy
+- make everything feel interactive and alive
+- create premium hover animations
+- create subtle cinematic movement
+- make the site feel like a real gaming ecosystem
+
+VISUAL STYLE:
+Dark premium background
+white typography
+subtle neon green accents
+sports-game atmosphere
+cinematic lighting
+high-end spacing
+large visuals
+smooth transitions
+minimal but powerful UI
+
+====================================
+MAIN HERO SECTION
+====================================
+
+Full-screen cinematic hero.
+
+Background:
+slow-motion gameplay atmosphere with subtle lighting and particles.
+
+Main headline:
+“Understand Why You Win.”
+“Fix Why You Lose.”
+
+Subheadline:
+“Metabuffed analyzes your gameplay, identifies competitive patterns, and helps you improve with game-specific AI breakdowns.”
+
+Buttons:
+Upload Gameplay
+Explore Games
+
+The hero should feel:
+powerful
+minimal
+premium
+gaming-focused
+
+NOT corporate SaaS.
+
+====================================
+FEATURED GAMES SECTION
+====================================
+
+THIS IS THE MOST IMPORTANT SECTION.
+
+Create HUGE cinematic game cover tiles.
+
+These should feel like:
+PlayStation Store
+Xbox dashboard
+Netflix game selection
+AAA sports-game menus
+
+The user should feel excited to click the games.
+
+Each tile should have:
+large cinematic artwork
+hover animations
+lighting effects
+slight movement
+overlay text
+competitive atmosphere
+
+====================================
+
+FIGHT NIGHT CHAMPION TILE
+
+Visual:
+boxer mid exchange
+dramatic arena lights
+sweat particles
+impact moment
+cinematic shadows
+
+Overlay:
+FIGHT NIGHT CHAMPION
+
+Subtext:
+“Pressure. Counters. Stamina. Timing.”
+
+Hover effect:
+slight zoom
+light sweep
+animated atmosphere
+
+Button:
+Analyze Matches
+
+====================================
+
+NBA 2K26 TILE
+
+Visual:
+playoff atmosphere
+player driving to basket
+crowd intensity
+broadcast lighting
+
+Overlay:
+NBA 2K26
+
+Subtext:
+“Spacing. Rotations. Shot Quality.”
+
+Hover effect:
+camera motion
+arena lighting pulse
+
+Button:
+Analyze Gameplay
+
+====================================
+
+MADDEN 26 TILE
+
+Visual:
+QB scanning defense
+stadium lights
+rain atmosphere
+NFL-style presentation
+
+Overlay:
+MADDEN 26
+
+Subtext:
+“Coverage Reads. Route Abuse. Playcalling.”
+
+Hover effect:
+cinematic stadium lighting
+subtle movement
+
+Button:
+Break Down Film
+
+====================================
+
+GTA 6 TILE — COMING SOON
+
+Visual:
+dark neon city
+mysterious open-world atmosphere
+cinematic skyline
+minimal lighting
+
+Overlay:
+GTA 6
+
+Subtext:
+“Open-World Analysis”
+
+Small label:
+COMING SOON
+
+This tile should feel mysterious and futuristic.
+
+====================================
+LIVE ANALYSIS SECTION
+====================================
+
+Instead of a chatbot layout, create a cinematic tactical analysis panel.
+
+Left side:
+gameplay still image or cinematic gameplay clip.
+
+Right side:
+AI breakdown overlay.
+
+Example:
+Fight Night gameplay freeze-frame.
+
+Overlay highlights:
+stamina collapse
+counter timing
+pressure mistakes
+exchange patterns
+
+Text:
+“Stamina collapsed after aggressive exchanges.”
+
+Then:
+“Second hook thrown before guard reset.”
+
+This section should feel:
+tactical
+competitive
+intelligent
+sports-analysis focused
+
+NOT like ChatGPT.
+
+====================================
+PLAYER IDENTITY SECTION
+====================================
+
+Create a cinematic player profile system.
+
+Show:
+Archetype
+Strengths
+Weaknesses
+Competitive tendencies
+Calculated grade
+
+Example:
+Pressure Counter Fighter
+B+
+
+Make it feel:
+shareable
+competitive
+premium
+sports-focused
+
+====================================
+FINAL SECTION
+====================================
+
+Massive cinematic ending section.
+
+Background:
+multiple game worlds slowly rotating or transitioning.
+
+Headline:
+“Your Match. Decoded.”
+
+Subheadline:
+“Metabuffed helps gamers understand losses, improve intelligently, and compete at a higher level.”
+
+Buttons:
+Upload Gameplay
+Enter the Platform
+
+FINAL IMPORTANT RULES:
+
+The site should feel:
+FUN.
+IMMERSIVE.
+GAMING-FIRST.
+
+NOT:
+AI-first.
+
+The user should emotionally connect to the games and atmosphere BEFORE thinking about the software.
+
+The developer should focus on:
+animations
+interactions
+hover effects
+smooth transitions
+game selection experience
+cinematic presentation
+
+Everything should feel like a premium gaming platform rather than a generic AI startup.
