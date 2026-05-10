@@ -1,0 +1,211 @@
+Build a professional, premium SaaS website for Metabuffed.
+
+Metabuffed is an AI gameplay improvement platform for competitive gamers. The core promise is simple:
+
+“Upload your gameplay. Discover the real reason you won or lost. Get solutions that help you improve.”
+
+This should NOT look like a generic AI-generated landing page. It should feel authentic, polished, and credible — closer to a serious gaming platform, World Labs-level AI company, or premium sports analytics product. The design should feel welcoming, not overly dark or intimidating.
+
+BRAND STYLE
+Use the official Metabuffed logo.
+Visual direction:
+black / deep charcoal background
+white typography
+neon green accents
+soft gray panels
+premium spacing
+clean layout
+subtle HUD/analysis details
+minimal glow, not cheap gamer RGB
+modern, calm, professional, trustworthy
+
+The site should feel like:
+AI gaming intelligence
+competitive improvement
+match analysis
+coach platform
+future live coaching system
+
+Not:
+generic esports template
+cheap crypto/gaming site
+overdesigned AI startup clone
+
+MAIN SITE STRUCTURE
+
+1. HERO SECTION
+
+Headline:
+“Understand Why You Win. Fix Why You Lose.”
+
+Subheadline:
+“Metabuffed analyzes your gameplay, breaks down your competitive patterns, and gives you game-specific solutions so you can actually improve.”
+
+CTA buttons:
+“Upload Gameplay”
+“Ask the Coach”
+
+Hero visual:
+A clean dashboard preview showing:
+Game selected: Fight Night Champion
+Analysis status: Meta Breakdown Ready
+Key reason: “Stamina collapsed after aggressive exchanges.”
+Player Archetype: Pressure Counter Fighter
+Overall Grade: B+
+
+Include subtle animated scan lines or targeting details inspired by the logo, but keep it premium and clean.
+
+2. GAME SELECTION SECTION
+
+Title:
+“Choose Your Game”
+
+Create clickable game cards for:
+
+Fight Night Champion
+NBA 2K 26
+Madden 26
+GTA 6 — Pending
+
+Each card should feel like a real platform module. When clicked, it should visually activate/select that game and update a mock preview panel.
+
+Each game card should include:
+
+Fight Night Champion:
+“Stamina, pressure, counter timing, punch selection, defensive habits.”
+
+NBA 2K 26:
+“Shot quality, spacing, rotations, matchup abuse, offensive tendencies.”
+
+Madden 26:
+“Coverage reads, route abuse, defensive shells, playcalling patterns.”
+
+GTA 6 Pending:
+“Future open-world combat, driving, missions, PvP, and roleplay analysis.”
+
+GTA 6 must be marked clearly as “Pending” or “Coming Later,” not active.
+
+3. THREE CORE FEATURES SECTION
+
+Title:
+“The First Three Features”
+
+Feature 1:
+Upload Gameplay
+Description:
+“Upload match footage from supported games. Metabuffed turns your gameplay into a clear competitive review.”
+
+Feature 2:
+AI Meta Breakdown
+Description:
+“Get the real reason you won or lost. Not generic tips — game-specific pattern recognition, mistakes, tendencies, and meta explanations.”
+
+Feature 3:
+Ask a Coach
+Description:
+“Ask game-specific questions and get answers based on your uploaded match. It works like ChatGPT for gaming, but focused on competitive improvement.”
+
+Show these as three premium cards with icons and subtle animations.
+
+4. AI META BREAKDOWN SECTION
+
+Title:
+“Stop Guessing Why You Lost”
+
+Explain:
+Most gamers know they lost, but not why. Metabuffed identifies the actual competitive reason behind the result.
+
+Show examples:
+
+Fight Night Champion:
+“You lost because your stamina collapsed after aggressive exchanges, letting your opponent counter late.”
+
+NBA 2K 26:
+“You lost because your opponent repeatedly forced weak-side corner rotations and punished late help defense.”
+
+Madden 26:
+“You lost because your defensive shell became predictable against crossing routes and motion spacing.”
+
+5. PLAYER CARD SECTION
+
+Create a premium player card UI.
+
+Example:
+Overall Grade: B+
+Archetype: Pressure Counter Fighter
+Strengths: Pressure, timing, reads
+Weaknesses: Stamina control, predictability, late defensive resets
+Next Focus: “Control exchanges before round 3.”
+
+Make this look like something gamers would want to share.
+
+6. ASK THE COACH SECTION
+
+Title:
+“ChatGPT for Competitive Gaming”
+
+Description:
+“Ask the coach anything about your match, your habits, the current meta, or how to fix a specific problem.”
+
+Show a chat UI.
+
+Example user:
+“How do I stop getting countered after hooks?”
+
+Example AI:
+“In your uploaded Fight Night match, you threw the second hook before resetting your guard. Shorten the combo, step out after the first exchange, and only re-enter once stamina recovers.”
+
+Other example questions:
+“Why do I keep losing close games?”
+“What’s my biggest weakness?”
+“How do I beat players who spam crossing routes?”
+“Why do I give up corner threes?”
+
+7. FUTURE VISION SECTION
+
+Title:
+“Built to Become Your Live Gaming Coach”
+
+Explain:
+The first version is upload-based analysis. Over time, Metabuffed will expand into deeper coaching, live feedback, matchup preparation, player progression tracking, and real-time competitive support.
+
+Keep this section grounded and credible. Do not overhype it.
+
+8. FINAL CTA
+
+Headline:
+“Upload the Match. Learn the Truth.”
+
+Subheadline:
+“Metabuffed helps gamers understand their losses, sharpen their strengths, and improve with real competitive feedback.”
+
+CTA:
+“Start With Your First Upload”
+
+DESIGN REQUIREMENTS
+
+Use React and Tailwind CSS.
+Use modern component structure.
+Responsive desktop and mobile.
+Smooth but subtle animations.
+Professional SaaS layout.
+Use authentic product copy.
+No fake buzzwords.
+No clutter.
+No childish gaming fonts.
+No excessive neon.
+No generic AI blobs.
+No random 3D shapes.
+No obvious template sections.
+Use spacing, hierarchy, and dashboard previews like a real funded startup.
+Make the site feel welcoming enough for casual gamers, but serious enough for competitive players.
+
+IMPORTANT:
+The website should clearly communicate that Metabuffed is not just an AI chat app. It is a gameplay improvement system that starts with:
+1. upload gameplay
+2. AI explains why you won/lost
+3. player card
+4. Ask Coach chat
+
+The main user flow:
+User lands on site → selects game → uploads gameplay → receives Meta Breakdown → gets Player Card → asks Coach how to improve.
