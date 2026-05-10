@@ -93,7 +93,7 @@ export default function Home() {
                   <span className="text-xs font-mono text-primary uppercase tracking-[0.2em] font-bold">Competitive Analysis Platform</span>
                 </div>
                 
-                <h1 className="text-[clamp(64px,7vw,100px)] font-black leading-[1.0] tracking-tighter mb-6 uppercase">
+                <h1 className="text-[clamp(40px,4.5vw,64px)] font-black leading-[1.05] tracking-tighter mb-6 uppercase">
                   <span className="text-white block drop-shadow-lg">Understand</span>
                   <span className="text-white block drop-shadow-lg">Why You Win.</span>
                   <span className="text-zinc-600 block mt-2">Fix Why You Lose.</span>
@@ -263,26 +263,68 @@ export default function Home() {
               </motion.div>
             </div>
 
-            {/* GTA 6 */}
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="relative h-[240px] lg:w-2/3 rounded-2xl overflow-hidden bg-zinc-900/50 border border-white/5 grayscale-[50%]"
-            >
-              <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(40,10,60,1)_0%,rgba(10,10,20,1)_100%)] opacity-60" />
-              <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-[radial-gradient(ellipse_at_bottom_right,rgba(0,255,255,0.2)_0%,transparent_70%)]" />
-              <div className="absolute bottom-0 left-1/4 w-1/3 h-1/2 bg-[radial-gradient(ellipse_at_bottom,rgba(255,0,255,0.15)_0%,transparent_70%)]" />
-              
-              <div className="absolute top-6 right-6">
-                <Badge variant="outline" className="bg-white/5 text-white border-white/20 uppercase tracking-widest text-[10px] px-3 py-1 font-bold backdrop-blur-md">Coming Soon</Badge>
-              </div>
+            {/* Coming Soon Row */}
+            <div className="grid lg:grid-cols-3 gap-6">
+              {/* GTA 6 */}
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="relative h-[240px] rounded-2xl overflow-hidden bg-zinc-900/50 border border-white/5"
+                data-testid="game-tile-gta6"
+              >
+                <div className="absolute inset-0 bg-[linear-gradient(to_bottom_right,rgba(40,10,60,1)_0%,rgba(10,10,20,1)_100%)]" />
+                <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-[radial-gradient(ellipse_at_bottom_right,rgba(0,255,255,0.2)_0%,transparent_70%)]" />
+                <div className="absolute bottom-0 left-1/4 w-1/3 h-1/2 bg-[radial-gradient(ellipse_at_bottom,rgba(255,0,255,0.15)_0%,transparent_70%)]" />
+                <div className="absolute top-6 right-6">
+                  <Badge variant="outline" className="bg-white/5 text-white border-white/20 uppercase tracking-widest text-[10px] px-3 py-1 font-bold backdrop-blur-md">Coming Soon</Badge>
+                </div>
+                <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                  <h3 className="text-2xl font-black text-white uppercase tracking-tight mb-1 opacity-80">GTA 6</h3>
+                  <p className="text-xs text-zinc-500 font-medium uppercase tracking-wider">Open-World Analysis</p>
+                </div>
+              </motion.div>
 
-              <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                <h3 className="text-3xl font-black text-white uppercase tracking-tight mb-2 opacity-80">GTA 6</h3>
-                <p className="text-sm text-zinc-500 font-medium uppercase tracking-wider">Open-World Analysis</p>
-              </div>
-            </motion.div>
+              {/* Undisputed 2 */}
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="relative h-[240px] rounded-2xl overflow-hidden bg-zinc-900/50 border border-white/5"
+                data-testid="game-tile-undisputed2"
+              >
+                <div className="absolute inset-0 bg-[linear-gradient(to_bottom_right,rgba(60,40,0,1)_0%,rgba(15,10,0,1)_100%)]" />
+                <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top_left,rgba(200,150,0,0.15)_0%,transparent_60%)]" />
+                <div className="absolute top-6 right-6">
+                  <Badge variant="outline" className="bg-white/5 text-white border-white/20 uppercase tracking-widest text-[10px] px-3 py-1 font-bold backdrop-blur-md">Coming Soon</Badge>
+                </div>
+                <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                  <h3 className="text-2xl font-black text-white uppercase tracking-tight mb-1 opacity-80">Undisputed 2</h3>
+                  <p className="text-xs text-zinc-500 font-medium uppercase tracking-wider">Boxing. Combos. Fight IQ.</p>
+                </div>
+              </motion.div>
+
+              {/* UFC 6 */}
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="relative h-[240px] rounded-2xl overflow-hidden bg-zinc-900/50 border border-white/5"
+                data-testid="game-tile-ufc6"
+              >
+                <div className="absolute inset-0 bg-[linear-gradient(to_bottom_right,rgba(20,0,40,1)_0%,rgba(5,5,15,1)_100%)]" />
+                <div className="absolute bottom-0 right-0 w-full h-1/2 bg-[radial-gradient(ellipse_at_bottom_right,rgba(150,0,255,0.15)_0%,transparent_70%)]" />
+                <div className="absolute top-6 right-6">
+                  <Badge variant="outline" className="bg-white/5 text-white border-white/20 uppercase tracking-widest text-[10px] px-3 py-1 font-bold backdrop-blur-md">Coming Soon</Badge>
+                </div>
+                <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                  <h3 className="text-2xl font-black text-white uppercase tracking-tight mb-1 opacity-80">UFC 6</h3>
+                  <p className="text-xs text-zinc-500 font-medium uppercase tracking-wider">Striking. Grappling. Cage IQ.</p>
+                </div>
+              </motion.div>
+            </div>
           </div>
         </section>
 
