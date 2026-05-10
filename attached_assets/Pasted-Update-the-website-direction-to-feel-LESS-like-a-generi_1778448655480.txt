@@ -1,0 +1,111 @@
+Update the website direction to feel LESS like a generic SaaS startup and MORE like a real competitive gaming platform.
+
+IMPORTANT:
+The platform should feel:
+competitive
+gaming-native
+immersive
+premium
+modern
+alive
+
+NOT:
+corporate
+productivity software
+AI wrapper
+generic startup template
+
+====================================
+UPDATE NAVIGATION
+====================================
+
+Replace the current navigation with:
+
+Home | Upload Match | Breakdowns | Ask Coach
+
+Remove:
+Features
+Coach
+Pricing
+
+The navigation should reflect actual platform experiences and user actions.
+
+====================================
+UPDATE HERO HEADER
+====================================
+
+Replace:
+“Understand Why You Win. Fix Why You Lose.”
+
+With:
+
+“Built for Competitive Players.”
+
+====================================
+UPDATE SUBTEXT
+====================================
+
+Replace the current subtext with:
+
+“Metabuffed breaks down your gameplay, exposes mistakes, and helps you improve through real competitive analysis.”
+
+====================================
+IMPORTANT DESIGN DIRECTION
+====================================
+
+The site should feel:
+- gaming-first
+- cinematic
+- interactive
+- premium
+- competitive
+
+Use:
+- large game visuals
+- gameplay atmosphere
+- cinematic spacing
+- subtle movement
+- sports-game presentation
+- realistic lighting
+- premium hover animations
+
+Avoid:
+- generic SaaS cards
+- chatbot-looking layouts
+- empty dark backgrounds
+- productivity app design
+- excessive text-heavy sections
+
+The emotional feeling should be:
+“This platform helps competitive gamers improve.”
+
+NOT:
+“This is an AI software tool.”
+
+====================================
+GAME SELECTION DIRECTION
+====================================
+
+The Games section should use:
+large cinematic game cover tiles.
+
+The games should feel exciting and clickable like:
+PlayStation Store
+Xbox dashboard
+Players’ Lounge
+AAA sports game menus
+
+Games:
+Fight Night Champion
+NBA 2K26
+Madden 26
+GTA 6 (Coming Soon)
+
+Each game tile should have:
+- cinematic artwork
+- hover movement
+- atmosphere
+- subtle lighting effects
+- premium sports presentation
+
+The site should feel FUN and immersive, not corporate.

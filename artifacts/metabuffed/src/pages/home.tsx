@@ -12,11 +12,13 @@ import {
   Facebook
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import fightNightImg from "@assets/5b3f385f18965c2191e551d83eafb76e_1778447744266.jpg";
+import fightNightImg from "@assets/portada-fight-night-champion_1778448217282.jpg";
 import maddenImg from "@assets/G6IWhecWMAkaOiu_1778447744264.jpg";
 import gta6Img from "@assets/GTA6_1778447744267.webp";
 import nba2kImg from "@assets/nba-2k26-standard-edition_1778447744265.avif";
 import undisputedImg from "@assets/characters-from-undisputed-game_1778447744257.avif";
+import ufc6Img from "@assets/maxresdefault_1778448217289.jpg";
+import logoImg from "@assets/Metabuffed_Official_Logo-removebg-preview_1778448740498.png";
 
 const Particles = ({ count = 20 }: { count?: number }) => {
   const [mounted, setMounted] = useState(false);
@@ -55,15 +57,14 @@ export default function Home() {
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-black/50 backdrop-blur-xl border-b border-white/5">
         <div className="container mx-auto px-6 h-20 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="text-xl font-bold tracking-tight text-white uppercase">Metabuffed</span>
-            <div className="w-2 h-2 rounded-full bg-primary shadow-[0_0_10px_rgba(57,255,20,0.8)]" />
+          <div className="flex items-center">
+            <img src={logoImg} alt="Metabuffed" className="h-20 w-auto" />
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-400">
-            <a href="#games" className="hover:text-white transition-colors">Games</a>
-            <a href="#features" className="hover:text-white transition-colors">Features</a>
-            <a href="#analysis" className="hover:text-white transition-colors">Coach</a>
-            <a href="#identity" className="hover:text-white transition-colors">Pricing</a>
+            <a href="#" className="hover:text-white transition-colors">Home</a>
+            <a href="#games" className="hover:text-white transition-colors">Upload Match</a>
+            <a href="#analysis" className="hover:text-white transition-colors">Breakdowns</a>
+            <a href="#coach" className="hover:text-white transition-colors">Ask Coach</a>
           </div>
           <div className="flex items-center gap-3">
             <Button variant="ghost" className="hidden sm:flex text-zinc-300 hover:text-white hover:bg-white/10 font-medium text-sm" data-testid="btn-sign-in">
@@ -98,19 +99,14 @@ export default function Home() {
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 className="max-w-2xl"
               >
-                <div className="inline-flex items-center gap-2 mb-6">
-                  <div className="w-1.5 h-1.5 bg-primary rounded-full shadow-[0_0_8px_rgba(57,255,20,1)]" />
-                  <span className="text-xs font-mono text-primary uppercase tracking-[0.2em] font-bold">Competitive Analysis Platform</span>
-                </div>
-                
                 <h1 className="text-[clamp(40px,4.5vw,64px)] font-black leading-[1.05] tracking-tighter mb-6 uppercase">
-                  <span className="text-white block drop-shadow-lg">Understand</span>
-                  <span className="text-white block drop-shadow-lg">Why You Win.</span>
-                  <span className="text-zinc-600 block mt-2">Fix Why You Lose.</span>
+                  <span className="text-white block drop-shadow-lg">Built for</span>
+                  <span className="text-white block drop-shadow-lg">Competitive</span>
+                  <span className="text-zinc-500 block mt-1">Players.</span>
                 </h1>
                 
                 <p className="text-xl text-zinc-400 mb-10 leading-relaxed max-w-lg font-medium">
-                  Metabuffed analyzes your gameplay, identifies competitive patterns, and helps you improve with game-specific AI breakdowns.
+                  Metabuffed breaks down your gameplay, exposes mistakes, and helps you improve through real competitive analysis.
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-5">
@@ -312,14 +308,14 @@ export default function Home() {
                 className="relative h-[240px] rounded-2xl overflow-hidden bg-zinc-900/50 border border-white/5"
                 data-testid="game-tile-ufc6"
               >
-                <div className="absolute inset-0 bg-[linear-gradient(to_bottom_right,rgba(20,0,40,1)_0%,rgba(5,5,15,1)_100%)]" />
-                <div className="absolute bottom-0 right-0 w-full h-1/2 bg-[radial-gradient(ellipse_at_bottom_right,rgba(150,0,255,0.15)_0%,transparent_70%)]" />
+                <img src={ufc6Img} alt="UFC 6" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/20" />
                 <div className="absolute top-6 right-6">
-                  <Badge variant="outline" className="bg-white/5 text-white border-white/20 uppercase tracking-widest text-[10px] px-3 py-1 font-bold backdrop-blur-md">Coming Soon</Badge>
+                  <Badge variant="outline" className="bg-black/60 text-white border-white/20 uppercase tracking-widest text-[10px] px-3 py-1 font-bold backdrop-blur-md">Coming Soon</Badge>
                 </div>
                 <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                  <h3 className="text-2xl font-black text-white uppercase tracking-tight mb-1 opacity-80">UFC 6</h3>
-                  <p className="text-xs text-zinc-500 font-medium uppercase tracking-wider">Striking. Grappling. Cage IQ.</p>
+                  <h3 className="text-2xl font-black text-white uppercase tracking-tight mb-1">UFC 6</h3>
+                  <p className="text-xs text-zinc-400 font-medium uppercase tracking-wider">Striking. Grappling. Cage IQ.</p>
                 </div>
               </motion.div>
             </div>
@@ -591,12 +587,11 @@ export default function Home() {
       {/* FOOTER */}
       <footer className="bg-black border-t border-white/5 pt-16 pb-10">
         <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-4 gap-12 mb-12">
+          <div className="grid md:grid-cols-3 gap-12 mb-12">
             {/* Brand */}
             <div className="md:col-span-1">
-              <div className="flex items-center gap-2 mb-4">
-                <span className="text-lg font-black text-white uppercase tracking-tight">Metabuffed</span>
-                <div className="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(57,255,20,0.8)]" />
+              <div className="mb-4">
+                <img src={logoImg} alt="Metabuffed" className="h-20 w-auto" />
               </div>
               <p className="text-sm text-zinc-500 leading-relaxed mb-6">
                 AI-powered gameplay analysis for competitive gamers. Upload. Analyze. Improve.
@@ -637,15 +632,6 @@ export default function Home() {
               </ul>
             </div>
 
-            {/* Company */}
-            <div>
-              <h4 className="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-5 font-bold">Company</h4>
-              <ul className="space-y-3">
-                {["About", "Blog", "Careers", "Contact", "Privacy Policy", "Terms of Service"].map(item => (
-                  <li key={item}><a href="#" className="text-sm text-zinc-400 hover:text-white transition-colors">{item}</a></li>
-                ))}
-              </ul>
-            </div>
           </div>
 
           <div className="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
