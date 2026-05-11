@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Upload, FileVideo, CheckCircle2, Clock, Loader2 } from "lucide-react";
-import fightNightImg from "@assets/5b3f385f18965c2191e551d83eafb76e_1778466974126.jpg";
+import fightNightImg from "@assets/f8jFkfr_1778467206855.jpg";
 import maddenImg from "@assets/G6IWhecWMAkaOiu_1778447744264.jpg";
 import gta6Img from "@assets/GTA6_1778447744267.webp";
 import nba2kImg from "@assets/wp15758233_1778466521722.jpg";

@@ -15,7 +15,7 @@ import {
   Facebook
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import fightNightImg from "@assets/5b3f385f18965c2191e551d83eafb76e_1778466974126.jpg";
+import fightNightImg from "@assets/f8jFkfr_1778467206855.jpg";
 import maddenImg from "@assets/G6IWhecWMAkaOiu_1778447744264.jpg";
 import gta6Img from "@assets/GTA6_1778447744267.webp";
 import nba2kImg from "@assets/wp15758233_1778466521722.jpg";
@@ -185,7 +185,7 @@ export default function Home() {
                 className="group relative h-[500px] rounded-2xl overflow-hidden bg-zinc-900 cursor-pointer sweep-hover"
                 data-testid="game-tile-fight-night"
               >
-                <img src={fightNightImg} alt="Fight Night Champion" className="absolute inset-0 w-full h-full object-cover object-[38%_30%] scale-100 group-hover:scale-105 transition-transform duration-700" />
+                <img src={fightNightImg} alt="Fight Night Champion" className="absolute inset-0 w-full h-full object-cover object-[40%_top] scale-100 group-hover:scale-105 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500" />
                 <div className="absolute inset-x-0 bottom-0 p-8">
