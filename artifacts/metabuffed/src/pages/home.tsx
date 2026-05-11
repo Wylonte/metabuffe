@@ -15,10 +15,10 @@ import {
   Facebook
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import fightNightImg from "@assets/portada-fight-night-champion_1778448217282.jpg";
+import fightNightImg from "@assets/apps.14688.69068534869269909.2e5bd713-07e4-4ab3-ab98-5c3b344e3_1778466334726.jpg";
 import maddenImg from "@assets/G6IWhecWMAkaOiu_1778447744264.jpg";
 import gta6Img from "@assets/GTA6_1778447744267.webp";
-import nba2kImg from "@assets/wp15758233_1778465673438.jpg";
+import nba2kImg from "@assets/game_cover_116674_1778466334719.webp";
 import undisputedImg from "@assets/characters-from-undisputed-game_1778447744257.avif";
 import ufc6Img from "@assets/maxresdefault_1778448217289.jpg";
 import logoImg from "@assets/Metabuffed_Official_Logo-removebg-preview_1778448740498.png";
@@ -185,7 +185,7 @@ export default function Home() {
                 className="group relative h-[500px] rounded-2xl overflow-hidden bg-zinc-900 cursor-pointer sweep-hover"
                 data-testid="game-tile-fight-night"
               >
-                <img src={fightNightImg} alt="Fight Night Champion" className="absolute inset-0 w-full h-full object-cover object-[center_20%] scale-100 group-hover:scale-105 transition-transform duration-700" />
+                <img src={fightNightImg} alt="Fight Night Champion" className="absolute inset-0 w-full h-full object-cover object-center scale-100 group-hover:scale-105 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500" />
                 <div className="absolute inset-x-0 bottom-0 p-8">
@@ -207,7 +207,7 @@ export default function Home() {
                 className="group relative h-[500px] rounded-2xl overflow-hidden bg-zinc-900 cursor-pointer sweep-hover"
                 data-testid="game-tile-nba"
               >
-                <img src={nba2kImg} alt="NBA 2K26" className="absolute inset-0 w-full h-full object-cover object-top scale-100 group-hover:scale-105 transition-transform duration-700" />
+                <img src={nba2kImg} alt="NBA 2K26" className="absolute inset-0 w-full h-full object-cover object-[60%_center] scale-100 group-hover:scale-105 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500" />
                 <div className="absolute inset-x-0 bottom-0 p-8">
