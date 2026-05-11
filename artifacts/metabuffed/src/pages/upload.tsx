@@ -10,7 +10,7 @@ import { Upload, FileVideo, CheckCircle2, Clock, Loader2 } from "lucide-react";
 import fightNightImg from "@assets/portada-fight-night-champion_1778448217282.jpg";
 import maddenImg from "@assets/G6IWhecWMAkaOiu_1778447744264.jpg";
 import gta6Img from "@assets/GTA6_1778447744267.webp";
-import nba2kImg from "@assets/nba-2k26-standard-edition_1778447744265.avif";
+import nba2kImg from "@assets/wp15758233_1778465673438.jpg";
 import undisputedImg from "@assets/characters-from-undisputed-game_1778447744257.avif";
 import ufc6Img from "@assets/maxresdefault_1778448217289.jpg";
 import { Badge } from "@/components/ui/badge";

@@ -6,7 +6,7 @@ import { Plus, Send, User, MessageSquare } from "lucide-react";
 import { useModals } from "@/hooks/use-modals";
 import logoImg from "@assets/Metabuffed_Official_Logo-removebg-preview_1778448740498.png";
 import fightNightImg from "@assets/portada-fight-night-champion_1778448217282.jpg";
-import nba2kImg from "@assets/nba-2k26-standard-edition_1778447744265.avif";
+import nba2kImg from "@assets/wp15758233_1778465673438.jpg";
 import maddenImg from "@assets/G6IWhecWMAkaOiu_1778447744264.jpg";
 
 interface Message {
