@@ -603,6 +603,7 @@ export default function Home() {
                 {["Upload Gameplay", "AI Meta Breakdown", "Ask the Coach", "Player Card"].map(item => (
                   <li key={item}><a href="#" className="text-sm text-zinc-400 hover:text-white transition-colors">{item}</a></li>
                 ))}
+                <li><a href="/ebooks" className="text-sm text-zinc-400 hover:text-white transition-colors">Ebooks</a></li>
               </ul>
             </div>
 

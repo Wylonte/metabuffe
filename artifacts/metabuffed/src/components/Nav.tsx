@@ -20,6 +20,7 @@ export function Nav() {
           <Link href="/about" className={`${location === "/about" ? "text-white" : "hover:text-white"} transition-colors`}>About</Link>
           <Link href="/upload" className={`${location === "/upload" ? "text-white" : "hover:text-white"} transition-colors`}>Upload Match</Link>
           <Link href="/coach" className={`${location === "/coach" ? "text-white" : "hover:text-white"} transition-colors`}>Coach Meta</Link>
+          <Link href="/ebooks" className={`${location === "/ebooks" ? "text-white" : "hover:text-white"} transition-colors`}>Ebooks</Link>
         </div>
         <div className="flex items-center gap-3">
           <Button variant="ghost" className="hidden sm:flex text-zinc-300 hover:text-white hover:bg-white/10 font-medium text-sm" data-testid="btn-sign-in" onClick={() => openModal("signin")}>

@@ -8,6 +8,7 @@ import Home from "@/pages/home";
 import UploadPage from "@/pages/upload";
 import CoachPage from "@/pages/coach";
 import AboutPage from "@/pages/about";
+import EbooksPage from "@/pages/ebooks";
 
 const queryClient = new QueryClient();
 
@@ -18,6 +19,7 @@ function Router() {
       <Route path="/about" component={AboutPage} />
       <Route path="/upload" component={UploadPage} />
       <Route path="/coach" component={CoachPage} />
+      <Route path="/ebooks" component={EbooksPage} />
       <Route component={NotFound} />
     </Switch>
   );

@@ -6,8 +6,7 @@ import { Plus, Send, User, MessageSquare } from "lucide-react";
 import { useModals } from "@/hooks/use-modals";
 import logoImg from "@assets/Metabuffed_Official_Logo-removebg-preview_1778448740498.png";
 import fightNightImg from "@assets/f8jFkfr_1778467206855.jpg";
-import nba2kImg from "@assets/wp15758233_1778466521722.jpg";
-import maddenImg from "@assets/G6IWhecWMAkaOiu_1778447744264.jpg";
+import ufc6Img from "@assets/maxresdefault_1778448217289.jpg";
 
 interface Message {
   id: string;
@@ -17,8 +16,7 @@ interface Message {
 
 const GAMES = [
   { id: "fight-night", name: "Fight Night", fullName: "Fight Night Champion", img: fightNightImg },
-  { id: "nba", name: "NBA 2K26", fullName: "NBA 2K26", img: nba2kImg },
-  { id: "madden", name: "Madden 26", fullName: "Madden 26", img: maddenImg },
+  { id: "ufc6", name: "UFC 6", fullName: "UFC 6", img: ufc6Img },
 ];
 
 const GAME_MESSAGES: Record<string, Message[]> = {
@@ -27,22 +25,16 @@ const GAME_MESSAGES: Record<string, Message[]> = {
     { id: "2", role: "user", content: "How do I stop getting countered after hooks?" },
     { id: "3", role: "ai", content: "In Fight Night Champion, throwing a second hook before resetting your guard leaves you vulnerable to counters. Shorten your combo to a single hook, step back after the first exchange, and only re-enter once your stamina bar recovers. This is especially critical in rounds 2 and 3 when fatigue compounds the timing gap." }
   ],
-  "nba": [
-    { id: "1", role: "ai", content: "Welcome to Metabuffed Coach. Ready to break down your NBA 2K26 game. Upload a match for a full breakdown, or ask me anything about your playstyle." },
-    { id: "2", role: "user", content: "My defense keeps breaking down in the 4th quarter." },
-    { id: "3", role: "ai", content: "Late-game defensive breakdowns in 2K26 are almost always a stamina or rotation issue. If your players' stamina is below 60%, their lateral speed drops significantly — press rotations become impossible to execute. Sub in your bench defenders during the 3rd quarter to keep starters fresh. Also check if you're gambling on steals — every failed steal attempt is a blown assignment." }
+  "ufc6": [
+    { id: "1", role: "ai", content: "Welcome to Metabuffed Coach. Ready to break down your UFC 6 performance. Upload a match for a full breakdown, or ask me anything about your fighting style." },
+    { id: "2", role: "user", content: "How do I defend against takedowns effectively?" },
+    { id: "3", role: "ai", content: "In UFC 6, takedown defense is all about timing your sprawl and reading your opponent's level change. Watch for the head dip — that's your cue to disengage your hips backward. Keeping your stance wide and your weight forward makes it harder for opponents to get under you. Stuffing the first attempt is critical because it drains their stamina significantly more than a successful takedown would." }
   ],
-  "madden": [
-    { id: "1", role: "ai", content: "Welcome to Metabuffed Coach. Let's break down your Madden 26 film. Upload a match for deep analysis, or shoot me a question about your game." },
-    { id: "2", role: "user", content: "I keep losing to Cover 2 defenses." },
-    { id: "3", role: "ai", content: "Cover 2 shells the flat and drops two deep safeties — the weaknesses are the middle seam and corner routes behind the flat defenders. Run your TE up the seam while flooding one side with a flat and a corner route. The flat defender has to choose, and the corner route behind him comes open. Mesh concepts also shred Cover 2 consistently." }
-  ]
 };
 
 const SUGGESTIONS: Record<string, string[]> = {
   "fight-night": ["What's my biggest weakness?", "How do I handle pressure fighters?", "When should I clinch?", "Best combo to finish a round?"],
-  "nba": ["How do I stop pick and roll?", "Best plays in the half court?", "Why do I lose late games?", "How do I improve my defense?"],
-  "madden": ["How do I beat zone coverage?", "Best run plays to call?", "How do I stop the pass rush?", "What defensive scheme should I run?"],
+  "ufc6": ["How do I time my takedowns?", "Best striking combos to use?", "How do I escape the clinch?", "When should I go for a submission?"],
 };
 
 export default function CoachPage() {
