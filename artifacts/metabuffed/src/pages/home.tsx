@@ -177,67 +177,59 @@ export default function Home() {
 
             <div className="grid lg:grid-cols-3 gap-6 mb-6">
               {/* Fight Night */}
-              <motion.div 
-                whileHover="hover"
+              <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="group relative h-[500px] rounded-2xl overflow-hidden bg-zinc-900 cursor-pointer sweep-hover"
+                className="group relative h-[240px] rounded-2xl overflow-hidden bg-zinc-900 cursor-pointer border border-white/5"
                 data-testid="game-tile-fight-night"
+                onClick={() => setLocation('/upload?game=fight-night')}
               >
-                <img src={fightNightImg} alt="Fight Night Champion" className="absolute inset-0 w-full h-full object-cover object-[40%_top] scale-100 group-hover:scale-105 transition-transform duration-700" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500" />
-                <div className="absolute inset-x-0 bottom-0 p-8">
-                  <h3 className="text-3xl font-black text-white uppercase tracking-tight mb-2 transform group-hover:-translate-y-2 transition-transform duration-300">Fight Night Champion</h3>
-                  <p className="text-sm text-zinc-300 font-medium transform group-hover:-translate-y-2 transition-transform duration-300 delay-75">Pressure. Counters. Stamina. Timing.</p>
-                  <div className="mt-6 overflow-hidden h-0 group-hover:h-12 transition-all duration-300">
-                    <Button className="w-full bg-white text-black hover:bg-zinc-200 uppercase font-bold text-xs tracking-widest rounded-none" data-testid="btn-analyze-fight-night" onClick={() => setLocation('/upload?game=fight-night')}>Analyze Matches</Button>
-                  </div>
+                <img src={fightNightImg} alt="Fight Night Champion" className="absolute inset-0 w-full h-full object-cover object-[40%_top] opacity-80 group-hover:scale-105 transition-transform duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/20" />
+                <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                  <h3 className="text-2xl font-black text-white uppercase tracking-tight mb-1">Fight Night Champion</h3>
+                  <p className="text-xs text-zinc-400 font-medium uppercase tracking-wider">Pressure. Counters. Stamina. Timing.</p>
                 </div>
               </motion.div>
 
               {/* NBA 2K26 */}
-              <motion.div 
-                whileHover="hover"
+              <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
-                className="group relative h-[500px] rounded-2xl overflow-hidden bg-zinc-900 cursor-pointer sweep-hover"
+                className="relative h-[240px] rounded-2xl overflow-hidden bg-zinc-900/50 border border-white/5"
                 data-testid="game-tile-nba"
               >
-                <img src={nba2kImg} alt="NBA 2K26" className="absolute inset-0 w-full h-full object-cover object-[30%_top] scale-100 group-hover:scale-105 transition-transform duration-700" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500" />
-                <div className="absolute inset-x-0 bottom-0 p-8">
-                  <h3 className="text-3xl font-black text-white uppercase tracking-tight mb-2 transform group-hover:-translate-y-2 transition-transform duration-300">NBA 2K26</h3>
-                  <p className="text-sm text-zinc-300 font-medium transform group-hover:-translate-y-2 transition-transform duration-300 delay-75">Spacing. Rotations. Shot Quality.</p>
-                  <div className="mt-6 overflow-hidden h-0 group-hover:h-12 transition-all duration-300">
-                    <Button className="w-full bg-white text-black hover:bg-zinc-200 uppercase font-bold text-xs tracking-widest rounded-none" data-testid="btn-analyze-nba" onClick={() => setLocation('/upload?game=nba')}>Analyze Matches</Button>
-                  </div>
+                <img src={nba2kImg} alt="NBA 2K26" className="absolute inset-0 w-full h-full object-cover object-[30%_top] opacity-60" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/20" />
+                <div className="absolute top-6 right-6">
+                  <Badge variant="outline" className="bg-black/60 text-white border-white/20 uppercase tracking-widest text-[10px] px-3 py-1 font-bold backdrop-blur-md">Coming Soon</Badge>
+                </div>
+                <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                  <h3 className="text-2xl font-black text-white uppercase tracking-tight mb-1">NBA 2K26</h3>
+                  <p className="text-xs text-zinc-400 font-medium uppercase tracking-wider">Spacing. Rotations. Shot Quality.</p>
                 </div>
               </motion.div>
 
               {/* Madden 26 */}
-              <motion.div 
-                whileHover="hover"
+              <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 }}
-                className="group relative h-[500px] rounded-2xl overflow-hidden bg-zinc-900 cursor-pointer sweep-hover"
+                className="relative h-[240px] rounded-2xl overflow-hidden bg-zinc-900/50 border border-white/5"
                 data-testid="game-tile-madden"
               >
-                <img src={maddenImg} alt="Madden 26" className="absolute inset-0 w-full h-full object-cover object-center scale-100 group-hover:scale-105 transition-transform duration-700" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500" />
-                <div className="absolute inset-x-0 bottom-0 p-8">
-                  <h3 className="text-3xl font-black text-white uppercase tracking-tight mb-2 transform group-hover:-translate-y-2 transition-transform duration-300">Madden 26</h3>
-                  <p className="text-sm text-zinc-300 font-medium transform group-hover:-translate-y-2 transition-transform duration-300 delay-75">Coverage Reads. Route Abuse. Playcalling.</p>
-                  <div className="mt-6 overflow-hidden h-0 group-hover:h-12 transition-all duration-300">
-                    <Button className="w-full bg-white text-black hover:bg-zinc-200 uppercase font-bold text-xs tracking-widest rounded-none" data-testid="btn-analyze-madden" onClick={() => setLocation('/upload?game=madden')}>Analyze Matches</Button>
-                  </div>
+                <img src={maddenImg} alt="Madden 26" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/20" />
+                <div className="absolute top-6 right-6">
+                  <Badge variant="outline" className="bg-black/60 text-white border-white/20 uppercase tracking-widest text-[10px] px-3 py-1 font-bold backdrop-blur-md">Coming Soon</Badge>
+                </div>
+                <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                  <h3 className="text-2xl font-black text-white uppercase tracking-tight mb-1">Madden 26</h3>
+                  <p className="text-xs text-zinc-400 font-medium uppercase tracking-wider">Coverage Reads. Route Abuse. Playcalling.</p>
                 </div>
               </motion.div>
             </div>
