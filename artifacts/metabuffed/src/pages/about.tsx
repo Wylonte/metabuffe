@@ -9,14 +9,14 @@ const STATS = [
   { value: "600M+", label: "Competitive Gamers Worldwide" },
   { value: "<1%", label: "Have Access to Real Coaching" },
   { value: "10K+", label: "Hours of Meta Trained Weekly" },
-  { value: "3", label: "Games. Growing Fast." },
+  { value: "3", label: "Games and Growing" },
 ];
 
 const PILLARS = [
   {
     icon: Brain,
     title: "Trained on the Meta",
-    body: "Our AI doesn't guess. It's continuously trained on the latest patch notes, tournament VODs, and competitive play data — so the advice you get reflects what's actually winning right now, not last season."
+    body: "Our AI doesn't guess. It's continuously trained on the latest patch notes, tournament VODs, and competitive play data. The advice you get reflects what's actually winning right now, not last season."
   },
   {
     icon: Target,
@@ -26,17 +26,17 @@ const PILLARS = [
   {
     icon: TrendingUp,
     title: "Tracks Your Growth",
-    body: "Improvement is invisible without data. Every analysis builds your performance record — so you can see your stamina management going from 38% to 71%, your counter-defense tightening over weeks, your grade climbing."
+    body: "Improvement is invisible without data. Every analysis builds your performance record. Watch your stamina management climb, your counter-defense tighten, your grade rise week over week."
   },
   {
     icon: Shield,
     title: "Built for Ranked Play",
-    body: "Casual advice doesn't win ranked matches. Metabuffed is designed for players who play to win — the analysis is deep, the language is direct, and the recommendations are built around your specific rank and playstyle."
+    body: "Casual advice doesn't win ranked matches. Metabuffed is designed for players who play to win. The analysis is deep, the language is direct, and every recommendation is built around your specific rank and playstyle."
   },
   {
     icon: Zap,
     title: "Real-Time Meta Alerts",
-    body: "When a patch drops and the meta shifts overnight, you'll know. Metabuffed monitors balance changes across all supported titles and flags when your go-to strategies are no longer optimal — before your opponents figure it out."
+    body: "When a patch drops and the meta shifts overnight, you'll know. Metabuffed monitors balance changes across all supported titles and flags when your go-to strategies are no longer optimal. Before your opponents even realize it."
   },
   {
     icon: Users,
@@ -55,16 +55,13 @@ export default function AboutPage() {
     <div className="min-h-[100dvh] bg-black text-white font-sans overflow-x-hidden">
       <Nav />
 
-      {/* HERO — EMOTIONAL OPENER */}
+      {/* HERO */}
       <section ref={heroRef} className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden pt-20">
-        {/* Layered gradient atmosphere */}
         <div className="absolute inset-0 bg-black" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_40%,rgba(57,255,20,0.06)_0%,transparent_70%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_20%_80%,rgba(100,60,255,0.08)_0%,transparent_60%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_80%_20%,rgba(0,200,255,0.05)_0%,transparent_60%)]" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black opacity-80" />
-
-        {/* Animated grid lines */}
         <div className="absolute inset-0 opacity-[0.03]"
           style={{ backgroundImage: "linear-gradient(rgba(57,255,20,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(57,255,20,0.5) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
 
@@ -86,7 +83,7 @@ export default function AboutPage() {
           >
             <span className="text-white block">600 Million</span>
             <span className="bg-gradient-to-r from-primary via-emerald-300 to-cyan-400 bg-clip-text text-transparent block">Competitive</span>
-            <span className="text-zinc-500 block">Gamers.</span>
+            <span className="text-zinc-500 block">Gamers</span>
           </motion.h1>
 
           <motion.p
@@ -95,11 +92,10 @@ export default function AboutPage() {
             transition={{ duration: 0.9, delay: 0.2 }}
             className="text-xl md:text-2xl text-zinc-400 leading-relaxed max-w-3xl mx-auto font-medium"
           >
-            Most of them are stuck — grinding the same mistakes, hitting the same walls, with no real way to know why they keep losing. That has to change.
+            Most of them are stuck. Grinding the same mistakes, hitting the same walls, with no real way to know why they keep losing. That has to change.
           </motion.p>
         </motion.div>
 
-        {/* Scroll cue */}
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
@@ -109,7 +105,7 @@ export default function AboutPage() {
         </motion.div>
       </section>
 
-      {/* THE PROBLEM — ANALYTICAL SLIDE */}
+      {/* THE PROBLEM */}
       <section className="relative py-32 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_0%_50%,rgba(100,60,255,0.07)_0%,transparent_70%)]" />
 
@@ -124,14 +120,14 @@ export default function AboutPage() {
               <p className="text-xs font-mono text-purple-400 uppercase tracking-[0.4em] mb-6 font-bold">The Problem</p>
               <h2 className="text-5xl md:text-6xl font-black text-white uppercase tracking-tighter leading-[1] mb-8">
                 The Tools<br />
-                <span className="text-zinc-600">Don't Exist.</span>
+                <span className="text-zinc-600">Don't Exist</span>
               </h2>
               <div className="space-y-5 text-zinc-400 text-lg leading-relaxed">
                 <p>
-                  Professional athletes have coaches, film rooms, and analysts watching every move. Competitive gamers — hundreds of millions of them — have YouTube tutorials and trial and error.
+                  Professional athletes have coaches, film rooms, and analysts watching every move. Competitive gamers, hundreds of millions of them, have YouTube tutorials and trial and error.
                 </p>
                 <p>
-                  There's no shortage of passion. There's a shortage of infrastructure. The gap between a player who grinds alone and one with real analytical support is enormous — and it grows every season as the meta evolves faster than any human can track.
+                  There's no shortage of passion. There's a shortage of infrastructure. The gap between a player who grinds alone and one with real analytical support is enormous. And it grows every season as the meta evolves faster than any human can track.
                 </p>
                 <p className="text-white font-medium">
                   Most players will never close that gap. Not because they lack the drive. Because they were never given the tools.
@@ -139,7 +135,6 @@ export default function AboutPage() {
               </div>
             </motion.div>
 
-            {/* Stats Block */}
             <motion.div
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -166,7 +161,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* THE SOLUTION — EMOTIONAL + ANALYTICAL */}
+      {/* THE SOLUTION */}
       <section className="relative py-32 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_50%,rgba(57,255,20,0.04)_0%,transparent_70%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_40%_40%_at_80%_80%,rgba(0,200,255,0.04)_0%,transparent_60%)]" />
@@ -181,7 +176,7 @@ export default function AboutPage() {
             <p className="text-xs font-mono text-cyan-400 uppercase tracking-[0.4em] mb-6 font-bold">What We Built</p>
             <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-[1] mb-12">
               <span className="text-white block">We Train AI</span>
-              <span className="bg-gradient-to-r from-primary via-emerald-300 to-cyan-400 bg-clip-text text-transparent block">to Coach You.</span>
+              <span className="bg-gradient-to-r from-primary via-emerald-300 to-cyan-400 bg-clip-text text-transparent block">to Coach You</span>
             </h2>
           </motion.div>
 
@@ -193,17 +188,16 @@ export default function AboutPage() {
             className="max-w-3xl mx-auto space-y-6 text-zinc-400 text-xl leading-relaxed mb-16"
           >
             <p>
-              Metabuffed is a platform built from the ground up for competitive players. We take your gameplay footage, run it through AI models trained on thousands of hours of competitive play, and give you back exactly what a real coach would tell you — your weaknesses, the current meta, and a clear path to improvement.
+              Metabuffed is a platform built from the ground up for competitive players. We take your gameplay footage, run it through AI models trained on thousands of hours of competitive play, and give you back exactly what a real coach would tell you: your weaknesses, the current meta, and a clear path forward.
             </p>
             <p className="text-white font-medium text-2xl">
               No guesswork. No generic tips. Game-specific intelligence built for ranked play.
             </p>
             <p>
-              We're starting with the titles where the competitive gap is most brutal and the coaching resources are most scarce. Every game we add, every match uploaded, every piece of feedback makes the model sharper — for you and every player who comes after you.
+              We're starting with the titles where the competitive gap is most brutal and coaching resources are most scarce. Every game we add, every match uploaded, every piece of feedback makes the model sharper. For you and every player who comes after you.
             </p>
           </motion.div>
 
-          {/* AI Visual Element */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -212,7 +206,7 @@ export default function AboutPage() {
             className="relative inline-flex items-center gap-4 bg-[#0a0a0a] border border-primary/20 rounded-2xl px-8 py-5 shadow-[0_0_60px_rgba(57,255,20,0.1)]"
           >
             <div className="w-3 h-3 rounded-full bg-primary animate-pulse shadow-[0_0_10px_rgba(57,255,20,0.8)]" />
-            <span className="text-sm font-mono text-zinc-300 uppercase tracking-widest">AI Model Active — Analyzing Meta</span>
+            <span className="text-sm font-mono text-zinc-300 uppercase tracking-widest">AI Model Active / Analyzing Meta</span>
             <div className="flex items-end gap-0.5 h-5">
               {Array.from({ length: 12 }).map((_, i) => (
                 <motion.div
@@ -228,7 +222,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* PILLARS — 6 CARDS */}
+      {/* PILLARS */}
       <section className="py-24 border-t border-white/5">
         <div className="container mx-auto px-6 max-w-6xl">
           <motion.div
@@ -265,7 +259,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* CLOSING CTA — EMOTIONAL */}
+      {/* CLOSING CTA */}
       <section className="relative py-40 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_90%_70%_at_50%_50%,rgba(57,255,20,0.05)_0%,transparent_70%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_50%_at_30%_70%,rgba(100,60,255,0.06)_0%,transparent_60%)]" />
@@ -280,8 +274,8 @@ export default function AboutPage() {
           >
             <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-[1] mb-8">
               <span className="text-zinc-600 block">You've Put in</span>
-              <span className="text-white block">The Hours.</span>
-              <span className="bg-gradient-to-r from-primary via-emerald-300 to-cyan-400 bg-clip-text text-transparent block">Now Put Them to Work.</span>
+              <span className="text-white block">The Hours</span>
+              <span className="bg-gradient-to-r from-primary via-emerald-300 to-cyan-400 bg-clip-text text-transparent block">Now Put Them to Work</span>
             </h2>
             <p className="text-xl text-zinc-500 leading-relaxed mb-12 max-w-2xl mx-auto">
               Every competitive player deserves to know what they're doing wrong and how to fix it. That's not a privilege for the few with access to real coaches. That's a right for anyone willing to improve.
@@ -302,11 +296,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Footer strip */}
       <div className="border-t border-white/5 py-8">
         <div className="container mx-auto px-6 flex items-center justify-between">
           <p className="text-xs text-zinc-600 font-mono">© 2026 Metabuffed. All rights reserved.</p>
-          <Link href="/" className="text-xs text-zinc-600 font-mono hover:text-zinc-400 transition-colors">← Back to Home</Link>
+          <Link href="/" className="text-xs text-zinc-600 font-mono hover:text-zinc-400 transition-colors">Back to Home</Link>
         </div>
       </div>
     </div>

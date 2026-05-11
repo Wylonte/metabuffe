@@ -220,7 +220,7 @@ export default function CoachPage() {
                 <Send className="w-5 h-5" />
               </Button>
             </form>
-            <p className="text-center text-[10px] font-mono text-zinc-600 mt-3">Coach Meta can make mistakes. Always review gameplay manually.</p>
+            <p className="text-center text-[10px] font-mono text-zinc-600 mt-3">Metabuffed · Coach Meta · Powered by AI trained on competitive gameplay</p>
           </div>
         </div>
       </main>
