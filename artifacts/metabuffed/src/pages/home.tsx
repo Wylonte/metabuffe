@@ -185,7 +185,7 @@ export default function Home() {
                 className="group relative h-[500px] rounded-2xl overflow-hidden bg-zinc-900 cursor-pointer sweep-hover"
                 data-testid="game-tile-fight-night"
               >
-                <img src={fightNightImg} alt="Fight Night Champion" className="absolute inset-0 w-full h-full object-cover object-top scale-100 group-hover:scale-105 transition-transform duration-700" />
+                <img src={fightNightImg} alt="Fight Night Champion" className="absolute inset-0 w-full h-full object-cover object-center scale-90 group-hover:scale-95 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500" />
                 <div className="absolute inset-x-0 bottom-0 p-8">
@@ -207,7 +207,7 @@ export default function Home() {
                 className="group relative h-[500px] rounded-2xl overflow-hidden bg-zinc-900 cursor-pointer sweep-hover"
                 data-testid="game-tile-nba"
               >
-                <img src={nba2kImg} alt="NBA 2K26" className="absolute inset-0 w-full h-full object-cover object-top scale-100 group-hover:scale-105 transition-transform duration-700" />
+                <img src={nba2kImg} alt="NBA 2K26" className="absolute inset-0 w-full h-full object-cover object-center scale-100 group-hover:scale-105 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500" />
                 <div className="absolute inset-x-0 bottom-0 p-8">
