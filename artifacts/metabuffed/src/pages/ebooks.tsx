@@ -11,7 +11,7 @@ const EBOOKS = [
   {
     id: "defensive",
     title: "Defensive Mastery",
-    subtitle: "Meta Edition",
+    subtitle: "By Malky Pablo",
     description: "The underground Fight Night Champion defensive meta explained from the perspective of elite competitive players. Stamina fraud, lean-back science, rhythm warfare, and the Fear Loop.",
     tag: "Defense",
     pages: "10 chapters",
@@ -24,7 +24,7 @@ const EBOOKS = [
   {
     id: "offensive",
     title: "Offensive Mastery",
-    subtitle: "Meta Edition",
+    subtitle: "By Malky Pablo",
     description: "The underground offensive science of Fight Night Champion. Push straights, Money Team shells, sidestep uppercuts, round stealing, rhythm manipulation, and elite controlled cheese.",
     tag: "Offense",
     pages: "12 chapters",
@@ -83,14 +83,14 @@ export default function EbooksPage() {
             <p className="hidden md:block text-xs font-mono text-zinc-600 uppercase tracking-widest">3 Guides · Free Download</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {EBOOKS.map((book) => (
               <div
                 key={book.id}
                 className={`group relative bg-zinc-950 border rounded-2xl overflow-hidden transition-all duration-300 flex flex-col ${book.border}`}
               >
                 {/* Cover Image */}
-                <div className="relative aspect-[3/4] overflow-hidden bg-black">
+                <div className="relative aspect-[3/4] overflow-hidden bg-black" style={{maxHeight: '280px'}}>
                   <img
                     src={book.cover}
                     alt={book.title}
