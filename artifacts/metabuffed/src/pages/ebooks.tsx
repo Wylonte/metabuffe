@@ -1,50 +1,51 @@
 import { Nav } from "@/components/Nav";
-import { Button } from "@/components/ui/button";
-import { BookOpen } from "lucide-react";
+import { Download } from "lucide-react";
 import fightNightImg from "@assets/f8jFkfr_1778467206855.jpg";
+import defensiveMasteryImg from "@assets/1000028424_1778543400486.png";
+import offensiveMasteryImg from "@assets/1000028425_1778543400490.png";
+import finalFormImg from "@assets/1000028427_1778543411627.png";
+
+const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 const EBOOKS = [
   {
-    id: 1,
-    title: "The Counter Fighter's Playbook",
-    subtitle: "How to read, bait, and punish every opponent archetype in Fight Night Champion",
-    pages: "48 pages",
+    id: "defensive",
+    title: "Defensive Mastery",
+    subtitle: "Meta Edition",
+    description: "The underground Fight Night Champion defensive meta explained from the perspective of elite competitive players. Stamina fraud, lean-back science, rhythm warfare, and the Fear Loop.",
+    tag: "Defense",
+    pages: "10 chapters",
+    cover: defensiveMasteryImg,
+    pdf: `${BASE}/ebooks/defensive-mastery.pdf`,
+    filename: "FNC-Defensive-Mastery.pdf",
+    accent: "text-yellow-400",
+    border: "border-yellow-400/20 hover:border-yellow-400/50",
+  },
+  {
+    id: "offensive",
+    title: "Offensive Mastery",
+    subtitle: "Meta Edition",
+    description: "The underground offensive science of Fight Night Champion. Push straights, Money Team shells, sidestep uppercuts, round stealing, rhythm manipulation, and elite controlled cheese.",
     tag: "Offense",
+    pages: "12 chapters",
+    cover: offensiveMasteryImg,
+    pdf: `${BASE}/ebooks/offensive-mastery.pdf`,
+    filename: "FNC-Offensive-Mastery.pdf",
+    accent: "text-zinc-300",
+    border: "border-zinc-400/20 hover:border-zinc-400/50",
   },
   {
-    id: 2,
-    title: "Stamina Wins Fights",
-    subtitle: "A full breakdown of the stamina system and how to exploit it in long bouts",
-    pages: "36 pages",
-    tag: "Advanced",
-  },
-  {
-    id: 3,
-    title: "Pressure Fighter Masterclass",
-    subtitle: "Cut the ring, smother defense, and break your opponent's timing with relentless forward pressure",
-    pages: "52 pages",
-    tag: "Playstyle",
-  },
-  {
-    id: 4,
-    title: "Body Shot Bible",
-    subtitle: "Why body shots win championships — and the exact combos to land them consistently",
-    pages: "30 pages",
-    tag: "Technique",
-  },
-  {
-    id: 5,
-    title: "Guard Breaks and Dirty Boxing",
-    subtitle: "Inside clinch work, uppercut setups, and how to wear down any guard over 12 rounds",
-    pages: "44 pages",
-    tag: "Clinch",
-  },
-  {
-    id: 6,
-    title: "Late Round Finishing",
-    subtitle: "Reading fatigue signals, switching targets, and closing out fights when it matters most",
-    pages: "38 pages",
-    tag: "Finishing",
+    id: "finalform",
+    title: "The Final Form",
+    subtitle: "By Malky Pablo",
+    description: "A full competitive combat intelligence manual. Foot positioning, distance management, patience, timing, ring generalship, counter punching, and the philosophy of mastery.",
+    tag: "Complete Guide",
+    pages: "34 chapters",
+    cover: finalFormImg,
+    pdf: `${BASE}/ebooks/fnc-final-form.pdf`,
+    filename: "FNC-The-Final-Form.pdf",
+    accent: "text-purple-400",
+    border: "border-purple-400/20 hover:border-purple-400/50",
   },
 ];
 
@@ -79,36 +80,47 @@ export default function EbooksPage() {
               <h2 className="text-sm font-mono text-zinc-500 uppercase tracking-[0.2em] mb-2">Available Now</h2>
               <p className="text-3xl font-black text-white uppercase tracking-tight">Fight Night Champion Library</p>
             </div>
-            <div className="hidden md:flex items-center gap-2 text-xs font-mono text-zinc-600 uppercase tracking-widest">
-              <BookOpen className="w-4 h-4" />
-              <span>{EBOOKS.length} Guides</span>
-            </div>
+            <p className="hidden md:block text-xs font-mono text-zinc-600 uppercase tracking-widest">3 Guides · Free Download</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-8">
             {EBOOKS.map((book) => (
               <div
                 key={book.id}
-                className="group relative bg-zinc-900 border border-white/5 rounded-2xl p-8 hover:border-white/15 hover:bg-zinc-900/80 transition-all duration-300 flex flex-col"
+                className={`group relative bg-zinc-950 border rounded-2xl overflow-hidden transition-all duration-300 flex flex-col ${book.border}`}
               >
-                <div className="flex items-start justify-between mb-6">
-                  <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-primary bg-primary/10 px-3 py-1 rounded-full border border-primary/20">
-                    {book.tag}
-                  </span>
-                  <span className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest">{book.pages}</span>
+                {/* Cover Image */}
+                <div className="relative aspect-[3/4] overflow-hidden bg-black">
+                  <img
+                    src={book.cover}
+                    alt={book.title}
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent" />
+                  <div className="absolute top-4 left-4">
+                    <span className={`text-[10px] font-mono font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-black/60 border border-white/10 ${book.accent}`}>
+                      {book.tag}
+                    </span>
+                  </div>
                 </div>
 
-                <div className="flex-1">
-                  <h3 className="text-xl font-black text-white uppercase tracking-tight mb-3 leading-tight group-hover:text-primary transition-colors duration-300">
-                    {book.title}
-                  </h3>
-                  <p className="text-sm text-zinc-500 leading-relaxed">{book.subtitle}</p>
-                </div>
+                {/* Card Body */}
+                <div className="p-6 flex flex-col flex-1">
+                  <div className="mb-1">
+                    <p className={`text-[10px] font-mono uppercase tracking-widest mb-1 ${book.accent}`}>{book.subtitle}</p>
+                    <h3 className="text-xl font-black text-white uppercase tracking-tight">{book.title}</h3>
+                  </div>
+                  <p className="text-sm text-zinc-500 leading-relaxed mt-3 flex-1">{book.description}</p>
+                  <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest mt-4">{book.pages}</p>
 
-                <div className="mt-8 pt-6 border-t border-white/5">
-                  <Button className="w-full bg-white text-black hover:bg-zinc-200 uppercase font-bold text-xs tracking-widest rounded-none">
+                  <a
+                    href={book.pdf}
+                    download={book.filename}
+                    className={`mt-5 flex items-center justify-center gap-2 w-full py-3 border font-bold text-xs uppercase tracking-widest transition-all duration-300 rounded-none ${book.border} text-white hover:bg-white/5`}
+                  >
+                    <Download className="w-4 h-4" />
                     Download Free
-                  </Button>
+                  </a>
                 </div>
               </div>
             ))}
