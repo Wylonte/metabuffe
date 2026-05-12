@@ -33,7 +33,7 @@ export function AuthModals({ activeModal, onClose, onSwitch }: AuthModalsProps) 
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.9 }}
           transition={{ type: "spring", duration: 0.5, bounce: 0.3 }}
-          className="relative w-full max-w-md bg-[#0a0a0a] border border-primary/30 rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(57,255,20,0.15)]"
+          className="relative w-full max-w-md bg-[#0a0a0a] border border-primary/30 rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(220,20,60,0.15)]"
         >
           <button
             onClick={onClose}

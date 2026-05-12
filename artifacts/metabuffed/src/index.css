@@ -70,19 +70,19 @@
   --sidebar: 0 0% 7%;
   --sidebar-foreground: 0 0% 98%;
   --sidebar-border: 0 0% 15%;
-  --sidebar-primary: 110 100% 54%;
-  --sidebar-primary-foreground: 0 0% 0%;
+  --sidebar-primary: 348 83% 47%;
+  --sidebar-primary-foreground: 0 0% 100%;
   --sidebar-accent: 0 0% 15%;
   --sidebar-accent-foreground: 0 0% 98%;
-  --sidebar-ring: 110 100% 54%;
+  --sidebar-ring: 348 83% 47%;
 
   --popover: 0 0% 7%;
   --popover-foreground: 0 0% 98%;
   --popover-border: 0 0% 15%;
 
-  /* Neon Green */
-  --primary: 110 100% 54%; /* #39FF14 */
-  --primary-foreground: 0 0% 0%;
+  /* Crimson */
+  --primary: 348 83% 47%; /* #DC143C */
+  --primary-foreground: 0 0% 100%;
 
   /* Soft Gray */
   --secondary: 0 0% 15%;
@@ -98,7 +98,7 @@
   --destructive-foreground: 0 0% 98%;
 
   --input: 0 0% 15%;
-  --ring: 110 100% 54%;
+  --ring: 348 83% 47%;
 
   --app-font-sans: 'Inter', sans-serif;
   --app-font-serif: Georgia, serif;
@@ -126,7 +126,7 @@
   left: 0;
   width: 100%;
   height: 2px;
-  background: linear-gradient(to right, transparent, rgba(57, 255, 20, 0.5), transparent);
+  background: linear-gradient(to right, transparent, rgba(220, 20, 60, 0.5), transparent);
   animation: scan 3s linear infinite;
   pointer-events: none;
 }
@@ -142,7 +142,7 @@
   position: absolute;
   width: 16px;
   height: 16px;
-  border: 1px solid rgba(57, 255, 20, 0.5);
+  border: 1px solid rgba(220, 20, 60, 0.5);
 }
 .hud-tl { top: -4px; left: -4px; border-right: none; border-bottom: none; }
 .hud-tr { top: -4px; right: -4px; border-left: none; border-bottom: none; }

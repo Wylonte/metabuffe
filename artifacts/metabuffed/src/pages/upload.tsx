@@ -16,7 +16,7 @@ import ufc6Img from "@assets/maxresdefault_1778448217289.jpg";
 import { Badge } from "@/components/ui/badge";
 
 const GAMES = [
-  { id: "fight-night", name: "Fight Night Champion", img: fightNightImg, available: true, color: "hover:border-primary", activeColor: "border-primary shadow-[0_0_20px_rgba(57,255,20,0.3)]" },
+  { id: "fight-night", name: "Fight Night Champion", img: fightNightImg, available: true, color: "hover:border-primary", activeColor: "border-primary shadow-[0_0_20px_rgba(220,20,60,0.3)]" },
   { id: "nba", name: "NBA 2K26", img: nba2kImg, available: true, color: "hover:border-blue-500", activeColor: "border-blue-500 shadow-[0_0_20px_rgba(59,130,246,0.3)]" },
   { id: "madden", name: "Madden 26", img: maddenImg, available: true, color: "hover:border-green-500", activeColor: "border-green-500 shadow-[0_0_20px_rgba(34,197,94,0.3)]" },
   { id: "gta6", name: "GTA 6", img: gta6Img, available: false, color: "", activeColor: "" },

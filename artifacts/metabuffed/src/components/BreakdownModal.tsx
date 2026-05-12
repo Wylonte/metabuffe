@@ -45,7 +45,7 @@ export function BreakdownModal({ isOpen, onClose }: BreakdownModalProps) {
                   </div>
                   <div className="text-right">
                     <p className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest mb-1">Global Grade</p>
-                    <p className="text-6xl font-black text-primary leading-none drop-shadow-[0_0_15px_rgba(57,255,20,0.5)]">B+</p>
+                    <p className="text-6xl font-black text-primary leading-none drop-shadow-[0_0_15px_rgba(220,20,60,0.5)]">B+</p>
                   </div>
                 </div>
               </div>

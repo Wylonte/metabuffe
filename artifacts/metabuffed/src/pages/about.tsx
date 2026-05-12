@@ -58,12 +58,12 @@ export default function AboutPage() {
       {/* HERO */}
       <section ref={heroRef} className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden pt-20">
         <div className="absolute inset-0 bg-black" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_40%,rgba(57,255,20,0.06)_0%,transparent_70%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_40%,rgba(220,20,60,0.06)_0%,transparent_70%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_20%_80%,rgba(100,60,255,0.08)_0%,transparent_60%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_80%_20%,rgba(0,200,255,0.05)_0%,transparent_60%)]" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black opacity-80" />
         <div className="absolute inset-0 opacity-[0.03]"
-          style={{ backgroundImage: "linear-gradient(rgba(57,255,20,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(57,255,20,0.5) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
+          style={{ backgroundImage: "linear-gradient(rgba(220,20,60,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(220,20,60,0.5) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
 
         <motion.div style={{ opacity: heroOpacity, y: heroY }} className="relative z-10 text-center max-w-5xl mx-auto px-6">
           <motion.p
@@ -152,7 +152,7 @@ export default function AboutPage() {
                   className="bg-[#0a0a0a] border border-white/8 rounded-2xl p-6 relative overflow-hidden group hover:border-white/15 transition-colors"
                 >
                   <div className="absolute top-0 right-0 w-20 h-20 bg-primary/5 rounded-bl-full" />
-                  <p className="text-4xl font-black text-primary mb-2 drop-shadow-[0_0_20px_rgba(57,255,20,0.4)]">{stat.value}</p>
+                  <p className="text-4xl font-black text-primary mb-2 drop-shadow-[0_0_20px_rgba(220,20,60,0.4)]">{stat.value}</p>
                   <p className="text-xs text-zinc-500 font-medium uppercase tracking-wider leading-tight">{stat.label}</p>
                 </motion.div>
               ))}
@@ -163,7 +163,7 @@ export default function AboutPage() {
 
       {/* THE SOLUTION */}
       <section className="relative py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_50%,rgba(57,255,20,0.04)_0%,transparent_70%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_50%,rgba(220,20,60,0.04)_0%,transparent_70%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_40%_40%_at_80%_80%,rgba(0,200,255,0.04)_0%,transparent_60%)]" />
 
         <div className="container mx-auto px-6 max-w-5xl text-center">
@@ -203,9 +203,9 @@ export default function AboutPage() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1 }}
-            className="relative inline-flex items-center gap-4 bg-[#0a0a0a] border border-primary/20 rounded-2xl px-8 py-5 shadow-[0_0_60px_rgba(57,255,20,0.1)]"
+            className="relative inline-flex items-center gap-4 bg-[#0a0a0a] border border-primary/20 rounded-2xl px-8 py-5 shadow-[0_0_60px_rgba(220,20,60,0.1)]"
           >
-            <div className="w-3 h-3 rounded-full bg-primary animate-pulse shadow-[0_0_10px_rgba(57,255,20,0.8)]" />
+            <div className="w-3 h-3 rounded-full bg-primary animate-pulse shadow-[0_0_10px_rgba(220,20,60,0.8)]" />
             <span className="text-sm font-mono text-zinc-300 uppercase tracking-widest">AI Model Active / Analyzing Meta</span>
             <div className="flex items-end gap-0.5 h-5">
               {Array.from({ length: 12 }).map((_, i) => (
@@ -261,7 +261,7 @@ export default function AboutPage() {
 
       {/* CLOSING CTA */}
       <section className="relative py-40 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_90%_70%_at_50%_50%,rgba(57,255,20,0.05)_0%,transparent_70%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_90%_70%_at_50%_50%,rgba(220,20,60,0.05)_0%,transparent_70%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_50%_at_30%_70%,rgba(100,60,255,0.06)_0%,transparent_60%)]" />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black opacity-70" />
 

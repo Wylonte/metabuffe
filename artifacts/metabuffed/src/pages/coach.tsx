@@ -135,7 +135,7 @@ export default function CoachPage() {
                     onClick={() => setActiveGame(game.id)}
                     className={`flex items-center gap-2 border rounded-lg px-3 py-1.5 text-xs font-bold uppercase tracking-wider transition-all duration-200 ${
                       activeGame === game.id
-                        ? "border-primary bg-primary/10 text-primary shadow-[0_0_12px_rgba(57,255,20,0.2)]"
+                        ? "border-primary bg-primary/10 text-primary shadow-[0_0_12px_rgba(220,20,60,0.2)]"
                         : "border-white/10 bg-white/5 text-zinc-400 hover:border-white/20 hover:text-white hover:bg-white/10"
                     }`}
                     data-testid={`context-${game.id}`}
@@ -160,7 +160,7 @@ export default function CoachPage() {
             {messages.map((msg) => (
               <div key={msg.id} className={`flex gap-4 ${msg.role === "user" ? "flex-row-reverse" : ""}`}>
                 {msg.role === "ai" && (
-                  <div className="w-8 h-8 rounded-full bg-primary/20 border border-primary flex items-center justify-center shrink-0 mt-1 shadow-[0_0_10px_rgba(57,255,20,0.2)]">
+                  <div className="w-8 h-8 rounded-full bg-primary/20 border border-primary flex items-center justify-center shrink-0 mt-1 shadow-[0_0_10px_rgba(220,20,60,0.2)]">
                     <span className="text-primary font-black text-xs">AI</span>
                   </div>
                 )}

@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-const NEON = "57,255,20";
+const NEON = "220,20,60";
 const BLUE = "0,180,255";
 const WHITE = "255,255,255";
 

@@ -45,8 +45,8 @@ const Particles = ({ count = 20 }: { count?: number }) => {
             '--s': Math.random() * 2,
             '--duration': `${Math.random() * 10 + 10}s`,
             animationDelay: `${Math.random() * 5}s`,
-            boxShadow: '0 0 10px 2px rgba(57,255,20,0.5)',
-            background: 'rgba(57,255,20,0.8)'
+            boxShadow: '0 0 10px 2px rgba(220,20,60,0.5)',
+            background: 'rgba(220,20,60,0.8)'
           } as React.CSSProperties}
         />
       ))}
@@ -419,7 +419,7 @@ export default function Home() {
                     </div>
                     <div className="text-right">
                       <p className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest mb-1">Global Grade</p>
-                      <p className="text-5xl font-black text-primary leading-none drop-shadow-[0_0_15px_rgba(57,255,20,0.5)]">B+</p>
+                      <p className="text-5xl font-black text-primary leading-none drop-shadow-[0_0_15px_rgba(220,20,60,0.5)]">B+</p>
                     </div>
                   </div>
                 </div>
@@ -486,11 +486,11 @@ export default function Home() {
 
             <div className="max-w-4xl mx-auto relative">
               <div className="absolute top-[28px] left-[10%] right-[10%] h-[2px] bg-white/10" />
-              <div className="absolute top-[28px] left-[10%] w-[40%] h-[2px] bg-primary shadow-[0_0_10px_rgba(57,255,20,0.5)]" />
+              <div className="absolute top-[28px] left-[10%] w-[40%] h-[2px] bg-primary shadow-[0_0_10px_rgba(220,20,60,0.5)]" />
 
               <div className="flex justify-between relative z-10">
                 <div className="flex flex-col items-center w-1/3">
-                  <div className="w-14 h-14 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center mb-6 shadow-[0_0_15px_rgba(57,255,20,0.3)]">
+                  <div className="w-14 h-14 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center mb-6 shadow-[0_0_15px_rgba(220,20,60,0.3)]">
                     <span className="font-bold text-primary">01</span>
                   </div>
                   <h4 className="text-white font-bold uppercase tracking-wider mb-2">Upload & Analyze</h4>
