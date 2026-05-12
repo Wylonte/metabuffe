@@ -15,6 +15,7 @@ import {
   Facebook
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { ShockwaveAnimation } from "@/components/ShockwaveAnimation";
 import fightNightImg from "@assets/f8jFkfr_1778467206855.jpg";
 import maddenImg from "@assets/G6IWhecWMAkaOiu_1778447744264.jpg";
 import gta6Img from "@assets/GTA6_1778447744267.webp";
@@ -78,6 +79,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-[linear-gradient(to_bottom,black_0%,transparent_30%,transparent_70%,black_100%)]" />
           <div className="absolute inset-0 bg-[linear-gradient(to_right,black_0%,transparent_50%,black_100%)]" />
           <div className="absolute inset-0 bg-black/30" />
+          <ShockwaveAnimation />
 
           <div className="container mx-auto px-6 relative z-10">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
