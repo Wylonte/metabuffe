@@ -15,7 +15,6 @@ import {
   Facebook
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { HeroAnimation } from "@/components/HeroAnimation";
 import fightNightImg from "@assets/f8jFkfr_1778467206855.jpg";
 import maddenImg from "@assets/G6IWhecWMAkaOiu_1778447744264.jpg";
 import gta6Img from "@assets/GTA6_1778447744267.webp";
@@ -66,11 +65,19 @@ export default function Home() {
       <main>
         {/* HERO SECTION */}
         <section className="relative min-h-[100dvh] flex items-center pt-20 overflow-hidden">
-          {/* Gaming Lab Animation Background */}
+          {/* Video Background */}
           <div className="absolute inset-0 bg-black" />
-          <HeroAnimation />
-          <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_60%,black_100%)]" />
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,black_0%,transparent_40%,transparent_60%,black_100%)]" />
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover opacity-50"
+            src="/gaming_lab_hero.mp4"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(to_bottom,black_0%,transparent_30%,transparent_70%,black_100%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,black_0%,transparent_50%,black_100%)]" />
+          <div className="absolute inset-0 bg-black/30" />
 
           <div className="container mx-auto px-6 relative z-10">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
