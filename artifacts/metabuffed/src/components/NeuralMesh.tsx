@@ -1,8 +1,5 @@
 import { useEffect, useRef } from "react";
 
-const CR = "220,20,60"; // crimson
-const c = (a: number) => `rgba(${CR},${a})`;
-
 export function NeuralMesh() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const rafRef = useRef<number>(0);
@@ -15,159 +12,174 @@ export function NeuralMesh() {
 
     let W = 0, H = 0;
 
-    interface Node {
-      bx: number; by: number; // base grid position
-      ox: number; oy: number; // current offset
-      size: number;
-      pulsePhase: number;
-      active: boolean;
-    }
-
-    let nodes: Node[] = [];
-
-    const COLS = 22;
-    const ROWS = 14;
-    const MAX_DIST = 130;
-
-    const build = () => {
+    const resize = () => {
       W = canvas.offsetWidth;
       H = canvas.offsetHeight;
       canvas.width = W;
       canvas.height = H;
-      nodes = [];
-      const colW = W / (COLS - 1);
-      const rowH = H / (ROWS - 1);
-      for (let r = 0; r < ROWS; r++) {
-        for (let col = 0; col < COLS; col++) {
-          nodes.push({
-            bx: col * colW,
-            by: r * rowH,
-            ox: 0, oy: 0,
-            size: 1.2 + Math.random() * 1.8,
-            pulsePhase: Math.random() * Math.PI * 2,
-            active: Math.random() < 0.12,
-          });
-        }
-      }
     };
+    resize();
+    window.addEventListener("resize", resize);
 
-    build();
-    window.addEventListener("resize", build);
+    // Wave ribbon definitions — each has phase offset, amplitude, vertical anchor
+    const RIBBONS = [
+      { yFrac: 0.15, amp: 0.09, speed: 0.28, phase: 0.0, alpha: 0.18, thick: 120 },
+      { yFrac: 0.32, amp: 0.11, speed: 0.22, phase: 1.4, alpha: 0.14, thick: 160 },
+      { yFrac: 0.50, amp: 0.13, speed: 0.17, phase: 2.8, alpha: 0.20, thick: 200 },
+      { yFrac: 0.68, amp: 0.10, speed: 0.24, phase: 4.1, alpha: 0.15, thick: 150 },
+      { yFrac: 0.85, amp: 0.08, speed: 0.31, phase: 5.6, alpha: 0.12, thick: 110 },
+    ];
 
-    // Mouse influence
-    let mx = W / 2, my = H / 2;
-    const onMove = (e: MouseEvent) => {
-      const rect = canvas.getBoundingClientRect();
-      mx = e.clientX - rect.left;
-      my = e.clientY - rect.top;
-    };
-    canvas.addEventListener("mousemove", onMove);
+    // Energy stream particles following the wave contour
+    interface Particle {
+      ribbonIdx: number;
+      progress: number; // 0..1 across screen width
+      speed: number;
+      yJitter: number;
+      size: number;
+      alpha: number;
+    }
+    const particles: Particle[] = Array.from({ length: 60 }, () => ({
+      ribbonIdx: Math.floor(Math.random() * RIBBONS.length),
+      progress: Math.random(),
+      speed: 0.0006 + Math.random() * 0.0012,
+      yJitter: (Math.random() - 0.5) * 60,
+      size: 1.2 + Math.random() * 2.2,
+      alpha: 0.35 + Math.random() * 0.55,
+    }));
 
     let t = 0;
 
-    const draw = () => {
-      t += 0.008;
-      ctx.clearRect(0, 0, W, H);
+    // Wave y-position at a given x for a ribbon
+    const waveY = (rb: typeof RIBBONS[0], x: number, time: number) => {
+      const base = rb.yFrac * H;
+      return (
+        base +
+        Math.sin(x * 0.004 + time * rb.speed + rb.phase) * rb.amp * H +
+        Math.sin(x * 0.007 - time * rb.speed * 0.6 + rb.phase * 1.3) * rb.amp * H * 0.45 +
+        Math.cos(x * 0.0025 + time * rb.speed * 0.4 + rb.phase * 0.7) * rb.amp * H * 0.3
+      );
+    };
 
-      // Subtle dark background
-      ctx.fillStyle = "rgba(0,0,0,0.04)";
+    const draw = () => {
+      t += 0.016;
+
+      // Clear with deep black
+      ctx.clearRect(0, 0, W, H);
+      ctx.fillStyle = "#000000";
       ctx.fillRect(0, 0, W, H);
 
-      // Update node positions — wave deformation
-      for (const n of nodes) {
-        const waveX = Math.sin(n.bx * 0.008 + t * 1.1) * 14;
-        const waveY = Math.cos(n.by * 0.010 + t * 0.9 + n.bx * 0.004) * 12;
+      // Central deep crimson radial glow — pulses subtly
+      const pulse = Math.sin(t * 0.4) * 0.08 + 0.92;
+      const cx = W * 0.5, cy = H * 0.48;
+      const grd = ctx.createRadialGradient(cx, cy, 0, cx, cy, W * 0.65 * pulse);
+      grd.addColorStop(0, "rgba(160,5,20,0.18)");
+      grd.addColorStop(0.4, "rgba(120,0,15,0.10)");
+      grd.addColorStop(1, "rgba(0,0,0,0)");
+      ctx.fillStyle = grd;
+      ctx.fillRect(0, 0, W, H);
 
-        // Mouse repulsion (subtle)
-        const dx = n.bx - mx;
-        const dy = n.by - my;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        const repel = Math.max(0, 1 - dist / 180) * 22;
-        const angle = Math.atan2(dy, dx);
+      // Draw wave ribbons
+      for (const rb of RIBBONS) {
+        const steps = Math.ceil(W / 4);
+        const dx = W / steps;
 
-        n.ox = waveX + Math.cos(angle) * repel;
-        n.oy = waveY + Math.sin(angle) * repel;
-        n.pulsePhase += 0.018;
-      }
-
-      const px = (n: Node) => n.bx + n.ox;
-      const py = (n: Node) => n.by + n.oy;
-
-      // Draw edges
-      ctx.lineWidth = 0.6;
-      for (let i = 0; i < nodes.length; i++) {
-        const a = nodes[i];
-        const ax = px(a), ay = py(a);
-        for (let j = i + 1; j < nodes.length; j++) {
-          const b = nodes[j];
-          const dx = ax - px(b);
-          const dy = ay - py(b);
-          const d = Math.sqrt(dx * dx + dy * dy);
-          if (d < MAX_DIST) {
-            const alpha = (1 - d / MAX_DIST) * 0.22;
-            ctx.beginPath();
-            ctx.moveTo(ax, ay);
-            ctx.lineTo(px(b), py(b));
-            ctx.strokeStyle = c(alpha);
-            ctx.stroke();
-          }
-        }
-      }
-
-      // Draw nodes
-      for (const n of nodes) {
-        const x = px(n), y = py(n);
-        const pulse = Math.sin(n.pulsePhase) * 0.5 + 0.5;
-        const r = n.size + (n.active ? pulse * 2.5 : 0);
-        const alpha = n.active ? 0.55 + pulse * 0.45 : 0.20 + pulse * 0.12;
-
-        // Outer glow for active nodes
-        if (n.active) {
-          const glow = ctx.createRadialGradient(x, y, 0, x, y, r * 7);
-          glow.addColorStop(0, c(0.18 * pulse));
-          glow.addColorStop(1, c(0));
-          ctx.fillStyle = glow;
-          ctx.beginPath();
-          ctx.arc(x, y, r * 7, 0, Math.PI * 2);
-          ctx.fill();
-        }
-
+        // Build top and bottom path of the ribbon
         ctx.beginPath();
-        ctx.arc(x, y, Math.max(0.1, r), 0, Math.PI * 2);
-        ctx.fillStyle = c(alpha);
+        let firstX = 0;
+        let firstY = waveY(rb, 0, t);
+        ctx.moveTo(firstX, firstY - rb.thick / 2);
+
+        // Forward pass (top edge)
+        for (let i = 1; i <= steps; i++) {
+          const x = i * dx;
+          const y = waveY(rb, x, t);
+          ctx.lineTo(x, y - rb.thick / 2);
+        }
+        // Backward pass (bottom edge)
+        for (let i = steps; i >= 0; i--) {
+          const x = i * dx;
+          const y = waveY(rb, x, t);
+          ctx.lineTo(x, y + rb.thick / 2);
+        }
+        ctx.closePath();
+
+        // Crimson gradient fill across ribbon height
+        const sampleY = waveY(rb, W / 2, t);
+        const ribbonGrad = ctx.createLinearGradient(0, sampleY - rb.thick / 2, 0, sampleY + rb.thick / 2);
+        ribbonGrad.addColorStop(0, `rgba(150,5,18,0)`);
+        ribbonGrad.addColorStop(0.35, `rgba(185,8,25,${rb.alpha})`);
+        ribbonGrad.addColorStop(0.5, `rgba(210,14,35,${rb.alpha * 1.5})`);
+        ribbonGrad.addColorStop(0.65, `rgba(185,8,25,${rb.alpha})`);
+        ribbonGrad.addColorStop(1, `rgba(150,5,18,0)`);
+
+        ctx.fillStyle = ribbonGrad;
+        ctx.fill();
+
+        // Bright core line along the wave crest
+        ctx.beginPath();
+        ctx.moveTo(0, waveY(rb, 0, t));
+        for (let i = 1; i <= steps; i++) {
+          const x = i * dx;
+          ctx.lineTo(x, waveY(rb, x, t));
+        }
+        ctx.strokeStyle = `rgba(220,20,40,${rb.alpha * 1.8})`;
+        ctx.lineWidth = 1.2;
+        ctx.shadowColor = "rgba(200,10,30,0.8)";
+        ctx.shadowBlur = 12;
+        ctx.stroke();
+        ctx.shadowBlur = 0;
+      }
+
+      // Energy particles riding the waves
+      for (const p of particles) {
+        p.progress += p.speed;
+        if (p.progress > 1) p.progress = 0;
+
+        const rb = RIBBONS[p.ribbonIdx];
+        const x = p.progress * W;
+        const y = waveY(rb, x, t) + p.yJitter;
+
+        // Glow halo
+        const glowR = p.size * 5;
+        const glowGrd = ctx.createRadialGradient(x, y, 0, x, y, glowR);
+        glowGrd.addColorStop(0, `rgba(220,20,40,${p.alpha * 0.5})`);
+        glowGrd.addColorStop(1, "rgba(0,0,0,0)");
+        ctx.fillStyle = glowGrd;
+        ctx.beginPath();
+        ctx.arc(x, y, glowR, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Core dot
+        ctx.beginPath();
+        ctx.arc(x, y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255,60,70,${p.alpha})`;
         ctx.fill();
       }
 
-      // Traveling "signal" pulses along edges — pick a random active node pair each N frames
-      if (Math.floor(t * 60) % 90 === 0) {
-        const actives = nodes.filter(n => n.active);
-        if (actives.length >= 2) {
-          const from = actives[Math.floor(Math.random() * actives.length)];
-          const to = actives[Math.floor(Math.random() * actives.length)];
-          if (from !== to) {
-            const grad = ctx.createLinearGradient(px(from), py(from), px(to), py(to));
-            grad.addColorStop(0, c(0));
-            grad.addColorStop(0.5, c(0.6));
-            grad.addColorStop(1, c(0));
-            ctx.beginPath();
-            ctx.moveTo(px(from), py(from));
-            ctx.lineTo(px(to), py(to));
-            ctx.strokeStyle = grad;
-            ctx.lineWidth = 1.5;
-            ctx.stroke();
-          }
-        }
-      }
+      // Horizontal scan energy line — slow drift
+      const scanY = ((t * 28) % H);
+      const scanGrad = ctx.createLinearGradient(0, scanY - 1, 0, scanY + 1);
+      scanGrad.addColorStop(0, "rgba(0,0,0,0)");
+      scanGrad.addColorStop(0.5, "rgba(200,15,30,0.07)");
+      scanGrad.addColorStop(1, "rgba(0,0,0,0)");
+      ctx.fillStyle = scanGrad;
+      ctx.fillRect(0, scanY - 40, W, 80);
+
+      // Dark vignette overlay — keeps edges and text area dark
+      const vig = ctx.createRadialGradient(W / 2, H / 2, H * 0.2, W / 2, H / 2, W * 0.75);
+      vig.addColorStop(0, "rgba(0,0,0,0)");
+      vig.addColorStop(1, "rgba(0,0,0,0.72)");
+      ctx.fillStyle = vig;
+      ctx.fillRect(0, 0, W, H);
 
       rafRef.current = requestAnimationFrame(draw);
     };
 
     rafRef.current = requestAnimationFrame(draw);
-
     return () => {
       cancelAnimationFrame(rafRef.current);
-      window.removeEventListener("resize", build);
-      canvas.removeEventListener("mousemove", onMove);
+      window.removeEventListener("resize", resize);
     };
   }, []);
 
@@ -175,7 +187,6 @@ export function NeuralMesh() {
     <canvas
       ref={canvasRef}
       className="absolute inset-0 w-full h-full"
-      style={{ opacity: 1 }}
     />
   );
 }
