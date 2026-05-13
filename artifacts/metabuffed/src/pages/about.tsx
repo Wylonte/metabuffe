@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "wouter";
 import { Nav } from "@/components/Nav";
 import { Button } from "@/components/ui/button";
+import { NeuralMesh } from "@/components/NeuralMesh";
 import { Brain, Target, TrendingUp, Users, Zap, Shield } from "lucide-react";
 
 const STATS = [
@@ -58,12 +59,9 @@ export default function AboutPage() {
       {/* HERO */}
       <section ref={heroRef} className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden pt-20">
         <div className="absolute inset-0 bg-black" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_40%,rgba(220,20,60,0.06)_0%,transparent_70%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_20%_80%,rgba(100,60,255,0.08)_0%,transparent_60%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_80%_20%,rgba(0,200,255,0.05)_0%,transparent_60%)]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black opacity-80" />
-        <div className="absolute inset-0 opacity-[0.03]"
-          style={{ backgroundImage: "linear-gradient(rgba(220,20,60,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(220,20,60,0.5) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
+        <NeuralMesh />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_50%_50%,transparent_30%,black_100%)]" />
 
         <motion.div style={{ opacity: heroOpacity, y: heroY }} className="relative z-10 text-center max-w-5xl mx-auto px-6">
           <motion.p

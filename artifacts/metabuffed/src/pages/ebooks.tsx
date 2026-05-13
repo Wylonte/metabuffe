@@ -1,5 +1,6 @@
 import { Nav } from "@/components/Nav";
 import { Download } from "lucide-react";
+import { NeuralMesh } from "@/components/NeuralMesh";
 import fightNightImg from "@assets/f8jFkfr_1778467206855.jpg";
 import defensiveMasteryImg from "@assets/1000028424_1778543400486.png";
 import offensiveMasteryImg from "@assets/1000028425_1778543400490.png";
@@ -12,40 +13,43 @@ const EBOOKS = [
     id: "defensive",
     title: "Defensive Mastery",
     subtitle: "By Malky Pablo",
-    description: "The underground Fight Night Champion defensive meta explained from the perspective of elite competitive players. Stamina fraud, lean-back science, rhythm warfare, and the Fear Loop.",
+    description: "Stamina fraud, lean-back science, rhythm warfare, and the Fear Loop.",
     tag: "Defense",
-    pages: "10 chapters",
+    chapters: "10 Chapters",
     cover: defensiveMasteryImg,
     pdf: `${BASE}/ebooks/defensive-mastery.pdf`,
     filename: "FNC-Defensive-Mastery.pdf",
-    accent: "text-yellow-400",
-    border: "border-yellow-400/20 hover:border-yellow-400/50",
+    tagColor: "text-yellow-400",
+    glow: "hover:shadow-[0_0_40px_rgba(220,20,40,0.35)]",
+    border: "hover:border-red-700/60",
   },
   {
     id: "offensive",
     title: "Offensive Mastery",
     subtitle: "By Malky Pablo",
-    description: "The underground offensive science of Fight Night Champion. Push straights, Money Team shells, sidestep uppercuts, round stealing, rhythm manipulation, and elite controlled cheese.",
+    description: "Push straights, Money Team shells, sidestep uppercuts, and rhythm manipulation.",
     tag: "Offense",
-    pages: "12 chapters",
+    chapters: "12 Chapters",
     cover: offensiveMasteryImg,
     pdf: `${BASE}/ebooks/offensive-mastery.pdf`,
     filename: "FNC-Offensive-Mastery.pdf",
-    accent: "text-zinc-300",
-    border: "border-zinc-400/20 hover:border-zinc-400/50",
+    tagColor: "text-zinc-300",
+    glow: "hover:shadow-[0_0_40px_rgba(220,20,40,0.35)]",
+    border: "hover:border-red-700/60",
   },
   {
     id: "finalform",
     title: "The Final Form",
     subtitle: "By Malky Pablo",
-    description: "A full competitive combat intelligence manual. Foot positioning, distance management, patience, timing, ring generalship, counter punching, and the philosophy of mastery.",
+    description: "Foot positioning, ring generalship, counter punching, and the philosophy of mastery.",
     tag: "Complete Guide",
-    pages: "34 chapters",
+    chapters: "34 Chapters",
     cover: finalFormImg,
     pdf: `${BASE}/ebooks/fnc-final-form.pdf`,
     filename: "FNC-The-Final-Form.pdf",
-    accent: "text-purple-400",
-    border: "border-purple-400/20 hover:border-purple-400/50",
+    tagColor: "text-purple-400",
+    glow: "hover:shadow-[0_0_40px_rgba(220,20,40,0.45)]",
+    border: "hover:border-red-700/60",
   },
 ];
 
@@ -55,79 +59,83 @@ export default function EbooksPage() {
       <Nav />
 
       {/* Hero */}
-      <section className="relative pt-40 pb-20 overflow-hidden">
-        <div className="absolute inset-0">
-          <img src={fightNightImg} alt="Fight Night Champion" className="w-full h-full object-cover object-[40%_top] opacity-20" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/80 to-black" />
-        </div>
-        <div className="relative container mx-auto px-6">
+      <section className="relative pt-40 pb-20 overflow-hidden min-h-[52vh] flex items-end">
+        <div className="absolute inset-0 bg-black" />
+        <NeuralMesh />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-transparent to-black/70" />
+        <div className="relative container mx-auto px-6 pb-4">
           <p className="text-xs font-mono text-primary uppercase tracking-[0.3em] mb-4 font-bold">Metabuffed Ebooks</p>
-          <h1 className="text-6xl md:text-7xl font-black text-white uppercase tracking-tighter mb-6 leading-none">
+          <h1 className="text-6xl md:text-7xl font-black text-white uppercase tracking-tighter mb-4 leading-none">
             Fight Night<br />
             <span className="text-zinc-500">Champion</span>
           </h1>
-          <p className="text-lg text-zinc-400 max-w-xl leading-relaxed">
-            AI-generated strategy guides built from competitive gameplay data. Each ebook breaks down one system, one concept, one edge — so you stop guessing and start winning.
+          <p className="text-base text-zinc-400 max-w-lg leading-relaxed">
+            AI strategy guides built from competitive gameplay data.
           </p>
         </div>
       </section>
 
       {/* Ebooks Grid */}
-      <section className="py-20 bg-black">
+      <section className="py-16 bg-black">
         <div className="container mx-auto px-6">
-          <div className="flex items-center justify-between mb-12">
+          <div className="flex items-center justify-between mb-10">
             <div>
-              <h2 className="text-sm font-mono text-zinc-500 uppercase tracking-[0.2em] mb-2">Available Now</h2>
-              <p className="text-3xl font-black text-white uppercase tracking-tight">Fight Night Champion Library</p>
+              <p className="text-xs font-mono text-zinc-500 uppercase tracking-[0.2em] mb-1">Available Now</p>
+              <p className="text-2xl font-black text-white uppercase tracking-tight">Fight Night Champion Library</p>
             </div>
-            <p className="hidden md:block text-xs font-mono text-zinc-600 uppercase tracking-widest">3 Guides · Free Download</p>
+            <p className="hidden md:block text-xs font-mono text-zinc-600 uppercase tracking-widest">3 Guides · Free</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-5 max-w-4xl mx-auto">
             {EBOOKS.map((book) => (
               <div
                 key={book.id}
-                className={`group relative bg-zinc-950 border rounded-2xl overflow-hidden transition-all duration-300 flex flex-col ${book.border}`}
+                className={`group relative bg-zinc-950 border border-white/8 rounded-xl overflow-hidden transition-all duration-400 ${book.glow} ${book.border} cursor-pointer`}
               >
-                {/* Cover Image */}
-                <div className="relative aspect-[3/4] overflow-hidden bg-black" style={{maxHeight: '280px'}}>
+                {/* Cover — main focus */}
+                <div className="relative aspect-[3/4] overflow-hidden bg-black">
                   <img
                     src={book.cover}
                     alt={book.title}
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-106"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent" />
-                  <div className="absolute top-4 left-4">
-                    <span className={`text-[10px] font-mono font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-black/60 border border-white/10 ${book.accent}`}>
+                  {/* Bottom overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+                  {/* Top tag */}
+                  <div className="absolute top-3 left-3">
+                    <span className={`text-[9px] font-mono font-bold uppercase tracking-widest px-2.5 py-1 rounded-full bg-black/70 border border-white/10 ${book.tagColor}`}>
                       {book.tag}
                     </span>
                   </div>
-                </div>
+                  {/* Crimson hover border glow */}
+                  <div className="absolute inset-0 border border-transparent group-hover:border-red-700/30 rounded-xl transition-all duration-400 pointer-events-none" />
 
-                {/* Card Body */}
-                <div className="p-6 flex flex-col flex-1">
-                  <div className="mb-1">
-                    <p className={`text-[10px] font-mono uppercase tracking-widest mb-1 ${book.accent}`}>{book.subtitle}</p>
-                    <h3 className="text-xl font-black text-white uppercase tracking-tight">{book.title}</h3>
+                  {/* Info overlaid at bottom of image */}
+                  <div className="absolute bottom-0 left-0 right-0 p-4">
+                    <p className="text-[9px] font-mono text-zinc-500 uppercase tracking-widest mb-1">{book.subtitle}</p>
+                    <h3 className="text-base font-black text-white uppercase tracking-tight leading-tight mb-1.5">{book.title}</h3>
+                    <p className="text-xs text-zinc-400 leading-snug line-clamp-2 mb-3">{book.description}</p>
+                    <div className="flex items-center justify-between">
+                      <span className="text-[9px] font-mono text-zinc-600 uppercase tracking-widest">{book.chapters}</span>
+                      <a
+                        href={book.pdf}
+                        download={book.filename}
+                        onClick={(e) => e.stopPropagation()}
+                        className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-white bg-red-900/60 hover:bg-red-800/80 border border-red-700/40 hover:border-red-600/60 px-3 py-1.5 rounded transition-all duration-200"
+                      >
+                        <Download className="w-3 h-3" />
+                        Free
+                      </a>
+                    </div>
                   </div>
-                  <p className="text-sm text-zinc-500 leading-relaxed mt-3 flex-1">{book.description}</p>
-                  <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest mt-4">{book.pages}</p>
-
-                  <a
-                    href={book.pdf}
-                    download={book.filename}
-                    className={`mt-5 flex items-center justify-center gap-2 w-full py-3 border font-bold text-xs uppercase tracking-widest transition-all duration-300 rounded-none ${book.border} text-white hover:bg-white/5`}
-                  >
-                    <Download className="w-4 h-4" />
-                    Download Free
-                  </a>
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="mt-16 text-center">
-            <p className="text-sm text-zinc-600 font-mono uppercase tracking-widest">More titles dropping as new games launch</p>
+          <div className="mt-12 text-center">
+            <p className="text-xs text-zinc-700 font-mono uppercase tracking-widest">More titles dropping as new games launch</p>
           </div>
         </div>
       </section>
