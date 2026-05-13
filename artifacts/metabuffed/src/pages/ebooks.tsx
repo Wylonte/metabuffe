@@ -1,6 +1,6 @@
 import { Nav } from "@/components/Nav";
 import { Download } from "lucide-react";
-import { NeuralMesh } from "@/components/NeuralMesh";
+import { CrimsonPulse } from "@/components/CrimsonPulse";
 import fightNightImg from "@assets/f8jFkfr_1778467206855.jpg";
 import defensiveMasteryImg from "@assets/1000028424_1778543400486.png";
 import offensiveMasteryImg from "@assets/1000028425_1778543400490.png";
@@ -61,7 +61,7 @@ export default function EbooksPage() {
       {/* Hero */}
       <section className="relative pt-40 pb-20 overflow-hidden min-h-[52vh] flex items-end">
         <div className="absolute inset-0 bg-black" />
-        <NeuralMesh />
+        <CrimsonPulse />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-transparent to-black/70" />
         <div className="relative container mx-auto px-6 pb-4">

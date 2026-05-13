@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "wouter";
 import { Nav } from "@/components/Nav";
 import { Button } from "@/components/ui/button";
-import { NeuralMesh } from "@/components/NeuralMesh";
+import { CrimsonFlow } from "@/components/CrimsonFlow";
 import { Brain, Target, TrendingUp, Users, Zap, Shield } from "lucide-react";
 
 const STATS = [
@@ -59,7 +59,7 @@ export default function AboutPage() {
       {/* HERO */}
       <section ref={heroRef} className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden pt-20">
         <div className="absolute inset-0 bg-black" />
-        <NeuralMesh />
+        <CrimsonFlow />
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_50%_50%,transparent_30%,black_100%)]" />
 
