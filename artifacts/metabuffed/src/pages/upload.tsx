@@ -48,10 +48,16 @@ export default function UploadPage() {
   const selectedGameData = GAMES.find(g => g.id === selectedGame);
 
   return (
-    <div className="min-h-[100dvh] bg-black text-foreground selection:bg-primary/30 pt-20">
+    <div className="min-h-[100dvh] bg-black text-foreground selection:bg-primary/30 pt-20 relative">
+      {/* Crimson ambient gradients */}
+      <div className="pointer-events-none fixed inset-0 z-0">
+        <div className="absolute -top-32 -left-32 w-[600px] h-[600px] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(220,20,60,0.10)_0%,transparent_70%)]" />
+        <div className="absolute top-1/3 right-0 w-[500px] h-[500px] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(220,20,60,0.07)_0%,transparent_70%)]" />
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-[radial-gradient(ellipse_at_center,rgba(220,20,60,0.06)_0%,transparent_70%)]" />
+      </div>
       <Nav />
       
-      <main className="container mx-auto px-6 py-16 max-w-5xl">
+      <main className="relative z-10 container mx-auto px-6 py-16 max-w-5xl">
         <div className="mb-12 text-center">
           <h1 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tighter mb-4">Upload Your Match</h1>
           <p className="text-zinc-400 font-medium">Select your game, upload the footage, and get your AI breakdown.</p>

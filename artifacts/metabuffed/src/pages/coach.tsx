@@ -122,7 +122,12 @@ export default function CoachPage() {
       </aside>
 
       {/* Main Chat Area */}
-      <main className="flex-1 flex flex-col relative">
+      <main className="flex-1 flex flex-col relative overflow-hidden">
+        {/* Crimson ambient gradients */}
+        <div className="pointer-events-none absolute inset-0 z-0">
+          <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(220,20,60,0.10)_0%,transparent_70%)]" />
+          <div className="absolute bottom-0 left-1/4 w-[500px] h-[400px] bg-[radial-gradient(ellipse_at_center,rgba(220,20,60,0.07)_0%,transparent_70%)]" />
+        </div>
         {/* Header — Game Context Switcher */}
         <header className="border-b border-white/5 bg-[#0a0a0a]/80 backdrop-blur-md px-6 py-3 shrink-0 z-10">
           <div className="flex items-center justify-between">
