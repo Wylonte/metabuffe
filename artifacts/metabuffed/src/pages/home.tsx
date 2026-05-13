@@ -15,6 +15,7 @@ import {
   Facebook
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { NeuralMesh } from "@/components/NeuralMesh";
 import fightNightImg from "@assets/f8jFkfr_1778467206855.jpg";
 import maddenImg from "@assets/G6IWhecWMAkaOiu_1778447744264.jpg";
 import gta6Img from "@assets/GTA6_1778447744267.webp";
@@ -65,12 +66,11 @@ export default function Home() {
       <main>
         {/* HERO SECTION */}
         <section className="relative min-h-[100dvh] flex items-center pt-20 overflow-hidden">
-          {/* Cinematic Background */}
+          {/* Neural Mesh Background */}
           <div className="absolute inset-0 bg-black" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(10,50,20,0.4)_0%,transparent_60%)]" />
-          <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_0%,black_100%)] opacity-80" />
-          <div className="scan-line opacity-30" />
-          <Particles count={30} />
+          <NeuralMesh />
+          <div className="absolute inset-0 bg-[linear-gradient(to_bottom,black_0%,transparent_25%,transparent_75%,black_100%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,black_100%)]" />
 
           <div className="container mx-auto px-6 relative z-10">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
