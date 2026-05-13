@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Plus, Send, User, MessageSquare } from "lucide-react";
 import { useModals } from "@/hooks/use-modals";
-import logoImg from "@assets/Metabuffed_Official_Logo-removebg-preview_1778448740498.png";
+import logoImg from "@assets/ChatGPT_Image_May_13,_2026,_01_37_25_AM_1778650685258.png";
 import fightNightImg from "@assets/f8jFkfr_1778467206855.jpg";
 import ufc6Img from "@assets/maxresdefault_1778448217289.jpg";
 

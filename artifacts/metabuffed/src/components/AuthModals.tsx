@@ -3,7 +3,7 @@ import { X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { SiGoogle, SiDiscord } from "react-icons/si";
-import logoImg from "@assets/Metabuffed_Official_Logo-removebg-preview_1778448740498.png";
+import logoImg from "@assets/ChatGPT_Image_May_13,_2026,_01_37_25_AM_1778650685258.png";
 
 interface AuthModalsProps {
   activeModal: "signin" | "signup" | null;

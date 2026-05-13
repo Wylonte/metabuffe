@@ -21,7 +21,7 @@ import gta6Img from "@assets/GTA6_1778447744267.webp";
 import nba2kImg from "@assets/wp15758233_1778466521722.jpg";
 import undisputedImg from "@assets/characters-from-undisputed-game_1778447744257.avif";
 import ufc6Img from "@assets/maxresdefault_1778448217289.jpg";
-import logoImg from "@assets/Metabuffed_Official_Logo-removebg-preview_1778448740498.png";
+import logoImg from "@assets/ChatGPT_Image_May_13,_2026,_01_37_25_AM_1778650685258.png";
 
 const Particles = ({ count = 20 }: { count?: number }) => {
   const [mounted, setMounted] = useState(false);
