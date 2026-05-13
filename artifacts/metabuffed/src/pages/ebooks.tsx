@@ -125,7 +125,7 @@ export default function EbooksPage() {
                         className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-white bg-red-900/60 hover:bg-red-800/80 border border-red-700/40 hover:border-red-600/60 px-3 py-1.5 rounded transition-all duration-200"
                       >
                         <Download className="w-3 h-3" />
-                        Free
+                        Download
                       </a>
                     </div>
                   </div>

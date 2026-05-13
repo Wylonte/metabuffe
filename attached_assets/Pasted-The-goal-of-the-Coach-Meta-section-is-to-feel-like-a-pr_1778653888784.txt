@@ -1,0 +1,96 @@
+The goal of the Coach Meta section is to feel like a premium competitive gaming analysis terminal — not a generic AI chatbot.
+
+Overall Experience:
+
+* Dark cinematic UI
+* Deep crimson + black color palette
+* Smooth premium animations
+* Minimal but powerful layout
+* Feels like elite esports intelligence and competitive meta analysis
+* Should resemble a high-end gaming AI system
+
+Core Purpose:
+Users ask competitive gaming meta questions and receive intelligent strategic answers based on real gameplay analysis philosophy.
+
+The system should feel:
+
+* strategic
+* analytical
+* experienced
+* calm
+* competitive
+* built for serious players
+
+LAYOUT:
+
+LEFT SIDEBAR
+Sections:
+
+* Recent Chats
+* Quick Questions
+* Meta Topics
+
+Recent Chats:
+
+* Keep visible
+* Must start EMPTY for new users
+* No fake conversations
+* Empty state example:
+  “No recent analyses yet.”
+  “Upload gameplay or start a coaching session.”
+
+Quick Questions:
+Users can click preset competitive gameplay questions and instantly reveal answers.
+
+CENTER CHAT AREA
+
+* Main focus of the page
+* Use the Metabuffed logo/avatar instead of a generic AI icon
+* User messages darker
+* Metabuffed responses highlighted subtly with crimson glow
+* Clean spacing
+* Premium responsive feel
+
+RIGHT PANEL
+Games visible:
+
+* Fight Night Champion = ACTIVE
+* UFC = LOCKED
+* NBA 2K = LOCKED
+* Madden = LOCKED
+* Undisputed = LOCKED
+
+Locked games should:
+
+* appear slightly blurred/dimmed
+* include subtle lock icons
+* communicate future expansion
+
+IMPORTANT:
+Fight Night Champion is currently the primary active experience, but the UI should clearly communicate that Metabuffed is a multi-game competitive analysis platform expanding into more titles later.
+
+PRESET QUESTIONS:
+
+* How do I beat Money Team style players?
+* How do I counter lean-back players?
+* How do elite players conserve stamina?
+* What should I do if I’m winning rounds already?
+* How do I stop getting countered after combinations?
+* How do top players steal rounds late?
+* Why does my stamina suddenly collapse mid-fight?
+* How do I pressure without draining stamina?
+
+The coaching philosophy should revolve around:
+
+* stamina economy
+* pacing
+* rhythm warfare
+* pressure manipulation
+* counter baiting
+* ring control
+* psychological pressure
+* exchange control
+* judge manipulation
+* efficient aggression
+
+The entire section should feel authentic to real competitive gaming culture and high-level meta understanding.
