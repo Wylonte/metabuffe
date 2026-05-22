@@ -1,7 +1,7 @@
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { useModals } from "@/hooks/use-modals";
-import logoImg from "@assets/ChatGPT_Image_May_13,_2026,_01_37_25_AM_1778650685258.png";
+import logoImg from "@assets/1000028977_1779456146886.png";
 
 export function Nav() {
   const [location, setLocation] = useLocation();
