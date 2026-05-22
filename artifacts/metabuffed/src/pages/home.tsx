@@ -71,6 +71,7 @@ export default function Home() {
           <NeuralMesh />
           <div className="absolute inset-0 bg-[linear-gradient(to_bottom,black_0%,transparent_25%,transparent_75%,black_100%)]" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,black_100%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_75%_at_28%_50%,rgba(0,0,0,0.45)_0%,transparent_100%)]" />
 
           <div className="container mx-auto px-6 relative z-10">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -92,7 +93,7 @@ export default function Home() {
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-5">
-                  <Button size="lg" className="bg-primary text-black hover:bg-white hover:text-black transition-all duration-300 font-bold text-sm h-14 px-10 uppercase tracking-widest w-full sm:w-auto" data-testid="btn-hero-upload" onClick={() => setLocation('/upload')}>
+                  <Button size="lg" className="bg-[linear-gradient(90deg,#FF1C8B_0%,#FF7A00_40%,#9B30FF_70%,#00E5FF_100%)] text-white hover:opacity-90 transition-all duration-300 font-bold text-sm h-14 px-10 uppercase tracking-widest w-full sm:w-auto shadow-[0_0_22px_rgba(255,28,139,0.5),0_0_44px_rgba(0,229,255,0.14)] border-0" data-testid="btn-hero-upload" onClick={() => setLocation('/upload')}>
                     Upload Gameplay
                   </Button>
                   <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 transition-all duration-300 font-bold text-sm h-14 px-10 uppercase tracking-widest backdrop-blur-sm" data-testid="btn-hero-explore" onClick={() => {
@@ -115,11 +116,12 @@ export default function Home() {
                 className="relative lg:ml-auto w-full max-w-md perspective-1000"
               >
                 <div className="absolute inset-0 bg-primary/5 blur-3xl rounded-full" />
-                <div className="relative bg-[#0a0a0a]/90 backdrop-blur-xl border border-primary/20 rounded-xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.8)]">
+                <div className="absolute inset-0 bg-[rgba(0,229,255,0.03)] blur-3xl rounded-full scale-110" />
+                <div className="relative bg-[#0a0a0a]/90 backdrop-blur-xl border border-primary/20 rounded-xl overflow-hidden neon-card-glow">
                   {/* Top Bar */}
                   <div className="flex items-center justify-between px-6 py-4 border-b border-white/5 bg-white/5">
                     <div className="flex items-center gap-3">
-                      <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                      <div className="w-2 h-2 rounded-full bg-primary animate-pulse shadow-[0_0_8px_rgba(0,229,255,0.6)]" />
                       <span className="text-xs font-mono text-zinc-300 tracking-wider">ANALYSIS ACTIVE</span>
                     </div>
                     <span className="text-xs font-mono text-zinc-500">SYS.ON</span>
@@ -317,7 +319,7 @@ export default function Home() {
                   <span className="text-xs font-mono text-zinc-500">SRC: UPLOAD_094</span>
                 </div>
 
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(80,10,10,0.4)_0%,rgba(0,0,0,1)_100%)] mt-12" />
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(100,20,180,0.25)_0%,rgba(0,0,0,1)_100%)] mt-12" />
                 
                 {/* Annotations */}
                 <div className="absolute inset-0 z-10 p-8 pt-24">
@@ -521,9 +523,9 @@ export default function Home() {
         <section className="min-h-[100dvh] flex items-center justify-center relative overflow-hidden bg-black">
           {/* Rotating Soft Glows */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="glow-orb w-[800px] h-[800px] bg-[rgba(150,0,0,0.1)]" style={{ animationDelay: '0s' }} />
-            <div className="glow-orb w-[600px] h-[600px] bg-[rgba(0,50,150,0.1)]" style={{ animationDelay: '-5s' }} />
-            <div className="glow-orb w-[700px] h-[700px] bg-[rgba(0,100,0,0.1)]" style={{ animationDelay: '-10s' }} />
+            <div className="glow-orb w-[800px] h-[800px] bg-[rgba(255,28,139,0.09)]" style={{ animationDelay: '0s' }} />
+            <div className="glow-orb w-[600px] h-[600px] bg-[rgba(0,229,255,0.09)]" style={{ animationDelay: '-5s' }} />
+            <div className="glow-orb w-[700px] h-[700px] bg-[rgba(155,48,255,0.09)]" style={{ animationDelay: '-10s' }} />
           </div>
 
           <div className="container mx-auto px-6 relative z-10 text-center">
@@ -541,7 +543,7 @@ export default function Home() {
               </p>
               
               <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-16">
-                <Button size="lg" className="bg-primary text-black hover:bg-white hover:text-black transition-all duration-300 font-bold text-sm h-16 px-12 uppercase tracking-widest" onClick={() => setLocation('/upload')}>
+                <Button size="lg" className="bg-[linear-gradient(90deg,#FF1C8B_0%,#FF7A00_40%,#9B30FF_70%,#00E5FF_100%)] text-white hover:opacity-90 transition-all duration-300 font-bold text-sm h-16 px-12 uppercase tracking-widest shadow-[0_0_22px_rgba(255,28,139,0.5),0_0_44px_rgba(0,229,255,0.14)] border-0" onClick={() => setLocation('/upload')}>
                   Upload Gameplay
                 </Button>
                 <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 transition-all duration-300 font-bold text-sm h-16 px-12 uppercase tracking-widest backdrop-blur-sm" onClick={() => setLocation('/coach')}>

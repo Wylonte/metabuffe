@@ -8,7 +8,7 @@ export function Nav() {
   const { openModal } = useModals();
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/50 backdrop-blur-xl border-b border-white/5">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-2xl border-b border-white/[0.07] shadow-[0_1px_0_0_rgba(255,255,255,0.03),0_8px_32px_rgba(0,0,0,0.7)]">
       <div className="container mx-auto px-6 h-20 flex items-center justify-between">
         <div className="flex items-center">
           <Link href="/">
@@ -29,7 +29,7 @@ export function Nav() {
           <Button variant="outline" className="hidden sm:flex border-white/20 text-white hover:bg-white/10 font-bold text-sm px-5" data-testid="btn-sign-up" onClick={() => openModal("signup")}>
             Sign Up
           </Button>
-          <Button className="bg-primary text-black hover:bg-primary/90 font-bold uppercase tracking-wider text-xs px-6" data-testid="btn-upload-nav" onClick={() => setLocation('/upload')}>
+          <Button className="bg-[linear-gradient(90deg,#FF1C8B_0%,#FF7A00_40%,#9B30FF_70%,#00E5FF_100%)] text-white hover:opacity-90 font-bold uppercase tracking-wider text-xs px-6 shadow-[0_0_14px_rgba(255,28,139,0.45),0_0_28px_rgba(0,229,255,0.12)] border-0" data-testid="btn-upload-nav" onClick={() => setLocation('/upload')}>
             Upload
           </Button>
         </div>

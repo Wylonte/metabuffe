@@ -196,3 +196,14 @@
   animation: slow-rotate 20s linear infinite;
   transform-origin: center center;
 }
+
+@keyframes neon-card-glow {
+  0%   { box-shadow: 0 0 22px rgba(255,28,139,0.38), 0 0 55px rgba(255,28,139,0.09), inset 0 0 0 1px rgba(255,28,139,0.22); }
+  33%  { box-shadow: 0 0 22px rgba(155,48,255,0.38), 0 0 55px rgba(155,48,255,0.09), inset 0 0 0 1px rgba(155,48,255,0.22); }
+  66%  { box-shadow: 0 0 22px rgba(0,229,255,0.38), 0 0 55px rgba(0,229,255,0.09), inset 0 0 0 1px rgba(0,229,255,0.22); }
+  100% { box-shadow: 0 0 22px rgba(255,28,139,0.38), 0 0 55px rgba(255,28,139,0.09), inset 0 0 0 1px rgba(255,28,139,0.22); }
+}
+
+.neon-card-glow {
+  animation: neon-card-glow 5s linear infinite;
+}

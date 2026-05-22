@@ -81,21 +81,21 @@ export function NeuralMesh() {
       const cx = W * 0.5, cy = H * 0.48;
 
       const grd1 = ctx.createRadialGradient(cx * 0.6, cy, 0, cx * 0.6, cy, W * 0.5 * pulse);
-      grd1.addColorStop(0, "rgba(255,28,139,0.14)");
-      grd1.addColorStop(0.5, "rgba(155,48,255,0.07)");
+      grd1.addColorStop(0, "rgba(255,28,139,0.11)");
+      grd1.addColorStop(0.5, "rgba(155,48,255,0.055)");
       grd1.addColorStop(1, "rgba(0,0,0,0)");
       ctx.fillStyle = grd1;
       ctx.fillRect(0, 0, W, H);
 
       const grd2 = ctx.createRadialGradient(cx * 1.4, cy * 0.6, 0, cx * 1.4, cy * 0.6, W * 0.4 * pulse);
-      grd2.addColorStop(0, "rgba(255,122,0,0.10)");
-      grd2.addColorStop(0.5, "rgba(255,28,139,0.05)");
+      grd2.addColorStop(0, "rgba(255,122,0,0.08)");
+      grd2.addColorStop(0.5, "rgba(255,28,139,0.04)");
       grd2.addColorStop(1, "rgba(0,0,0,0)");
       ctx.fillStyle = grd2;
       ctx.fillRect(0, 0, W, H);
 
       const grd3 = ctx.createRadialGradient(cx * 0.3, cy * 1.3, 0, cx * 0.3, cy * 1.3, W * 0.35 * pulse);
-      grd3.addColorStop(0, "rgba(0,229,255,0.09)");
+      grd3.addColorStop(0, "rgba(0,229,255,0.07)");
       grd3.addColorStop(1, "rgba(0,0,0,0)");
       ctx.fillStyle = grd3;
       ctx.fillRect(0, 0, W, H);
