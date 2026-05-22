@@ -33,11 +33,11 @@ export function NeuralMesh() {
     window.addEventListener("resize", resize);
 
     const RIBBONS = [
-      { yFrac: 0.15, amp: 0.09, speed: 0.28, phase: 0.0, alpha: 0.16, thick: 120, colorIdx: 0 },
-      { yFrac: 0.32, amp: 0.11, speed: 0.22, phase: 1.4, alpha: 0.13, thick: 160, colorIdx: 1 },
-      { yFrac: 0.50, amp: 0.13, speed: 0.17, phase: 2.8, alpha: 0.18, thick: 200, colorIdx: 2 },
-      { yFrac: 0.68, amp: 0.10, speed: 0.24, phase: 4.1, alpha: 0.14, thick: 150, colorIdx: 3 },
-      { yFrac: 0.85, amp: 0.08, speed: 0.31, phase: 5.6, alpha: 0.12, thick: 110, colorIdx: 4 },
+      { yFrac: 0.12, amp: 0.08, speed: 0.28, phase: 0.0, alpha: 0.17, thick: 140, colorIdx: 0 }, // orange — top
+      { yFrac: 0.30, amp: 0.11, speed: 0.22, phase: 1.4, alpha: 0.10, thick: 130, colorIdx: 1 }, // pink — understated
+      { yFrac: 0.50, amp: 0.12, speed: 0.17, phase: 2.8, alpha: 0.15, thick: 175, colorIdx: 3 }, // purple — center anchor
+      { yFrac: 0.68, amp: 0.10, speed: 0.24, phase: 4.1, alpha: 0.11, thick: 140, colorIdx: 2 }, // magenta — subtle
+      { yFrac: 0.86, amp: 0.09, speed: 0.31, phase: 5.6, alpha: 0.17, thick: 145, colorIdx: 4 }, // cyan — bottom
     ];
 
     interface Particle {
@@ -53,8 +53,8 @@ export function NeuralMesh() {
       progress: Math.random(),
       speed: 0.0006 + Math.random() * 0.0012,
       yJitter: (Math.random() - 0.5) * 60,
-      size: 1.2 + Math.random() * 2.2,
-      alpha: 0.35 + Math.random() * 0.55,
+      size: 1.0 + Math.random() * 1.8,
+      alpha: 0.22 + Math.random() * 0.40,
     }));
 
     let t = 0;
@@ -80,24 +80,34 @@ export function NeuralMesh() {
       const pulse = Math.sin(t * 0.4) * 0.08 + 0.92;
       const cx = W * 0.5, cy = H * 0.48;
 
-      const grd1 = ctx.createRadialGradient(cx * 0.6, cy, 0, cx * 0.6, cy, W * 0.5 * pulse);
-      grd1.addColorStop(0, "rgba(255,28,139,0.11)");
-      grd1.addColorStop(0.5, "rgba(155,48,255,0.055)");
+      // Purple anchors the center — much less pink dominance
+      const grd1 = ctx.createRadialGradient(cx, cy * 0.9, 0, cx, cy * 0.9, W * 0.55 * pulse);
+      grd1.addColorStop(0, "rgba(120,30,220,0.10)");
+      grd1.addColorStop(0.5, "rgba(90,10,160,0.05)");
       grd1.addColorStop(1, "rgba(0,0,0,0)");
       ctx.fillStyle = grd1;
       ctx.fillRect(0, 0, W, H);
 
-      const grd2 = ctx.createRadialGradient(cx * 1.4, cy * 0.6, 0, cx * 1.4, cy * 0.6, W * 0.4 * pulse);
-      grd2.addColorStop(0, "rgba(255,122,0,0.08)");
-      grd2.addColorStop(0.5, "rgba(255,28,139,0.04)");
+      // Orange upper-right
+      const grd2 = ctx.createRadialGradient(cx * 1.5, cy * 0.3, 0, cx * 1.5, cy * 0.3, W * 0.38 * pulse);
+      grd2.addColorStop(0, "rgba(255,110,0,0.10)");
+      grd2.addColorStop(0.5, "rgba(200,60,0,0.04)");
       grd2.addColorStop(1, "rgba(0,0,0,0)");
       ctx.fillStyle = grd2;
       ctx.fillRect(0, 0, W, H);
 
-      const grd3 = ctx.createRadialGradient(cx * 0.3, cy * 1.3, 0, cx * 0.3, cy * 1.3, W * 0.35 * pulse);
-      grd3.addColorStop(0, "rgba(0,229,255,0.07)");
+      // Cyan lower-left
+      const grd3 = ctx.createRadialGradient(cx * 0.25, cy * 1.5, 0, cx * 0.25, cy * 1.5, W * 0.4 * pulse);
+      grd3.addColorStop(0, "rgba(0,210,240,0.09)");
       grd3.addColorStop(1, "rgba(0,0,0,0)");
       ctx.fillStyle = grd3;
+      ctx.fillRect(0, 0, W, H);
+
+      // Pink — very faint, just traces
+      const grd4 = ctx.createRadialGradient(cx * 0.8, cy * 0.5, 0, cx * 0.8, cy * 0.5, W * 0.28 * pulse);
+      grd4.addColorStop(0, "rgba(255,28,139,0.05)");
+      grd4.addColorStop(1, "rgba(0,0,0,0)");
+      ctx.fillStyle = grd4;
       ctx.fillRect(0, 0, W, H);
 
       // Wave ribbons
