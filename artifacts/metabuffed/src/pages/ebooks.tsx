@@ -20,8 +20,8 @@ const EBOOKS = [
     pdf: `${BASE}/ebooks/defensive-mastery.pdf`,
     filename: "FNC-Defensive-Mastery.pdf",
     tagColor: "text-yellow-400",
-    glow: "hover:shadow-[0_0_40px_rgba(220,20,40,0.35)]",
-    border: "hover:border-red-700/60",
+    glow: "hover:shadow-[0_0_40px_rgba(255,28,139,0.35)]",
+    border: "hover:border-pink-700/60",
   },
   {
     id: "offensive",
@@ -34,8 +34,8 @@ const EBOOKS = [
     pdf: `${BASE}/ebooks/offensive-mastery.pdf`,
     filename: "FNC-Offensive-Mastery.pdf",
     tagColor: "text-zinc-300",
-    glow: "hover:shadow-[0_0_40px_rgba(220,20,40,0.35)]",
-    border: "hover:border-red-700/60",
+    glow: "hover:shadow-[0_0_40px_rgba(255,28,139,0.35)]",
+    border: "hover:border-pink-700/60",
   },
   {
     id: "finalform",
@@ -48,8 +48,8 @@ const EBOOKS = [
     pdf: `${BASE}/ebooks/fnc-final-form.pdf`,
     filename: "FNC-The-Final-Form.pdf",
     tagColor: "text-purple-400",
-    glow: "hover:shadow-[0_0_40px_rgba(220,20,40,0.45)]",
-    border: "hover:border-red-700/60",
+    glow: "hover:shadow-[0_0_40px_rgba(255,28,139,0.45)]",
+    border: "hover:border-pink-700/60",
   },
 ];
 
@@ -109,7 +109,7 @@ export default function EbooksPage() {
                     </span>
                   </div>
                   {/* Crimson hover border glow */}
-                  <div className="absolute inset-0 border border-transparent group-hover:border-red-700/30 rounded-xl transition-all duration-400 pointer-events-none" />
+                  <div className="absolute inset-0 border border-transparent group-hover:border-pink-700/30 rounded-xl transition-all duration-400 pointer-events-none" />
 
                   {/* Info overlaid at bottom of image */}
                   <div className="absolute bottom-0 left-0 right-0 p-4">
@@ -122,7 +122,7 @@ export default function EbooksPage() {
                         href={book.pdf}
                         download={book.filename}
                         onClick={(e) => e.stopPropagation()}
-                        className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-white bg-red-900/60 hover:bg-red-800/80 border border-red-700/40 hover:border-red-600/60 px-3 py-1.5 rounded transition-all duration-200"
+                        className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-white bg-pink-900/60 hover:bg-pink-800/80 border border-pink-700/40 hover:border-pink-600/60 px-3 py-1.5 rounded transition-all duration-200"
                       >
                         <Download className="w-3 h-3" />
                         Download

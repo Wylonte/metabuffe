@@ -46,8 +46,8 @@ const Particles = ({ count = 20 }: { count?: number }) => {
             '--s': Math.random() * 2,
             '--duration': `${Math.random() * 10 + 10}s`,
             animationDelay: `${Math.random() * 5}s`,
-            boxShadow: '0 0 10px 2px rgba(220,20,60,0.5)',
-            background: 'rgba(220,20,60,0.8)'
+            boxShadow: '0 0 10px 2px rgba(255,28,139,0.5)',
+            background: 'rgba(255,28,139,0.8)'
           } as React.CSSProperties}
         />
       ))}
@@ -324,10 +324,10 @@ export default function Home() {
                   <div className="relative h-full w-full">
                     {/* Box 1 */}
                     <div className="absolute top-[20%] left-[10%] group">
-                      <div className="border border-red-500/50 bg-red-500/10 backdrop-blur-sm p-3 max-w-[200px]">
-                        <p className="text-[10px] text-red-400 font-mono uppercase tracking-widest font-bold">Stamina Collapse</p>
+                      <div className="border border-pink-500/50 bg-pink-500/10 backdrop-blur-sm p-3 max-w-[200px]">
+                        <p className="text-[10px] text-pink-400 font-mono uppercase tracking-widest font-bold">Stamina Collapse</p>
                       </div>
-                      <div className="absolute top-full left-1/2 w-[1px] h-32 bg-red-500/50" />
+                      <div className="absolute top-full left-1/2 w-[1px] h-32 bg-pink-500/50" />
                     </div>
 
                     {/* Box 2 */}
@@ -419,7 +419,7 @@ export default function Home() {
                     </div>
                     <div className="text-right">
                       <p className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest mb-1">Global Grade</p>
-                      <p className="text-5xl font-black text-primary leading-none drop-shadow-[0_0_15px_rgba(220,20,60,0.5)]">B+</p>
+                      <p className="text-5xl font-black text-primary leading-none drop-shadow-[0_0_15px_rgba(255,28,139,0.5)]">B+</p>
                     </div>
                   </div>
                 </div>
@@ -440,7 +440,7 @@ export default function Home() {
                     <ul className="space-y-3">
                       {["Stamina Control", "Predictability", "Late Resets"].map(w => (
                         <li key={w} className="flex items-center gap-2 text-sm text-zinc-300 font-medium">
-                          <div className="w-1.5 h-1.5 rounded-full bg-red-500" /> {w}
+                          <div className="w-1.5 h-1.5 rounded-full bg-pink-500" /> {w}
                         </li>
                       ))}
                     </ul>
@@ -486,11 +486,11 @@ export default function Home() {
 
             <div className="max-w-4xl mx-auto relative">
               <div className="absolute top-[28px] left-[10%] right-[10%] h-[2px] bg-white/10" />
-              <div className="absolute top-[28px] left-[10%] w-[40%] h-[2px] bg-primary shadow-[0_0_10px_rgba(220,20,60,0.5)]" />
+              <div className="absolute top-[28px] left-[10%] w-[40%] h-[2px] bg-primary shadow-[0_0_10px_rgba(255,28,139,0.5)]" />
 
               <div className="flex justify-between relative z-10">
                 <div className="flex flex-col items-center w-1/3">
-                  <div className="w-14 h-14 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center mb-6 shadow-[0_0_15px_rgba(220,20,60,0.3)]">
+                  <div className="w-14 h-14 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center mb-6 shadow-[0_0_15px_rgba(255,28,139,0.3)]">
                     <span className="font-bold text-primary">01</span>
                   </div>
                   <h4 className="text-white font-bold uppercase tracking-wider mb-2">Upload & Analyze</h4>
@@ -551,7 +551,7 @@ export default function Home() {
 
               <div className="flex items-center justify-center gap-8">
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-red-500" />
+                  <div className="w-2 h-2 rounded-full bg-pink-500" />
                   <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">Fight Night</span>
                 </div>
                 <div className="flex items-center gap-2">

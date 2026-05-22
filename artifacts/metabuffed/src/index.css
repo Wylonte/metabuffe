@@ -58,30 +58,30 @@
   --elevate-2: rgba(255,255,255, .09);
 
   /* Deep charcoal background */
-  --background: 0 0% 5%; /* #0d0d0d */
+  --background: 0 0% 5%;
   --foreground: 0 0% 98%;
 
-  --border: 0 0% 15%; /* #262626 */
+  --border: 0 0% 15%;
   
-  --card: 0 0% 7%; /* #111111 */
+  --card: 0 0% 7%;
   --card-foreground: 0 0% 98%;
   --card-border: 0 0% 15%;
 
   --sidebar: 0 0% 7%;
   --sidebar-foreground: 0 0% 98%;
   --sidebar-border: 0 0% 15%;
-  --sidebar-primary: 0 85% 38%;
+  --sidebar-primary: 330 100% 56%;
   --sidebar-primary-foreground: 0 0% 100%;
   --sidebar-accent: 0 0% 15%;
   --sidebar-accent-foreground: 0 0% 98%;
-  --sidebar-ring: 0 85% 38%;
+  --sidebar-ring: 330 100% 56%;
 
   --popover: 0 0% 7%;
   --popover-foreground: 0 0% 98%;
   --popover-border: 0 0% 15%;
 
-  /* Crimson */
-  --primary: 0 85% 38%; /* #DC143C */
+  /* Neon Pink — matches MB logo */
+  --primary: 330 100% 56%;
   --primary-foreground: 0 0% 100%;
 
   /* Soft Gray */
@@ -98,7 +98,7 @@
   --destructive-foreground: 0 0% 98%;
 
   --input: 0 0% 15%;
-  --ring: 0 85% 38%;
+  --ring: 330 100% 56%;
 
   --app-font-sans: 'Inter', sans-serif;
   --app-font-serif: Georgia, serif;
@@ -126,7 +126,7 @@
   left: 0;
   width: 100%;
   height: 2px;
-  background: linear-gradient(to right, transparent, rgba(220, 20, 60, 0.5), transparent);
+  background: linear-gradient(to right, transparent, rgba(255, 28, 139, 0.6), rgba(0, 229, 255, 0.4), transparent);
   animation: scan 3s linear infinite;
   pointer-events: none;
 }
@@ -142,7 +142,7 @@
   position: absolute;
   width: 16px;
   height: 16px;
-  border: 1px solid rgba(220, 20, 60, 0.5);
+  border: 1px solid rgba(255, 28, 139, 0.5);
 }
 .hud-tl { top: -4px; left: -4px; border-right: none; border-bottom: none; }
 .hud-tr { top: -4px; right: -4px; border-left: none; border-bottom: none; }

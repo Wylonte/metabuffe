@@ -45,7 +45,7 @@ export function BreakdownModal({ isOpen, onClose }: BreakdownModalProps) {
                   </div>
                   <div className="text-right">
                     <p className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest mb-1">Global Grade</p>
-                    <p className="text-6xl font-black text-primary leading-none drop-shadow-[0_0_15px_rgba(220,20,60,0.5)]">B+</p>
+                    <p className="text-6xl font-black text-primary leading-none drop-shadow-[0_0_15px_rgba(255,28,139,0.5)]">B+</p>
                   </div>
                 </div>
               </div>
@@ -78,7 +78,7 @@ export function BreakdownModal({ isOpen, onClose }: BreakdownModalProps) {
                         {[
                           { label: "Pressure", value: 81, color: "bg-green-500" },
                           { label: "Timing", value: 72, color: "bg-blue-500" },
-                          { label: "Stamina Management", value: 45, color: "bg-red-500" },
+                          { label: "Stamina Management", value: 45, color: "bg-pink-500" },
                           { label: "Counter Defense", value: 38, color: "bg-orange-500" },
                         ].map((stat) => (
                           <div key={stat.label}>
@@ -109,7 +109,7 @@ export function BreakdownModal({ isOpen, onClose }: BreakdownModalProps) {
                 {activeTab === "mistakes" && (
                   <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-4">
                     {[
-                      { icon: AlertCircle, color: "text-red-500", bg: "bg-red-500/10", border: "border-red-500/20", title: "Stamina Burn", desc: "Over-committing to power shots in early rounds depleted stamina below 40% by Round 5." },
+                      { icon: AlertCircle, color: "text-pink-500", bg: "bg-pink-500/10", border: "border-pink-500/20", title: "Stamina Burn", desc: "Over-committing to power shots in early rounds depleted stamina below 40% by Round 5." },
                       { icon: AlertTriangle, color: "text-orange-500", bg: "bg-orange-500/10", border: "border-orange-500/20", title: "Guard Drop", desc: "Failing to reset guard immediately after throwing a 1-2 combination." },
                       { icon: Info, color: "text-yellow-500", bg: "bg-yellow-500/10", border: "border-yellow-500/20", title: "Predictable Movement", desc: "Circling into the opponent's lead hand consistently." }
                     ].map((mistake, i) => (

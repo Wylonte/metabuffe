@@ -90,9 +90,9 @@ export default function UploadPage() {
   return (
     <div className="min-h-[100dvh] bg-black text-foreground selection:bg-primary/30 pt-20 relative">
       <div className="pointer-events-none fixed inset-0 z-0">
-        <div className="absolute -top-32 -left-32 w-[600px] h-[600px] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(220,20,60,0.10)_0%,transparent_70%)]" />
-        <div className="absolute top-1/3 right-0 w-[500px] h-[500px] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(220,20,60,0.07)_0%,transparent_70%)]" />
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-[radial-gradient(ellipse_at_center,rgba(220,20,60,0.06)_0%,transparent_70%)]" />
+        <div className="absolute -top-32 -left-32 w-[600px] h-[600px] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(255,28,139,0.10)_0%,transparent_70%)]" />
+        <div className="absolute top-1/3 right-0 w-[500px] h-[500px] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(255,122,0,0.08)_0%,transparent_70%)]" />
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-[radial-gradient(ellipse_at_center,rgba(0,229,255,0.06)_0%,transparent_70%)]" />
       </div>
       <Nav />
 
@@ -120,7 +120,7 @@ export default function UploadPage() {
                         : "cursor-pointer"
                     } ${
                       selectedGame === game.id
-                        ? "ring-2 ring-primary shadow-[0_0_24px_rgba(220,20,60,0.35)]"
+                        ? "ring-2 ring-primary shadow-[0_0_24px_rgba(255,28,139,0.35)]"
                         : !game.locked
                         ? "ring-1 ring-white/10 hover:ring-white/30"
                         : "ring-1 ring-white/5"
@@ -140,7 +140,7 @@ export default function UploadPage() {
                       </div>
                     )}
                     {selectedGame === game.id && (
-                      <div className="absolute top-2 right-2 bg-primary rounded-full p-0.5 shadow-[0_0_10px_rgba(220,20,60,0.6)]">
+                      <div className="absolute top-2 right-2 bg-primary rounded-full p-0.5 shadow-[0_0_10px_rgba(255,28,139,0.6)]">
                         <CheckCircle2 className="w-3.5 h-3.5 text-white" />
                       </div>
                     )}
@@ -177,7 +177,7 @@ export default function UploadPage() {
                     isDragOver ? "border-primary" : file ? "border-primary/50" : "border-zinc-800 hover:border-zinc-600"
                   }`} />
                   {isDragOver && (
-                    <div className="absolute inset-0 rounded-2xl shadow-[inset_0_0_40px_rgba(220,20,60,0.08)]" />
+                    <div className="absolute inset-0 rounded-2xl shadow-[inset_0_0_40px_rgba(255,28,139,0.08)]" />
                   )}
 
                   {file ? (
@@ -193,7 +193,7 @@ export default function UploadPage() {
                         <Button
                           onClick={(e) => { e.stopPropagation(); startUpload(); }}
                           disabled={!selectedGame}
-                          className="bg-primary hover:bg-primary/90 text-white font-black uppercase tracking-widest text-xs h-10 px-8 disabled:opacity-40 shadow-[0_0_20px_rgba(220,20,60,0.3)]"
+                          className="bg-primary hover:bg-primary/90 text-white font-black uppercase tracking-widest text-xs h-10 px-8 disabled:opacity-40 shadow-[0_0_20px_rgba(255,28,139,0.3)]"
                           data-testid="btn-submit-upload"
                         >
                           Begin Analysis
@@ -257,7 +257,7 @@ export default function UploadPage() {
                       </div>
                       <div className="h-1 bg-zinc-900 rounded-full overflow-hidden">
                         <motion.div
-                          className="h-full bg-primary rounded-full shadow-[0_0_8px_rgba(220,20,60,0.7)]"
+                          className="h-full bg-primary rounded-full shadow-[0_0_8px_rgba(255,28,139,0.7)]"
                           style={{ width: `${Math.min(100, uploadProgress)}%` }}
                           transition={{ duration: 0.15 }}
                         />
@@ -313,7 +313,7 @@ export default function UploadPage() {
               <div className="border-b border-white/5 px-5 py-4 flex items-center justify-between">
                 <p className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest font-bold">Analysis Preview</p>
                 {uploadState !== "idle" && (
-                  <div className={`w-2 h-2 rounded-full ${uploadState === "ready" ? "bg-primary shadow-[0_0_6px_rgba(220,20,60,0.8)]" : "bg-yellow-500 animate-pulse"}`} />
+                  <div className={`w-2 h-2 rounded-full ${uploadState === "ready" ? "bg-primary shadow-[0_0_6px_rgba(255,28,139,0.8)]" : "bg-yellow-500 animate-pulse"}`} />
                 )}
               </div>
 
@@ -405,14 +405,14 @@ export default function UploadPage() {
                           <p className="text-[9px] font-mono text-zinc-600 uppercase tracking-widest mb-1.5">Main Strength</p>
                           <p className="text-xs font-semibold text-white">Strong counter-timing in early rounds</p>
                         </div>
-                        <div className="bg-black/60 border border-red-900/20 rounded-xl p-3.5">
+                        <div className="bg-black/60 border border-pink-900/20 rounded-xl p-3.5">
                           <p className="text-[9px] font-mono text-zinc-600 uppercase tracking-widest mb-1.5">Main Weakness</p>
                           <p className="text-xs font-semibold text-white">Stamina collapse after combo exchanges</p>
                         </div>
                       </div>
 
                       <Button
-                        className="w-full bg-primary hover:bg-primary/90 text-white font-black uppercase tracking-widest text-xs h-11 flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(220,20,60,0.25)]"
+                        className="w-full bg-primary hover:bg-primary/90 text-white font-black uppercase tracking-widest text-xs h-11 flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(255,28,139,0.25)]"
                         data-testid="btn-view-breakdown"
                       >
                         View Full Breakdown <ChevronRight className="w-4 h-4" />

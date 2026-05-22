@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 
 const G = "#DC143C";
-const GDIM = (a: number) => `rgba(220,20,60,${a})`;
+const GDIM = (a: number) => `rgba(255,28,139,${a})`;
 
 type Phase = "training" | "analyzing" | "levelup";
 

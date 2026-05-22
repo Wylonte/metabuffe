@@ -183,14 +183,14 @@ export default function CoachPage() {
       <main className="flex-1 flex flex-col relative overflow-hidden">
         {/* Crimson ambient gradients */}
         <div className="pointer-events-none absolute inset-0 z-0">
-          <div className="absolute -top-40 left-1/3 w-[500px] h-[500px] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(220,20,60,0.08)_0%,transparent_70%)]" />
-          <div className="absolute bottom-0 right-1/4 w-[400px] h-[300px] bg-[radial-gradient(ellipse_at_center,rgba(220,20,60,0.06)_0%,transparent_70%)]" />
+          <div className="absolute -top-40 left-1/3 w-[500px] h-[500px] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(155,48,255,0.10)_0%,transparent_70%)]" />
+          <div className="absolute bottom-0 right-1/4 w-[400px] h-[300px] bg-[radial-gradient(ellipse_at_center,rgba(0,229,255,0.07)_0%,transparent_70%)]" />
         </div>
 
         {/* Chat header */}
         <header className="border-b border-white/5 bg-[#080808]/90 backdrop-blur-md px-6 py-3.5 shrink-0 z-10 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-6 h-6 rounded-md overflow-hidden border border-primary/30 shrink-0 shadow-[0_0_8px_rgba(220,20,60,0.2)]">
+            <div className="w-6 h-6 rounded-md overflow-hidden border border-primary/30 shrink-0 shadow-[0_0_8px_rgba(255,28,139,0.2)]">
               <img src={fightNightImg} alt="Fight Night Champion" className="w-full h-full object-cover" />
             </div>
             <div>
@@ -211,7 +211,7 @@ export default function CoachPage() {
             {messages.map((msg) => (
               <div key={msg.id} className={`flex gap-3.5 ${msg.role === "user" ? "flex-row-reverse" : ""}`}>
                 {msg.role === "ai" && (
-                  <div className="w-8 h-8 rounded-full overflow-hidden border border-primary/30 shadow-[0_0_12px_rgba(220,20,60,0.2)] shrink-0 mt-0.5">
+                  <div className="w-8 h-8 rounded-full overflow-hidden border border-primary/30 shadow-[0_0_12px_rgba(255,28,139,0.2)] shrink-0 mt-0.5">
                     <img src={logoImg} alt="Metabuffed" className="w-full h-full object-cover" />
                   </div>
                 )}
@@ -275,7 +275,7 @@ export default function CoachPage() {
 
         <div className="flex-1 overflow-y-auto p-3 space-y-2">
           {/* Fight Night — Active */}
-          <div className="relative rounded-xl overflow-hidden ring-2 ring-primary shadow-[0_0_18px_rgba(220,20,60,0.2)] cursor-default">
+          <div className="relative rounded-xl overflow-hidden ring-2 ring-primary shadow-[0_0_18px_rgba(255,28,139,0.2)] cursor-default">
             <div className="h-24">
               <img src={ACTIVE_GAME.img} alt={ACTIVE_GAME.fullName} className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
