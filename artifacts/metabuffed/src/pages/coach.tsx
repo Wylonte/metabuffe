@@ -42,18 +42,26 @@ const COMING_SOON = [
 
 const QUICK_QUESTIONS: Record<GameId, string[]> = {
   "fight-night": [
-    "What's the best way to set up the liver shot in Fight Night?",
-    "How do I manage stamina in the later rounds?",
-    "What's the most effective jab setup for Fight Night Champion?",
-    "How do I defend against a pressure fighter?",
-    "When should I use the haymaker vs regular punches?",
-    "How do I set up a knockdown without getting countered?",
-    "What's the best combo against a counter-puncher?",
-    "How do I win a fight I'm losing on points?",
-    "How do I recover after getting rocked?",
-    "What's the best way to work the body in Fight Night?",
-    "When should I clinch in Fight Night Champion?",
-    "How do I break through a high guard?",
+    "How do I beat the Money Team block?",
+    "How do I actually do the Money Team block?",
+    "Why do I keep losing rounds after landing more punches?",
+    "Should I hold block or tap block?",
+    "Why is the power straight so broken?",
+    "When should I use the sidestep uppercut?",
+    "What is push straight spam and how do I beat it?",
+    "Why do elite players barely throw combinations?",
+    "What is the best OWC style?",
+    "Why are fighters without power punches at a disadvantage?",
+    "What is rhythm manipulation?",
+    "What is the Fear Loop?",
+    "How do I preserve stamina for later rounds?",
+    "How do I know when my opponent is tired?",
+    "What is controlled cheese?",
+    "What is scorecard manipulation?",
+    "How do I beat pressure fighters?",
+    "How do I beat body spam?",
+    "How do I know when my opponent is mentally breaking?",
+    "What separates top players from world-class players?",
   ],
   ufc6: [
     "What's the best counter to a southpaw in UFC 6?",
@@ -73,30 +81,46 @@ const QUICK_QUESTIONS: Record<GameId, string[]> = {
 
 const AI_RESPONSES: Record<GameId, Record<string, string>> = {
   "fight-night": {
-    "What's the best way to set up the liver shot in Fight Night?":
-      "The liver shot in Fight Night Champion is a fight-ender, but it has to be earned. The setup is the jab-jab to the body — two fast jabs force their guard to drop reflexively, and that half-second window is your entry point for the right hook to the liver. The most reliable method is mixing in single body jabs early in the fight to condition their defensive reflex, then switching levels mid-combination when they expect head shots. By round 4 or 5, if you've invested in body work, a single clean liver shot will change the fight.",
-    "How do I manage stamina in the later rounds?":
-      "Stamina management in Fight Night Champion starts in round 1. Heavy single punches drain your bar faster than tight 2-3 shot combinations, so resist the urge to wing haymakers early. Between exchanges, use your footwork to circle out rather than standing flat-footed and absorbing punishment — taking shots eats stamina as much as throwing them. In the later rounds, shorten your combinations to two punches maximum and lean on your jab to maintain output without burning reserves. A fighter with 60% stamina in round 10 is more dangerous than one who threw everything in round 3.",
-    "What's the most effective jab setup for Fight Night Champion?":
-      "The double jab is your most important weapon — it's a range finder, a stamina-efficient offensive tool, and a defensive disruption all in one. Mix the lead jab (snapping out and back quickly) with the power jab (pushing through the target) to create different timing reads for your opponent. The jab to the body followed by the jab upstairs shifts their guard and creates the openings for your power shots. Fights in Fight Night Champion are often won by whoever controls distance better, and the jab is how you own that range.",
-    "How do I defend against a pressure fighter?":
-      "Pressure fighters want to pin you on the ropes and work at a pace you can't match — take that option away. Lateral movement is your primary tool; circling away from their power hand breaks their rhythm and forces them to reset. Use the check hook as they close distance — it's the most efficient counter against an opponent walking straight at you. If you end up on the ropes, tie up immediately with the clinch to reset the position, then use your footwork to get to open space. Counterpunching from the outside rewards your patience and punishes their aggression.",
-    "When should I use the haymaker vs regular punches?":
-      "The haymaker is a high-risk finisher, not a regular offensive tool. Use it exclusively as a follow-up after you've stunned your opponent — a rocked fighter's guard collapses and their recovery is slowed, making them a clean target for a haymaker to put them down. Throwing haymakers fresh gives your opponent a free counter window; the telegraphing animation is long enough for an alert opponent to step outside and land their own shot. Save the haymaker for moments when you've already done the damage work.",
-    "How do I set up a knockdown without getting countered?":
-      "Knockdowns come from combinations that accumulate damage, not from single power shots. The right cross down the middle after a successful jab is the highest-percentage power shot because the jab creates both the range and the guard disruption you need. Work the body first to bring the guard down, then unload upstairs. Timing is everything — throw your power shot when your opponent is mid-combination and committed, not when they're on the outside resetting. A counter-puncher who tries to land the single big shot consistently gets picked apart before they can land it.",
-    "What's the best combo against a counter-puncher?":
-      "Counter-punchers live off your aggression and rhythm, so you have to make your attacks unpredictable. Use varied pace — a fast jab-cross followed by a slow jab-jab throws off their timing entirely. Feints are extremely effective: a level change feint or a shoulder dip without throwing forces them to commit their counter, leaving them open. The overhand right is a strong weapon because its arc comes from outside their sightline, making it harder to time. Short combinations at unexpected rhythms beat the counter-puncher more than power does.",
-    "How do I win a fight I'm losing on points?":
-      "When you're behind on points, urgency doesn't mean recklessness — it means controlled aggression. Start going to the body more heavily to slow them down and compromise their stamina. A tired opponent in the championship rounds makes mistakes that a fresh one doesn't. Look for the momentum shift round: pick one round to take fully, establishing dominance clearly rather than trading back and forth. A knockdown cancels accumulated point deficits, so protect your power and look for the opening rather than swinging with everything. Judges reward controlled volume over wild exchanges.",
-    "How do I recover after getting rocked?":
-      "When rocked in Fight Night Champion, your first priority is surviving the next 10–15 seconds. Clinch immediately — tying up removes your opponent's ability to throw full power shots and gives your stamina and health bars a chance to recover. If the clinch isn't available, move to the outside and don't stand flat-footed taking punishment. Your punch output should go to near zero while rocked; a missed swing drains stamina and leaves you open. Once your vision clears, re-establish your jab before throwing anything heavier.",
-    "What's the best way to work the body in Fight Night?":
-      "Body work in Fight Night Champion is a long-term investment. Start throwing single body shots in round 1 to establish the threat and lower their guard progressively. The left hook to the body is your highest-damage body weapon and sets up the right hand upstairs beautifully. Right jabs to the body followed by the right hand to the head is a simple, reliable pattern that creates confusion in their guard. By the mid-rounds, opponents who've absorbed 20+ clean body shots start defending differently — that shift is your signal to increase the pace of body attacks.",
-    "When should I clinch in Fight Night Champion?":
-      "The clinch is your defensive tool for three situations: when you're hurt and need recovery time, when a pressure fighter has you pinned and you need to reset position, and when you're ahead on points and want to eat time in a close round. Don't clinch when you're dominating — it lets your opponent recover and disrupts your own momentum. Use it strategically as a pace-setter. In Fight Night Champion the clinch also creates inside position for short body shots before the referee breaks you up, so it has modest offensive value when used aggressively.",
-    "How do I break through a high guard?":
-      "A high guard is broken with body shots and feints, not with more head shots. Triple jabs to the body force even the tightest guard to shift downward to protect the ribs, creating the opening you need. The uppercut is particularly effective against a fighter in high guard position because it travels vertically through the gap between their forearms. Feinting the body shot and coming upstairs is a reliable pattern once you've conditioned them to drop for body attacks. Patience matters — don't try to punch through the guard; make them move it.",
+    "How do I beat the Money Team block?":
+      "The biggest mistake players make is attacking the guard instead of attacking the rhythm.\n\nThe Money Team system is not just holding block. Good players are tapping block, releasing, weaving slightly, resetting, and waiting for your commitment. The moment you overextend, they fire the power straight, sidestep uppercut, or reset behind the shell again.\n\nTo beat it, slow the fight down. Feint entries. Step into range without throwing. Make them refresh block early. Attack the body during the reset. Do not throw long emotional combos at the shell. That is exactly what they want.\n\nYou beat Money Team by making them uncomfortable first.",
+    "How do I actually do the Money Team block?":
+      "The basic rhythm is: block tap, slight weave, release, reset, power straight.\n\nYou are not supposed to hold block like a statue. You tap block, refresh guard, move slightly off centerline, then reset into offense.\n\nThe goal is to stay protected while always being ready to fire back. The power straight is usually the main weapon because it interrupts pressure, scores well, and creates space.\n\nThe shell works because it makes opponents impatient.",
+    "Why do I keep losing rounds after landing more punches?":
+      "Fight Night Champion does not score like real boxing.\n\nThe game rewards impact moments, power shots, clean counters, stuns, and momentum swings. You can outland someone badly with jabs and light punches, but if they land two or three clean power straights late, the game may give them the round.\n\nThat is why elite players do not only chase punch totals. They chase meaningful moments.\n\nIf the round is close, win the final 20 to 30 seconds with clean power offense or counters.",
+    "Should I hold block or tap block?":
+      "Tap block.\n\nHolding block forever makes you predictable and lets your guard get broken down. Elite defense is rhythmic. Tap, release, move, reset.\n\nYou want your defense to feel alive. The goal is not to block every punch. The goal is to avoid clean impact, preserve stamina, stay balanced, and be ready to counter.\n\nStatic defense eventually dies.",
+    "Why is the power straight so broken?":
+      "Because it fits everything the game rewards.\n\nIt is fast, direct, scores hard, interrupts offense, and creates visible impact. When it lands while someone is stepping in or recovering from a punch, it can completely swing a round.\n\nThe best players do not just spam it randomly. They wait until you commit, then throw it through your recovery.\n\nThe power straight is dangerous because of timing, not just power.",
+    "When should I use the sidestep uppercut?":
+      "Use it when your opponent enters predictably.\n\nIf they keep walking straight in, throwing the same jab straight, or pressuring on the same rhythm, a small sidestep breaks their alignment. The uppercut then lands from an awkward angle.\n\nDo not throw sidestep uppercuts just because you want a stun. Throw them when your opponent gives you the entry pattern.\n\nRandom sidestep uppercuts are spam. Timed sidestep uppercuts are meta.",
+    "What is push straight spam and how do I beat it?":
+      "Push straight spam works because people stand directly where the straight wants their head to be.\n\nTo beat it, stop living on the centerline. Take small angles. Make the straight miss slightly. Do not chase forward emotionally. Bait the straight, step outside, then counter during the recovery.\n\nThe answer is not simply blocking. The answer is positioning.\n\nStraight spam becomes weaker when you stop giving it a straight line.",
+    "Why do elite players barely throw combinations?":
+      "Because every extra punch adds risk.\n\nAt high level, a clean two-punch sequence and reset is often better than a six-punch combo that gets countered. Fight Night rewards efficiency, not just volume.\n\nElite players are not trying to look busy. They are trying to land what matters, avoid damage, and conserve stamina.\n\nThe best offense is often short, sharp, and safe.",
+    "What is the best OWC style?":
+      "Brawler and Inside Fighter are usually the safest meta choices.\n\nThey give you power, toughness, pressure tools, and better ability to survive ugly exchanges. Other styles can win, but they usually require cleaner execution.\n\nOutside Fighter, Counter Puncher, and Boxer Puncher can be fun, but you are often giving up power and toughness in a game that heavily rewards impact.\n\nIf two players are equal skill, the stronger meta build usually has the advantage.",
+    "Why are fighters without power punches at a disadvantage?":
+      "Because Fight Night Champion rewards impact.\n\nA speed fighter can land more shots and still lose if those shots do not create visible damage or momentum. A power puncher can steal a round with fewer punches because the engine values the heavier moments.\n\nIf your fighter lacks power, you must win rounds clearly. Do not trade. Do not let rounds stay close. Use the jab for positioning, move well, attack the body, and avoid giving up big moments.\n\nTechnical fighters must be cleaner because the scorecards do not always protect them.",
+    "What is rhythm manipulation?":
+      "Rhythm manipulation is making your opponent fight on your timing.\n\nIf someone always throws jab straight at the same speed, you can step back on the jab and counter the straight. If they always block after your jab, delay the second punch and catch them releasing guard.\n\nElite players do not just react. They study rhythm, break rhythm, and force reactions.\n\nOnce you control timing, you control the fight.",
+    "What is the Fear Loop?":
+      "The Fear Loop starts when your opponent stops trusting their offense.\n\nThey throw, miss, and get countered. Then they hesitate. That hesitation makes them slower. Slower offense becomes easier to read. Then they get countered again.\n\nThat cycle breaks confidence.\n\nElite defenders make opponents afraid to throw. Once a player is scared to attack, they are no longer fighting freely.",
+    "How do I preserve stamina for later rounds?":
+      "Stop wasting movement early.\n\nMost stamina problems begin in rounds one through four. Missed power punches, unnecessary stepping, emotional combinations, and chasing all drain you.\n\nElite players make opponents miss, throw short combos, attack the body, and reset calmly.\n\nIf you are exhausted in round eight, the mistake probably happened in round two.",
+    "How do I know when my opponent is tired?":
+      "Watch their reactions.\n\nTired players recover slower, block late, move too much, stop throwing combinations, miss wider, and panic when pressured. Their counters come late and their footwork gets sloppy.\n\nWhen you see fatigue, do not rush. Make them work. Touch the body. Force them to reset. Let their stamina collapse before you force the finish.",
+    "What is controlled cheese?":
+      "Controlled cheese is using strong mechanics intelligently instead of spamming blindly.\n\nPower straight after a read is controlled cheese. Sidestep uppercut after predictable pressure is controlled cheese. Money Team block into reset straight is controlled cheese.\n\nMindless spam becomes readable. Controlled cheese stays dangerous because it has timing and purpose.\n\nThe best players weaponize the meta without becoming predictable.",
+    "What is scorecard manipulation?":
+      "Scorecard manipulation means understanding what the judges actually reward.\n\nFight Night often values impact, counters, power shots, and late momentum more than clean volume. That means elite players try to land the biggest shots near the end of close rounds.\n\nYou do not always need to dominate the whole round. Sometimes you need to win the moments the game remembers.\n\nThat is why final 20 seconds matter so much.",
+    "How do I beat pressure fighters?":
+      "Do not run in straight lines.\n\nPressure fighters want you backing up predictably. Instead, take small angles, pivot out, jab to interrupt, and make them reset their feet.\n\nAttack the body when they enter. Do not throw long combos unless they are tired or out of position.\n\nThe goal is to make pressure expensive. If they spend stamina every time they come forward, the fight turns in your favor later.",
+    "How do I beat body spam?":
+      "Body spam only works when you allow close range for free.\n\nControl distance first. Do not stand chest to chest unless you are ready to counter. Short uppercuts, step backs, pivots, and straights can punish body entries.\n\nIf they throw body combinations, they are exposed upstairs and through the middle. Time the uppercut or straight as they enter.\n\nBody spam is dangerous, but it needs range. Deny the range.",
+    "How do I know when my opponent is mentally breaking?":
+      "Look for emotional decisions.\n\nThey stop jabbing. They chase. They throw power shots first. They move too much. They repeat the same punch. They abandon their plan.\n\nWhen you see that, stay calm. Do not rush the finish. Emotional players usually create their own opening.\n\nYour job is to stay disciplined while they unravel.",
+    "What separates top players from world-class players?":
+      "Top players have mechanics.\n\nWorld-class players have reads.\n\nA world-class player studies your habits within the first two rounds. They learn your favorite punch, your panic option, your escape direction, when you block, when you throw, and when you get emotional.\n\nAfter that, they are not guessing anymore. They are predicting.\n\nThe highest level of Fight Night Champion is not hand speed. It is seeing the fight before it happens.",
   },
   ufc6: {
     "What's the best counter to a southpaw in UFC 6?":
@@ -293,7 +317,7 @@ export default function CoachPage() {
                 )}
                 <div className={`max-w-[82%] ${msg.role === "user" ? "bg-zinc-900 text-white rounded-2xl rounded-tr-sm p-4 text-sm leading-relaxed" : ""}`}>
                   {msg.role === "ai" && (
-                    <div className="bg-[#0f0f0f] border border-white/5 border-l-2 border-l-primary p-5 rounded-r-xl text-zinc-300 text-sm leading-relaxed shadow-lg">
+                    <div className="bg-[#0f0f0f] border border-white/5 border-l-2 border-l-primary p-5 rounded-r-xl text-zinc-300 text-sm leading-relaxed shadow-lg whitespace-pre-line">
                       {msg.content}
                     </div>
                   )}
