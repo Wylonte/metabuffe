@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
@@ -67,58 +67,62 @@ export default function Home() {
       <main>
         {/* HERO SECTION */}
         <section className="relative min-h-[100dvh] flex items-center pt-20 overflow-hidden">
-          {/* Neural Mesh Background */}
-          <div className="absolute inset-0 bg-black" />
-          <NeuralMesh />
-          <div className="absolute inset-0 bg-[linear-gradient(to_bottom,black_0%,transparent_25%,transparent_75%,black_100%)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,black_100%)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_75%_at_28%_50%,rgba(0,0,0,0.45)_0%,transparent_100%)]" />
+          {/* Full-bleed video background */}
+          <div className="absolute inset-0 bg-black z-0" />
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover z-[1]"
+            src="/api/video/trailer"
+          />
+
+          {/* Readability overlays — dark on left where text lives */}
+          <div className="absolute inset-0 z-[2] bg-black/40" />
+          <div className="absolute inset-0 z-[3] bg-[linear-gradient(90deg,rgba(0,0,0,0.88)_0%,rgba(0,0,0,0.55)_45%,rgba(0,0,0,0.1)_100%)]" />
+          <div className="absolute inset-0 z-[3] bg-[linear-gradient(to_bottom,black_0%,transparent_12%,transparent_86%,black_100%)]" />
+
+          {/* AI coaching canvas telestration + labels */}
+          <VideoAnalysisCard />
 
           <div className="container mx-auto px-6 relative z-10">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-              {/* Left Content */}
-              <motion.div 
+            {/* Left text content only — video fills the right */}
+            <div className="max-w-xl">
+              <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
-                className="max-w-2xl"
               >
                 <h1 className="text-[clamp(40px,4.5vw,64px)] font-black leading-[1.05] tracking-tighter mb-6 uppercase">
                   <span className="text-white block drop-shadow-lg">Built for</span>
                   <span className="text-white block drop-shadow-lg">Competitive</span>
                   <span className="text-zinc-500 block mt-1">Players</span>
                 </h1>
-                
+
                 <p className="text-xl text-zinc-400 mb-10 leading-relaxed max-w-lg font-medium">
                   Metabuffed breaks down your gameplay, exposes mistakes, and helps you improve through real competitive analysis.
                 </p>
-                
+
                 <div className="flex flex-col sm:flex-row gap-5">
-                  <Button size="lg" className="bg-[linear-gradient(90deg,#FF1C8B_0%,#FF7A00_40%,#9B30FF_70%,#00E5FF_100%)] text-white hover:opacity-90 transition-all duration-300 font-bold text-sm h-14 px-10 uppercase tracking-widest w-full sm:w-auto shadow-[0_0_22px_rgba(255,28,139,0.5),0_0_44px_rgba(0,229,255,0.14)] border-0" data-testid="btn-hero-upload" onClick={() => setLocation('/upload')}>
+                  <Button
+                    size="lg"
+                    className="bg-[linear-gradient(90deg,#FF1C8B_0%,#FF7A00_40%,#9B30FF_70%,#00E5FF_100%)] text-white hover:opacity-90 transition-all duration-300 font-bold text-sm h-14 px-10 uppercase tracking-widest w-full sm:w-auto shadow-[0_0_22px_rgba(255,28,139,0.5),0_0_44px_rgba(0,229,255,0.14)] border-0"
+                    data-testid="btn-hero-upload"
+                    onClick={() => setLocation('/upload')}
+                  >
                     Upload Gameplay
                   </Button>
-                  <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 transition-all duration-300 font-bold text-sm h-14 px-10 uppercase tracking-widest backdrop-blur-sm" data-testid="btn-hero-explore" onClick={() => {
-                    document.getElementById('games')?.scrollIntoView({ behavior: 'smooth' });
-                  }}>
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="border-white/20 text-white hover:bg-white/10 transition-all duration-300 font-bold text-sm h-14 px-10 uppercase tracking-widest backdrop-blur-sm"
+                    data-testid="btn-hero-explore"
+                    onClick={() => { document.getElementById('games')?.scrollIntoView({ behavior: 'smooth' }); }}
+                  >
                     Explore Games
                   </Button>
                 </div>
-              </motion.div>
-
-              {/* Right Content - Live AI Coaching Preview */}
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1, y: [0, -8, 0] }}
-                transition={{ 
-                  opacity: { duration: 1 },
-                  scale: { duration: 1 },
-                  y: { duration: 5, repeat: Infinity, ease: "easeInOut" }
-                }}
-                className="relative lg:ml-auto w-full max-w-lg perspective-1000"
-              >
-                <div className="absolute -inset-4 bg-[rgba(155,48,255,0.06)] blur-3xl rounded-full" />
-                <div className="absolute -inset-6 bg-[rgba(0,229,255,0.04)] blur-3xl rounded-full" />
-                <VideoAnalysisCard />
               </motion.div>
             </div>
           </div>
