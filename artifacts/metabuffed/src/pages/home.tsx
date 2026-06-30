@@ -578,8 +578,20 @@ export default function Home() {
             <div>
               <h4 className="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-5 font-bold">Games</h4>
               <ul className="space-y-3">
-                {["Fight Night Champion", "UFC 6", "NBA 2K26", "Madden 26", "GTA 6 (Coming Soon)", "Undisputed 2 (Coming Soon)"].map(item => (
-                  <li key={item}><a href="#games" className="text-sm text-zinc-400 hover:text-white transition-colors">{item}</a></li>
+                {[
+                  { name: "Fight Night Champion", active: true },
+                  { name: "UFC 6", active: true },
+                  { name: "NBA 2K26", active: false },
+                  { name: "Madden 26", active: false },
+                  { name: "GTA 6", active: false },
+                  { name: "Undisputed 2", active: false },
+                ].map(({ name, active }) => (
+                  <li key={name} className="flex items-center gap-2">
+                    <a href="#games" className={`text-sm transition-colors ${active ? "text-zinc-400 hover:text-white" : "text-zinc-600 cursor-default pointer-events-none"}`}>{name}</a>
+                    {!active && (
+                      <span className="text-[9px] font-mono text-zinc-600 uppercase tracking-widest border border-zinc-800 rounded px-1.5 py-0.5">Coming Soon</span>
+                    )}
+                  </li>
                 ))}
               </ul>
             </div>
