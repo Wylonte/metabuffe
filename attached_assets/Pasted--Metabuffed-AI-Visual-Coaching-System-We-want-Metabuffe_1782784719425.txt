@@ -1,0 +1,177 @@
+# Metabuffed AI Visual Coaching System
+
+We want Metabuffed to feel like an elite coach sitting beside the player reviewing film. The AI should watch uploaded gameplay and automatically generate intelligent visual coaching based entirely on what happens in the video.
+
+The system should never use generic advice or random overlays.
+
+Instead, it should detect important moments, pause or slow the footage, draw broadcast-style telestration, and explain exactly why something succeeded or failed.
+
+Use arrows, circles, highlighted players, shaded zones, punch trajectories, movement paths, and short coaching labels. Every annotation should appear only when it is relevant, then disappear naturally.
+
+The coaching should feel similar to ESPN, NFL Films, NBA film study, or a professional boxing coach breaking down tape.
+
+---
+
+## Madden Breakdown
+
+Detect the play before and after the snap.
+
+Recognize offensive formations and defensive coverages.
+
+If the defense is playing Cover 2 Man, Cover 3, Cover 4, Blitz, or another recognizable coverage, visually identify it on the field.
+
+Draw defensive zones over the correct defenders.
+
+Draw each receiver's route.
+
+Highlight the quarterback's primary read.
+
+If another receiver becomes open during the play, glow that receiver and draw an arrow from the quarterback.
+
+Display labels such as:
+
+Open Receiver
+
+Missed Read
+
+Coverage Breakdown
+
+Pressure Incoming
+
+Escape Lane
+
+Throw Earlier
+
+Risky Throw
+
+If the quarterback throws an interception or incompletion, explain exactly what defensive rotation or coverage caused the mistake.
+
+If the play succeeds, explain why the decision worked.
+
+---
+
+## NBA 2K Breakdown
+
+The AI must recognize the context of the gameplay.
+
+If the player is in a practice gym shooting alone, analyze shooting mechanics instead of game strategy.
+
+Track:
+
+Release timing
+
+Shot arc
+
+Release point
+
+Shot consistency
+
+Green release timing
+
+Make percentage
+
+Display labels such as:
+
+Excellent Release
+
+Slightly Early
+
+Slightly Late
+
+Ideal Arc
+
+Consistent Mechanics
+
+Excellent Rhythm
+
+If the gameplay is a live game instead, switch automatically into basketball film-study mode.
+
+Analyze:
+
+Spacing
+
+Passing lanes
+
+Driving lanes
+
+Help defense
+
+Defensive rotations
+
+Pick-and-roll coverage
+
+Fast breaks
+
+Shot quality
+
+Highlight open teammates, missed passing opportunities, and defensive mistakes based entirely on what occurs during the possession.
+
+---
+
+## Fight Night Champion Breakdown
+
+Track both fighters continuously.
+
+Recognize offensive and defensive exchanges.
+
+When the opponent throws a punch, draw the punch trajectory.
+
+If a counter opportunity exists, highlight the opening before the player throws.
+
+Display:
+
+Counter Opportunity
+
+When the counter lands, freeze briefly.
+
+Circle the impact location.
+
+Display:
+
+Counter Landed
+
+Successful Timing
+
+Excellent Distance
+
+Immediately continue analyzing the exchange.
+
+If the player slips, ducks, blocks, pulls, or makes the opponent miss, draw the defensive movement path and display:
+
+Successful Slip
+
+Successful Block
+
+Pull Counter Setup
+
+Punch Avoided
+
+Excellent Defense
+
+If the player wins the exchange by landing a counter and successfully defending the opponent's follow-up attack, summarize the sequence visually.
+
+Example:
+
+Opponent Attacked
+
+Counter Opportunity Detected
+
+Counter Successfully Landed
+
+Follow-up Attack Defended
+
+Exchange Won
+
+The AI should explain why the player won the exchange instead of simply stating what happened.
+
+---
+
+## Overall Goal
+
+Every coaching overlay must be generated dynamically from the uploaded gameplay.
+
+The AI should understand the context of the video first, then provide visual coaching that matches that exact situation.
+
+The player should feel like an elite coach paused the film, drew directly on the screen, and explained every important decision in real time.
+
+The experience should be clean, premium, cinematic, and worthy of a next-generation AI coaching platform.

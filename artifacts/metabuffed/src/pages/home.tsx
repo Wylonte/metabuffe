@@ -75,7 +75,7 @@ export default function Home() {
             loop
             playsInline
             className="absolute inset-0 w-full h-full object-cover z-[1]"
-            src="/api/video/trailer"
+            src="/trailer.mp4"
           />
 
           {/* Readability overlays — dark on left where text lives */}
