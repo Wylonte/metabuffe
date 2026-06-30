@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { NeuralMesh } from "@/components/NeuralMesh";
+import { VideoAnalysisCard } from "@/components/VideoAnalysisCard";
 import fightNightImg from "@assets/f8jFkfr_1778467206855.jpg";
 import maddenImg from "@assets/G6IWhecWMAkaOiu_1778447744264.jpg";
 import gta6Img from "@assets/GTA6_1778447744267.webp";
@@ -104,61 +105,20 @@ export default function Home() {
                 </div>
               </motion.div>
 
-              {/* Right Content - Floating HUD */}
+              {/* Right Content - Live AI Coaching Preview */}
               <motion.div 
                 initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1, y: [0, -10, 0] }}
+                animate={{ opacity: 1, scale: 1, y: [0, -8, 0] }}
                 transition={{ 
                   opacity: { duration: 1 },
                   scale: { duration: 1 },
-                  y: { duration: 4, repeat: Infinity, ease: "easeInOut" }
+                  y: { duration: 5, repeat: Infinity, ease: "easeInOut" }
                 }}
-                className="relative lg:ml-auto w-full max-w-md perspective-1000"
+                className="relative lg:ml-auto w-full max-w-lg perspective-1000"
               >
-                <div className="absolute inset-0 bg-primary/5 blur-3xl rounded-full" />
-                <div className="absolute inset-0 bg-[rgba(0,229,255,0.03)] blur-3xl rounded-full scale-110" />
-                <div className="relative bg-[#0a0a0a]/90 backdrop-blur-xl border border-primary/20 rounded-xl overflow-hidden neon-card-glow">
-                  {/* Top Bar */}
-                  <div className="flex items-center justify-between px-6 py-4 border-b border-white/5 bg-white/5">
-                    <div className="flex items-center gap-3">
-                      <div className="w-2 h-2 rounded-full bg-primary animate-pulse shadow-[0_0_8px_rgba(0,229,255,0.6)]" />
-                      <span className="text-xs font-mono text-zinc-300 tracking-wider">ANALYSIS ACTIVE</span>
-                    </div>
-                    <span className="text-xs font-mono text-zinc-500">SYS.ON</span>
-                  </div>
-
-                  <div className="p-6">
-                    <h3 className="text-2xl font-black text-white uppercase tracking-tight mb-6">Fight Night Champion</h3>
-                    
-                    {/* Simulated Waveform */}
-                    <div className="flex items-end gap-1 h-12 mb-8">
-                      {Array.from({ length: 24 }).map((_, i) => (
-                        <motion.div 
-                          key={i}
-                          animate={{ height: ['20%', `${Math.random() * 80 + 20}%`, '20%'] }}
-                          transition={{ duration: 1.5 + Math.random(), repeat: Infinity, ease: "easeInOut" }}
-                          className="flex-1 bg-primary/40 rounded-t-sm"
-                        />
-                      ))}
-                    </div>
-
-                    <div className="bg-primary/10 border border-primary/20 rounded-lg p-4 mb-6">
-                      <p className="text-xs text-primary font-mono mb-2 uppercase">Key Finding</p>
-                      <p className="text-sm text-white font-medium">Stamina collapsed after aggressive exchanges.</p>
-                    </div>
-
-                    <div className="flex justify-between items-end pt-4 border-t border-white/5">
-                      <div>
-                        <p className="text-[10px] text-zinc-500 uppercase tracking-widest mb-1">Archetype</p>
-                        <p className="text-sm text-white font-bold uppercase">Pressure Counter Fighter</p>
-                      </div>
-                      <div className="text-right">
-                        <p className="text-[10px] text-zinc-500 uppercase tracking-widest mb-1">Grade</p>
-                        <p className="text-2xl text-primary font-black leading-none">B+</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <div className="absolute -inset-4 bg-[rgba(155,48,255,0.06)] blur-3xl rounded-full" />
+                <div className="absolute -inset-6 bg-[rgba(0,229,255,0.04)] blur-3xl rounded-full" />
+                <VideoAnalysisCard />
               </motion.div>
             </div>
           </div>
