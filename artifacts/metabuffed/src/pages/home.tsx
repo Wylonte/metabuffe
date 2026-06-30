@@ -12,7 +12,8 @@ import {
   Twitter,
   Instagram,
   Youtube,
-  Facebook
+  Facebook,
+  Lock
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { NeuralMesh } from "@/components/NeuralMesh";
@@ -155,7 +156,7 @@ export default function Home() {
                 </div>
               </motion.div>
 
-              {/* NBA 2K26 */}
+              {/* NBA 2K26 — Locked */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -164,18 +165,20 @@ export default function Home() {
                 className="relative h-[240px] rounded-2xl overflow-hidden bg-zinc-900/50 border border-white/5"
                 data-testid="game-tile-nba"
               >
-                <img src={nba2kImg} alt="NBA 2K26" className="absolute inset-0 w-full h-full object-cover object-[30%_top] opacity-60" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/20" />
-                <div className="absolute top-6 right-6">
-                  <Badge variant="outline" className="bg-black/60 text-white border-white/20 uppercase tracking-widest text-[10px] px-3 py-1 font-bold backdrop-blur-md">Coming Soon</Badge>
+                <img src={nba2kImg} alt="NBA 2K26" className="absolute inset-0 w-full h-full object-cover object-[30%_top] opacity-40" />
+                <div className="absolute inset-0 bg-black/60" />
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
+                  <div className="bg-black/70 rounded-full p-3 border border-white/10">
+                    <Lock className="w-5 h-5 text-zinc-400" />
+                  </div>
+                  <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">Coming Soon</span>
                 </div>
                 <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                  <h3 className="text-2xl font-black text-white uppercase tracking-tight mb-1">NBA 2K26</h3>
-                  <p className="text-xs text-zinc-400 font-medium uppercase tracking-wider">Spacing. Rotations. Shot Quality.</p>
+                  <h3 className="text-2xl font-black text-zinc-500 uppercase tracking-tight mb-1">NBA 2K26</h3>
                 </div>
               </motion.div>
 
-              {/* Madden 26 */}
+              {/* Madden 26 — Locked */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -184,21 +187,23 @@ export default function Home() {
                 className="relative h-[240px] rounded-2xl overflow-hidden bg-zinc-900/50 border border-white/5"
                 data-testid="game-tile-madden"
               >
-                <img src={maddenImg} alt="Madden 26" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/20" />
-                <div className="absolute top-6 right-6">
-                  <Badge variant="outline" className="bg-black/60 text-white border-white/20 uppercase tracking-widest text-[10px] px-3 py-1 font-bold backdrop-blur-md">Coming Soon</Badge>
+                <img src={maddenImg} alt="Madden 26" className="absolute inset-0 w-full h-full object-cover object-center opacity-40" />
+                <div className="absolute inset-0 bg-black/60" />
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
+                  <div className="bg-black/70 rounded-full p-3 border border-white/10">
+                    <Lock className="w-5 h-5 text-zinc-400" />
+                  </div>
+                  <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">Coming Soon</span>
                 </div>
                 <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                  <h3 className="text-2xl font-black text-white uppercase tracking-tight mb-1">Madden 26</h3>
-                  <p className="text-xs text-zinc-400 font-medium uppercase tracking-wider">Coverage Reads. Route Abuse. Playcalling.</p>
+                  <h3 className="text-2xl font-black text-zinc-500 uppercase tracking-tight mb-1">Madden 26</h3>
                 </div>
               </motion.div>
             </div>
 
             {/* Coming Soon Row */}
             <div className="grid lg:grid-cols-3 gap-6">
-              {/* GTA 6 */}
+              {/* GTA 6 — Locked */}
               <motion.div 
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -206,18 +211,20 @@ export default function Home() {
                 className="relative h-[240px] rounded-2xl overflow-hidden bg-zinc-900/50 border border-white/5"
                 data-testid="game-tile-gta6"
               >
-                <img src={gta6Img} alt="GTA 6" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/20" />
-                <div className="absolute top-6 right-6">
-                  <Badge variant="outline" className="bg-black/60 text-white border-white/20 uppercase tracking-widest text-[10px] px-3 py-1 font-bold backdrop-blur-md">Coming Soon</Badge>
+                <img src={gta6Img} alt="GTA 6" className="absolute inset-0 w-full h-full object-cover object-center opacity-40" />
+                <div className="absolute inset-0 bg-black/60" />
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
+                  <div className="bg-black/70 rounded-full p-3 border border-white/10">
+                    <Lock className="w-5 h-5 text-zinc-400" />
+                  </div>
+                  <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">Coming Soon</span>
                 </div>
                 <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                  <h3 className="text-2xl font-black text-white uppercase tracking-tight mb-1">GTA 6</h3>
-                  <p className="text-xs text-zinc-400 font-medium uppercase tracking-wider">Open-World Analysis</p>
+                  <h3 className="text-2xl font-black text-zinc-500 uppercase tracking-tight mb-1">GTA 6</h3>
                 </div>
               </motion.div>
 
-              {/* Undisputed 2 */}
+              {/* Undisputed 2 — Locked */}
               <motion.div 
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -226,31 +233,31 @@ export default function Home() {
                 className="relative h-[240px] rounded-2xl overflow-hidden bg-zinc-900/50 border border-white/5"
                 data-testid="game-tile-undisputed2"
               >
-                <img src={undisputedImg} alt="Undisputed 2" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/20" />
-                <div className="absolute top-6 right-6">
-                  <Badge variant="outline" className="bg-black/60 text-white border-white/20 uppercase tracking-widest text-[10px] px-3 py-1 font-bold backdrop-blur-md">Coming Soon</Badge>
+                <img src={undisputedImg} alt="Undisputed 2" className="absolute inset-0 w-full h-full object-cover object-center opacity-40" />
+                <div className="absolute inset-0 bg-black/60" />
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
+                  <div className="bg-black/70 rounded-full p-3 border border-white/10">
+                    <Lock className="w-5 h-5 text-zinc-400" />
+                  </div>
+                  <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">Coming Soon</span>
                 </div>
                 <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                  <h3 className="text-2xl font-black text-white uppercase tracking-tight mb-1">Undisputed 2</h3>
-                  <p className="text-xs text-zinc-400 font-medium uppercase tracking-wider">Boxing. Combos. Fight IQ.</p>
+                  <h3 className="text-2xl font-black text-zinc-500 uppercase tracking-tight mb-1">Undisputed 2</h3>
                 </div>
               </motion.div>
 
-              {/* UFC 6 */}
+              {/* UFC 6 — Active */}
               <motion.div 
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 }}
-                className="relative h-[240px] rounded-2xl overflow-hidden bg-zinc-900/50 border border-white/5"
+                className="group relative h-[240px] rounded-2xl overflow-hidden bg-zinc-900 cursor-pointer border border-white/5"
                 data-testid="game-tile-ufc6"
+                onClick={() => setLocation('/upload?game=ufc6')}
               >
-                <img src={ufc6Img} alt="UFC 6" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
+                <img src={ufc6Img} alt="UFC 6" className="absolute inset-0 w-full h-full object-cover object-center opacity-80 group-hover:scale-105 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/20" />
-                <div className="absolute top-6 right-6">
-                  <Badge variant="outline" className="bg-[#3B82F6]/20 text-[#60B8FF] border-[#3B82F6]/40 uppercase tracking-widest text-[10px] px-3 py-1 font-bold backdrop-blur-md">Available</Badge>
-                </div>
                 <div className="absolute inset-0 p-8 flex flex-col justify-end">
                   <h3 className="text-2xl font-black text-white uppercase tracking-tight mb-1">UFC 6</h3>
                   <p className="text-xs text-zinc-400 font-medium uppercase tracking-wider">Striking. Grappling. Cage IQ.</p>
