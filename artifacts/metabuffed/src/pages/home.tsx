@@ -151,30 +151,24 @@ export default function Home() {
                 <img src={fightNightImg} alt="Fight Night Champion" className="absolute inset-0 w-full h-full object-cover object-[40%_top] opacity-80 group-hover:scale-105 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/20" />
                 <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                  <h3 className="text-2xl font-black text-white uppercase tracking-tight mb-1">Fight Night Champion</h3>
-                  <p className="text-xs text-zinc-400 font-medium uppercase tracking-wider">Pressure. Counters. Stamina. Timing.</p>
+                  <h3 className="text-2xl font-black text-white uppercase tracking-tight">Fight Night Champion</h3>
                 </div>
               </motion.div>
 
-              {/* NBA 2K26 — Locked */}
+              {/* UFC 6 — Active */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
-                className="relative h-[240px] rounded-2xl overflow-hidden bg-zinc-900/50 border border-white/5"
-                data-testid="game-tile-nba"
+                className="group relative h-[240px] rounded-2xl overflow-hidden bg-zinc-900 cursor-pointer border border-white/5"
+                data-testid="game-tile-ufc6"
+                onClick={() => setLocation('/upload?game=ufc6')}
               >
-                <img src={nba2kImg} alt="NBA 2K26" className="absolute inset-0 w-full h-full object-cover object-[30%_top] opacity-40" />
-                <div className="absolute inset-0 bg-black/60" />
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-                  <div className="bg-black/70 rounded-full p-3 border border-white/10">
-                    <Lock className="w-5 h-5 text-zinc-400" />
-                  </div>
-                  <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">Coming Soon</span>
-                </div>
+                <img src={ufc6Img} alt="UFC 6" className="absolute inset-0 w-full h-full object-cover object-center opacity-80 group-hover:scale-105 transition-transform duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/20" />
                 <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                  <h3 className="text-2xl font-black text-zinc-500 uppercase tracking-tight mb-1">NBA 2K26</h3>
+                  <h3 className="text-2xl font-black text-white uppercase tracking-tight">UFC 6</h3>
                 </div>
               </motion.div>
 
@@ -196,12 +190,12 @@ export default function Home() {
                   <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">Coming Soon</span>
                 </div>
                 <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                  <h3 className="text-2xl font-black text-zinc-500 uppercase tracking-tight mb-1">Madden 26</h3>
+                  <h3 className="text-2xl font-black text-zinc-500 uppercase tracking-tight">Madden 26</h3>
                 </div>
               </motion.div>
             </div>
 
-            {/* Coming Soon Row */}
+            {/* Second Row */}
             <div className="grid lg:grid-cols-3 gap-6">
               {/* GTA 6 — Locked */}
               <motion.div 
@@ -220,7 +214,7 @@ export default function Home() {
                   <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">Coming Soon</span>
                 </div>
                 <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                  <h3 className="text-2xl font-black text-zinc-500 uppercase tracking-tight mb-1">GTA 6</h3>
+                  <h3 className="text-2xl font-black text-zinc-500 uppercase tracking-tight">GTA 6</h3>
                 </div>
               </motion.div>
 
@@ -242,25 +236,29 @@ export default function Home() {
                   <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">Coming Soon</span>
                 </div>
                 <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                  <h3 className="text-2xl font-black text-zinc-500 uppercase tracking-tight mb-1">Undisputed 2</h3>
+                  <h3 className="text-2xl font-black text-zinc-500 uppercase tracking-tight">Undisputed 2</h3>
                 </div>
               </motion.div>
 
-              {/* UFC 6 — Active */}
-              <motion.div 
+              {/* NBA 2K26 — Locked */}
+              <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 }}
-                className="group relative h-[240px] rounded-2xl overflow-hidden bg-zinc-900 cursor-pointer border border-white/5"
-                data-testid="game-tile-ufc6"
-                onClick={() => setLocation('/upload?game=ufc6')}
+                className="relative h-[240px] rounded-2xl overflow-hidden bg-zinc-900/50 border border-white/5"
+                data-testid="game-tile-nba"
               >
-                <img src={ufc6Img} alt="UFC 6" className="absolute inset-0 w-full h-full object-cover object-center opacity-80 group-hover:scale-105 transition-transform duration-700" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/20" />
+                <img src={nba2kImg} alt="NBA 2K26" className="absolute inset-0 w-full h-full object-cover object-[30%_top] opacity-40" />
+                <div className="absolute inset-0 bg-black/60" />
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
+                  <div className="bg-black/70 rounded-full p-3 border border-white/10">
+                    <Lock className="w-5 h-5 text-zinc-400" />
+                  </div>
+                  <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">Coming Soon</span>
+                </div>
                 <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                  <h3 className="text-2xl font-black text-white uppercase tracking-tight mb-1">UFC 6</h3>
-                  <p className="text-xs text-zinc-400 font-medium uppercase tracking-wider">Striking. Grappling. Cage IQ.</p>
+                  <h3 className="text-2xl font-black text-zinc-500 uppercase tracking-tight">NBA 2K26</h3>
                 </div>
               </motion.div>
             </div>
