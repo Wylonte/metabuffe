@@ -17,17 +17,21 @@ interface Message {
   content: string;
 }
 
-const ACTIVE_GAME = {
-  id: "fight-night",
-  name: "Fight Night",
-  fullName: "Fight Night Champion",
-  img: fightNightImg,
-};
+type GameId = "fight-night" | "ufc6";
 
-const UNLOCKED_NEARBY = {
-  id: "ufc6",
-  name: "UFC 6",
-  img: ufc6Img,
+const GAMES: Record<GameId, { id: GameId; name: string; fullName: string; img: string }> = {
+  "fight-night": {
+    id: "fight-night",
+    name: "Fight Night",
+    fullName: "Fight Night Champion",
+    img: fightNightImg,
+  },
+  ufc6: {
+    id: "ufc6",
+    name: "UFC 6",
+    fullName: "UFC 6",
+    img: ufc6Img,
+  },
 };
 
 const COMING_SOON = [
@@ -36,60 +40,113 @@ const COMING_SOON = [
   { id: "undisputed", name: "Undisputed 2", img: undisputedImg },
 ];
 
-const QUICK_QUESTIONS = [
-  "What's the best counter to a southpaw in UFC 6?",
-  "How do I defend takedowns from cage pressure?",
-  "What's the meta striking style right now?",
-  "How do I set up the body triangle from back control?",
-  "When should I shoot vs stay on the feet?",
-  "How do I get out of full mount?",
-  "What's the most effective combo to the body in UFC 6?",
-  "How do I time the slip to counter straight punches?",
-  "How do I stop getting leg kicked to death?",
-  "What's the best way to finish from back control?",
-  "How do I defend against a ground and pound specialist?",
-  "When should I clinch instead of boxing at range?",
-];
-
-const AI_RESPONSES: Record<string, string> = {
-  "What's the best counter to a southpaw in UFC 6?":
-    "Against southpaws, your lead foot position is everything — keep your right foot outside their left foot so they can't land their power left hand clean. Use your jab to disrupt their rhythm and watch for the right hook counter the moment they throw their left straight. Circling to your right (their weak side) forces them to reset constantly and kills their offensive flow. Patience wins the stance battle.",
-  "How do I defend takedowns from cage pressure?":
-    "Cage pressure takedowns are won before the shot — not during it. When your back hits the cage, immediately underhook one arm and use your hips to create lateral movement. Sprawling straight back against the cage gives them the angle; spinning to the open mat breaks it. The moment they drop for the level change, time your sprawl and throw your hips back hard. Getting comfortable at the cage wall is 80% of the battle.",
-  "What's the meta striking style right now?":
-    "The current UFC 6 meta rewards length fighters who work behind the jab and use the lateral step to create angles after each combination. Volume boxers who spam single strikes are getting picked apart by counter specialists. The most effective style right now is a disciplined pressure game — two-punch combos to the body to bring the guard down, then the straight or overhand upstairs. Don't chase KOs; let the combinations set them up.",
-  "How do I set up the body triangle from back control?":
-    "From back control, the body triangle is earned through distraction, not force. Work your hooks first — throw the rear hook to make them defend their head, then slide your leg over and lock the triangle while their arms are occupied. If they're defending the choke well, their body is exposed. Release hand pressure briefly to fully lock the triangle, then return to the choke. The triangle drains their stamina every time they try to stand or roll.",
-  "When should I shoot vs stay on the feet?":
-    "Shoot when you've disrupted their rhythm with combinations — a fighter who just ate a jab-cross combo has their weight distribution wrong and their reaction time is 15–20% slower. Never shoot from distance without setup; it gets you hit. Wrestlers win by mixing strikes until the striking defense opens a lane, then committing fully to the level change. If they're circling actively, reset and re-establish the jab before shooting.",
-  "How do I get out of full mount?":
-    "Full mount escapes require you to control the pace, not panic. Bridge and roll is most effective against opponents who post wide — wait for them to throw a punch, use their forward momentum to bridge hard to one side. If they're tight and compact, frame against their hips and create space for the elbow-knee escape. Never give up your back trying to escape mount — taking the rear clinch position is usually worse than working from mount patiently.",
-  "What's the most effective combo to the body in UFC 6?":
-    "The double jab to the body followed by a right hook upstairs is the highest-percentage body attack in the current meta. Two body jabs drag their guard down and teach their defensive reflex to dip — then the hook catches them mid-adjustment. Follow up with another jab to the body to reset the pattern. After 3–4 repetitions you'll see them hesitate, which is your window for heavier shots. Body work compounds; it doesn't pay off immediately.",
-  "How do I time the slip to counter straight punches?":
-    "Slipping punches is about reading the shoulder, not the hand. The shoulder begins rotating before the punch extends — once you key on that tell, you'll slip early instead of late. Move outside the punch line (slip to the outside of a right straight by moving your head left), which positions you perfectly for the counter left hook. Practice the slip-counter as a single fluid motion, not two separate actions. Timing beats speed every time.",
-  "How do I stop getting leg kicked to death?":
-    "Leg kick defense starts with checking — lift your lead shin at a 45-degree angle to meet their kick. The check transfers all the damage back to their shin, and after 2–3 clean checks most opponents abandon the leg kick entirely. When you're not checking, keep your lead leg from being a static target — small weight shifts and footwork deny them a clean angle. Don't load up single counter punches after the kick; step outside and return a body jab instead.",
-  "What's the best way to finish from back control?":
-    "The rear naked choke is the primary threat, but don't burn stamina forcing it against active hands. Use your hooks to control their hips and prevent the standup, then work on breaking their grip with a seatbelt. Once the seatbelt is locked, slide your choking arm under their chin during any moment they reach to defend — a short neck, a dropped chin, or a failed roll attempt. The choke should feel like it appears, not like it's forced.",
-  "How do I defend against a ground and pound specialist?":
-    "From the bottom, your immediate priority is frame creation — put both forearms against their hips or chest to keep them from posting and loading heavy shots. Framing buys you time to work your guard recovery or create space for a hip escape. The biggest mistake is covering your face and going passive; passive bottom position is a GnP specialist's dream. Keep moving your hips, constantly threaten submissions to disrupt their posture, and look for half guard transitions.",
-  "When should I clinch instead of boxing at range?":
-    "Clinch when you're hurt, when they're loading up single big shots, or when you're winning on the inside and they want to reset. Closing distance against a big puncher removes their power advantage — most KO artists lose their threat in the clinch. Don't clinch when you're gassing, as it often accelerates the stamina drain. Use the clinch as a tool to dictate pacing, not as a place to rest. Effective clinch work means you're landing knees and maintaining position, not just holding on.",
+const QUICK_QUESTIONS: Record<GameId, string[]> = {
+  "fight-night": [
+    "What's the best way to set up the liver shot in Fight Night?",
+    "How do I manage stamina in the later rounds?",
+    "What's the most effective jab setup for Fight Night Champion?",
+    "How do I defend against a pressure fighter?",
+    "When should I use the haymaker vs regular punches?",
+    "How do I set up a knockdown without getting countered?",
+    "What's the best combo against a counter-puncher?",
+    "How do I win a fight I'm losing on points?",
+    "How do I recover after getting rocked?",
+    "What's the best way to work the body in Fight Night?",
+    "When should I clinch in Fight Night Champion?",
+    "How do I break through a high guard?",
+  ],
+  ufc6: [
+    "What's the best counter to a southpaw in UFC 6?",
+    "How do I defend takedowns from cage pressure?",
+    "What's the meta striking style right now?",
+    "How do I set up the body triangle from back control?",
+    "When should I shoot vs stay on the feet?",
+    "How do I get out of full mount?",
+    "What's the most effective combo to the body in UFC 6?",
+    "How do I time the slip to counter straight punches?",
+    "How do I stop getting leg kicked to death?",
+    "What's the best way to finish from back control?",
+    "How do I defend against a ground and pound specialist?",
+    "When should I clinch instead of boxing at range?",
+  ],
 };
 
-const INITIAL_MESSAGES: Message[] = [
-  {
-    id: "welcome",
-    role: "ai",
-    content:
-      "Welcome to Metabuffed Coach. I analyze Fight Night Champion and UFC 6 at a competitive level. Upload a match for personalized breakdown, or ask me anything — striking meta, grappling setups, stamina management, and cage IQ.",
+const AI_RESPONSES: Record<GameId, Record<string, string>> = {
+  "fight-night": {
+    "What's the best way to set up the liver shot in Fight Night?":
+      "The liver shot in Fight Night Champion is a fight-ender, but it has to be earned. The setup is the jab-jab to the body — two fast jabs force their guard to drop reflexively, and that half-second window is your entry point for the right hook to the liver. The most reliable method is mixing in single body jabs early in the fight to condition their defensive reflex, then switching levels mid-combination when they expect head shots. By round 4 or 5, if you've invested in body work, a single clean liver shot will change the fight.",
+    "How do I manage stamina in the later rounds?":
+      "Stamina management in Fight Night Champion starts in round 1. Heavy single punches drain your bar faster than tight 2-3 shot combinations, so resist the urge to wing haymakers early. Between exchanges, use your footwork to circle out rather than standing flat-footed and absorbing punishment — taking shots eats stamina as much as throwing them. In the later rounds, shorten your combinations to two punches maximum and lean on your jab to maintain output without burning reserves. A fighter with 60% stamina in round 10 is more dangerous than one who threw everything in round 3.",
+    "What's the most effective jab setup for Fight Night Champion?":
+      "The double jab is your most important weapon — it's a range finder, a stamina-efficient offensive tool, and a defensive disruption all in one. Mix the lead jab (snapping out and back quickly) with the power jab (pushing through the target) to create different timing reads for your opponent. The jab to the body followed by the jab upstairs shifts their guard and creates the openings for your power shots. Fights in Fight Night Champion are often won by whoever controls distance better, and the jab is how you own that range.",
+    "How do I defend against a pressure fighter?":
+      "Pressure fighters want to pin you on the ropes and work at a pace you can't match — take that option away. Lateral movement is your primary tool; circling away from their power hand breaks their rhythm and forces them to reset. Use the check hook as they close distance — it's the most efficient counter against an opponent walking straight at you. If you end up on the ropes, tie up immediately with the clinch to reset the position, then use your footwork to get to open space. Counterpunching from the outside rewards your patience and punishes their aggression.",
+    "When should I use the haymaker vs regular punches?":
+      "The haymaker is a high-risk finisher, not a regular offensive tool. Use it exclusively as a follow-up after you've stunned your opponent — a rocked fighter's guard collapses and their recovery is slowed, making them a clean target for a haymaker to put them down. Throwing haymakers fresh gives your opponent a free counter window; the telegraphing animation is long enough for an alert opponent to step outside and land their own shot. Save the haymaker for moments when you've already done the damage work.",
+    "How do I set up a knockdown without getting countered?":
+      "Knockdowns come from combinations that accumulate damage, not from single power shots. The right cross down the middle after a successful jab is the highest-percentage power shot because the jab creates both the range and the guard disruption you need. Work the body first to bring the guard down, then unload upstairs. Timing is everything — throw your power shot when your opponent is mid-combination and committed, not when they're on the outside resetting. A counter-puncher who tries to land the single big shot consistently gets picked apart before they can land it.",
+    "What's the best combo against a counter-puncher?":
+      "Counter-punchers live off your aggression and rhythm, so you have to make your attacks unpredictable. Use varied pace — a fast jab-cross followed by a slow jab-jab throws off their timing entirely. Feints are extremely effective: a level change feint or a shoulder dip without throwing forces them to commit their counter, leaving them open. The overhand right is a strong weapon because its arc comes from outside their sightline, making it harder to time. Short combinations at unexpected rhythms beat the counter-puncher more than power does.",
+    "How do I win a fight I'm losing on points?":
+      "When you're behind on points, urgency doesn't mean recklessness — it means controlled aggression. Start going to the body more heavily to slow them down and compromise their stamina. A tired opponent in the championship rounds makes mistakes that a fresh one doesn't. Look for the momentum shift round: pick one round to take fully, establishing dominance clearly rather than trading back and forth. A knockdown cancels accumulated point deficits, so protect your power and look for the opening rather than swinging with everything. Judges reward controlled volume over wild exchanges.",
+    "How do I recover after getting rocked?":
+      "When rocked in Fight Night Champion, your first priority is surviving the next 10–15 seconds. Clinch immediately — tying up removes your opponent's ability to throw full power shots and gives your stamina and health bars a chance to recover. If the clinch isn't available, move to the outside and don't stand flat-footed taking punishment. Your punch output should go to near zero while rocked; a missed swing drains stamina and leaves you open. Once your vision clears, re-establish your jab before throwing anything heavier.",
+    "What's the best way to work the body in Fight Night?":
+      "Body work in Fight Night Champion is a long-term investment. Start throwing single body shots in round 1 to establish the threat and lower their guard progressively. The left hook to the body is your highest-damage body weapon and sets up the right hand upstairs beautifully. Right jabs to the body followed by the right hand to the head is a simple, reliable pattern that creates confusion in their guard. By the mid-rounds, opponents who've absorbed 20+ clean body shots start defending differently — that shift is your signal to increase the pace of body attacks.",
+    "When should I clinch in Fight Night Champion?":
+      "The clinch is your defensive tool for three situations: when you're hurt and need recovery time, when a pressure fighter has you pinned and you need to reset position, and when you're ahead on points and want to eat time in a close round. Don't clinch when you're dominating — it lets your opponent recover and disrupts your own momentum. Use it strategically as a pace-setter. In Fight Night Champion the clinch also creates inside position for short body shots before the referee breaks you up, so it has modest offensive value when used aggressively.",
+    "How do I break through a high guard?":
+      "A high guard is broken with body shots and feints, not with more head shots. Triple jabs to the body force even the tightest guard to shift downward to protect the ribs, creating the opening you need. The uppercut is particularly effective against a fighter in high guard position because it travels vertically through the gap between their forearms. Feinting the body shot and coming upstairs is a reliable pattern once you've conditioned them to drop for body attacks. Patience matters — don't try to punch through the guard; make them move it.",
   },
-];
+  ufc6: {
+    "What's the best counter to a southpaw in UFC 6?":
+      "Against southpaws, your lead foot position is everything — keep your right foot outside their left foot so they can't land their power left hand clean. Use your jab to disrupt their rhythm and watch for the right hook counter the moment they throw their left straight. Circling to your right (their weak side) forces them to reset constantly and kills their offensive flow. Patience wins the stance battle.",
+    "How do I defend takedowns from cage pressure?":
+      "Cage pressure takedowns are won before the shot — not during it. When your back hits the cage, immediately underhook one arm and use your hips to create lateral movement. Sprawling straight back against the cage gives them the angle; spinning to the open mat breaks it. The moment they drop for the level change, time your sprawl and throw your hips back hard. Getting comfortable at the cage wall is 80% of the battle.",
+    "What's the meta striking style right now?":
+      "The current UFC 6 meta rewards length fighters who work behind the jab and use the lateral step to create angles after each combination. Volume boxers who spam single strikes are getting picked apart by counter specialists. The most effective style right now is a disciplined pressure game — two-punch combos to the body to bring the guard down, then the straight or overhand upstairs. Don't chase KOs; let the combinations set them up.",
+    "How do I set up the body triangle from back control?":
+      "From back control, the body triangle is earned through distraction, not force. Work your hooks first — throw the rear hook to make them defend their head, then slide your leg over and lock the triangle while their arms are occupied. If they're defending the choke well, their body is exposed. Release hand pressure briefly to fully lock the triangle, then return to the choke. The triangle drains their stamina every time they try to stand or roll.",
+    "When should I shoot vs stay on the feet?":
+      "Shoot when you've disrupted their rhythm with combinations — a fighter who just ate a jab-cross combo has their weight distribution wrong and their reaction time is 15–20% slower. Never shoot from distance without setup; it gets you hit. Wrestlers win by mixing strikes until the striking defense opens a lane, then committing fully to the level change. If they're circling actively, reset and re-establish the jab before shooting.",
+    "How do I get out of full mount?":
+      "Full mount escapes require you to control the pace, not panic. Bridge and roll is most effective against opponents who post wide — wait for them to throw a punch, use their forward momentum to bridge hard to one side. If they're tight and compact, frame against their hips and create space for the elbow-knee escape. Never give up your back trying to escape mount — taking the rear clinch position is usually worse than working from mount patiently.",
+    "What's the most effective combo to the body in UFC 6?":
+      "The double jab to the body followed by a right hook upstairs is the highest-percentage body attack in the current meta. Two body jabs drag their guard down and teach their defensive reflex to dip — then the hook catches them mid-adjustment. Follow up with another jab to the body to reset the pattern. After 3–4 repetitions you'll see them hesitate, which is your window for heavier shots. Body work compounds; it doesn't pay off immediately.",
+    "How do I time the slip to counter straight punches?":
+      "Slipping punches is about reading the shoulder, not the hand. The shoulder begins rotating before the punch extends — once you key on that tell, you'll slip early instead of late. Move outside the punch line (slip to the outside of a right straight by moving your head left), which positions you perfectly for the counter left hook. Practice the slip-counter as a single fluid motion, not two separate actions. Timing beats speed every time.",
+    "How do I stop getting leg kicked to death?":
+      "Leg kick defense starts with checking — lift your lead shin at a 45-degree angle to meet their kick. The check transfers all the damage back to their shin, and after 2–3 clean checks most opponents abandon the leg kick entirely. When you're not checking, keep your lead leg from being a static target — small weight shifts and footwork deny them a clean angle. Don't load up single counter punches after the kick; step outside and return a body jab instead.",
+    "What's the best way to finish from back control?":
+      "The rear naked choke is the primary threat, but don't burn stamina forcing it against active hands. Use your hooks to control their hips and prevent the standup, then work on breaking their grip with a seatbelt. Once the seatbelt is locked, slide your choking arm under their chin during any moment they reach to defend — a short neck, a dropped chin, or a failed roll attempt. The choke should feel like it appears, not like it's forced.",
+    "How do I defend against a ground and pound specialist?":
+      "From the bottom, your immediate priority is frame creation — put both forearms against their hips or chest to keep them from posting and loading heavy shots. Framing buys you time to work your guard recovery or create space for a hip escape. The biggest mistake is covering your face and going passive; passive bottom position is a GnP specialist's dream. Keep moving your hips, constantly threaten submissions to disrupt their posture, and look for half guard transitions.",
+    "When should I clinch instead of boxing at range?":
+      "Clinch when you're hurt, when they're loading up single big shots, or when you're winning on the inside and they want to reset. Closing distance against a big puncher removes their power advantage — most KO artists lose their threat in the clinch. Don't clinch when you're gassing, as it often accelerates the stamina drain. Use the clinch as a tool to dictate pacing, not as a place to rest. Effective clinch work means you're landing knees and maintaining position, not just holding on.",
+  },
+};
+
+const WELCOME: Record<GameId, string> = {
+  "fight-night": "Welcome to Metabuffed Coach. I analyze Fight Night Champion at a competitive level — stamina management, pressure defense, body work, and combo timing. Upload a match for a personalized breakdown, or ask me anything.",
+  ufc6: "Welcome to Metabuffed Coach. I analyze UFC 6 at a competitive level — striking meta, grappling setups, cage IQ, and ground game. Upload a match for a personalized breakdown, or ask me anything.",
+};
+
+const FALLBACK: Record<GameId, string> = {
+  "fight-night": "Based on the current Fight Night Champion meta, I'd need to see your gameplay footage to give you a precise breakdown. Upload a match and I'll analyze your stamina patterns, exchange timing, and punch selection in detail. If you have a specific situation in mind, describe it and I'll walk you through the read.",
+  ufc6: "Based on current competitive meta for UFC 6, I'd need to see your gameplay footage to give you a truly precise breakdown. Upload a match and I'll analyze your stamina patterns, exchange timing, and round control in detail. If you have a specific situation in mind, describe it and I'll walk you through the meta read.",
+};
+
+const PLACEHOLDER: Record<GameId, string> = {
+  "fight-night": "Ask the coach anything about Fight Night Champion...",
+  ufc6: "Ask the coach anything about UFC 6...",
+};
 
 export default function CoachPage() {
   const { openModal } = useModals();
-  const [messages, setMessages] = useState<Message[]>(INITIAL_MESSAGES);
+  const [selectedGame, setSelectedGame] = useState<GameId>("fight-night");
+  const [messages, setMessages] = useState<Message[]>([
+    { id: "welcome", role: "ai", content: WELCOME["fight-night"] },
+  ]);
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -100,6 +157,14 @@ export default function CoachPage() {
     }
   }, [messages, isTyping]);
 
+  const switchGame = (gameId: GameId) => {
+    if (gameId === selectedGame) return;
+    setSelectedGame(gameId);
+    setInput("");
+    setIsTyping(false);
+    setMessages([{ id: "welcome-" + gameId, role: "ai", content: WELCOME[gameId] }]);
+  };
+
   const sendMessage = (text: string) => {
     if (!text.trim()) return;
     const userMsg: Message = { id: Date.now().toString(), role: "user", content: text };
@@ -108,13 +173,11 @@ export default function CoachPage() {
     setIsTyping(true);
 
     setTimeout(() => {
-      const knownAnswer = AI_RESPONSES[text];
+      const knownAnswer = AI_RESPONSES[selectedGame][text];
       const aiMsg: Message = {
         id: (Date.now() + 1).toString(),
         role: "ai",
-        content:
-          knownAnswer ||
-          `Based on current competitive meta for ${ACTIVE_GAME.fullName}, I'd need to see your gameplay footage to give you a truly precise breakdown. Upload a match and I'll analyze your stamina patterns, exchange timing, and round control in detail. If you have a specific situation in mind, describe it and I'll walk you through the meta read.`,
+        content: knownAnswer || FALLBACK[selectedGame],
       };
       setIsTyping(false);
       setMessages((prev) => [...prev, aiMsg]);
@@ -125,6 +188,8 @@ export default function CoachPage() {
     e?.preventDefault();
     sendMessage(input);
   };
+
+  const game = GAMES[selectedGame];
 
   return (
     <div className="flex h-[100dvh] bg-black text-white font-sans overflow-hidden">
@@ -141,7 +206,7 @@ export default function CoachPage() {
           <Button
             className="w-full bg-[#3B82F6] hover:bg-[#2563EB] text-white font-bold border-0 uppercase tracking-wider text-xs h-9 flex gap-2 rounded-[8px] shadow-[0_0_12px_rgba(59,130,246,0.35)] hover:shadow-[0_0_18px_rgba(59,130,246,0.55)] transition-all duration-200"
             data-testid="btn-new-chat"
-            onClick={() => setMessages(INITIAL_MESSAGES)}
+            onClick={() => setMessages([{ id: "welcome-reset", role: "ai", content: WELCOME[selectedGame] }])}
           >
             <Plus className="w-3.5 h-3.5" /> New Session
           </Button>
@@ -162,7 +227,7 @@ export default function CoachPage() {
           <div>
             <h3 className="text-[9px] font-mono text-zinc-600 uppercase tracking-widest font-bold mb-3">Quick Questions</h3>
             <div className="space-y-1">
-              {QUICK_QUESTIONS.map((q) => (
+              {QUICK_QUESTIONS[selectedGame].map((q) => (
                 <button
                   key={q}
                   onClick={() => sendMessage(q)}
@@ -193,7 +258,6 @@ export default function CoachPage() {
 
       {/* CENTER — Chat */}
       <main className="flex-1 flex flex-col relative overflow-hidden">
-        {/* Crimson ambient gradients */}
         <div className="pointer-events-none absolute inset-0 z-0">
           <div className="absolute -top-40 left-1/3 w-[500px] h-[500px] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(155,48,255,0.10)_0%,transparent_70%)]" />
           <div className="absolute bottom-0 right-1/4 w-[400px] h-[300px] bg-[radial-gradient(ellipse_at_center,rgba(0,229,255,0.07)_0%,transparent_70%)]" />
@@ -203,10 +267,10 @@ export default function CoachPage() {
         <header className="border-b border-white/5 bg-[#080808]/90 backdrop-blur-md px-6 py-3.5 shrink-0 z-10 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-6 h-6 rounded-md overflow-hidden border border-primary/30 shrink-0 shadow-[0_0_8px_rgba(255,28,139,0.2)]">
-              <img src={fightNightImg} alt="Fight Night Champion" className="w-full h-full object-cover" />
+              <img src={game.img} alt={game.fullName} className="w-full h-full object-cover" />
             </div>
             <div>
-              <p className="text-xs font-bold text-white uppercase tracking-wider">Fight Night Champion</p>
+              <p className="text-xs font-bold text-white uppercase tracking-wider">{game.fullName}</p>
               <p className="text-[9px] font-mono text-primary uppercase tracking-widest">Active · Meta Analysis</p>
             </div>
           </div>
@@ -260,7 +324,7 @@ export default function CoachPage() {
               <Input
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="Ask the coach anything about Fight Night Champion..."
+                placeholder={PLACEHOLDER[selectedGame]}
                 className="w-full bg-[#111] border-white/10 text-white placeholder:text-zinc-600 h-13 pl-5 pr-14 rounded-xl focus-visible:ring-primary shadow-2xl text-sm"
                 data-testid="input-chat"
               />
@@ -286,27 +350,45 @@ export default function CoachPage() {
         </div>
 
         <div className="flex-1 overflow-y-auto p-3 space-y-2">
-          {/* Fight Night — Active */}
-          <div className="relative rounded-xl overflow-hidden ring-2 ring-primary shadow-[0_0_18px_rgba(255,28,139,0.2)] cursor-default">
+          {/* Fight Night */}
+          <div
+            className={`relative rounded-xl overflow-hidden cursor-pointer transition-all duration-200 ${
+              selectedGame === "fight-night"
+                ? "ring-2 ring-primary shadow-[0_0_18px_rgba(255,28,139,0.2)]"
+                : "ring-1 ring-[#3B82F6]/30 hover:ring-[#3B82F6]/60"
+            }`}
+            onClick={() => switchGame("fight-night")}
+          >
             <div className="h-24">
-              <img src={ACTIVE_GAME.img} alt={ACTIVE_GAME.fullName} className="w-full h-full object-cover" />
+              <img src={fightNightImg} alt="Fight Night Champion" className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
             </div>
             <div className="absolute bottom-0 left-0 right-0 px-2.5 pb-2">
-              <p className="text-white font-bold text-[10px] uppercase leading-tight">{ACTIVE_GAME.fullName}</p>
-              <p className="text-[8px] font-mono text-primary uppercase tracking-widest mt-0.5">● Active</p>
+              <p className="text-white font-bold text-[10px] uppercase leading-tight">Fight Night Champion</p>
+              <p className={`text-[8px] font-mono uppercase tracking-widest mt-0.5 ${selectedGame === "fight-night" ? "text-primary" : "text-[#60B8FF]"}`}>
+                {selectedGame === "fight-night" ? "● Active" : "● Available"}
+              </p>
             </div>
           </div>
 
-          {/* UFC 6 — Available */}
-          <div className="relative rounded-xl overflow-hidden ring-1 ring-[#3B82F6]/30 cursor-pointer hover:ring-[#3B82F6]/60 transition-all duration-200">
+          {/* UFC 6 */}
+          <div
+            className={`relative rounded-xl overflow-hidden cursor-pointer transition-all duration-200 ${
+              selectedGame === "ufc6"
+                ? "ring-2 ring-primary shadow-[0_0_18px_rgba(255,28,139,0.2)]"
+                : "ring-1 ring-[#3B82F6]/30 hover:ring-[#3B82F6]/60"
+            }`}
+            onClick={() => switchGame("ufc6")}
+          >
             <div className="h-24">
-              <img src={UNLOCKED_NEARBY.img} alt={UNLOCKED_NEARBY.name} className="w-full h-full object-cover" />
+              <img src={ufc6Img} alt="UFC 6" className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
             </div>
             <div className="absolute bottom-0 left-0 right-0 px-2.5 pb-2">
-              <p className="text-white font-bold text-[10px] uppercase leading-tight">{UNLOCKED_NEARBY.name}</p>
-              <p className="text-[8px] font-mono text-[#60B8FF] uppercase tracking-widest mt-0.5">● Available</p>
+              <p className="text-white font-bold text-[10px] uppercase leading-tight">UFC 6</p>
+              <p className={`text-[8px] font-mono uppercase tracking-widest mt-0.5 ${selectedGame === "ufc6" ? "text-primary" : "text-[#60B8FF]"}`}>
+                {selectedGame === "ufc6" ? "● Active" : "● Available"}
+              </p>
             </div>
           </div>
 
@@ -316,20 +398,20 @@ export default function CoachPage() {
           </div>
 
           {/* Coming soon games */}
-          {COMING_SOON.map((game) => (
+          {COMING_SOON.map((g) => (
             <div
-              key={game.id}
+              key={g.id}
               className="relative rounded-xl overflow-hidden ring-1 ring-white/5 opacity-30 grayscale cursor-not-allowed"
             >
               <div className="h-16">
-                <img src={game.img} alt={game.name} className="w-full h-full object-cover" />
+                <img src={g.img} alt={g.name} className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
               </div>
               <div className="absolute inset-0 flex items-center justify-center">
                 <Lock className="w-3 h-3 text-zinc-600" />
               </div>
               <div className="absolute bottom-0 left-0 right-0 px-2 pb-1.5">
-                <p className="text-zinc-400 font-bold text-[9px] uppercase leading-tight">{game.name}</p>
+                <p className="text-zinc-400 font-bold text-[9px] uppercase leading-tight">{g.name}</p>
               </div>
             </div>
           ))}
