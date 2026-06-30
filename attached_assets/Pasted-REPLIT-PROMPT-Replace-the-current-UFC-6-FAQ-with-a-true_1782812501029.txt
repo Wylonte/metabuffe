@@ -1,0 +1,466 @@
+REPLIT PROMPT
+
+Replace the current UFC 6 FAQ with a true competitive coaching system.
+
+Every answer should sound like it comes from an AI that has analyzed thousands of high-level ranked matches, not a beginner tutorial.
+
+Every answer must follow this format:
+
+Meta Overview – Explain what high-level players currently do.
+
+How To Execute – Explain exactly how to perform it.
+
+Common Mistakes – Explain what average players do wrong.
+
+Metabuffed Verdict – End with a short competitive takeaway.
+
+Keep answers between 150–250 words. Never tell users to "practice more." Focus on decision-making, stamina, positioning, timing, reads, adaptation, and competitive habits.
+
+1. What is the current striking meta?
+
+Meta Overview
+
+The current meta rewards efficiency over volume. Elite players don't throw the most punches—they land the cleanest punches while preserving stamina. They pressure safely, mix head and body attacks, and punish mistakes instead of forcing knockouts.
+
+How To Execute
+
+• Start with jabs and straight punches.
+• Mix body attacks into every exchange.
+• Stop combinations when the first strike misses.
+• Pressure only after forcing the opponent backward.
+• Leave exchanges before your stamina drops.
+
+Common Mistakes
+
+Throwing long combinations, chasing opponents, and swinging wildly after missing.
+
+Metabuffed Verdict
+
+Winning striking is about controlling exchanges, not winning every exchange.
+
+2. How do I improve my head movement?
+
+Meta Overview
+
+Head movement is prediction, not reaction.
+
+How To Execute
+
+• Slip straight punches.
+• Pull predictable hooks.
+• Duck wide hooks.
+• Reset immediately after every successful evade.
+• Counter with one clean strike.
+
+Common Mistakes
+
+Random slipping, repeated pulling, moving your head while exhausted.
+
+Metabuffed Verdict
+
+Read habits first. Move your head second.
+
+3. How do I stop pressure fighters?
+
+Meta Overview
+
+Pressure only works if you panic.
+
+How To Execute
+
+• Interrupt entries with straights.
+• Attack the body.
+• Circle away from the cage.
+• Keep combinations short.
+• Force resets after every exchange.
+
+Common Mistakes
+
+Backing straight up, throwing hooks while pressured, fighting emotionally.
+
+Metabuffed Verdict
+
+Make aggressive players restart their offense over and over.
+
+4. How do I win the stamina battle?
+
+Meta Overview
+
+Stamina is often more important than health.
+
+How To Execute
+
+• Throw fewer strikes.
+• Make opponents miss.
+• Attack the body.
+• Don't waste energy chasing knockouts.
+• Stay composed when hurt.
+
+Common Mistakes
+
+Spamming combinations and throwing while exhausted.
+
+Metabuffed Verdict
+
+Protect your stamina like a second health bar.
+
+5. How do I become better on the ground?
+
+Meta Overview
+
+Position comes before damage.
+
+How To Execute
+
+• Secure control first.
+• Deny transitions.
+• Advance position patiently.
+• Attack submissions after draining stamina.
+
+Common Mistakes
+
+Rushing submissions and constantly transitioning.
+
+Metabuffed Verdict
+
+Control wins fights. Damage finishes them.
+
+6. How do I stop takedowns?
+
+Meta Overview
+
+Good defense starts before the shot.
+
+How To Execute
+
+• Stay off the cage.
+• Punish level changes.
+• Expect takedowns after combinations.
+• Make failed shots expensive.
+
+Common Mistakes
+
+Standing still and backing into the fence.
+
+Metabuffed Verdict
+
+Footwork prevents more takedowns than reactions.
+
+7. How do I escape bad ground positions?
+
+Meta Overview
+
+Patience creates escapes.
+
+How To Execute
+
+• Stay calm.
+• Protect stamina.
+• Defend first.
+• Escape after creating an opening.
+
+Common Mistakes
+
+Spamming transitions.
+
+Metabuffed Verdict
+
+Don't rush your escape. Earn it.
+
+8. How do I beat counter strikers?
+
+Meta Overview
+
+Counter fighters punish predictable offense.
+
+How To Execute
+
+• Use feints.
+• Attack the body.
+• Delay your timing.
+• Mix in wrestling threats.
+
+Common Mistakes
+
+Repeating the same combinations.
+
+Metabuffed Verdict
+
+If you're predictable, you're already losing.
+
+9. How do elite players think?
+
+Meta Overview
+
+Elite players spend Round 1 collecting information.
+
+How To Execute
+
+Watch for:
+
+• Favorite combinations
+• Defensive habits
+• Cage movement
+• Takedown timing
+• Stamina usage
+
+Adjust every round.
+
+Common Mistakes
+
+Using the same strategy all fight.
+
+Metabuffed Verdict
+
+The best players adapt faster than their opponents.
+
+10. What should Metabuffed analyze?
+
+Meta Overview
+
+The goal is identifying why you won or lost.
+
+Analyze
+
+• Accuracy
+• Stamina
+• Defense
+• Head movement
+• Cage control
+• Counter timing
+• Ground control
+• Transition defense
+• Predictable habits
+
+Metabuffed Verdict
+
+Winning starts with understanding your patterns.
+
+11. How do I become unpredictable?
+
+Meta Overview
+
+Predictability is one of the biggest reasons good players lose. Elite opponents quickly recognize repeated entries, favorite combinations, and defensive habits.
+
+How To Execute
+
+• Change your opening strikes.
+• Alternate between head, body, and legs.
+• Vary your combination timing.
+• Use feints before committing.
+• Occasionally do nothing and force reactions.
+
+Common Mistakes
+
+Starting every exchange the same way.
+
+Metabuffed Verdict
+
+If your opponent knows what's coming, your offense is already compromised.
+
+12. How do I cut off runners?
+
+Meta Overview
+
+Don't chase opponents. Trap them.
+
+How To Execute
+
+• Walk them toward the fence.
+• Step diagonally instead of following.
+• Use jabs to stop movement.
+• Attack legs when they circle.
+• Force exchanges with smart positioning.
+
+Common Mistakes
+
+Running directly after opponents.
+
+Metabuffed Verdict
+
+Good pressure is about positioning, not speed.
+
+13. How do I defend body attacks?
+
+Meta Overview
+
+Body damage destroys stamina and limits your offense.
+
+How To Execute
+
+• Recognize body attack patterns.
+• Punish repeated body punches.
+• Step outside after blocking.
+• Make body hunters pay with counters.
+
+Common Mistakes
+
+Only protecting your head.
+
+Metabuffed Verdict
+
+Ignoring body damage costs fights before you realize it.
+
+14. How do I land more counters?
+
+Meta Overview
+
+Counters come from anticipation, not reflexes.
+
+How To Execute
+
+• Learn opponent patterns.
+• Wait for missed strikes.
+• Throw one clean counter.
+• Reset immediately afterward.
+
+Common Mistakes
+
+Trying to counter every punch.
+
+Metabuffed Verdict
+
+Patience creates better counters than speed.
+
+15. When should I wrestle?
+
+Meta Overview
+
+The best wrestlers strike first to earn takedowns.
+
+How To Execute
+
+Shoot after:
+
+• Missed combinations.
+• Body attacks.
+• Opponent fatigue.
+• Cage pressure.
+• Successful feints.
+
+Common Mistakes
+
+Shooting from long range without setup.
+
+Metabuffed Verdict
+
+Setup wins takedowns. Desperation loses them.
+
+16. How do I dominate from top position?
+
+Meta Overview
+
+Top control is about forcing mistakes.
+
+How To Execute
+
+• Maintain position.
+• Deny transitions.
+• Drain stamina.
+• Advance patiently.
+• Strike only when safe.
+
+Common Mistakes
+
+Constantly posturing up.
+
+Metabuffed Verdict
+
+Every denied transition makes your next attack stronger.
+
+17. How do I survive when rocked?
+
+Meta Overview
+
+Most finishes happen because players panic.
+
+How To Execute
+
+• Stop throwing.
+• Recover while defending.
+• Circle away safely.
+• Avoid reckless exchanges.
+• Slow the pace.
+
+Common Mistakes
+
+Swinging wildly while stunned.
+
+Metabuffed Verdict
+
+Survival wins more fights than desperation.
+
+18. What separates Division 20 players?
+
+Meta Overview
+
+High-ranked players consistently make better decisions under pressure.
+
+How To Execute
+
+They:
+
+• Waste less stamina.
+• Defend before attacking.
+• Adapt every round.
+• Punish habits.
+• Stay emotionally controlled.
+
+Common Mistakes
+
+Trying to force finishes instead of building advantages.
+
+Metabuffed Verdict
+
+Elite players win with discipline, not highlight reels.
+
+19. Why do I lose close fights?
+
+Meta Overview
+
+Close fights are usually decided by small mistakes repeated throughout the match.
+
+How To Execute
+
+Review:
+
+• Missed strikes.
+• Block efficiency.
+• Cage control.
+• Stamina management.
+• Predictable offense.
+• Defensive habits.
+
+Common Mistakes
+
+Blaming judges instead of reviewing decisions.
+
+Metabuffed Verdict
+
+Small mistakes repeated become championship losses.
+
+20. How do I improve the fastest?
+
+Meta Overview
+
+Improvement comes from correcting recurring mistakes, not learning hundreds of new techniques.
+
+How To Execute
+
+After every fight identify:
+
+• One offensive mistake.
+• One defensive mistake.
+• One stamina mistake.
+• One positioning mistake.
+• One successful habit to keep.
+
+Improve those before learning anything new.
+
+Common Mistakes
+
+Trying to fix everything at once.
+
+Metabuffed Verdict
+
+The fastest climbers don't learn more—they repeat fewer mistakes.

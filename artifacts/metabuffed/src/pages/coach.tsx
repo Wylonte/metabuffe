@@ -64,18 +64,26 @@ const QUICK_QUESTIONS: Record<GameId, string[]> = {
     "What separates top players from world-class players?",
   ],
   ufc6: [
-    "What's the best counter to a southpaw in UFC 6?",
-    "How do I defend takedowns from cage pressure?",
-    "What's the meta striking style right now?",
-    "How do I set up the body triangle from back control?",
-    "When should I shoot vs stay on the feet?",
-    "How do I get out of full mount?",
-    "What's the most effective combo to the body in UFC 6?",
-    "How do I time the slip to counter straight punches?",
-    "How do I stop getting leg kicked to death?",
-    "What's the best way to finish from back control?",
-    "How do I defend against a ground and pound specialist?",
-    "When should I clinch instead of boxing at range?",
+    "What is the current striking meta?",
+    "How do I improve my head movement?",
+    "How do I stop pressure fighters?",
+    "How do I win the stamina battle?",
+    "How do I become better on the ground?",
+    "How do I stop takedowns?",
+    "How do I escape bad ground positions?",
+    "How do I beat counter strikers?",
+    "How do elite players think?",
+    "What should Metabuffed analyze?",
+    "How do I become unpredictable?",
+    "How do I cut off runners?",
+    "How do I defend body attacks?",
+    "How do I land more counters?",
+    "When should I wrestle?",
+    "How do I dominate from top position?",
+    "How do I survive when rocked?",
+    "What separates Division 20 players?",
+    "Why do I lose close fights?",
+    "How do I improve the fastest?",
   ],
 };
 
@@ -123,30 +131,46 @@ const AI_RESPONSES: Record<GameId, Record<string, string>> = {
       "Top players have mechanics.\n\nWorld-class players have reads.\n\nA world-class player studies your habits within the first two rounds. They learn your favorite punch, your panic option, your escape direction, when you block, when you throw, and when you get emotional.\n\nAfter that, they are not guessing anymore. They are predicting.\n\nThe highest level of Fight Night Champion is not hand speed. It is seeing the fight before it happens.",
   },
   ufc6: {
-    "What's the best counter to a southpaw in UFC 6?":
-      "Against southpaws, your lead foot position is everything — keep your right foot outside their left foot so they can't land their power left hand clean. Use your jab to disrupt their rhythm and watch for the right hook counter the moment they throw their left straight. Circling to your right (their weak side) forces them to reset constantly and kills their offensive flow. Patience wins the stance battle.",
-    "How do I defend takedowns from cage pressure?":
-      "Cage pressure takedowns are won before the shot — not during it. When your back hits the cage, immediately underhook one arm and use your hips to create lateral movement. Sprawling straight back against the cage gives them the angle; spinning to the open mat breaks it. The moment they drop for the level change, time your sprawl and throw your hips back hard. Getting comfortable at the cage wall is 80% of the battle.",
-    "What's the meta striking style right now?":
-      "The current UFC 6 meta rewards length fighters who work behind the jab and use the lateral step to create angles after each combination. Volume boxers who spam single strikes are getting picked apart by counter specialists. The most effective style right now is a disciplined pressure game — two-punch combos to the body to bring the guard down, then the straight or overhand upstairs. Don't chase KOs; let the combinations set them up.",
-    "How do I set up the body triangle from back control?":
-      "From back control, the body triangle is earned through distraction, not force. Work your hooks first — throw the rear hook to make them defend their head, then slide your leg over and lock the triangle while their arms are occupied. If they're defending the choke well, their body is exposed. Release hand pressure briefly to fully lock the triangle, then return to the choke. The triangle drains their stamina every time they try to stand or roll.",
-    "When should I shoot vs stay on the feet?":
-      "Shoot when you've disrupted their rhythm with combinations — a fighter who just ate a jab-cross combo has their weight distribution wrong and their reaction time is 15–20% slower. Never shoot from distance without setup; it gets you hit. Wrestlers win by mixing strikes until the striking defense opens a lane, then committing fully to the level change. If they're circling actively, reset and re-establish the jab before shooting.",
-    "How do I get out of full mount?":
-      "Full mount escapes require you to control the pace, not panic. Bridge and roll is most effective against opponents who post wide — wait for them to throw a punch, use their forward momentum to bridge hard to one side. If they're tight and compact, frame against their hips and create space for the elbow-knee escape. Never give up your back trying to escape mount — taking the rear clinch position is usually worse than working from mount patiently.",
-    "What's the most effective combo to the body in UFC 6?":
-      "The double jab to the body followed by a right hook upstairs is the highest-percentage body attack in the current meta. Two body jabs drag their guard down and teach their defensive reflex to dip — then the hook catches them mid-adjustment. Follow up with another jab to the body to reset the pattern. After 3–4 repetitions you'll see them hesitate, which is your window for heavier shots. Body work compounds; it doesn't pay off immediately.",
-    "How do I time the slip to counter straight punches?":
-      "Slipping punches is about reading the shoulder, not the hand. The shoulder begins rotating before the punch extends — once you key on that tell, you'll slip early instead of late. Move outside the punch line (slip to the outside of a right straight by moving your head left), which positions you perfectly for the counter left hook. Practice the slip-counter as a single fluid motion, not two separate actions. Timing beats speed every time.",
-    "How do I stop getting leg kicked to death?":
-      "Leg kick defense starts with checking — lift your lead shin at a 45-degree angle to meet their kick. The check transfers all the damage back to their shin, and after 2–3 clean checks most opponents abandon the leg kick entirely. When you're not checking, keep your lead leg from being a static target — small weight shifts and footwork deny them a clean angle. Don't load up single counter punches after the kick; step outside and return a body jab instead.",
-    "What's the best way to finish from back control?":
-      "The rear naked choke is the primary threat, but don't burn stamina forcing it against active hands. Use your hooks to control their hips and prevent the standup, then work on breaking their grip with a seatbelt. Once the seatbelt is locked, slide your choking arm under their chin during any moment they reach to defend — a short neck, a dropped chin, or a failed roll attempt. The choke should feel like it appears, not like it's forced.",
-    "How do I defend against a ground and pound specialist?":
-      "From the bottom, your immediate priority is frame creation — put both forearms against their hips or chest to keep them from posting and loading heavy shots. Framing buys you time to work your guard recovery or create space for a hip escape. The biggest mistake is covering your face and going passive; passive bottom position is a GnP specialist's dream. Keep moving your hips, constantly threaten submissions to disrupt their posture, and look for half guard transitions.",
-    "When should I clinch instead of boxing at range?":
-      "Clinch when you're hurt, when they're loading up single big shots, or when you're winning on the inside and they want to reset. Closing distance against a big puncher removes their power advantage — most KO artists lose their threat in the clinch. Don't clinch when you're gassing, as it often accelerates the stamina drain. Use the clinch as a tool to dictate pacing, not as a place to rest. Effective clinch work means you're landing knees and maintaining position, not just holding on.",
+    "What is the current striking meta?":
+      "META OVERVIEW\nThe current meta rewards efficiency over volume. Elite players don't throw the most punches — they land the cleanest punches while preserving stamina. They pressure safely, mix head and body attacks, and punish mistakes instead of forcing knockouts.\n\nHOW TO EXECUTE\n• Start with jabs and straight punches.\n• Mix body attacks into every exchange.\n• Stop combinations when the first strike misses.\n• Pressure only after forcing the opponent backward.\n• Leave exchanges before your stamina drops.\n\nCOMMON MISTAKES\nThrowing long combinations, chasing opponents, and swinging wildly after missing.\n\nMETABUFFED VERDICT\nWinning striking is about controlling exchanges, not winning every exchange.",
+    "How do I improve my head movement?":
+      "META OVERVIEW\nHead movement is prediction, not reaction.\n\nHOW TO EXECUTE\n• Slip straight punches.\n• Pull predictable hooks.\n• Duck wide hooks.\n• Reset immediately after every successful evade.\n• Counter with one clean strike.\n\nCOMMON MISTAKES\nRandom slipping, repeated pulling, moving your head while exhausted.\n\nMETABUFFED VERDICT\nRead habits first. Move your head second.",
+    "How do I stop pressure fighters?":
+      "META OVERVIEW\nPressure only works if you panic.\n\nHOW TO EXECUTE\n• Interrupt entries with straights.\n• Attack the body.\n• Circle away from the cage.\n• Keep combinations short.\n• Force resets after every exchange.\n\nCOMMON MISTAKES\nBacking straight up, throwing hooks while pressured, fighting emotionally.\n\nMETABUFFED VERDICT\nMake aggressive players restart their offense over and over.",
+    "How do I win the stamina battle?":
+      "META OVERVIEW\nStamina is often more important than health.\n\nHOW TO EXECUTE\n• Throw fewer strikes.\n• Make opponents miss.\n• Attack the body.\n• Don't waste energy chasing knockouts.\n• Stay composed when hurt.\n\nCOMMON MISTAKES\nSpamming combinations and throwing while exhausted.\n\nMETABUFFED VERDICT\nProtect your stamina like a second health bar.",
+    "How do I become better on the ground?":
+      "META OVERVIEW\nPosition comes before damage.\n\nHOW TO EXECUTE\n• Secure control first.\n• Deny transitions.\n• Advance position patiently.\n• Attack submissions after draining stamina.\n\nCOMMON MISTAKES\nRushing submissions and constantly transitioning.\n\nMETABUFFED VERDICT\nControl wins fights. Damage finishes them.",
+    "How do I stop takedowns?":
+      "META OVERVIEW\nGood defense starts before the shot.\n\nHOW TO EXECUTE\n• Stay off the cage.\n• Punish level changes.\n• Expect takedowns after combinations.\n• Make failed shots expensive.\n\nCOMMON MISTAKES\nStanding still and backing into the fence.\n\nMETABUFFED VERDICT\nFootwork prevents more takedowns than reactions.",
+    "How do I escape bad ground positions?":
+      "META OVERVIEW\nPatience creates escapes.\n\nHOW TO EXECUTE\n• Stay calm.\n• Protect stamina.\n• Defend first.\n• Escape after creating an opening.\n\nCOMMON MISTAKES\nSpamming transitions.\n\nMETABUFFED VERDICT\nDon't rush your escape. Earn it.",
+    "How do I beat counter strikers?":
+      "META OVERVIEW\nCounter fighters punish predictable offense.\n\nHOW TO EXECUTE\n• Use level changes and body threats to create openings.\n• Attack the body.\n• Delay your timing.\n• Mix in wrestling threats.\n\nCOMMON MISTAKES\nRepeating the same combinations.\n\nMETABUFFED VERDICT\nIf you're predictable, you're already losing.",
+    "How do elite players think?":
+      "META OVERVIEW\nElite players spend Round 1 collecting information.\n\nHOW TO EXECUTE\nWatch for:\n• Favorite combinations\n• Defensive habits\n• Cage movement\n• Takedown timing\n• Stamina usage\n\nAdjust every round.\n\nCOMMON MISTAKES\nUsing the same strategy all fight.\n\nMETABUFFED VERDICT\nThe best players adapt faster than their opponents.",
+    "What should Metabuffed analyze?":
+      "META OVERVIEW\nThe goal is identifying why you won or lost.\n\nANALYZE\n• Accuracy\n• Stamina\n• Defense\n• Head movement\n• Cage control\n• Counter timing\n• Ground control\n• Transition defense\n• Predictable habits\n\nMETABUFFED VERDICT\nWinning starts with understanding your patterns.",
+    "How do I become unpredictable?":
+      "META OVERVIEW\nPredictability is one of the biggest reasons good players lose. Elite opponents quickly recognize repeated entries, favorite combinations, and defensive habits.\n\nHOW TO EXECUTE\n• Change your opening strikes.\n• Alternate between head, body, and legs.\n• Vary your combination timing.\n• Use level changes before committing.\n• Occasionally do nothing and force reactions.\n\nCOMMON MISTAKES\nStarting every exchange the same way.\n\nMETABUFFED VERDICT\nIf your opponent knows what's coming, your offense is already compromised.",
+    "How do I cut off runners?":
+      "META OVERVIEW\nDon't chase opponents. Trap them.\n\nHOW TO EXECUTE\n• Walk them toward the fence.\n• Step diagonally instead of following.\n• Use jabs to stop movement.\n• Attack legs when they circle.\n• Force exchanges with smart positioning.\n\nCOMMON MISTAKES\nRunning directly after opponents.\n\nMETABUFFED VERDICT\nGood pressure is about positioning, not speed.",
+    "How do I defend body attacks?":
+      "META OVERVIEW\nBody damage destroys stamina and limits your offense.\n\nHOW TO EXECUTE\n• Recognize body attack patterns.\n• Punish repeated body punches.\n• Step outside after blocking.\n• Make body hunters pay with counters.\n\nCOMMON MISTAKES\nOnly protecting your head.\n\nMETABUFFED VERDICT\nIgnoring body damage costs fights before you realize it.",
+    "How do I land more counters?":
+      "META OVERVIEW\nCounters come from anticipation, not reflexes.\n\nHOW TO EXECUTE\n• Learn opponent patterns.\n• Wait for missed strikes.\n• Throw one clean counter.\n• Reset immediately afterward.\n\nCOMMON MISTAKES\nTrying to counter every punch.\n\nMETABUFFED VERDICT\nPatience creates better counters than speed.",
+    "When should I wrestle?":
+      "META OVERVIEW\nThe best wrestlers strike first to earn takedowns.\n\nHOW TO EXECUTE\nShoot after:\n• Missed combinations.\n• Body attacks.\n• Opponent fatigue.\n• Cage pressure.\n• Successful level change entries.\n\nCOMMON MISTAKES\nShooting from long range without setup.\n\nMETABUFFED VERDICT\nSetup wins takedowns. Desperation loses them.",
+    "How do I dominate from top position?":
+      "META OVERVIEW\nTop control is about forcing mistakes.\n\nHOW TO EXECUTE\n• Maintain position.\n• Deny transitions.\n• Drain stamina.\n• Advance patiently.\n• Strike only when safe.\n\nCOMMON MISTAKES\nConstantly posturing up.\n\nMETABUFFED VERDICT\nEvery denied transition makes your next attack stronger.",
+    "How do I survive when rocked?":
+      "META OVERVIEW\nMost finishes happen because players panic.\n\nHOW TO EXECUTE\n• Stop throwing.\n• Recover while defending.\n• Circle away safely.\n• Avoid reckless exchanges.\n• Slow the pace.\n\nCOMMON MISTAKES\nSwinging wildly while stunned.\n\nMETABUFFED VERDICT\nSurvival wins more fights than desperation.",
+    "What separates Division 20 players?":
+      "META OVERVIEW\nHigh-ranked players consistently make better decisions under pressure.\n\nHOW TO EXECUTE\nThey:\n• Waste less stamina.\n• Defend before attacking.\n• Adapt every round.\n• Punish habits.\n• Stay emotionally controlled.\n\nCOMMON MISTAKES\nTrying to force finishes instead of building advantages.\n\nMETABUFFED VERDICT\nElite players win with discipline, not highlight reels.",
+    "Why do I lose close fights?":
+      "META OVERVIEW\nClose fights are usually decided by small mistakes repeated throughout the match.\n\nHOW TO EXECUTE\nReview:\n• Missed strikes.\n• Block efficiency.\n• Cage control.\n• Stamina management.\n• Predictable offense.\n• Defensive habits.\n\nCOMMON MISTAKES\nBlaming judges instead of reviewing decisions.\n\nMETABUFFED VERDICT\nSmall mistakes repeated become championship losses.",
+    "How do I improve the fastest?":
+      "META OVERVIEW\nImprovement comes from correcting recurring mistakes, not learning hundreds of new techniques.\n\nHOW TO EXECUTE\nAfter every fight identify:\n• One offensive mistake.\n• One defensive mistake.\n• One stamina mistake.\n• One positioning mistake.\n• One successful habit to keep.\n\nImprove those before learning anything new.\n\nCOMMON MISTAKES\nTrying to fix everything at once.\n\nMETABUFFED VERDICT\nThe fastest climbers don't learn more — they repeat fewer mistakes.",
   },
 };
 
