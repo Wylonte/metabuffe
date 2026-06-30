@@ -280,12 +280,12 @@ export default function AboutPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/upload">
-                <Button size="lg" className="bg-primary text-black hover:bg-white hover:text-black font-bold text-sm h-14 px-12 uppercase tracking-widest w-full sm:w-auto" data-testid="btn-about-upload">
+                <Button size="lg" className="bg-[#3B82F6] hover:bg-[#2563EB] text-white font-bold border-0 text-sm h-14 px-12 uppercase tracking-widest w-full sm:w-auto rounded-[11px] shadow-[0_0_18px_rgba(59,130,246,0.45)] hover:shadow-[0_0_28px_rgba(59,130,246,0.65)] transition-all duration-200" data-testid="btn-about-upload">
                   Upload Your First Match
                 </Button>
               </Link>
               <Link href="/coach">
-                <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 font-bold text-sm h-14 px-12 uppercase tracking-widest w-full sm:w-auto" data-testid="btn-about-coach">
+                <Button size="lg" className="bg-transparent border border-white/25 hover:border-white/50 hover:bg-white/[0.07] text-white font-bold text-sm h-14 px-12 uppercase tracking-widest w-full sm:w-auto rounded-[11px] transition-all duration-200 backdrop-blur-sm" data-testid="btn-about-coach">
                   Talk to Coach Meta
                 </Button>
               </Link>

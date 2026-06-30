@@ -16,7 +16,6 @@ import {
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { NeuralMesh } from "@/components/NeuralMesh";
-import { VideoAnalysisCard } from "@/components/VideoAnalysisCard";
 import fightNightImg from "@assets/f8jFkfr_1778467206855.jpg";
 import maddenImg from "@assets/G6IWhecWMAkaOiu_1778447744264.jpg";
 import gta6Img from "@assets/GTA6_1778447744267.webp";
@@ -83,8 +82,6 @@ export default function Home() {
           <div className="absolute inset-0 z-[3] bg-[linear-gradient(90deg,rgba(0,0,0,0.88)_0%,rgba(0,0,0,0.55)_45%,rgba(0,0,0,0.1)_100%)]" />
           <div className="absolute inset-0 z-[3] bg-[linear-gradient(to_bottom,black_0%,transparent_12%,transparent_86%,black_100%)]" />
 
-          {/* AI coaching canvas telestration + labels */}
-          <VideoAnalysisCard />
 
           <div className="container mx-auto px-6 relative z-10">
             {/* Left text content only — video fills the right */}
@@ -428,7 +425,7 @@ export default function Home() {
                     <p className="text-sm font-bold text-white uppercase tracking-wider">Control exchanges before round 3.</p>
                   </div>
                   <div className="flex gap-4">
-                    <Button variant="outline" className="border-white/20 bg-black text-white hover:bg-white/10 uppercase tracking-widest text-xs h-10 px-6 font-bold" onClick={() => setIsBreakdownOpen(true)} data-testid="btn-view-breakdown">
+                    <Button className="bg-[#3B82F6] hover:bg-[#2563EB] text-white font-bold border-0 uppercase tracking-widest text-xs h-10 px-6 rounded-[10px] shadow-[0_0_14px_rgba(59,130,246,0.4)] hover:shadow-[0_0_22px_rgba(59,130,246,0.6)] transition-all duration-200" onClick={() => setIsBreakdownOpen(true)} data-testid="btn-view-breakdown">
                       View Full Breakdown
                     </Button>
                     <Share2 className="w-5 h-5 text-zinc-500 hover:text-white cursor-pointer transition-colors mt-2.5" />
@@ -506,10 +503,10 @@ export default function Home() {
               </p>
               
               <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-16">
-                <Button size="lg" className="bg-[linear-gradient(90deg,#FF1C8B_0%,#FF7A00_40%,#9B30FF_70%,#00E5FF_100%)] text-white hover:opacity-90 transition-all duration-300 font-bold text-sm h-16 px-12 uppercase tracking-widest shadow-[0_0_22px_rgba(255,28,139,0.5),0_0_44px_rgba(0,229,255,0.14)] border-0" onClick={() => setLocation('/upload')}>
-                  Upload Gameplay
+                <Button size="lg" className="bg-[#3B82F6] hover:bg-[#2563EB] text-white font-bold border-0 text-sm h-16 px-12 uppercase tracking-widest rounded-[11px] shadow-[0_0_18px_rgba(59,130,246,0.45)] hover:shadow-[0_0_28px_rgba(59,130,246,0.65)] transition-all duration-200" onClick={() => setLocation('/upload')}>
+                  Analyze Gameplay
                 </Button>
-                <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 transition-all duration-300 font-bold text-sm h-16 px-12 uppercase tracking-widest backdrop-blur-sm" onClick={() => setLocation('/coach')}>
+                <Button size="lg" className="bg-transparent border border-white/25 hover:border-white/50 hover:bg-white/[0.07] text-white font-bold text-sm h-16 px-12 uppercase tracking-widest rounded-[11px] transition-all duration-200 backdrop-blur-sm" onClick={() => setLocation('/coach')}>
                   Enter the Platform
                 </Button>
               </div>

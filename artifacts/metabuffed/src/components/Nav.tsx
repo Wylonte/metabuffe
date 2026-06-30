@@ -29,7 +29,7 @@ export function Nav() {
           <Button variant="outline" className="hidden sm:flex border-white/20 text-white hover:bg-white/10 font-bold text-sm px-5" data-testid="btn-sign-up" onClick={() => openModal("signup")}>
             Sign Up
           </Button>
-          <Button className="bg-[linear-gradient(90deg,#FF1C8B_0%,#FF7A00_40%,#9B30FF_70%,#00E5FF_100%)] text-white hover:opacity-90 font-bold uppercase tracking-wider text-xs px-6 shadow-[0_0_14px_rgba(255,28,139,0.45),0_0_28px_rgba(0,229,255,0.12)] border-0" data-testid="btn-upload-nav" onClick={() => setLocation('/upload')}>
+          <Button className="bg-[#3B82F6] hover:bg-[#2563EB] text-white font-bold border-0 uppercase tracking-wider text-xs px-6 rounded-[10px] shadow-[0_0_12px_rgba(59,130,246,0.4)] hover:shadow-[0_0_20px_rgba(59,130,246,0.6)] transition-all duration-200" data-testid="btn-upload-nav" onClick={() => setLocation('/upload')}>
             Upload
           </Button>
         </div>

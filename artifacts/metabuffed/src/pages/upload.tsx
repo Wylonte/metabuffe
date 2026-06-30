@@ -193,7 +193,7 @@ export default function UploadPage() {
                         <Button
                           onClick={(e) => { e.stopPropagation(); startUpload(); }}
                           disabled={!selectedGame}
-                          className="bg-primary hover:bg-primary/90 text-white font-black uppercase tracking-widest text-xs h-10 px-8 disabled:opacity-40 shadow-[0_0_20px_rgba(255,28,139,0.3)]"
+                          className="bg-[#3B82F6] hover:bg-[#2563EB] text-white font-black border-0 uppercase tracking-widest text-xs h-10 px-8 rounded-[10px] shadow-[0_0_16px_rgba(59,130,246,0.45)] hover:shadow-[0_0_24px_rgba(59,130,246,0.65)] disabled:opacity-40 transition-all duration-200"
                           data-testid="btn-submit-upload"
                         >
                           Begin Analysis
@@ -412,7 +412,7 @@ export default function UploadPage() {
                       </div>
 
                       <Button
-                        className="w-full bg-primary hover:bg-primary/90 text-white font-black uppercase tracking-widest text-xs h-11 flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(255,28,139,0.25)]"
+                        className="w-full bg-[#3B82F6] hover:bg-[#2563EB] text-white font-black border-0 uppercase tracking-widest text-xs h-11 flex items-center justify-center gap-2 rounded-[10px] shadow-[0_0_16px_rgba(59,130,246,0.45)] hover:shadow-[0_0_24px_rgba(59,130,246,0.65)] transition-all duration-200"
                         data-testid="btn-view-breakdown"
                       >
                         View Full Breakdown <ChevronRight className="w-4 h-4" />

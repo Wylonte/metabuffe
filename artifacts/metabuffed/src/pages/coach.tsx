@@ -127,7 +127,7 @@ export default function CoachPage() {
 
         <div className="p-4">
           <Button
-            className="w-full bg-primary text-white hover:bg-primary/90 font-bold uppercase tracking-wider text-xs h-9 flex gap-2"
+            className="w-full bg-[#3B82F6] hover:bg-[#2563EB] text-white font-bold border-0 uppercase tracking-wider text-xs h-9 flex gap-2 rounded-[8px] shadow-[0_0_12px_rgba(59,130,246,0.35)] hover:shadow-[0_0_18px_rgba(59,130,246,0.55)] transition-all duration-200"
             data-testid="btn-new-chat"
             onClick={() => setMessages(INITIAL_MESSAGES)}
           >
