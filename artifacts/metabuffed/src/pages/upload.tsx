@@ -11,7 +11,7 @@ import ufc6Img from "@assets/maxresdefault_1778448217289.jpg";
 
 const GAMES = [
   { id: "fight-night", name: "Fight Night Champion", img: fightNightImg, locked: false },
-  { id: "ufc6", name: "UFC 6", img: ufc6Img, locked: true },
+  { id: "ufc6", name: "UFC 6", img: ufc6Img, locked: false },
   { id: "nba", name: "NBA 2K26", img: nba2kImg, locked: true },
   { id: "madden", name: "Madden 26", img: maddenImg, locked: true },
   { id: "undisputed", name: "Undisputed 2", img: undisputedImg, locked: true },

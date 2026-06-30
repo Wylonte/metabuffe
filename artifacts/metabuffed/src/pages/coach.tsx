@@ -24,7 +24,7 @@ const ACTIVE_GAME = {
   img: fightNightImg,
 };
 
-const LOCKED_NEARBY = {
+const UNLOCKED_NEARBY = {
   id: "ufc6",
   name: "UFC 6",
   img: ufc6Img,
@@ -37,33 +37,45 @@ const COMING_SOON = [
 ];
 
 const QUICK_QUESTIONS = [
-  "How do I beat Money Team style players?",
-  "How do I counter lean-back players?",
-  "How do elite players conserve stamina?",
-  "What should I do if I'm winning rounds?",
-  "How do I stop getting countered after combos?",
-  "How do top players steal rounds late?",
-  "Why does my stamina suddenly collapse?",
-  "How do I pressure without draining stamina?",
+  "What's the best counter to a southpaw in UFC 6?",
+  "How do I defend takedowns from cage pressure?",
+  "What's the meta striking style right now?",
+  "How do I set up the body triangle from back control?",
+  "When should I shoot vs stay on the feet?",
+  "How do I get out of full mount?",
+  "What's the most effective combo to the body in UFC 6?",
+  "How do I time the slip to counter straight punches?",
+  "How do I stop getting leg kicked to death?",
+  "What's the best way to finish from back control?",
+  "How do I defend against a ground and pound specialist?",
+  "When should I clinch instead of boxing at range?",
 ];
 
 const AI_RESPONSES: Record<string, string> = {
-  "How do I beat Money Team style players?":
-    "Money Team players rely on volume and forward pressure to dictate pace. Your best counter is disciplined footwork — circle away from their power hand and punish them on the way in. Wait for the second or third punch in their combo, not the first. Timing a check hook as they rush forces them to recalibrate, which breaks their rhythm for the entire exchange. Patience is the weapon.",
-  "How do I counter lean-back players?":
-    "Lean-back players bait you into overcommitting on single shots. Instead of reaching, use jabs to probe their timing and watch for the moment they reset their weight forward — that's your window. Body shots are exceptionally effective since they can't be avoided by leaning; they force engagement on your terms and slowly erode stamina.",
-  "How do elite players conserve stamina?":
-    "Elite players never throw full combos without purpose. They break exchanges down to 2–3 punch clusters with a reset step between each cluster. They also use the clinch strategically — not to stall, but to recover 3–5 seconds of stamina mid-round when it matters most. Footwork replaces punches whenever possible.",
-  "What should I do if I'm winning rounds?":
-    "If you're ahead on rounds, shift to a counter-fighting posture. Make them come to you. Every round they don't close the gap is a round in your column. Don't chase the knockout — let them get desperate and walk into your counters. Judge manipulation means winning clean rounds, not exciting ones.",
-  "How do I stop getting countered after combos?":
-    "The mistake is throwing a third or fourth punch when you've already landed the scoring shots. After 2 clean punches, reset your guard and step back. Train yourself to end every combo with movement, not another punch. The counter always hits fighters who are lunging into their last shot.",
-  "How do top players steal rounds late?":
-    "Late round theft comes from timing. Top players know exactly when the clock reaches the final 30 seconds and spike their activity — landing 4–6 clean punches in a burst when the opponent has mentally relaxed. End the round on your terms. The final 20 seconds often decide close rounds on the judge's card.",
-  "Why does my stamina suddenly collapse?":
-    "Stamina collapse usually means you've been throwing punches in bursts without full recovery between them. The game's stamina system is cumulative — each wasted punch costs more in the middle rounds than the first. Slow down in round 2 even when it feels wrong. The recovery investment always pays off in rounds 3 and 4.",
-  "How do I pressure without draining stamina?":
-    "Efficient pressure is footwork-led, not punch-led. Advance with steps and jabs — every jab costs less than half what a hook costs. Force your opponent to move and defend without you committing. When they slow down or stop moving, then you commit to a real combination. Pressure should be felt without being fueled by your stamina bar.",
+  "What's the best counter to a southpaw in UFC 6?":
+    "Against southpaws, your lead foot position is everything — keep your right foot outside their left foot so they can't land their power left hand clean. Use your jab to disrupt their rhythm and watch for the right hook counter the moment they throw their left straight. Circling to your right (their weak side) forces them to reset constantly and kills their offensive flow. Patience wins the stance battle.",
+  "How do I defend takedowns from cage pressure?":
+    "Cage pressure takedowns are won before the shot — not during it. When your back hits the cage, immediately underhook one arm and use your hips to create lateral movement. Sprawling straight back against the cage gives them the angle; spinning to the open mat breaks it. The moment they drop for the level change, time your sprawl and throw your hips back hard. Getting comfortable at the cage wall is 80% of the battle.",
+  "What's the meta striking style right now?":
+    "The current UFC 6 meta rewards length fighters who work behind the jab and use the lateral step to create angles after each combination. Volume boxers who spam single strikes are getting picked apart by counter specialists. The most effective style right now is a disciplined pressure game — two-punch combos to the body to bring the guard down, then the straight or overhand upstairs. Don't chase KOs; let the combinations set them up.",
+  "How do I set up the body triangle from back control?":
+    "From back control, the body triangle is earned through distraction, not force. Work your hooks first — throw the rear hook to make them defend their head, then slide your leg over and lock the triangle while their arms are occupied. If they're defending the choke well, their body is exposed. Release hand pressure briefly to fully lock the triangle, then return to the choke. The triangle drains their stamina every time they try to stand or roll.",
+  "When should I shoot vs stay on the feet?":
+    "Shoot when you've disrupted their rhythm with combinations — a fighter who just ate a jab-cross combo has their weight distribution wrong and their reaction time is 15–20% slower. Never shoot from distance without setup; it gets you hit. Wrestlers win by mixing strikes until the striking defense opens a lane, then committing fully to the level change. If they're circling actively, reset and re-establish the jab before shooting.",
+  "How do I get out of full mount?":
+    "Full mount escapes require you to control the pace, not panic. Bridge and roll is most effective against opponents who post wide — wait for them to throw a punch, use their forward momentum to bridge hard to one side. If they're tight and compact, frame against their hips and create space for the elbow-knee escape. Never give up your back trying to escape mount — taking the rear clinch position is usually worse than working from mount patiently.",
+  "What's the most effective combo to the body in UFC 6?":
+    "The double jab to the body followed by a right hook upstairs is the highest-percentage body attack in the current meta. Two body jabs drag their guard down and teach their defensive reflex to dip — then the hook catches them mid-adjustment. Follow up with another jab to the body to reset the pattern. After 3–4 repetitions you'll see them hesitate, which is your window for heavier shots. Body work compounds; it doesn't pay off immediately.",
+  "How do I time the slip to counter straight punches?":
+    "Slipping punches is about reading the shoulder, not the hand. The shoulder begins rotating before the punch extends — once you key on that tell, you'll slip early instead of late. Move outside the punch line (slip to the outside of a right straight by moving your head left), which positions you perfectly for the counter left hook. Practice the slip-counter as a single fluid motion, not two separate actions. Timing beats speed every time.",
+  "How do I stop getting leg kicked to death?":
+    "Leg kick defense starts with checking — lift your lead shin at a 45-degree angle to meet their kick. The check transfers all the damage back to their shin, and after 2–3 clean checks most opponents abandon the leg kick entirely. When you're not checking, keep your lead leg from being a static target — small weight shifts and footwork deny them a clean angle. Don't load up single counter punches after the kick; step outside and return a body jab instead.",
+  "What's the best way to finish from back control?":
+    "The rear naked choke is the primary threat, but don't burn stamina forcing it against active hands. Use your hooks to control their hips and prevent the standup, then work on breaking their grip with a seatbelt. Once the seatbelt is locked, slide your choking arm under their chin during any moment they reach to defend — a short neck, a dropped chin, or a failed roll attempt. The choke should feel like it appears, not like it's forced.",
+  "How do I defend against a ground and pound specialist?":
+    "From the bottom, your immediate priority is frame creation — put both forearms against their hips or chest to keep them from posting and loading heavy shots. Framing buys you time to work your guard recovery or create space for a hip escape. The biggest mistake is covering your face and going passive; passive bottom position is a GnP specialist's dream. Keep moving your hips, constantly threaten submissions to disrupt their posture, and look for half guard transitions.",
+  "When should I clinch instead of boxing at range?":
+    "Clinch when you're hurt, when they're loading up single big shots, or when you're winning on the inside and they want to reset. Closing distance against a big puncher removes their power advantage — most KO artists lose their threat in the clinch. Don't clinch when you're gassing, as it often accelerates the stamina drain. Use the clinch as a tool to dictate pacing, not as a place to rest. Effective clinch work means you're landing knees and maintaining position, not just holding on.",
 };
 
 const INITIAL_MESSAGES: Message[] = [
@@ -71,7 +83,7 @@ const INITIAL_MESSAGES: Message[] = [
     id: "welcome",
     role: "ai",
     content:
-      "Welcome to Metabuffed Coach. I'm ready to break down your Fight Night Champion performance. Upload a match for personalized analysis, or ask me anything about competitive meta.",
+      "Welcome to Metabuffed Coach. I analyze Fight Night Champion and UFC 6 at a competitive level. Upload a match for personalized breakdown, or ask me anything — striking meta, grappling setups, stamina management, and cage IQ.",
   },
 ];
 
@@ -286,20 +298,15 @@ export default function CoachPage() {
             </div>
           </div>
 
-          {/* UFC 6 — Locked */}
-          <div className="relative rounded-xl overflow-hidden ring-1 ring-white/5 opacity-50 grayscale cursor-not-allowed">
+          {/* UFC 6 — Available */}
+          <div className="relative rounded-xl overflow-hidden ring-1 ring-[#3B82F6]/30 cursor-pointer hover:ring-[#3B82F6]/60 transition-all duration-200">
             <div className="h-24">
-              <img src={LOCKED_NEARBY.img} alt={LOCKED_NEARBY.name} className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-            </div>
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="bg-black/70 rounded-full p-1.5 border border-white/10">
-                <Lock className="w-3.5 h-3.5 text-zinc-400" />
-              </div>
+              <img src={UNLOCKED_NEARBY.img} alt={UNLOCKED_NEARBY.name} className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
             </div>
             <div className="absolute bottom-0 left-0 right-0 px-2.5 pb-2">
-              <p className="text-white font-bold text-[10px] uppercase leading-tight">{LOCKED_NEARBY.name}</p>
-              <p className="text-[8px] font-mono text-zinc-500 uppercase tracking-widest mt-0.5">Locked</p>
+              <p className="text-white font-bold text-[10px] uppercase leading-tight">{UNLOCKED_NEARBY.name}</p>
+              <p className="text-[8px] font-mono text-[#60B8FF] uppercase tracking-widest mt-0.5">● Available</p>
             </div>
           </div>
 

@@ -249,7 +249,7 @@ export default function Home() {
                 <img src={ufc6Img} alt="UFC 6" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/20" />
                 <div className="absolute top-6 right-6">
-                  <Badge variant="outline" className="bg-black/60 text-white border-white/20 uppercase tracking-widest text-[10px] px-3 py-1 font-bold backdrop-blur-md">Coming Soon</Badge>
+                  <Badge variant="outline" className="bg-[#3B82F6]/20 text-[#60B8FF] border-[#3B82F6]/40 uppercase tracking-widest text-[10px] px-3 py-1 font-bold backdrop-blur-md">Available</Badge>
                 </div>
                 <div className="absolute inset-0 p-8 flex flex-col justify-end">
                   <h3 className="text-2xl font-black text-white uppercase tracking-tight mb-1">UFC 6</h3>
@@ -573,7 +573,7 @@ export default function Home() {
             <div>
               <h4 className="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-5 font-bold">Games</h4>
               <ul className="space-y-3">
-                {["Fight Night Champion", "NBA 2K26", "Madden 26", "GTA 6 (Coming Soon)", "Undisputed 2 (Coming Soon)", "UFC 6 (Coming Soon)"].map(item => (
+                {["Fight Night Champion", "UFC 6", "NBA 2K26", "Madden 26", "GTA 6 (Coming Soon)", "Undisputed 2 (Coming Soon)"].map(item => (
                   <li key={item}><a href="#games" className="text-sm text-zinc-400 hover:text-white transition-colors">{item}</a></li>
                 ))}
               </ul>

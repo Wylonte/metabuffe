@@ -122,7 +122,7 @@ export default function EbooksPage() {
                         href={book.pdf}
                         download={book.filename}
                         onClick={(e) => e.stopPropagation()}
-                        className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-white bg-pink-900/60 hover:bg-pink-800/80 border border-pink-700/40 hover:border-pink-600/60 px-3 py-1.5 rounded transition-all duration-200"
+                        className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-white bg-[#3B82F6] hover:bg-[#2563EB] border-0 px-3 py-1.5 rounded-[8px] shadow-[0_0_10px_rgba(59,130,246,0.4)] hover:shadow-[0_0_16px_rgba(59,130,246,0.6)] transition-all duration-200"
                       >
                         <Download className="w-3 h-3" />
                         Download
