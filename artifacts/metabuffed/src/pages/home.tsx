@@ -107,16 +107,15 @@ export default function Home() {
                 <div className="flex flex-col sm:flex-row gap-5">
                   <Button
                     size="lg"
-                    className="bg-[linear-gradient(90deg,#FF1C8B_0%,#FF7A00_40%,#9B30FF_70%,#00E5FF_100%)] text-white hover:opacity-90 transition-all duration-300 font-bold text-sm h-14 px-10 uppercase tracking-widest w-full sm:w-auto shadow-[0_0_22px_rgba(255,28,139,0.5),0_0_44px_rgba(0,229,255,0.14)] border-0"
+                    className="bg-[#3B82F6] hover:bg-[#2563EB] text-white font-bold text-sm h-14 px-10 uppercase tracking-widest w-full sm:w-auto rounded-[11px] border-0 transition-all duration-200 shadow-[0_0_18px_rgba(59,130,246,0.45)] hover:shadow-[0_0_28px_rgba(59,130,246,0.65)]"
                     data-testid="btn-hero-upload"
                     onClick={() => setLocation('/upload')}
                   >
-                    Upload Gameplay
+                    Analyze Gameplay
                   </Button>
                   <Button
                     size="lg"
-                    variant="outline"
-                    className="border-white/20 text-white hover:bg-white/10 transition-all duration-300 font-bold text-sm h-14 px-10 uppercase tracking-widest backdrop-blur-sm"
+                    className="bg-transparent border border-white/25 hover:border-white/50 hover:bg-white/[0.07] text-white font-bold text-sm h-14 px-10 uppercase tracking-widest rounded-[11px] transition-all duration-200 backdrop-blur-sm"
                     data-testid="btn-hero-explore"
                     onClick={() => { document.getElementById('games')?.scrollIntoView({ behavior: 'smooth' }); }}
                   >
