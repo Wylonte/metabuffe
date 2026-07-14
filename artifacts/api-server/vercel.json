@@ -12,16 +12,6 @@
   },
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api" },
-    { "source": "/((?!trailer\\.mp4$).*)", "destination": "/index.html" }
-  ],
-  "headers": [
-    {
-      "source": "/trailer.mp4",
-      "headers": [
-        { "key": "Content-Type", "value": "video/mp4" },
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" },
-        { "key": "Accept-Ranges", "value": "bytes" }
-      ]
-    }
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }

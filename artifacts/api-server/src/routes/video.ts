@@ -5,10 +5,11 @@ import { logger } from "../lib/logger.js";
 
 const videoRouter = Router();
 
-const DROPBOX_URL =
-  "https://www.dropbox.com/scl/fi/4r59cf22243pxhj1h10dy/YouCut_20260629_210238477.mp4?rlkey=v8lkeufqw3n6yji5kv2l0dt23&dl=1";
+/** Real MP4 bytes (Dropbox dl=1 returns an HTML interstitial). */
+const TRAILER_URL =
+  "https://media.githubusercontent.com/media/Wylonte/metabuffe/main/artifacts/metabuffed/public/trailer.mp4";
 
-// Stream the Dropbox video through the server, forwarding Range headers so
+// Stream the trailer through the server, forwarding Range headers so
 // the browser can seek and the <video> element works correctly.
 videoRouter.get("/video/trailer", (req, res) => {
   const upstreamHeaders: Record<string, string> = {
@@ -39,7 +40,6 @@ videoRouter.get("/video/trailer", (req, res) => {
       (proxyRes) => {
         const status = proxyRes.statusCode ?? 502;
 
-        // Follow redirects
         if ([301, 302, 303, 307, 308].includes(status) && proxyRes.headers.location) {
           proxyReq.destroy();
           const next = proxyRes.headers.location.startsWith("http")
@@ -49,8 +49,19 @@ videoRouter.get("/video/trailer", (req, res) => {
           return;
         }
 
+        const upstreamType = String(proxyRes.headers["content-type"] || "");
+        if (upstreamType.includes("text/html")) {
+          proxyRes.resume();
+          logger.error({ status, upstreamType, url }, "Trailer upstream returned HTML");
+          if (!res.headersSent) res.status(502).end("Invalid trailer upstream");
+          return;
+        }
+
         const send: Record<string, string> = {
-          "Content-Type": (proxyRes.headers["content-type"] as string) || "video/mp4",
+          "Content-Type":
+            upstreamType.includes("octet-stream") || !upstreamType
+              ? "video/mp4"
+              : upstreamType,
           "Accept-Ranges": "bytes",
           "Cache-Control": "public, max-age=3600",
           "Access-Control-Allow-Origin": "*",
@@ -76,7 +87,7 @@ videoRouter.get("/video/trailer", (req, res) => {
     proxyReq.end();
   };
 
-  fetch(DROPBOX_URL);
+  fetch(TRAILER_URL);
 });
 
 export default videoRouter;

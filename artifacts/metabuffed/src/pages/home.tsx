@@ -25,18 +25,32 @@ import undisputedImg from "@assets/characters-from-undisputed-game_1778447744257
 import ufc6Img from "@assets/maxresdefault_1778448217289.jpg";
 import logoImg from "@assets/1000028977_1779456146886.png";
 
-/** Local static first; GitHub LFS media for Vercel; then API/Dropbox fallbacks. */
-const HERO_TRAILER_SOURCES = [
-  "/trailer.mp4",
-  "https://media.githubusercontent.com/media/Wylonte/metabuffe/main/artifacts/metabuffed/public/trailer.mp4",
-  "/api/video/trailer",
-] as const;
+/**
+ * Vercel clones Git LFS as a ~133-byte pointer, so /trailer.mp4 is not a real
+ * MP4 in production. Use GitHub LFS media first there; prefer local in dev.
+ */
+const GITHUB_TRAILER_URL =
+  "https://media.githubusercontent.com/media/Wylonte/metabuffe/main/artifacts/metabuffed/public/trailer.mp4";
+
+const HERO_TRAILER_SOURCES = import.meta.env.DEV
+  ? (["/trailer.mp4", GITHUB_TRAILER_URL, "/api/video/trailer"] as const)
+  : ([GITHUB_TRAILER_URL, "/api/video/trailer", "/trailer.mp4"] as const);
 
 function HeroBackgroundVideo() {
   const [srcIndex, setSrcIndex] = useState(0);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const advancingRef = useRef(false);
+
+  const advanceSource = () => {
+    if (advancingRef.current) return;
+    advancingRef.current = true;
+    setSrcIndex((i) =>
+      i + 1 < HERO_TRAILER_SOURCES.length ? i + 1 : i,
+    );
+  };
 
   useEffect(() => {
+    advancingRef.current = false;
     const video = videoRef.current;
     if (!video) return;
     video.load();
@@ -55,11 +69,7 @@ function HeroBackgroundVideo() {
       preload="auto"
       className="absolute inset-0 w-full h-full object-cover z-[1]"
       src={HERO_TRAILER_SOURCES[srcIndex]}
-      onError={() => {
-        setSrcIndex((i) =>
-          i + 1 < HERO_TRAILER_SOURCES.length ? i + 1 : i,
-        );
-      }}
+      onError={advanceSource}
     />
   );
 }

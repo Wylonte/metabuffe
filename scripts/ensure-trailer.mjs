@@ -173,5 +173,15 @@ for (const url of TRAILER_URLS) {
   }
 }
 
-console.error(lastError ?? new Error("All trailer download sources failed"));
-process.exit(1);
+// Do not fail the Vercel build: production plays from GitHub LFS media /
+  //api/video/trailer. Remove any LFS pointer so /trailer.mp4 is not a fake MP4.
+console.warn(
+  lastError instanceof Error
+    ? `Trailer not bundled (${lastError.message}); remote URL will be used at runtime`
+    : "Trailer not bundled; remote URL will be used at runtime",
+);
+if (existsSync(trailerPath) && !isRealMp4(trailerPath)) {
+  unlinkSync(trailerPath);
+  console.warn(`Removed invalid trailer pointer at ${trailerPath}`);
+}
+process.exit(0);
