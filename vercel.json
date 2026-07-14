@@ -1,4 +1,11 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "installCommand": "pnpm install --no-frozen-lockfile --config.frozen-lockfile=false"
+  "framework": null,
+  "installCommand": "pnpm install --no-frozen-lockfile --config.frozen-lockfile=false",
+  "buildCommand": "pnpm --filter @workspace/metabuffed run build",
+  "outputDirectory": "artifacts/metabuffed/dist/public",
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
 }
