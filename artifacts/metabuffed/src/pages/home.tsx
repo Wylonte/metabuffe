@@ -25,11 +25,11 @@ import undisputedImg from "@assets/characters-from-undisputed-game_1778447744257
 import ufc6Img from "@assets/maxresdefault_1778448217289.jpg";
 import logoImg from "@assets/1000028977_1779456146886.png";
 
-/** Local static file first; API/Dropbox only if the static asset fails. */
+/** Local static first; GitHub LFS media for Vercel; then API/Dropbox fallbacks. */
 const HERO_TRAILER_SOURCES = [
   "/trailer.mp4",
+  "https://media.githubusercontent.com/media/Wylonte/metabuffe/main/artifacts/metabuffed/public/trailer.mp4",
   "/api/video/trailer",
-  "https://www.dropbox.com/scl/fi/4r59cf22243pxhj1h10dy/YouCut_20260629_210238477.mp4?rlkey=v8lkeufqw3n6yji5kv2l0dt23&raw=1",
 ] as const;
 
 function HeroBackgroundVideo() {
