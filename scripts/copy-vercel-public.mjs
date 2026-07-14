@@ -1,9 +1,24 @@
 import { cpSync, rmSync, mkdirSync, existsSync } from "node:fs";
-import { resolve } from "node:path";
+import { dirname, resolve } from "node:path";
 
-const root = resolve(import.meta.dirname, "..");
-const source = resolve(root, "artifacts/metabuffed/dist/public");
-const target = resolve(root, "public");
+function findWorkspaceRoot(startDir) {
+  let dir = startDir;
+  for (;;) {
+    if (existsSync(resolve(dir, "pnpm-workspace.yaml"))) {
+      return dir;
+    }
+    const parent = dirname(dir);
+    if (parent === dir) {
+      throw new Error("Could not find pnpm-workspace.yaml from " + startDir);
+    }
+    dir = parent;
+  }
+}
+
+const workspaceRoot = findWorkspaceRoot(process.cwd());
+const source = resolve(workspaceRoot, "artifacts/metabuffed/dist/public");
+// Vercel outputDirectory is relative to the project Root Directory (cwd).
+const target = resolve(process.cwd(), "public");
 
 if (!existsSync(source)) {
   console.error(`Build output missing: ${source}`);

@@ -6,6 +6,8 @@
   "scripts": {
     "preinstall": "node -e \"const ua=process.env.npm_config_user_agent||''; if(!ua.includes('pnpm')){console.error('Use pnpm instead'); process.exit(1)}\"",
     "build": "pnpm run typecheck && pnpm -r --if-present run build",
+    "vercel-build": "pnpm --filter @workspace/metabuffed run build && node scripts/copy-vercel-public.mjs",
+    "vercel-build-copy": "node scripts/copy-vercel-public.mjs",
     "typecheck:libs": "tsc --build",
     "typecheck": "pnpm run typecheck:libs && pnpm -r --filter \"./artifacts/**\" --filter \"./scripts\" --if-present run typecheck"
   },
