@@ -73,3 +73,7 @@ onlyBuiltDependencies:
   - esbuild
   - msw
   - unrs-resolver
+
+# Explicit empty overrides so pnpm 10 frozen installs match the lockfile
+# (undefined vs {} was causing ERR_PNPM_LOCKFILE_CONFIG_MISMATCH on Vercel).
+overrides: {}
