@@ -74,8 +74,9 @@ export default function Home() {
             muted
             loop
             playsInline
+            preload="auto"
             className="absolute inset-0 w-full h-full object-cover z-[1]"
-            src="/trailer.mp4"
+            src="/api/video/trailer"
           />
 
           {/* Readability overlays — dark on left where text lives */}

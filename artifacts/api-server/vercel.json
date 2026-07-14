@@ -4,6 +4,12 @@
   "installCommand": "pnpm install --no-frozen-lockfile --config.frozen-lockfile=false",
   "buildCommand": "pnpm --filter @workspace/metabuffed run build && node ../../scripts/copy-vercel-public.mjs",
   "outputDirectory": "public",
+  "functions": {
+    "api/index.ts": {
+      "maxDuration": 300,
+      "memory": 1024
+    }
+  },
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api" },
     { "source": "/(.*)", "destination": "/index.html" }
