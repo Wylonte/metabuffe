@@ -1,4 +1,4 @@
-import pino from "pino";
+import { pino } from "pino";
 
 const isProduction = process.env.NODE_ENV === "production";
 const isVercel = Boolean(process.env.VERCEL);
