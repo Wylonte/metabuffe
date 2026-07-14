@@ -25,7 +25,7 @@ import undisputedImg from "@assets/characters-from-undisputed-game_1778447744257
 import ufc6Img from "@assets/maxresdefault_1778448217289.jpg";
 import logoImg from "@assets/1000028977_1779456146886.png";
 
-/** Prefer local static file; fall back to API proxy then Dropbox for Vercel (Git LFS). */
+/** Local static file first; API/Dropbox only if the static asset fails. */
 const HERO_TRAILER_SOURCES = [
   "/trailer.mp4",
   "/api/video/trailer",
