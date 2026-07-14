@@ -1,7 +1,7 @@
 import { Router } from "express";
 import https from "https";
 import http from "http";
-import { logger } from "../lib/logger";
+import { logger } from "../lib/logger.js";
 
 const videoRouter = Router();
 
