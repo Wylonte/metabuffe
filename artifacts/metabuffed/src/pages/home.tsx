@@ -25,6 +25,45 @@ import undisputedImg from "@assets/characters-from-undisputed-game_1778447744257
 import ufc6Img from "@assets/maxresdefault_1778448217289.jpg";
 import logoImg from "@assets/1000028977_1779456146886.png";
 
+/** Prefer local static file; fall back to API proxy then Dropbox for Vercel (Git LFS). */
+const HERO_TRAILER_SOURCES = [
+  "/trailer.mp4",
+  "/api/video/trailer",
+  "https://www.dropbox.com/scl/fi/4r59cf22243pxhj1h10dy/YouCut_20260629_210238477.mp4?rlkey=v8lkeufqw3n6yji5kv2l0dt23&raw=1",
+] as const;
+
+function HeroBackgroundVideo() {
+  const [srcIndex, setSrcIndex] = useState(0);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.load();
+    void video.play().catch(() => {
+      // autoplay can be blocked; muted + playsInline usually allows it
+    });
+  }, [srcIndex]);
+
+  return (
+    <video
+      ref={videoRef}
+      autoPlay
+      muted
+      loop
+      playsInline
+      preload="auto"
+      className="absolute inset-0 w-full h-full object-cover z-[1]"
+      src={HERO_TRAILER_SOURCES[srcIndex]}
+      onError={() => {
+        setSrcIndex((i) =>
+          i + 1 < HERO_TRAILER_SOURCES.length ? i + 1 : i,
+        );
+      }}
+    />
+  );
+}
+
 const Particles = ({ count = 20 }: { count?: number }) => {
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
@@ -69,15 +108,7 @@ export default function Home() {
         <section className="relative min-h-[100dvh] flex items-center pt-20 overflow-hidden">
           {/* Full-bleed video background */}
           <div className="absolute inset-0 bg-black z-0" />
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            className="absolute inset-0 w-full h-full object-cover z-[1]"
-            src="/api/video/trailer"
-          />
+          <HeroBackgroundVideo />
 
           {/* Readability overlays — dark on left where text lives */}
           <div className="absolute inset-0 z-[2] bg-black/40" />
