@@ -13,43 +13,6 @@ export interface CoachChatResult {
   source: CoachChatSource;
 }
 
-function synthesizeFromKnowledge(
-  gameId: string,
-  message: string,
-  conceptsUsed: string[],
-): string {
-  const game = getGameBundle(gameId);
-  if (!game) return GameKnowledgeService.getCoachFallback(gameId);
-
-  const retrieved = GameKnowledgeService.retrieve(gameId, message);
-  if (retrieved.concepts.length === 0) {
-    return GameKnowledgeService.getCoachFallback(gameId);
-  }
-
-  const top = retrieved.concepts[0];
-  const counterText =
-    top.counters.length > 0
-      ? `\n\nHow elites counter it:\n${top.counters.map((c) => `- ${c.name}: ${c.explanation}`).join("\n")}`
-      : "";
-
-  const overuse =
-    top.overuseSignals.length > 0
-      ? `\n\nWhen it's overused:\n${top.overuseSignals.map((s) => `- ${s}`).join("\n")}`
-      : "";
-
-  return [
-    top.definition,
-    top.whyItWorks !== top.definition ? `\n\nWhy it works: ${top.whyItWorks}` : "",
-    counterText,
-    overuse,
-    conceptsUsed.length > 1
-      ? `\n\nRelated reads also in play: ${conceptsUsed.slice(1).join(", ")}`
-      : "",
-  ]
-    .filter(Boolean)
-    .join("");
-}
-
 export async function handleCoachChat(input: {
   gameId: string;
   message: string;
@@ -85,10 +48,14 @@ export async function handleCoachChat(input: {
     return { reply, conceptsUsed, source: "llm" };
   }
 
+  const resolved = GameKnowledgeService.resolveCoachReply(
+    input.gameId,
+    trimmed,
+  );
   return {
-    reply: synthesizeFromKnowledge(input.gameId, trimmed, conceptsUsed),
-    conceptsUsed,
-    source: "knowledge",
+    reply: resolved.reply,
+    conceptsUsed: resolved.conceptsUsed,
+    source: resolved.source === "canned" ? "canned" : "knowledge",
   };
 }
 

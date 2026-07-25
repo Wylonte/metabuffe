@@ -5,6 +5,7 @@ import {
   getCompatCoachReply,
   getCoachFallback,
   getQuickQuestions,
+  resolveCoachReply,
 } from "./compat.js";
 import { buildCoachPrompt } from "./prompt-builder.js";
 import { getGameBundle } from "./registry.js";
@@ -40,6 +41,17 @@ describe("compat coach responses", () => {
     const q = getQuickQuestions("fight-night")[0];
     const answer = getCompatCoachReply("fight-night", q);
     assert.ok(answer && answer.length > 20);
+  });
+
+  it("returns concept canned answer for slang like MTB", () => {
+    const resolved = resolveCoachReply("fight-night", "How do I beat MTB?");
+    assert.equal(resolved.source, "canned");
+    assert.ok(resolved.conceptsUsed.includes("money-team-block"));
+    assert.ok(resolved.reply.includes("Money Team system"));
+    assert.equal(
+      (resolved.reply.match(/attacking the rhythm/g) ?? []).length,
+      1,
+    );
   });
 
   it("has per-game fallback copy", () => {

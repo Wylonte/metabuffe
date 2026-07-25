@@ -1,9 +1,7 @@
 import {
-  getCoachFallback,
   getCoachWelcome,
-  getCompatCoachReply,
   getQuickQuestions,
-  retrieve,
+  resolveCoachReply,
 } from "@workspace/game-knowledge";
 
 export interface CoachChatMessage {
@@ -44,29 +42,11 @@ export async function sendCoachMessage(input: {
 }
 
 function offlineCoachReply(gameId: string, message: string): CoachChatResult {
-  const canned = getCompatCoachReply(gameId, message);
-  if (canned) {
-    return {
-      reply: canned,
-      conceptsUsed: retrieve(gameId, message).matchedConceptIds,
-      source: "canned",
-    };
-  }
-
-  const retrieved = retrieve(gameId, message);
-  if (retrieved.concepts.length > 0) {
-    const top = retrieved.concepts[0];
-    return {
-      reply: [top.definition, top.whyItWorks].filter(Boolean).join("\n\n"),
-      conceptsUsed: retrieved.matchedConceptIds,
-      source: "offline",
-    };
-  }
-
+  const resolved = resolveCoachReply(gameId, message);
   return {
-    reply: getCoachFallback(gameId),
-    conceptsUsed: [],
-    source: "offline",
+    reply: resolved.reply,
+    conceptsUsed: resolved.conceptsUsed,
+    source: resolved.source === "fallback" ? "offline" : resolved.source,
   };
 }
 

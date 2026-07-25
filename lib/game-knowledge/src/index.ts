@@ -7,7 +7,11 @@ export * from "./prompt-builder.js";
 
 import { retrieve } from "./retrieval.js";
 import { buildCoachPrompt, buildAnalysisPrompt } from "./prompt-builder.js";
-import { getCompatCoachReply, getCoachFallback } from "./compat.js";
+import {
+  getCompatCoachReply,
+  getCoachFallback,
+  resolveCoachReply,
+} from "./compat.js";
 
 export const GameKnowledgeService = {
   retrieve,
@@ -15,4 +19,5 @@ export const GameKnowledgeService = {
   buildAnalysisPrompt,
   getCompatCoachReply,
   getCoachFallback,
+  resolveCoachReply,
 };
