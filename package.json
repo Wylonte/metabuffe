@@ -11,7 +11,7 @@
   "scripts": {
     "dev": "npm run dev -w @workspace/metabuffed",
     "build": "npm run typecheck && npm run build --workspaces --if-present",
-    "vercel-build": "node scripts/ensure-trailer.mjs && npm run build -w @workspace/metabuffed && node scripts/copy-vercel-public.mjs",
+    "vercel-build": "npm run build -w @workspace/game-knowledge && node scripts/ensure-trailer.mjs && npm run build -w @workspace/metabuffed && node scripts/copy-vercel-public.mjs",
     "vercel-build-copy": "node scripts/copy-vercel-public.mjs",
     "typecheck:libs": "npm run build -w @workspace/game-knowledge && tsc --build",
     "typecheck": "npm run typecheck:libs && npm run typecheck --workspaces --if-present"

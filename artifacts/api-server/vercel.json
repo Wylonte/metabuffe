@@ -1,8 +1,8 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
-  "installCommand": "npm install",
-  "buildCommand": "node ../../scripts/ensure-trailer.mjs && npm run build -w @workspace/metabuffed && node ../../scripts/copy-vercel-public.mjs",
+  "installCommand": "npm install --include=dev",
+  "buildCommand": "npm run build -w @workspace/game-knowledge && node ../../scripts/ensure-trailer.mjs && npm run build -w @workspace/metabuffed && node ../../scripts/copy-vercel-public.mjs",
   "outputDirectory": "public",
   "functions": {
     "api/index.ts": {
