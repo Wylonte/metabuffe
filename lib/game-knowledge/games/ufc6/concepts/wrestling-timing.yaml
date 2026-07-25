@@ -1,0 +1,20 @@
+id: wrestling-timing
+name: Wrestle
+aliases:
+  - wrestling timing
+category: strategy
+definition: |-
+  META OVERVIEW
+  The best wrestlers strike first to earn takedowns.
+whyItWorks: |-
+  META OVERVIEW
+  The best wrestlers strike first to earn takedowns.
+whenEffective:
+  - When opponent shows predictable patterns
+  - In ranked/OWC high-level exchanges
+counters: []
+overuseSignals:
+  - Repeating the same read without adaptation
+  - Forcing the technique when stamina is low
+related: []
+communityTerms: []

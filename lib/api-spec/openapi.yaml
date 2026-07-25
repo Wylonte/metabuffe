@@ -10,6 +10,10 @@ servers:
 tags:
   - name: health
     description: Health operations
+  - name: coach
+    description: Coach Meta chat
+  - name: analyze
+    description: Gameplay analysis
 paths:
   /healthz:
     get:
@@ -24,6 +28,56 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+  /coach/chat:
+    post:
+      operationId: coachChat
+      tags: [coach]
+      summary: Coach Meta chat
+      description: Game-grounded coaching reply for a selected title
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CoachChatRequest"
+      responses:
+        "200":
+          description: Coach reply
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CoachChatResponse"
+        "400":
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+  /analyze:
+    post:
+      operationId: analyzeGameplay
+      tags: [analyze]
+      summary: Analyze gameplay session
+      description: Returns a meta-grounded analysis for uploaded gameplay metadata
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AnalyzeRequest"
+      responses:
+        "200":
+          description: Analysis result
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AnalyzeResponse"
+        "400":
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
 components:
   schemas:
     HealthStatus:
@@ -33,4 +87,94 @@ components:
           type: string
       required:
         - status
-
+    CoachChatMessage:
+      type: object
+      properties:
+        role:
+          type: string
+          enum: [user, assistant]
+        content:
+          type: string
+      required:
+        - role
+        - content
+    CoachChatRequest:
+      type: object
+      properties:
+        gameId:
+          type: string
+        message:
+          type: string
+        history:
+          type: array
+          items:
+            $ref: "#/components/schemas/CoachChatMessage"
+      required:
+        - gameId
+        - message
+    CoachChatResponse:
+      type: object
+      properties:
+        reply:
+          type: string
+        conceptsUsed:
+          type: array
+          items:
+            type: string
+        source:
+          type: string
+          enum: [llm, knowledge, canned]
+      required:
+        - reply
+        - conceptsUsed
+        - source
+    AnalyzeRequest:
+      type: object
+      properties:
+        gameId:
+          type: string
+        fileName:
+          type: string
+        durationSeconds:
+          type: number
+        observations:
+          type: array
+          items:
+            type: string
+      required:
+        - gameId
+    AnalyzeResponse:
+      type: object
+      properties:
+        grade:
+          type: string
+        archetype:
+          type: string
+        strengths:
+          type: array
+          items:
+            type: string
+        weaknesses:
+          type: array
+          items:
+            type: string
+        summary:
+          type: string
+        conceptsUsed:
+          type: array
+          items:
+            type: string
+      required:
+        - grade
+        - archetype
+        - strengths
+        - weaknesses
+        - summary
+        - conceptsUsed
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+      required:
+        - error

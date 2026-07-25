@@ -1,0 +1,31 @@
+id: chicken-wing
+name: Chicken wing punches
+aliases:
+  - chicken wing
+  - chickenwing
+category: technique
+definition: >
+  Chicken wing punches are tight-angle hooks/uppercuts thrown from close range,
+  often after inside positioning or off a block reset. In FNC they create awkward
+  entries that bypass straight-line defense.
+whyItWorks: >
+  They punish opponents who shell on the centerline and expect straight power shots.
+  The angle changes timing and can force guard breaks or stuns in inside exchanges.
+whenEffective:
+  - After forcing inside position
+  - When opponent shells without lateral movement
+  - Off a short reset after block tap
+counters:
+  - name: Lateral pivot out
+    explanation: Deny inside chest-to-chest range where chicken wings thrive
+  - name: Straight down the middle on entry
+    explanation: Interrupt the wind-up before the angle shot lands
+overuseSignals:
+  - Throwing chicken wings from outside range
+  - Spamming without stamina to reset
+related:
+  - inside-fighting
+  - money-team-block
+communityTerms:
+  - inside cheese
+  - angle hooks

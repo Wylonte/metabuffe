@@ -1,0 +1,1260 @@
+{
+  "games": {
+    "fight-night": {
+      "manifest": {
+        "id": "fight-night",
+        "name": "Fight Night Champion",
+        "shortName": "Fight Night",
+        "active": true,
+        "coachEnabled": true,
+        "locked": false,
+        "allowExploits": true,
+        "voice": {
+          "persona": "Underground OWC/H2H meta analyst for Fight Night Champion",
+          "avoid": [
+            "generic real-world boxing coaching",
+            "vague motivational advice",
+            "ignoring FNC scorecard mechanics"
+          ],
+          "emphasize": [
+            "OWC builds",
+            "stamina",
+            "rhythm manipulation",
+            "scorecard manipulation",
+            "controlled cheese",
+            "Money Team block meta"
+          ],
+          "responseStructure": [
+            "direct competitive read",
+            "why it works in FNC",
+            "how top players counter it",
+            "when it is overused"
+          ]
+        },
+        "metaOverview": "Fight Night Champion competitive meta is built around impact scoring, stamina wars, and rhythm control — not punch totals. Elite OWC/H2H play centers on Money Team block rhythms, power straight timing, sidestep uppercuts, body work, and scorecard manipulation in the final 20–30 seconds of close rounds. Top players win meaningful moments, control timing, and punish commitment rather than chasing volume.",
+        "terminology": {
+          "mtb": "money-team-block",
+          "money team": "money-team-block",
+          "shell": "money-team-block",
+          "power straight": "power-straight",
+          "sidestep uppercut": "sidestep-uppercut",
+          "push straight": "back-step-straight",
+          "body spam": "body-spam",
+          "cheese": "controlled-cheese",
+          "fear loop": "fear-loop",
+          "owc": "owc-meta"
+        },
+        "welcome": "Welcome to Metabuffed Coach. I analyze Fight Night Champion at a competitive level — stamina management, pressure defense, body work, and combo timing. Upload a match for a personalized breakdown, or ask me anything.",
+        "fallback": "Based on the current Fight Night Champion meta, I'd need to see your gameplay footage to give you a precise breakdown. Upload a match and I'll analyze your stamina patterns, exchange timing, and punch selection in detail. If you have a specific situation in mind, describe it and I'll walk you through the read.",
+        "placeholder": "Ask the coach anything about Fight Night Champion..."
+      },
+      "metaOverview": "Fight Night Champion competitive meta is built around impact scoring, stamina wars, and rhythm control — not punch totals. Elite OWC/H2H play centers on Money Team block rhythms, power straight timing, sidestep uppercuts, body work, and scorecard manipulation in the final 20–30 seconds of close rounds. Top players win meaningful moments, control timing, and punish commitment rather than chasing volume.",
+      "terminology": {
+        "mtb": "money-team-block",
+        "money team": "money-team-block",
+        "shell": "money-team-block",
+        "power straight": "power-straight",
+        "sidestep uppercut": "sidestep-uppercut",
+        "push straight": "back-step-straight",
+        "back step straight": "back-step-straight",
+        "body spam": "body-spam",
+        "cheese": "controlled-cheese",
+        "fear loop": "fear-loop",
+        "owc": "owc-meta",
+        "chicken wing": "chicken-wing",
+        "pull counter": "pull-counter"
+      },
+      "quickQuestions": [
+        {
+          "question": "How do I beat the Money Team block?",
+          "conceptId": "money-team-block"
+        },
+        {
+          "question": "How do I actually do the Money Team block?",
+          "conceptId": "money-team-block"
+        },
+        {
+          "question": "Why do I keep losing rounds after landing more punches?",
+          "conceptId": "scorecard-manipulation"
+        },
+        {
+          "question": "Should I hold block or tap block?",
+          "conceptId": "money-team-block"
+        },
+        {
+          "question": "Why is the power straight so broken?",
+          "conceptId": "power-straight"
+        },
+        {
+          "question": "When should I use the sidestep uppercut?",
+          "conceptId": "sidestep-uppercut"
+        },
+        {
+          "question": "What is push straight spam and how do I beat it?",
+          "conceptId": "back-step-straight"
+        },
+        {
+          "question": "Why do elite players barely throw combinations?",
+          "conceptId": "rhythm-manipulation"
+        },
+        {
+          "question": "What is the best OWC style?",
+          "conceptId": "owc-meta"
+        },
+        {
+          "question": "Why are fighters without power punches at a disadvantage?",
+          "conceptId": "power-straight"
+        },
+        {
+          "question": "What is rhythm manipulation?",
+          "conceptId": "rhythm-manipulation"
+        },
+        {
+          "question": "What is the Fear Loop?",
+          "conceptId": "fear-loop"
+        },
+        {
+          "question": "How do I preserve stamina for later rounds?",
+          "conceptId": "stamina-management"
+        },
+        {
+          "question": "How do I know when my opponent is tired?",
+          "conceptId": "stamina-management"
+        },
+        {
+          "question": "What is controlled cheese?",
+          "conceptId": "controlled-cheese"
+        },
+        {
+          "question": "What is scorecard manipulation?",
+          "conceptId": "scorecard-manipulation"
+        },
+        {
+          "question": "How do I beat pressure fighters?",
+          "conceptId": "inside-fighting"
+        },
+        {
+          "question": "How do I beat body spam?",
+          "conceptId": "body-spam"
+        },
+        {
+          "question": "How do I know when my opponent is mentally breaking?",
+          "conceptId": "fear-loop"
+        },
+        {
+          "question": "What separates top players from world-class players?",
+          "conceptId": "reads-meta"
+        }
+      ],
+      "cannedResponses": [
+        {
+          "question": "How do I beat the Money Team block?",
+          "conceptId": "money-team-block",
+          "answer": "The biggest mistake players make is attacking the guard instead of attacking the rhythm.\n\nThe Money Team system is not just holding block. Good players are tapping block, releasing, weaving slightly, resetting, and waiting for your commitment. The moment you overextend, they fire the power straight, sidestep uppercut, or reset behind the shell again.\n\nTo beat it, slow the fight down. Use lateral movement to close distance without committing. Step into range without throwing. Make them refresh block early. Attack the body during the reset. Do not throw long emotional combos at the shell. That is exactly what they want.\n\nYou beat Money Team by making them uncomfortable first."
+        },
+        {
+          "question": "How do I actually do the Money Team block?",
+          "conceptId": "money-team-block",
+          "answer": "The basic rhythm is: block tap, slight weave, release, reset, power straight.\n\nYou are not supposed to hold block like a statue. You tap block, refresh guard, move slightly off centerline, then reset into offense.\n\nThe goal is to stay protected while always being ready to fire back. The power straight is usually the main weapon because it interrupts pressure, scores well, and creates space.\n\nThe shell works because it makes opponents impatient."
+        },
+        {
+          "question": "Why do I keep losing rounds after landing more punches?",
+          "conceptId": "scorecard-manipulation",
+          "answer": "Fight Night Champion does not score like real boxing.\n\nThe game rewards impact moments, power shots, clean counters, stuns, and momentum swings. You can outland someone badly with jabs and light punches, but if they land two or three clean power straights late, the game may give them the round.\n\nThat is why elite players do not only chase punch totals. They chase meaningful moments.\n\nIf the round is close, win the final 20 to 30 seconds with clean power offense or counters."
+        },
+        {
+          "question": "Should I hold block or tap block?",
+          "conceptId": "money-team-block",
+          "answer": "Tap block.\n\nHolding block forever makes you predictable and lets your guard get broken down. Elite defense is rhythmic. Tap, release, move, reset.\n\nYou want your defense to feel alive. The goal is not to block every punch. The goal is to avoid clean impact, preserve stamina, stay balanced, and be ready to counter.\n\nStatic defense eventually dies."
+        },
+        {
+          "question": "Why is the power straight so broken?",
+          "conceptId": "power-straight",
+          "answer": "Because it fits everything the game rewards.\n\nIt is fast, direct, scores hard, interrupts offense, and creates visible impact. When it lands while someone is stepping in or recovering from a punch, it can completely swing a round.\n\nThe best players do not just spam it randomly. They wait until you commit, then throw it through your recovery.\n\nThe power straight is dangerous because of timing, not just power."
+        },
+        {
+          "question": "When should I use the sidestep uppercut?",
+          "conceptId": "sidestep-uppercut",
+          "answer": "Use it when your opponent enters predictably.\n\nIf they keep walking straight in, throwing the same jab straight, or pressuring on the same rhythm, a small sidestep breaks their alignment. The uppercut then lands from an awkward angle.\n\nDo not throw sidestep uppercuts just because you want a stun. Throw them when your opponent gives you the entry pattern.\n\nRandom sidestep uppercuts are spam. Timed sidestep uppercuts are meta."
+        },
+        {
+          "question": "What is push straight spam and how do I beat it?",
+          "conceptId": "back-step-straight",
+          "answer": "Push straight spam works because people stand directly where the straight wants their head to be.\n\nTo beat it, stop living on the centerline. Take small angles. Make the straight miss slightly. Do not chase forward emotionally. Bait the straight, step outside, then counter during the recovery.\n\nThe answer is not simply blocking. The answer is positioning.\n\nStraight spam becomes weaker when you stop giving it a straight line."
+        },
+        {
+          "question": "Why do elite players barely throw combinations?",
+          "conceptId": "rhythm-manipulation",
+          "answer": "Because every extra punch adds risk.\n\nAt high level, a clean two-punch sequence and reset is often better than a six-punch combo that gets countered. Fight Night rewards efficiency, not just volume.\n\nElite players are not trying to look busy. They are trying to land what matters, avoid damage, and conserve stamina.\n\nThe best offense is often short, sharp, and safe."
+        },
+        {
+          "question": "What is the best OWC style?",
+          "conceptId": "owc-meta",
+          "answer": "Brawler and Inside Fighter are usually the safest meta choices.\n\nThey give you power, toughness, pressure tools, and better ability to survive ugly exchanges. Other styles can win, but they usually require cleaner execution.\n\nOutside Fighter, Counter Puncher, and Boxer Puncher can be fun, but you are often giving up power and toughness in a game that heavily rewards impact.\n\nIf two players are equal skill, the stronger meta build usually has the advantage."
+        },
+        {
+          "question": "Why are fighters without power punches at a disadvantage?",
+          "conceptId": "power-straight",
+          "answer": "Because Fight Night Champion rewards impact.\n\nA speed fighter can land more shots and still lose if those shots do not create visible damage or momentum. A power puncher can steal a round with fewer punches because the engine values the heavier moments.\n\nIf your fighter lacks power, you must win rounds clearly. Do not trade. Do not let rounds stay close. Use the jab for positioning, move well, attack the body, and avoid giving up big moments.\n\nTechnical fighters must be cleaner because the scorecards do not always protect them."
+        },
+        {
+          "question": "What is rhythm manipulation?",
+          "conceptId": "rhythm-manipulation",
+          "answer": "Rhythm manipulation is making your opponent fight on your timing.\n\nIf someone always throws jab straight at the same speed, you can step back on the jab and counter the straight. If they always block after your jab, delay the second punch and catch them releasing guard.\n\nElite players do not just react. They study rhythm, break rhythm, and force reactions.\n\nOnce you control timing, you control the fight."
+        },
+        {
+          "question": "What is the Fear Loop?",
+          "conceptId": "fear-loop",
+          "answer": "The Fear Loop starts when your opponent stops trusting their offense.\n\nThey throw, miss, and get countered. Then they hesitate. That hesitation makes them slower. Slower offense becomes easier to read. Then they get countered again.\n\nThat cycle breaks confidence.\n\nElite defenders make opponents afraid to throw. Once a player is scared to attack, they are no longer fighting freely."
+        },
+        {
+          "question": "How do I preserve stamina for later rounds?",
+          "conceptId": "stamina-management",
+          "answer": "Stop wasting movement early.\n\nMost stamina problems begin in rounds one through four. Missed power punches, unnecessary stepping, emotional combinations, and chasing all drain you.\n\nElite players make opponents miss, throw short combos, attack the body, and reset calmly.\n\nIf you are exhausted in round eight, the mistake probably happened in round two."
+        },
+        {
+          "question": "How do I know when my opponent is tired?",
+          "conceptId": "stamina-management",
+          "answer": "Watch their reactions.\n\nTired players recover slower, block late, move too much, stop throwing combinations, miss wider, and panic when pressured. Their counters come late and their footwork gets sloppy.\n\nWhen you see fatigue, do not rush. Make them work. Touch the body. Force them to reset. Let their stamina collapse before you force the finish."
+        },
+        {
+          "question": "What is controlled cheese?",
+          "conceptId": "controlled-cheese",
+          "answer": "Controlled cheese is using strong mechanics intelligently instead of spamming blindly.\n\nPower straight after a read is controlled cheese. Sidestep uppercut after predictable pressure is controlled cheese. Money Team block into reset straight is controlled cheese.\n\nMindless spam becomes readable. Controlled cheese stays dangerous because it has timing and purpose.\n\nThe best players weaponize the meta without becoming predictable."
+        },
+        {
+          "question": "What is scorecard manipulation?",
+          "conceptId": "scorecard-manipulation",
+          "answer": "Scorecard manipulation means understanding what the judges actually reward.\n\nFight Night often values impact, counters, power shots, and late momentum more than clean volume. That means elite players try to land the biggest shots near the end of close rounds.\n\nYou do not always need to dominate the whole round. Sometimes you need to win the moments the game remembers.\n\nThat is why final 20 seconds matter so much."
+        },
+        {
+          "question": "How do I beat pressure fighters?",
+          "conceptId": "inside-fighting",
+          "answer": "Do not run in straight lines.\n\nPressure fighters want you backing up predictably. Instead, take small angles, pivot out, jab to interrupt, and make them reset their feet.\n\nAttack the body when they enter. Do not throw long combos unless they are tired or out of position.\n\nThe goal is to make pressure expensive. If they spend stamina every time they come forward, the fight turns in your favor later."
+        },
+        {
+          "question": "How do I beat body spam?",
+          "conceptId": "body-spam",
+          "answer": "Body spam only works when you allow close range for free.\n\nControl distance first. Do not stand chest to chest unless you are ready to counter. Short uppercuts, step backs, pivots, and straights can punish body entries.\n\nIf they throw body combinations, they are exposed upstairs and through the middle. Time the uppercut or straight as they enter.\n\nBody spam is dangerous, but it needs range. Deny the range."
+        },
+        {
+          "question": "How do I know when my opponent is mentally breaking?",
+          "conceptId": "fear-loop",
+          "answer": "Look for emotional decisions.\n\nThey stop jabbing. They chase. They throw power shots first. They move too much. They repeat the same punch. They abandon their plan.\n\nWhen you see that, stay calm. Do not rush the finish. Emotional players usually create their own opening.\n\nYour job is to stay disciplined while they unravel."
+        },
+        {
+          "question": "What separates top players from world-class players?",
+          "conceptId": "reads-meta",
+          "answer": "Top players have mechanics.\n\nWorld-class players have reads.\n\nA world-class player studies your habits within the first two rounds. They learn your favorite punch, your panic option, your escape direction, when you block, when you throw, and when you get emotional.\n\nAfter that, they are not guessing anymore. They are predicting.\n\nThe highest level of Fight Night Champion is not hand speed. It is seeing the fight before it happens."
+        }
+      ],
+      "concepts": [
+        {
+          "id": "back-step-straight",
+          "name": "Push straight spam and how do I beat it",
+          "aliases": [
+            "back step straight"
+          ],
+          "category": "strategy",
+          "definition": "Push straight spam works because people stand directly where the straight wants their head to be.",
+          "whyItWorks": "Push straight spam works because people stand directly where the straight wants their head to be.",
+          "whenEffective": [
+            "When opponent shows predictable patterns",
+            "In ranked/OWC high-level exchanges"
+          ],
+          "counters": [],
+          "overuseSignals": [
+            "Repeating the same read without adaptation",
+            "Forcing the technique when stamina is low"
+          ],
+          "related": [],
+          "communityTerms": []
+        },
+        {
+          "id": "body-spam",
+          "name": "Beat body spam",
+          "aliases": [
+            "body spam"
+          ],
+          "category": "strategy",
+          "definition": "Body spam only works when you allow close range for free.",
+          "whyItWorks": "Body spam only works when you allow close range for free.",
+          "whenEffective": [
+            "When opponent shows predictable patterns",
+            "In ranked/OWC high-level exchanges"
+          ],
+          "counters": [],
+          "overuseSignals": [
+            "Repeating the same read without adaptation",
+            "Forcing the technique when stamina is low"
+          ],
+          "related": [],
+          "communityTerms": []
+        },
+        {
+          "id": "chicken-wing",
+          "name": "Chicken wing punches",
+          "aliases": [
+            "chicken wing",
+            "chickenwing"
+          ],
+          "category": "technique",
+          "definition": "Chicken wing punches are tight-angle hooks/uppercuts thrown from close range, often after inside positioning or off a block reset. In FNC they create awkward entries that bypass straight-line defense.\n",
+          "whyItWorks": "They punish opponents who shell on the centerline and expect straight power shots. The angle changes timing and can force guard breaks or stuns in inside exchanges.\n",
+          "whenEffective": [
+            "After forcing inside position",
+            "When opponent shells without lateral movement",
+            "Off a short reset after block tap"
+          ],
+          "counters": [
+            {
+              "name": "Lateral pivot out",
+              "explanation": "Deny inside chest-to-chest range where chicken wings thrive"
+            },
+            {
+              "name": "Straight down the middle on entry",
+              "explanation": "Interrupt the wind-up before the angle shot lands"
+            }
+          ],
+          "overuseSignals": [
+            "Throwing chicken wings from outside range",
+            "Spamming without stamina to reset"
+          ],
+          "related": [
+            "inside-fighting",
+            "money-team-block"
+          ],
+          "communityTerms": [
+            "inside cheese",
+            "angle hooks"
+          ]
+        },
+        {
+          "id": "controlled-cheese",
+          "name": "Controlled cheese",
+          "aliases": [
+            "controlled cheese"
+          ],
+          "category": "strategy",
+          "definition": "Controlled cheese is using strong mechanics intelligently instead of spamming blindly.",
+          "whyItWorks": "Controlled cheese is using strong mechanics intelligently instead of spamming blindly.",
+          "whenEffective": [
+            "When opponent shows predictable patterns",
+            "In ranked/OWC high-level exchanges"
+          ],
+          "counters": [],
+          "overuseSignals": [
+            "Repeating the same read without adaptation",
+            "Forcing the technique when stamina is low"
+          ],
+          "related": [],
+          "communityTerms": []
+        },
+        {
+          "id": "fear-loop",
+          "name": "The Fear Loop",
+          "aliases": [
+            "fear loop"
+          ],
+          "category": "strategy",
+          "definition": "The Fear Loop starts when your opponent stops trusting their offense.",
+          "whyItWorks": "The Fear Loop starts when your opponent stops trusting their offense.",
+          "whenEffective": [
+            "When opponent shows predictable patterns",
+            "In ranked/OWC high-level exchanges"
+          ],
+          "counters": [],
+          "overuseSignals": [
+            "Repeating the same read without adaptation",
+            "Forcing the technique when stamina is low"
+          ],
+          "related": [],
+          "communityTerms": []
+        },
+        {
+          "id": "inside-fighting",
+          "name": "Beat pressure fighters",
+          "aliases": [
+            "inside fighting"
+          ],
+          "category": "strategy",
+          "definition": "Do not run in straight lines.",
+          "whyItWorks": "Do not run in straight lines.",
+          "whenEffective": [
+            "When opponent shows predictable patterns",
+            "In ranked/OWC high-level exchanges"
+          ],
+          "counters": [],
+          "overuseSignals": [
+            "Repeating the same read without adaptation",
+            "Forcing the technique when stamina is low"
+          ],
+          "related": [],
+          "communityTerms": []
+        },
+        {
+          "id": "money-team-block",
+          "name": "Beat the Money Team block",
+          "aliases": [
+            "money team block"
+          ],
+          "category": "strategy",
+          "definition": "The biggest mistake players make is attacking the guard instead of attacking the rhythm.",
+          "whyItWorks": "The biggest mistake players make is attacking the guard instead of attacking the rhythm.",
+          "whenEffective": [
+            "When opponent shows predictable patterns",
+            "In ranked/OWC high-level exchanges"
+          ],
+          "counters": [],
+          "overuseSignals": [
+            "Repeating the same read without adaptation",
+            "Forcing the technique when stamina is low"
+          ],
+          "related": [],
+          "communityTerms": []
+        },
+        {
+          "id": "owc-meta",
+          "name": "The best OWC style",
+          "aliases": [
+            "owc meta"
+          ],
+          "category": "meta",
+          "definition": "Brawler and Inside Fighter are usually the safest meta choices.",
+          "whyItWorks": "Brawler and Inside Fighter are usually the safest meta choices.",
+          "whenEffective": [
+            "When opponent shows predictable patterns",
+            "In ranked/OWC high-level exchanges"
+          ],
+          "counters": [],
+          "overuseSignals": [
+            "Repeating the same read without adaptation",
+            "Forcing the technique when stamina is low"
+          ],
+          "related": [],
+          "communityTerms": []
+        },
+        {
+          "id": "power-straight",
+          "name": "Is the power straight so broken",
+          "aliases": [
+            "power straight"
+          ],
+          "category": "strategy",
+          "definition": "Because it fits everything the game rewards.",
+          "whyItWorks": "Because it fits everything the game rewards.",
+          "whenEffective": [
+            "When opponent shows predictable patterns",
+            "In ranked/OWC high-level exchanges"
+          ],
+          "counters": [],
+          "overuseSignals": [
+            "Repeating the same read without adaptation",
+            "Forcing the technique when stamina is low"
+          ],
+          "related": [],
+          "communityTerms": []
+        },
+        {
+          "id": "pull-counter",
+          "name": "Pull counters",
+          "aliases": [
+            "pull counter",
+            "pull straight"
+          ],
+          "category": "counterplay",
+          "definition": "Pull counters use a slight backward pull or lean to make an opponent's jab or straight miss, then fire a straight or power shot through the recovery window.\n",
+          "whyItWorks": "FNC rewards clean counter impact. Pull counters steal rounds by landing power shots while the opponent is still committed forward.\n",
+          "whenEffective": [
+            "Against predictable jab-straight rhythm",
+            "When opponent pressures in straight lines",
+            "In close rounds where one power counter swings judges"
+          ],
+          "counters": [
+            {
+              "name": "Feint and delay second punch",
+              "explanation": "Break the timing they are pulling against"
+            },
+            {
+              "name": "Body attack on pull",
+              "explanation": "Pulling upstairs opens the body line"
+            }
+          ],
+          "overuseSignals": [
+            "Pulling without reading the entry",
+            "Repeated pulls when opponent stops leading"
+          ],
+          "related": [
+            "power-straight",
+            "rhythm-manipulation"
+          ],
+          "communityTerms": [
+            "pull straight meta"
+          ]
+        },
+        {
+          "id": "reads-meta",
+          "name": "What separates top players from world-class players",
+          "aliases": [
+            "reads meta"
+          ],
+          "category": "meta",
+          "definition": "Top players have mechanics.",
+          "whyItWorks": "Top players have mechanics.",
+          "whenEffective": [
+            "When opponent shows predictable patterns",
+            "In ranked/OWC high-level exchanges"
+          ],
+          "counters": [],
+          "overuseSignals": [
+            "Repeating the same read without adaptation",
+            "Forcing the technique when stamina is low"
+          ],
+          "related": [],
+          "communityTerms": []
+        },
+        {
+          "id": "rhythm-manipulation",
+          "name": "Do elite players barely throw combinations",
+          "aliases": [
+            "rhythm manipulation"
+          ],
+          "category": "strategy",
+          "definition": "Because every extra punch adds risk.",
+          "whyItWorks": "Because every extra punch adds risk.",
+          "whenEffective": [
+            "When opponent shows predictable patterns",
+            "In ranked/OWC high-level exchanges"
+          ],
+          "counters": [],
+          "overuseSignals": [
+            "Repeating the same read without adaptation",
+            "Forcing the technique when stamina is low"
+          ],
+          "related": [],
+          "communityTerms": []
+        },
+        {
+          "id": "scorecard-manipulation",
+          "name": "Do I keep losing rounds after landing more punches",
+          "aliases": [
+            "scorecard manipulation"
+          ],
+          "category": "strategy",
+          "definition": "Fight Night Champion does not score like real boxing.",
+          "whyItWorks": "Fight Night Champion does not score like real boxing.",
+          "whenEffective": [
+            "When opponent shows predictable patterns",
+            "In ranked/OWC high-level exchanges"
+          ],
+          "counters": [],
+          "overuseSignals": [
+            "Repeating the same read without adaptation",
+            "Forcing the technique when stamina is low"
+          ],
+          "related": [],
+          "communityTerms": []
+        },
+        {
+          "id": "sidestep-uppercut",
+          "name": "Use the sidestep uppercut",
+          "aliases": [
+            "sidestep uppercut"
+          ],
+          "category": "strategy",
+          "definition": "Use it when your opponent enters predictably.",
+          "whyItWorks": "Use it when your opponent enters predictably.",
+          "whenEffective": [
+            "When opponent shows predictable patterns",
+            "In ranked/OWC high-level exchanges"
+          ],
+          "counters": [],
+          "overuseSignals": [
+            "Repeating the same read without adaptation",
+            "Forcing the technique when stamina is low"
+          ],
+          "related": [],
+          "communityTerms": []
+        },
+        {
+          "id": "stamina-management",
+          "name": "Preserve stamina for later rounds",
+          "aliases": [
+            "stamina management"
+          ],
+          "category": "strategy",
+          "definition": "Stop wasting movement early.",
+          "whyItWorks": "Stop wasting movement early.",
+          "whenEffective": [
+            "When opponent shows predictable patterns",
+            "In ranked/OWC high-level exchanges"
+          ],
+          "counters": [],
+          "overuseSignals": [
+            "Repeating the same read without adaptation",
+            "Forcing the technique when stamina is low"
+          ],
+          "related": [],
+          "communityTerms": []
+        }
+      ]
+    },
+    "ufc6": {
+      "manifest": {
+        "id": "ufc6",
+        "name": "UFC 6",
+        "shortName": "UFC 6",
+        "active": true,
+        "coachEnabled": true,
+        "locked": false,
+        "allowExploits": false,
+        "voice": {
+          "persona": "Division-level UFC 6 competitive meta coach",
+          "avoid": [
+            "generic MMA advice without game context",
+            "highlight-reel swing advice",
+            "ignoring stamina and cage control"
+          ],
+          "emphasize": [
+            "stamina as a second health bar",
+            "exchange control",
+            "cage cutting",
+            "adaptation between rounds",
+            "discipline under pressure"
+          ],
+          "responseStructure": [
+            "META OVERVIEW",
+            "HOW TO EXECUTE",
+            "COMMON MISTAKES",
+            "METABUFFED VERDICT"
+          ]
+        },
+        "metaOverview": "UFC 6 competitive meta rewards efficient striking, stamina management, and cage IQ over volume. Elite players control exchanges, mix head and body threats, punish habits, and adapt every round. Division 20 play is defined by discipline, defensive reads, and making opponents restart their offense repeatedly.",
+        "terminology": {
+          "div 20": "division-20",
+          "head movement": "head-movement",
+          "body shots": "body-defense",
+          "takedown defense": "takedown-defense",
+          "top control": "top-control"
+        },
+        "welcome": "Welcome to Metabuffed Coach. I analyze UFC 6 at a competitive level — striking meta, grappling setups, cage IQ, and ground game. Upload a match for a personalized breakdown, or ask me anything.",
+        "fallback": "Based on current competitive meta for UFC 6, I'd need to see your gameplay footage to give you a truly precise breakdown. Upload a match and I'll analyze your stamina patterns, exchange timing, and round control in detail. If you have a specific situation in mind, describe it and I'll walk you through the meta read.",
+        "placeholder": "Ask the coach anything about UFC 6..."
+      },
+      "metaOverview": "UFC 6 competitive meta rewards efficient striking, stamina management, and cage IQ over volume. Elite players control exchanges, mix head and body threats, punish habits, and adapt every round. Division 20 play is defined by discipline, defensive reads, and making opponents restart their offense repeatedly.",
+      "terminology": {
+        "div 20": "division-20",
+        "head movement": "head-movement",
+        "body shots": "body-defense",
+        "takedown defense": "takedown-defense",
+        "top control": "top-control"
+      },
+      "quickQuestions": [
+        {
+          "question": "What is the current striking meta?",
+          "conceptId": "striking-meta"
+        },
+        {
+          "question": "How do I improve my head movement?",
+          "conceptId": "head-movement"
+        },
+        {
+          "question": "How do I stop pressure fighters?",
+          "conceptId": "pressure-defense"
+        },
+        {
+          "question": "How do I win the stamina battle?",
+          "conceptId": "stamina-battle"
+        },
+        {
+          "question": "How do I become better on the ground?",
+          "conceptId": "ground-game"
+        },
+        {
+          "question": "How do I stop takedowns?",
+          "conceptId": "takedown-defense"
+        },
+        {
+          "question": "How do I escape bad ground positions?",
+          "conceptId": "ground-escapes"
+        },
+        {
+          "question": "How do I beat counter strikers?",
+          "conceptId": "counter-striking"
+        },
+        {
+          "question": "How do elite players think?",
+          "conceptId": "elite-reads"
+        },
+        {
+          "question": "What should Metabuffed analyze?",
+          "conceptId": "analysis-priorities"
+        },
+        {
+          "question": "How do I become unpredictable?",
+          "conceptId": "unpredictability"
+        },
+        {
+          "question": "How do I cut off runners?",
+          "conceptId": "cage-cutting"
+        },
+        {
+          "question": "How do I defend body attacks?",
+          "conceptId": "body-defense"
+        },
+        {
+          "question": "How do I land more counters?",
+          "conceptId": "counter-timing"
+        },
+        {
+          "question": "When should I wrestle?",
+          "conceptId": "wrestling-timing"
+        },
+        {
+          "question": "How do I dominate from top position?",
+          "conceptId": "top-control"
+        },
+        {
+          "question": "How do I survive when rocked?",
+          "conceptId": "rocked-survival"
+        },
+        {
+          "question": "What separates Division 20 players?",
+          "conceptId": "division-20"
+        },
+        {
+          "question": "Why do I lose close fights?",
+          "conceptId": "close-fights"
+        },
+        {
+          "question": "How do I improve the fastest?",
+          "conceptId": "improvement-loop"
+        }
+      ],
+      "cannedResponses": [
+        {
+          "question": "What is the current striking meta?",
+          "conceptId": "striking-meta",
+          "answer": "META OVERVIEW\nThe current meta rewards efficiency over volume. Elite players don't throw the most punches — they land the cleanest punches while preserving stamina. They pressure safely, mix head and body attacks, and punish mistakes instead of forcing knockouts.\n\nHOW TO EXECUTE\n• Start with jabs and straight punches.\n• Mix body attacks into every exchange.\n• Stop combinations when the first strike misses.\n• Pressure only after forcing the opponent backward.\n• Leave exchanges before your stamina drops.\n\nCOMMON MISTAKES\nThrowing long combinations, chasing opponents, and swinging wildly after missing.\n\nMETABUFFED VERDICT\nWinning striking is about controlling exchanges, not winning every exchange."
+        },
+        {
+          "question": "How do I improve my head movement?",
+          "conceptId": "head-movement",
+          "answer": "META OVERVIEW\nHead movement is prediction, not reaction.\n\nHOW TO EXECUTE\n• Slip straight punches.\n• Pull predictable hooks.\n• Duck wide hooks.\n• Reset immediately after every successful evade.\n• Counter with one clean strike.\n\nCOMMON MISTAKES\nRandom slipping, repeated pulling, moving your head while exhausted.\n\nMETABUFFED VERDICT\nRead habits first. Move your head second."
+        },
+        {
+          "question": "How do I stop pressure fighters?",
+          "conceptId": "pressure-defense",
+          "answer": "META OVERVIEW\nPressure only works if you panic.\n\nHOW TO EXECUTE\n• Interrupt entries with straights.\n• Attack the body.\n• Circle away from the cage.\n• Keep combinations short.\n• Force resets after every exchange.\n\nCOMMON MISTAKES\nBacking straight up, throwing hooks while pressured, fighting emotionally.\n\nMETABUFFED VERDICT\nMake aggressive players restart their offense over and over."
+        },
+        {
+          "question": "How do I win the stamina battle?",
+          "conceptId": "stamina-battle",
+          "answer": "META OVERVIEW\nStamina is often more important than health.\n\nHOW TO EXECUTE\n• Throw fewer strikes.\n• Make opponents miss.\n• Attack the body.\n• Don't waste energy chasing knockouts.\n• Stay composed when hurt.\n\nCOMMON MISTAKES\nSpamming combinations and throwing while exhausted.\n\nMETABUFFED VERDICT\nProtect your stamina like a second health bar."
+        },
+        {
+          "question": "How do I become better on the ground?",
+          "conceptId": "ground-game",
+          "answer": "META OVERVIEW\nPosition comes before damage.\n\nHOW TO EXECUTE\n• Secure control first.\n• Deny transitions.\n• Advance position patiently.\n• Attack submissions after draining stamina.\n\nCOMMON MISTAKES\nRushing submissions and constantly transitioning.\n\nMETABUFFED VERDICT\nControl wins fights. Damage finishes them."
+        },
+        {
+          "question": "How do I stop takedowns?",
+          "conceptId": "takedown-defense",
+          "answer": "META OVERVIEW\nGood defense starts before the shot.\n\nHOW TO EXECUTE\n• Stay off the cage.\n• Punish level changes.\n• Expect takedowns after combinations.\n• Make failed shots expensive.\n\nCOMMON MISTAKES\nStanding still and backing into the fence.\n\nMETABUFFED VERDICT\nFootwork prevents more takedowns than reactions."
+        },
+        {
+          "question": "How do I escape bad ground positions?",
+          "conceptId": "ground-escapes",
+          "answer": "META OVERVIEW\nPatience creates escapes.\n\nHOW TO EXECUTE\n• Stay calm.\n• Protect stamina.\n• Defend first.\n• Escape after creating an opening.\n\nCOMMON MISTAKES\nSpamming transitions.\n\nMETABUFFED VERDICT\nDon't rush your escape. Earn it."
+        },
+        {
+          "question": "How do I beat counter strikers?",
+          "conceptId": "counter-striking",
+          "answer": "META OVERVIEW\nCounter fighters punish predictable offense.\n\nHOW TO EXECUTE\n• Use level changes and body threats to create openings.\n• Attack the body.\n• Delay your timing.\n• Mix in wrestling threats.\n\nCOMMON MISTAKES\nRepeating the same combinations.\n\nMETABUFFED VERDICT\nIf you're predictable, you're already losing."
+        },
+        {
+          "question": "How do elite players think?",
+          "conceptId": "elite-reads",
+          "answer": "META OVERVIEW\nElite players spend Round 1 collecting information.\n\nHOW TO EXECUTE\nWatch for:\n• Favorite combinations\n• Defensive habits\n• Cage movement\n• Takedown timing\n• Stamina usage\n\nAdjust every round.\n\nCOMMON MISTAKES\nUsing the same strategy all fight.\n\nMETABUFFED VERDICT\nThe best players adapt faster than their opponents."
+        },
+        {
+          "question": "What should Metabuffed analyze?",
+          "conceptId": "analysis-priorities",
+          "answer": "META OVERVIEW\nThe goal is identifying why you won or lost.\n\nANALYZE\n• Accuracy\n• Stamina\n• Defense\n• Head movement\n• Cage control\n• Counter timing\n• Ground control\n• Transition defense\n• Predictable habits\n\nMETABUFFED VERDICT\nWinning starts with understanding your patterns."
+        },
+        {
+          "question": "How do I become unpredictable?",
+          "conceptId": "unpredictability",
+          "answer": "META OVERVIEW\nPredictability is one of the biggest reasons good players lose. Elite opponents quickly recognize repeated entries, favorite combinations, and defensive habits.\n\nHOW TO EXECUTE\n• Change your opening strikes.\n• Alternate between head, body, and legs.\n• Vary your combination timing.\n• Use level changes before committing.\n• Occasionally do nothing and force reactions.\n\nCOMMON MISTAKES\nStarting every exchange the same way.\n\nMETABUFFED VERDICT\nIf your opponent knows what's coming, your offense is already compromised."
+        },
+        {
+          "question": "How do I cut off runners?",
+          "conceptId": "cage-cutting",
+          "answer": "META OVERVIEW\nDon't chase opponents. Trap them.\n\nHOW TO EXECUTE\n• Walk them toward the fence.\n• Step diagonally instead of following.\n• Use jabs to stop movement.\n• Attack legs when they circle.\n• Force exchanges with smart positioning.\n\nCOMMON MISTAKES\nRunning directly after opponents.\n\nMETABUFFED VERDICT\nGood pressure is about positioning, not speed."
+        },
+        {
+          "question": "How do I defend body attacks?",
+          "conceptId": "body-defense",
+          "answer": "META OVERVIEW\nBody damage destroys stamina and limits your offense.\n\nHOW TO EXECUTE\n• Recognize body attack patterns.\n• Punish repeated body punches.\n• Step outside after blocking.\n• Make body hunters pay with counters.\n\nCOMMON MISTAKES\nOnly protecting your head.\n\nMETABUFFED VERDICT\nIgnoring body damage costs fights before you realize it."
+        },
+        {
+          "question": "How do I land more counters?",
+          "conceptId": "counter-timing",
+          "answer": "META OVERVIEW\nCounters come from anticipation, not reflexes.\n\nHOW TO EXECUTE\n• Learn opponent patterns.\n• Wait for missed strikes.\n• Throw one clean counter.\n• Reset immediately afterward.\n\nCOMMON MISTAKES\nTrying to counter every punch.\n\nMETABUFFED VERDICT\nPatience creates better counters than speed."
+        },
+        {
+          "question": "When should I wrestle?",
+          "conceptId": "wrestling-timing",
+          "answer": "META OVERVIEW\nThe best wrestlers strike first to earn takedowns.\n\nHOW TO EXECUTE\nShoot after:\n• Missed combinations.\n• Body attacks.\n• Opponent fatigue.\n• Cage pressure.\n• Successful level change entries.\n\nCOMMON MISTAKES\nShooting from long range without setup.\n\nMETABUFFED VERDICT\nSetup wins takedowns. Desperation loses them."
+        },
+        {
+          "question": "How do I dominate from top position?",
+          "conceptId": "top-control",
+          "answer": "META OVERVIEW\nTop control is about forcing mistakes.\n\nHOW TO EXECUTE\n• Maintain position.\n• Deny transitions.\n• Drain stamina.\n• Advance patiently.\n• Strike only when safe.\n\nCOMMON MISTAKES\nConstantly posturing up.\n\nMETABUFFED VERDICT\nEvery denied transition makes your next attack stronger."
+        },
+        {
+          "question": "How do I survive when rocked?",
+          "conceptId": "rocked-survival",
+          "answer": "META OVERVIEW\nMost finishes happen because players panic.\n\nHOW TO EXECUTE\n• Stop throwing.\n• Recover while defending.\n• Circle away safely.\n• Avoid reckless exchanges.\n• Slow the pace.\n\nCOMMON MISTAKES\nSwinging wildly while stunned.\n\nMETABUFFED VERDICT\nSurvival wins more fights than desperation."
+        },
+        {
+          "question": "What separates Division 20 players?",
+          "conceptId": "division-20",
+          "answer": "META OVERVIEW\nHigh-ranked players consistently make better decisions under pressure.\n\nHOW TO EXECUTE\nThey:\n• Waste less stamina.\n• Defend before attacking.\n• Adapt every round.\n• Punish habits.\n• Stay emotionally controlled.\n\nCOMMON MISTAKES\nTrying to force finishes instead of building advantages.\n\nMETABUFFED VERDICT\nElite players win with discipline, not highlight reels."
+        },
+        {
+          "question": "Why do I lose close fights?",
+          "conceptId": "close-fights",
+          "answer": "META OVERVIEW\nClose fights are usually decided by small mistakes repeated throughout the match.\n\nHOW TO EXECUTE\nReview:\n• Missed strikes.\n• Block efficiency.\n• Cage control.\n• Stamina management.\n• Predictable offense.\n• Defensive habits.\n\nCOMMON MISTAKES\nBlaming judges instead of reviewing decisions.\n\nMETABUFFED VERDICT\nSmall mistakes repeated become championship losses."
+        },
+        {
+          "question": "How do I improve the fastest?",
+          "conceptId": "improvement-loop",
+          "answer": "META OVERVIEW\nImprovement comes from correcting recurring mistakes, not learning hundreds of new techniques.\n\nHOW TO EXECUTE\nAfter every fight identify:\n• One offensive mistake.\n• One defensive mistake.\n• One stamina mistake.\n• One positioning mistake.\n• One successful habit to keep.\n\nImprove those before learning anything new.\n\nCOMMON MISTAKES\nTrying to fix everything at once.\n\nMETABUFFED VERDICT\nThe fastest climbers don't learn more — they repeat fewer mistakes."
+        }
+      ],
+      "concepts": [
+        {
+          "id": "analysis-priorities",
+          "name": "What should Metabuffed analyze",
+          "aliases": [
+            "analysis priorities"
+          ],
+          "category": "strategy",
+          "definition": "META OVERVIEW\nThe goal is identifying why you won or lost.",
+          "whyItWorks": "META OVERVIEW\nThe goal is identifying why you won or lost.",
+          "whenEffective": [
+            "When opponent shows predictable patterns",
+            "In ranked/OWC high-level exchanges"
+          ],
+          "counters": [],
+          "overuseSignals": [
+            "Repeating the same read without adaptation",
+            "Forcing the technique when stamina is low"
+          ],
+          "related": [],
+          "communityTerms": []
+        },
+        {
+          "id": "body-defense",
+          "name": "Defend body attacks",
+          "aliases": [
+            "body defense"
+          ],
+          "category": "strategy",
+          "definition": "META OVERVIEW\nBody damage destroys stamina and limits your offense.",
+          "whyItWorks": "META OVERVIEW\nBody damage destroys stamina and limits your offense.",
+          "whenEffective": [
+            "When opponent shows predictable patterns",
+            "In ranked/OWC high-level exchanges"
+          ],
+          "counters": [],
+          "overuseSignals": [
+            "Repeating the same read without adaptation",
+            "Forcing the technique when stamina is low"
+          ],
+          "related": [],
+          "communityTerms": []
+        },
+        {
+          "id": "cage-cutting",
+          "name": "Cut off runners",
+          "aliases": [
+            "cage cutting"
+          ],
+          "category": "strategy",
+          "definition": "META OVERVIEW\nDon't chase opponents. Trap them.",
+          "whyItWorks": "META OVERVIEW\nDon't chase opponents. Trap them.",
+          "whenEffective": [
+            "When opponent shows predictable patterns",
+            "In ranked/OWC high-level exchanges"
+          ],
+          "counters": [],
+          "overuseSignals": [
+            "Repeating the same read without adaptation",
+            "Forcing the technique when stamina is low"
+          ],
+          "related": [],
+          "communityTerms": []
+        },
+        {
+          "id": "close-fights",
+          "name": "Do I lose close fights",
+          "aliases": [
+            "close fights"
+          ],
+          "category": "strategy",
+          "definition": "META OVERVIEW\nClose fights are usually decided by small mistakes repeated throughout the match.",
+          "whyItWorks": "META OVERVIEW\nClose fights are usually decided by small mistakes repeated throughout the match.",
+          "whenEffective": [
+            "When opponent shows predictable patterns",
+            "In ranked/OWC high-level exchanges"
+          ],
+          "counters": [],
+          "overuseSignals": [
+            "Repeating the same read without adaptation",
+            "Forcing the technique when stamina is low"
+          ],
+          "related": [],
+          "communityTerms": []
+        },
+        {
+          "id": "counter-striking",
+          "name": "Beat counter strikers",
+          "aliases": [
+            "counter striking"
+          ],
+          "category": "strategy",
+          "definition": "META OVERVIEW\nCounter fighters punish predictable offense.",
+          "whyItWorks": "META OVERVIEW\nCounter fighters punish predictable offense.",
+          "whenEffective": [
+            "When opponent shows predictable patterns",
+            "In ranked/OWC high-level exchanges"
+          ],
+          "counters": [],
+          "overuseSignals": [
+            "Repeating the same read without adaptation",
+            "Forcing the technique when stamina is low"
+          ],
+          "related": [],
+          "communityTerms": []
+        },
+        {
+          "id": "counter-timing",
+          "name": "Land more counters",
+          "aliases": [
+            "counter timing"
+          ],
+          "category": "strategy",
+          "definition": "META OVERVIEW\nCounters come from anticipation, not reflexes.",
+          "whyItWorks": "META OVERVIEW\nCounters come from anticipation, not reflexes.",
+          "whenEffective": [
+            "When opponent shows predictable patterns",
+            "In ranked/OWC high-level exchanges"
+          ],
+          "counters": [],
+          "overuseSignals": [
+            "Repeating the same read without adaptation",
+            "Forcing the technique when stamina is low"
+          ],
+          "related": [],
+          "communityTerms": []
+        },
+        {
+          "id": "division-20",
+          "name": "What separates Division 20 players",
+          "aliases": [
+            "division 20"
+          ],
+          "category": "strategy",
+          "definition": "META OVERVIEW\nHigh-ranked players consistently make better decisions under pressure.",
+          "whyItWorks": "META OVERVIEW\nHigh-ranked players consistently make better decisions under pressure.",
+          "whenEffective": [
+            "When opponent shows predictable patterns",
+            "In ranked/OWC high-level exchanges"
+          ],
+          "counters": [],
+          "overuseSignals": [
+            "Repeating the same read without adaptation",
+            "Forcing the technique when stamina is low"
+          ],
+          "related": [],
+          "communityTerms": []
+        },
+        {
+          "id": "elite-reads",
+          "name": "How do elite players think",
+          "aliases": [
+            "elite reads"
+          ],
+          "category": "strategy",
+          "definition": "META OVERVIEW\nElite players spend Round 1 collecting information.",
+          "whyItWorks": "META OVERVIEW\nElite players spend Round 1 collecting information.",
+          "whenEffective": [
+            "When opponent shows predictable patterns",
+            "In ranked/OWC high-level exchanges"
+          ],
+          "counters": [],
+          "overuseSignals": [
+            "Repeating the same read without adaptation",
+            "Forcing the technique when stamina is low"
+          ],
+          "related": [],
+          "communityTerms": []
+        },
+        {
+          "id": "ground-escapes",
+          "name": "Escape bad ground positions",
+          "aliases": [
+            "ground escapes"
+          ],
+          "category": "strategy",
+          "definition": "META OVERVIEW\nPatience creates escapes.",
+          "whyItWorks": "META OVERVIEW\nPatience creates escapes.",
+          "whenEffective": [
+            "When opponent shows predictable patterns",
+            "In ranked/OWC high-level exchanges"
+          ],
+          "counters": [],
+          "overuseSignals": [
+            "Repeating the same read without adaptation",
+            "Forcing the technique when stamina is low"
+          ],
+          "related": [],
+          "communityTerms": []
+        },
+        {
+          "id": "ground-game",
+          "name": "Become better on the ground",
+          "aliases": [
+            "ground game"
+          ],
+          "category": "strategy",
+          "definition": "META OVERVIEW\nPosition comes before damage.",
+          "whyItWorks": "META OVERVIEW\nPosition comes before damage.",
+          "whenEffective": [
+            "When opponent shows predictable patterns",
+            "In ranked/OWC high-level exchanges"
+          ],
+          "counters": [],
+          "overuseSignals": [
+            "Repeating the same read without adaptation",
+            "Forcing the technique when stamina is low"
+          ],
+          "related": [],
+          "communityTerms": []
+        },
+        {
+          "id": "head-movement",
+          "name": "Improve my head movement",
+          "aliases": [
+            "head movement"
+          ],
+          "category": "strategy",
+          "definition": "META OVERVIEW\nHead movement is prediction, not reaction.",
+          "whyItWorks": "META OVERVIEW\nHead movement is prediction, not reaction.",
+          "whenEffective": [
+            "When opponent shows predictable patterns",
+            "In ranked/OWC high-level exchanges"
+          ],
+          "counters": [],
+          "overuseSignals": [
+            "Repeating the same read without adaptation",
+            "Forcing the technique when stamina is low"
+          ],
+          "related": [],
+          "communityTerms": []
+        },
+        {
+          "id": "improvement-loop",
+          "name": "Improve the fastest",
+          "aliases": [
+            "improvement loop"
+          ],
+          "category": "strategy",
+          "definition": "META OVERVIEW\nImprovement comes from correcting recurring mistakes, not learning hundreds of new techniques.",
+          "whyItWorks": "META OVERVIEW\nImprovement comes from correcting recurring mistakes, not learning hundreds of new techniques.",
+          "whenEffective": [
+            "When opponent shows predictable patterns",
+            "In ranked/OWC high-level exchanges"
+          ],
+          "counters": [],
+          "overuseSignals": [
+            "Repeating the same read without adaptation",
+            "Forcing the technique when stamina is low"
+          ],
+          "related": [],
+          "communityTerms": []
+        },
+        {
+          "id": "pressure-defense",
+          "name": "Stop pressure fighters",
+          "aliases": [
+            "pressure defense"
+          ],
+          "category": "strategy",
+          "definition": "META OVERVIEW\nPressure only works if you panic.",
+          "whyItWorks": "META OVERVIEW\nPressure only works if you panic.",
+          "whenEffective": [
+            "When opponent shows predictable patterns",
+            "In ranked/OWC high-level exchanges"
+          ],
+          "counters": [],
+          "overuseSignals": [
+            "Repeating the same read without adaptation",
+            "Forcing the technique when stamina is low"
+          ],
+          "related": [],
+          "communityTerms": []
+        },
+        {
+          "id": "rocked-survival",
+          "name": "Survive when rocked",
+          "aliases": [
+            "rocked survival"
+          ],
+          "category": "strategy",
+          "definition": "META OVERVIEW\nMost finishes happen because players panic.",
+          "whyItWorks": "META OVERVIEW\nMost finishes happen because players panic.",
+          "whenEffective": [
+            "When opponent shows predictable patterns",
+            "In ranked/OWC high-level exchanges"
+          ],
+          "counters": [],
+          "overuseSignals": [
+            "Repeating the same read without adaptation",
+            "Forcing the technique when stamina is low"
+          ],
+          "related": [],
+          "communityTerms": []
+        },
+        {
+          "id": "stamina-battle",
+          "name": "Win the stamina battle",
+          "aliases": [
+            "stamina battle"
+          ],
+          "category": "strategy",
+          "definition": "META OVERVIEW\nStamina is often more important than health.",
+          "whyItWorks": "META OVERVIEW\nStamina is often more important than health.",
+          "whenEffective": [
+            "When opponent shows predictable patterns",
+            "In ranked/OWC high-level exchanges"
+          ],
+          "counters": [],
+          "overuseSignals": [
+            "Repeating the same read without adaptation",
+            "Forcing the technique when stamina is low"
+          ],
+          "related": [],
+          "communityTerms": []
+        },
+        {
+          "id": "striking-meta",
+          "name": "The current striking meta",
+          "aliases": [
+            "striking meta"
+          ],
+          "category": "meta",
+          "definition": "META OVERVIEW\nThe current meta rewards efficiency over volume. Elite players don't throw the most punches — they land the cleanest punches while preserving stamina. They pressure safely, mix head and body attacks, and punish mistakes instead of forcing knockouts.",
+          "whyItWorks": "META OVERVIEW\nThe current meta rewards efficiency over volume. Elite players don't throw the most punches — they land the cleanest punches while preserving stamina. They pressure safely, mix head and body attacks, and punish mistakes instead of forcing knockouts.",
+          "whenEffective": [
+            "When opponent shows predictable patterns",
+            "In ranked/OWC high-level exchanges"
+          ],
+          "counters": [],
+          "overuseSignals": [
+            "Repeating the same read without adaptation",
+            "Forcing the technique when stamina is low"
+          ],
+          "related": [],
+          "communityTerms": []
+        },
+        {
+          "id": "takedown-defense",
+          "name": "Stop takedowns",
+          "aliases": [
+            "takedown defense"
+          ],
+          "category": "strategy",
+          "definition": "META OVERVIEW\nGood defense starts before the shot.",
+          "whyItWorks": "META OVERVIEW\nGood defense starts before the shot.",
+          "whenEffective": [
+            "When opponent shows predictable patterns",
+            "In ranked/OWC high-level exchanges"
+          ],
+          "counters": [],
+          "overuseSignals": [
+            "Repeating the same read without adaptation",
+            "Forcing the technique when stamina is low"
+          ],
+          "related": [],
+          "communityTerms": []
+        },
+        {
+          "id": "top-control",
+          "name": "Dominate from top position",
+          "aliases": [
+            "top control"
+          ],
+          "category": "strategy",
+          "definition": "META OVERVIEW\nTop control is about forcing mistakes.",
+          "whyItWorks": "META OVERVIEW\nTop control is about forcing mistakes.",
+          "whenEffective": [
+            "When opponent shows predictable patterns",
+            "In ranked/OWC high-level exchanges"
+          ],
+          "counters": [],
+          "overuseSignals": [
+            "Repeating the same read without adaptation",
+            "Forcing the technique when stamina is low"
+          ],
+          "related": [],
+          "communityTerms": []
+        },
+        {
+          "id": "unpredictability",
+          "name": "Become unpredictable",
+          "aliases": [
+            "unpredictability"
+          ],
+          "category": "strategy",
+          "definition": "META OVERVIEW\nPredictability is one of the biggest reasons good players lose. Elite opponents quickly recognize repeated entries, favorite combinations, and defensive habits.",
+          "whyItWorks": "META OVERVIEW\nPredictability is one of the biggest reasons good players lose. Elite opponents quickly recognize repeated entries, favorite combinations, and defensive habits.",
+          "whenEffective": [
+            "When opponent shows predictable patterns",
+            "In ranked/OWC high-level exchanges"
+          ],
+          "counters": [],
+          "overuseSignals": [
+            "Repeating the same read without adaptation",
+            "Forcing the technique when stamina is low"
+          ],
+          "related": [],
+          "communityTerms": []
+        },
+        {
+          "id": "wrestling-timing",
+          "name": "Wrestle",
+          "aliases": [
+            "wrestling timing"
+          ],
+          "category": "strategy",
+          "definition": "META OVERVIEW\nThe best wrestlers strike first to earn takedowns.",
+          "whyItWorks": "META OVERVIEW\nThe best wrestlers strike first to earn takedowns.",
+          "whenEffective": [
+            "When opponent shows predictable patterns",
+            "In ranked/OWC high-level exchanges"
+          ],
+          "counters": [],
+          "overuseSignals": [
+            "Repeating the same read without adaptation",
+            "Forcing the technique when stamina is low"
+          ],
+          "related": [],
+          "communityTerms": []
+        }
+      ]
+    }
+  }
+}

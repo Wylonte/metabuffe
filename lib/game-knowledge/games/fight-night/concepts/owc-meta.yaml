@@ -1,0 +1,16 @@
+id: owc-meta
+name: The best OWC style
+aliases:
+  - owc meta
+category: meta
+definition: Brawler and Inside Fighter are usually the safest meta choices.
+whyItWorks: Brawler and Inside Fighter are usually the safest meta choices.
+whenEffective:
+  - When opponent shows predictable patterns
+  - In ranked/OWC high-level exchanges
+counters: []
+overuseSignals:
+  - Repeating the same read without adaptation
+  - Forcing the technique when stamina is low
+related: []
+communityTerms: []

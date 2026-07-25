@@ -1,0 +1,16 @@
+id: rhythm-manipulation
+name: Do elite players barely throw combinations
+aliases:
+  - rhythm manipulation
+category: strategy
+definition: Because every extra punch adds risk.
+whyItWorks: Because every extra punch adds risk.
+whenEffective:
+  - When opponent shows predictable patterns
+  - In ranked/OWC high-level exchanges
+counters: []
+overuseSignals:
+  - Repeating the same read without adaptation
+  - Forcing the technique when stamina is low
+related: []
+communityTerms: []

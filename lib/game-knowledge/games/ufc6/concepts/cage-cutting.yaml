@@ -1,0 +1,20 @@
+id: cage-cutting
+name: Cut off runners
+aliases:
+  - cage cutting
+category: strategy
+definition: |-
+  META OVERVIEW
+  Don't chase opponents. Trap them.
+whyItWorks: |-
+  META OVERVIEW
+  Don't chase opponents. Trap them.
+whenEffective:
+  - When opponent shows predictable patterns
+  - In ranked/OWC high-level exchanges
+counters: []
+overuseSignals:
+  - Repeating the same read without adaptation
+  - Forcing the technique when stamina is low
+related: []
+communityTerms: []

@@ -1,0 +1,18 @@
+id: money-team-block
+name: Beat the Money Team block
+aliases:
+  - money team block
+category: strategy
+definition: The biggest mistake players make is attacking the guard instead of
+  attacking the rhythm.
+whyItWorks: The biggest mistake players make is attacking the guard instead of
+  attacking the rhythm.
+whenEffective:
+  - When opponent shows predictable patterns
+  - In ranked/OWC high-level exchanges
+counters: []
+overuseSignals:
+  - Repeating the same read without adaptation
+  - Forcing the technique when stamina is low
+related: []
+communityTerms: []

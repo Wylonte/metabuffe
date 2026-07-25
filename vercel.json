@@ -1,8 +1,8 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
-  "installCommand": "pnpm install --no-frozen-lockfile --config.frozen-lockfile=false",
-  "buildCommand": "node scripts/ensure-trailer.mjs && pnpm --filter @workspace/metabuffed run build && node scripts/copy-vercel-public.mjs",
+  "installCommand": "npm install",
+  "buildCommand": "node scripts/ensure-trailer.mjs && npm run build -w @workspace/metabuffed && node scripts/copy-vercel-public.mjs",
   "outputDirectory": "public",
   "functions": {
     "api/index.ts": {

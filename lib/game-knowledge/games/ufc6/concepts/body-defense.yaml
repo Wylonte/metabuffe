@@ -1,0 +1,20 @@
+id: body-defense
+name: Defend body attacks
+aliases:
+  - body defense
+category: strategy
+definition: |-
+  META OVERVIEW
+  Body damage destroys stamina and limits your offense.
+whyItWorks: |-
+  META OVERVIEW
+  Body damage destroys stamina and limits your offense.
+whenEffective:
+  - When opponent shows predictable patterns
+  - In ranked/OWC high-level exchanges
+counters: []
+overuseSignals:
+  - Repeating the same read without adaptation
+  - Forcing the technique when stamina is low
+related: []
+communityTerms: []

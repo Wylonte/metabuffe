@@ -8,18 +8,25 @@ import {
   closeSync,
   unlinkSync,
   statSync,
+  readFileSync,
 } from "node:fs";
 import { dirname, resolve } from "node:path";
 
 function findWorkspaceRoot(startDir) {
   let dir = startDir;
   for (;;) {
-    if (existsSync(resolve(dir, "pnpm-workspace.yaml"))) {
-      return dir;
+    const pkgPath = resolve(dir, "package.json");
+    if (existsSync(pkgPath)) {
+      try {
+        const pkg = JSON.parse(readFileSync(pkgPath, "utf8"));
+        if (pkg.workspaces) return dir;
+      } catch {
+        // continue walking up
+      }
     }
     const parent = dirname(dir);
     if (parent === dir) {
-      throw new Error("Could not find pnpm-workspace.yaml from " + startDir);
+      throw new Error("Could not find workspace root from " + startDir);
     }
     dir = parent;
   }

@@ -1,0 +1,20 @@
+id: elite-reads
+name: How do elite players think
+aliases:
+  - elite reads
+category: strategy
+definition: |-
+  META OVERVIEW
+  Elite players spend Round 1 collecting information.
+whyItWorks: |-
+  META OVERVIEW
+  Elite players spend Round 1 collecting information.
+whenEffective:
+  - When opponent shows predictable patterns
+  - In ranked/OWC high-level exchanges
+counters: []
+overuseSignals:
+  - Repeating the same read without adaptation
+  - Forcing the technique when stamina is low
+related: []
+communityTerms: []

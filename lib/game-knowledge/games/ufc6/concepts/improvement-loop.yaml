@@ -1,0 +1,24 @@
+id: improvement-loop
+name: Improve the fastest
+aliases:
+  - improvement loop
+category: strategy
+definition: >-
+  META OVERVIEW
+
+  Improvement comes from correcting recurring mistakes, not learning hundreds of
+  new techniques.
+whyItWorks: >-
+  META OVERVIEW
+
+  Improvement comes from correcting recurring mistakes, not learning hundreds of
+  new techniques.
+whenEffective:
+  - When opponent shows predictable patterns
+  - In ranked/OWC high-level exchanges
+counters: []
+overuseSignals:
+  - Repeating the same read without adaptation
+  - Forcing the technique when stamina is low
+related: []
+communityTerms: []

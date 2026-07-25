@@ -1,0 +1,16 @@
+id: stamina-management
+name: Preserve stamina for later rounds
+aliases:
+  - stamina management
+category: strategy
+definition: Stop wasting movement early.
+whyItWorks: Stop wasting movement early.
+whenEffective:
+  - When opponent shows predictable patterns
+  - In ranked/OWC high-level exchanges
+counters: []
+overuseSignals:
+  - Repeating the same read without adaptation
+  - Forcing the technique when stamina is low
+related: []
+communityTerms: []

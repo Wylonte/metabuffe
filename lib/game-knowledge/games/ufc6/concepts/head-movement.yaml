@@ -1,0 +1,20 @@
+id: head-movement
+name: Improve my head movement
+aliases:
+  - head movement
+category: strategy
+definition: |-
+  META OVERVIEW
+  Head movement is prediction, not reaction.
+whyItWorks: |-
+  META OVERVIEW
+  Head movement is prediction, not reaction.
+whenEffective:
+  - When opponent shows predictable patterns
+  - In ranked/OWC high-level exchanges
+counters: []
+overuseSignals:
+  - Repeating the same read without adaptation
+  - Forcing the technique when stamina is low
+related: []
+communityTerms: []

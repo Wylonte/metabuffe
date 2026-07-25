@@ -1,0 +1,22 @@
+{
+  "name": "@workspace/game-knowledge",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./ui": "./src/ui-games.ts"
+  },
+  "scripts": {
+    "build": "node ./scripts/compile-knowledge.mjs",
+    "test": "npm run build && tsx --test src/knowledge.test.ts",
+    "typecheck": "npm run build && tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "yaml": "^2.8.1"
+  },
+  "devDependencies": {
+    "@types/node": "^25.3.3",
+    "tsx": "^4.21.0"
+  }
+}

@@ -1,0 +1,20 @@
+id: counter-timing
+name: Land more counters
+aliases:
+  - counter timing
+category: strategy
+definition: |-
+  META OVERVIEW
+  Counters come from anticipation, not reflexes.
+whyItWorks: |-
+  META OVERVIEW
+  Counters come from anticipation, not reflexes.
+whenEffective:
+  - When opponent shows predictable patterns
+  - In ranked/OWC high-level exchanges
+counters: []
+overuseSignals:
+  - Repeating the same read without adaptation
+  - Forcing the technique when stamina is low
+related: []
+communityTerms: []

@@ -1,0 +1,26 @@
+id: unpredictability
+name: Become unpredictable
+aliases:
+  - unpredictability
+category: strategy
+definition: >-
+  META OVERVIEW
+
+  Predictability is one of the biggest reasons good players lose. Elite
+  opponents quickly recognize repeated entries, favorite combinations, and
+  defensive habits.
+whyItWorks: >-
+  META OVERVIEW
+
+  Predictability is one of the biggest reasons good players lose. Elite
+  opponents quickly recognize repeated entries, favorite combinations, and
+  defensive habits.
+whenEffective:
+  - When opponent shows predictable patterns
+  - In ranked/OWC high-level exchanges
+counters: []
+overuseSignals:
+  - Repeating the same read without adaptation
+  - Forcing the technique when stamina is low
+related: []
+communityTerms: []

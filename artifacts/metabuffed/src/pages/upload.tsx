@@ -3,19 +3,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Nav } from "@/components/Nav";
 import { Button } from "@/components/ui/button";
 import { Upload, FileVideo, CheckCircle2, Lock, Loader2, ChevronRight } from "lucide-react";
-import fightNightImg from "@assets/f8jFkfr_1778467206855.jpg";
-import maddenImg from "@assets/G6IWhecWMAkaOiu_1778447744264.jpg";
-import nba2kImg from "@assets/wp15758233_1778466521722.jpg";
-import undisputedImg from "@assets/characters-from-undisputed-game_1778447744257.avif";
-import ufc6Img from "@assets/maxresdefault_1778448217289.jpg";
+import { listGamesForUpload } from "@/lib/games";
+import { requestGameplayAnalysis, type AnalyzeResult } from "@/lib/analyze-client";
 
-const GAMES = [
-  { id: "fight-night", name: "Fight Night Champion", img: fightNightImg, locked: false },
-  { id: "ufc6", name: "UFC 6", img: ufc6Img, locked: false },
-  { id: "nba", name: "NBA 2K26", img: nba2kImg, locked: true },
-  { id: "madden", name: "Madden 26", img: maddenImg, locked: true },
-  { id: "undisputed", name: "Undisputed 2", img: undisputedImg, locked: true },
-];
+const GAMES = listGamesForUpload();
 
 const PROCESSING_STEPS = [
   "Upload received",
@@ -38,6 +29,7 @@ export default function UploadPage() {
   const [uploadProgress, setUploadProgress] = useState(0);
   const [processStep, setProcessStep] = useState(0);
   const [isDragOver, setIsDragOver] = useState(false);
+  const [analysis, setAnalysis] = useState<AnalyzeResult | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleFileDrop = (e: React.DragEvent<HTMLDivElement>) => {
@@ -54,6 +46,7 @@ export default function UploadPage() {
     if (!file || !selectedGame) return;
     setUploadState("uploading");
     setUploadProgress(0);
+    setAnalysis(null);
 
     const uploadInterval = setInterval(() => {
       setUploadProgress((prev) => {
@@ -68,7 +61,7 @@ export default function UploadPage() {
             setProcessStep(step);
             if (step >= PROCESSING_STEPS.length) {
               clearInterval(processInterval);
-              setUploadState("ready");
+              void runAnalysis();
             }
           }, 1200);
           return 100;
@@ -78,11 +71,33 @@ export default function UploadPage() {
     }, 150);
   };
 
+  const runAnalysis = async () => {
+    try {
+      const result = await requestGameplayAnalysis({
+        gameId: selectedGame!,
+        fileName: file?.name,
+      });
+      setAnalysis(result);
+    } catch {
+      setAnalysis({
+        grade: "B+",
+        archetype: selectedGame === "ufc6" ? "Pressure Striker" : "Counter Puncher",
+        strengths: ["Strong counter-timing in early rounds"],
+        weaknesses: ["Stamina collapse after combo exchanges"],
+        summary: "Analysis unavailable offline. Start the API server for game-grounded breakdowns.",
+        conceptsUsed: [],
+      });
+    } finally {
+      setUploadState("ready");
+    }
+  };
+
   const reset = () => {
     setFile(null);
     setUploadState("idle");
     setUploadProgress(0);
     setProcessStep(0);
+    setAnalysis(null);
   };
 
   const selectedGameData = GAMES.find((g) => g.id === selectedGame);
@@ -392,22 +407,22 @@ export default function UploadPage() {
                       <div className="grid grid-cols-2 gap-2.5">
                         <div className="bg-black/60 border border-white/5 rounded-xl p-3.5">
                           <p className="text-[9px] font-mono text-zinc-600 uppercase tracking-widest mb-1">Grade</p>
-                          <p className="text-2xl font-black text-primary">B+</p>
+                          <p className="text-2xl font-black text-primary">{analysis?.grade ?? "B+"}</p>
                         </div>
                         <div className="bg-black/60 border border-white/5 rounded-xl p-3.5">
                           <p className="text-[9px] font-mono text-zinc-600 uppercase tracking-widest mb-1">Archetype</p>
-                          <p className="text-sm font-black text-white leading-tight">Counter<br />Puncher</p>
+                          <p className="text-sm font-black text-white leading-tight">{analysis?.archetype ?? "Counter Puncher"}</p>
                         </div>
                       </div>
 
                       <div className="space-y-2">
                         <div className="bg-black/60 border border-white/5 rounded-xl p-3.5">
                           <p className="text-[9px] font-mono text-zinc-600 uppercase tracking-widest mb-1.5">Main Strength</p>
-                          <p className="text-xs font-semibold text-white">Strong counter-timing in early rounds</p>
+                          <p className="text-xs font-semibold text-white">{analysis?.strengths[0] ?? "Strong counter-timing in early rounds"}</p>
                         </div>
                         <div className="bg-black/60 border border-pink-900/20 rounded-xl p-3.5">
                           <p className="text-[9px] font-mono text-zinc-600 uppercase tracking-widest mb-1.5">Main Weakness</p>
-                          <p className="text-xs font-semibold text-white">Stamina collapse after combo exchanges</p>
+                          <p className="text-xs font-semibold text-white">{analysis?.weaknesses[0] ?? "Stamina collapse after combo exchanges"}</p>
                         </div>
                       </div>
 

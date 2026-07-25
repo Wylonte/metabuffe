@@ -1,0 +1,20 @@
+id: top-control
+name: Dominate from top position
+aliases:
+  - top control
+category: strategy
+definition: |-
+  META OVERVIEW
+  Top control is about forcing mistakes.
+whyItWorks: |-
+  META OVERVIEW
+  Top control is about forcing mistakes.
+whenEffective:
+  - When opponent shows predictable patterns
+  - In ranked/OWC high-level exchanges
+counters: []
+overuseSignals:
+  - Repeating the same read without adaptation
+  - Forcing the technique when stamina is low
+related: []
+communityTerms: []

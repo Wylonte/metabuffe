@@ -1,0 +1,16 @@
+id: fear-loop
+name: The Fear Loop
+aliases:
+  - fear loop
+category: strategy
+definition: The Fear Loop starts when your opponent stops trusting their offense.
+whyItWorks: The Fear Loop starts when your opponent stops trusting their offense.
+whenEffective:
+  - When opponent shows predictable patterns
+  - In ranked/OWC high-level exchanges
+counters: []
+overuseSignals:
+  - Repeating the same read without adaptation
+  - Forcing the technique when stamina is low
+related: []
+communityTerms: []

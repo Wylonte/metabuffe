@@ -1,0 +1,29 @@
+id: pull-counter
+name: Pull counters
+aliases:
+  - pull counter
+  - pull straight
+category: counterplay
+definition: >
+  Pull counters use a slight backward pull or lean to make an opponent's jab or
+  straight miss, then fire a straight or power shot through the recovery window.
+whyItWorks: >
+  FNC rewards clean counter impact. Pull counters steal rounds by landing power
+  shots while the opponent is still committed forward.
+whenEffective:
+  - Against predictable jab-straight rhythm
+  - When opponent pressures in straight lines
+  - In close rounds where one power counter swings judges
+counters:
+  - name: Feint and delay second punch
+    explanation: Break the timing they are pulling against
+  - name: Body attack on pull
+    explanation: Pulling upstairs opens the body line
+overuseSignals:
+  - Pulling without reading the entry
+  - Repeated pulls when opponent stops leading
+related:
+  - power-straight
+  - rhythm-manipulation
+communityTerms:
+  - pull straight meta

@@ -1,0 +1,16 @@
+id: body-spam
+name: Beat body spam
+aliases:
+  - body spam
+category: strategy
+definition: Body spam only works when you allow close range for free.
+whyItWorks: Body spam only works when you allow close range for free.
+whenEffective:
+  - When opponent shows predictable patterns
+  - In ranked/OWC high-level exchanges
+counters: []
+overuseSignals:
+  - Repeating the same read without adaptation
+  - Forcing the technique when stamina is low
+related: []
+communityTerms: []

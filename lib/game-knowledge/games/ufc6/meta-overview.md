@@ -1,0 +1,1 @@
+UFC 6 competitive meta rewards efficient striking, stamina management, and cage IQ over volume. Elite players control exchanges, mix head and body threats, punish habits, and adapt every round. Division 20 play is defined by discipline, defensive reads, and making opponents restart their offense repeatedly.

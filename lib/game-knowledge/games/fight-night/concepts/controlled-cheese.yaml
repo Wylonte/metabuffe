@@ -1,0 +1,18 @@
+id: controlled-cheese
+name: Controlled cheese
+aliases:
+  - controlled cheese
+category: strategy
+definition: Controlled cheese is using strong mechanics intelligently instead of
+  spamming blindly.
+whyItWorks: Controlled cheese is using strong mechanics intelligently instead of
+  spamming blindly.
+whenEffective:
+  - When opponent shows predictable patterns
+  - In ranked/OWC high-level exchanges
+counters: []
+overuseSignals:
+  - Repeating the same read without adaptation
+  - Forcing the technique when stamina is low
+related: []
+communityTerms: []

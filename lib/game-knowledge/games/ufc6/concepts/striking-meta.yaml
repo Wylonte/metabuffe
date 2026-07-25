@@ -1,0 +1,28 @@
+id: striking-meta
+name: The current striking meta
+aliases:
+  - striking meta
+category: meta
+definition: >-
+  META OVERVIEW
+
+  The current meta rewards efficiency over volume. Elite players don't throw the
+  most punches — they land the cleanest punches while preserving stamina. They
+  pressure safely, mix head and body attacks, and punish mistakes instead of
+  forcing knockouts.
+whyItWorks: >-
+  META OVERVIEW
+
+  The current meta rewards efficiency over volume. Elite players don't throw the
+  most punches — they land the cleanest punches while preserving stamina. They
+  pressure safely, mix head and body attacks, and punish mistakes instead of
+  forcing knockouts.
+whenEffective:
+  - When opponent shows predictable patterns
+  - In ranked/OWC high-level exchanges
+counters: []
+overuseSignals:
+  - Repeating the same read without adaptation
+  - Forcing the technique when stamina is low
+related: []
+communityTerms: []

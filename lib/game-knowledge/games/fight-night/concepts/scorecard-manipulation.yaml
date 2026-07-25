@@ -1,0 +1,16 @@
+id: scorecard-manipulation
+name: Do I keep losing rounds after landing more punches
+aliases:
+  - scorecard manipulation
+category: strategy
+definition: Fight Night Champion does not score like real boxing.
+whyItWorks: Fight Night Champion does not score like real boxing.
+whenEffective:
+  - When opponent shows predictable patterns
+  - In ranked/OWC high-level exchanges
+counters: []
+overuseSignals:
+  - Repeating the same read without adaptation
+  - Forcing the technique when stamina is low
+related: []
+communityTerms: []

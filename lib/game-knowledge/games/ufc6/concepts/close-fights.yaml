@@ -1,0 +1,24 @@
+id: close-fights
+name: Do I lose close fights
+aliases:
+  - close fights
+category: strategy
+definition: >-
+  META OVERVIEW
+
+  Close fights are usually decided by small mistakes repeated throughout the
+  match.
+whyItWorks: >-
+  META OVERVIEW
+
+  Close fights are usually decided by small mistakes repeated throughout the
+  match.
+whenEffective:
+  - When opponent shows predictable patterns
+  - In ranked/OWC high-level exchanges
+counters: []
+overuseSignals:
+  - Repeating the same read without adaptation
+  - Forcing the technique when stamina is low
+related: []
+communityTerms: []

@@ -1,0 +1,16 @@
+id: power-straight
+name: Is the power straight so broken
+aliases:
+  - power straight
+category: strategy
+definition: Because it fits everything the game rewards.
+whyItWorks: Because it fits everything the game rewards.
+whenEffective:
+  - When opponent shows predictable patterns
+  - In ranked/OWC high-level exchanges
+counters: []
+overuseSignals:
+  - Repeating the same read without adaptation
+  - Forcing the technique when stamina is low
+related: []
+communityTerms: []

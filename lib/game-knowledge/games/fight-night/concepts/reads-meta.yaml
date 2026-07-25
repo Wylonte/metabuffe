@@ -1,0 +1,16 @@
+id: reads-meta
+name: What separates top players from world-class players
+aliases:
+  - reads meta
+category: meta
+definition: Top players have mechanics.
+whyItWorks: Top players have mechanics.
+whenEffective:
+  - When opponent shows predictable patterns
+  - In ranked/OWC high-level exchanges
+counters: []
+overuseSignals:
+  - Repeating the same read without adaptation
+  - Forcing the technique when stamina is low
+related: []
+communityTerms: []

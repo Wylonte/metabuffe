@@ -13,8 +13,10 @@ if (Number.isNaN(port) || port <= 0) {
 }
 
 const basePath = process.env.BASE_PATH ?? "/";
+const workspaceRoot = path.resolve(import.meta.dirname, "..", "..");
 
 export default defineConfig({
+  envDir: workspaceRoot,
   base: basePath,
   plugins: [
     react(),

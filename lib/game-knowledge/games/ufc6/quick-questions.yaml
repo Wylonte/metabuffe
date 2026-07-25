@@ -1,0 +1,40 @@
+- question: What is the current striking meta?
+  conceptId: striking-meta
+- question: How do I improve my head movement?
+  conceptId: head-movement
+- question: How do I stop pressure fighters?
+  conceptId: pressure-defense
+- question: How do I win the stamina battle?
+  conceptId: stamina-battle
+- question: How do I become better on the ground?
+  conceptId: ground-game
+- question: How do I stop takedowns?
+  conceptId: takedown-defense
+- question: How do I escape bad ground positions?
+  conceptId: ground-escapes
+- question: How do I beat counter strikers?
+  conceptId: counter-striking
+- question: How do elite players think?
+  conceptId: elite-reads
+- question: What should Metabuffed analyze?
+  conceptId: analysis-priorities
+- question: How do I become unpredictable?
+  conceptId: unpredictability
+- question: How do I cut off runners?
+  conceptId: cage-cutting
+- question: How do I defend body attacks?
+  conceptId: body-defense
+- question: How do I land more counters?
+  conceptId: counter-timing
+- question: When should I wrestle?
+  conceptId: wrestling-timing
+- question: How do I dominate from top position?
+  conceptId: top-control
+- question: How do I survive when rocked?
+  conceptId: rocked-survival
+- question: What separates Division 20 players?
+  conceptId: division-20
+- question: Why do I lose close fights?
+  conceptId: close-fights
+- question: How do I improve the fastest?
+  conceptId: improvement-loop

@@ -1,0 +1,20 @@
+id: ground-escapes
+name: Escape bad ground positions
+aliases:
+  - ground escapes
+category: strategy
+definition: |-
+  META OVERVIEW
+  Patience creates escapes.
+whyItWorks: |-
+  META OVERVIEW
+  Patience creates escapes.
+whenEffective:
+  - When opponent shows predictable patterns
+  - In ranked/OWC high-level exchanges
+counters: []
+overuseSignals:
+  - Repeating the same read without adaptation
+  - Forcing the technique when stamina is low
+related: []
+communityTerms: []
