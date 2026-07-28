@@ -18,8 +18,8 @@ export function Nav() {
         <div className="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-400">
           <Link href="/" className={`${location === "/" ? "text-white" : "hover:text-white"} transition-colors`}>Home</Link>
           <Link href="/about" className={`${location === "/about" ? "text-white" : "hover:text-white"} transition-colors`}>About</Link>
-          <Link href="/upload" className={`${location === "/upload" ? "text-white" : "hover:text-white"} transition-colors`}>Upload Match</Link>
           <Link href="/coach" className={`${location === "/coach" ? "text-white" : "hover:text-white"} transition-colors`}>Coach Meta</Link>
+          <Link href="/upload" className={`${location === "/upload" ? "text-white" : "hover:text-white"} transition-colors`}>Upload Match</Link>
           <Link href="/ebooks" className={`${location === "/ebooks" ? "text-white" : "hover:text-white"} transition-colors`}>Ebooks</Link>
         </div>
         <div className="flex items-center gap-3">
@@ -29,8 +29,8 @@ export function Nav() {
           <Button variant="outline" className="hidden sm:flex border-white/20 text-white hover:bg-white/10 font-bold text-sm px-5" data-testid="btn-sign-up" onClick={() => openModal("signup")}>
             Sign Up
           </Button>
-          <Button className="bg-[#3B82F6] hover:bg-[#2563EB] text-white font-bold border-0 uppercase tracking-wider text-xs px-6 rounded-[10px] shadow-[0_0_12px_rgba(59,130,246,0.4)] hover:shadow-[0_0_20px_rgba(59,130,246,0.6)] transition-all duration-200" data-testid="btn-upload-nav" onClick={() => setLocation('/upload')}>
-            Upload
+          <Button className="bg-[#3B82F6] hover:bg-[#2563EB] text-white font-bold border-0 uppercase tracking-wider text-xs px-6 rounded-[10px] shadow-[0_0_12px_rgba(59,130,246,0.4)] hover:shadow-[0_0_20px_rgba(59,130,246,0.6)] transition-all duration-200" data-testid="btn-coach-nav" onClick={() => setLocation('/coach')}>
+            Ask Coach
           </Button>
         </div>
       </div>

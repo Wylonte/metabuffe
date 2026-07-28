@@ -28,6 +28,9 @@ node_modules
 !.vscode/launch.json
 !.vscode/extensions.json
 
+# uploaded gameplay (local API dev)
+artifacts/api-server/uploads
+
 # misc
 /.sass-cache
 /connect.lock

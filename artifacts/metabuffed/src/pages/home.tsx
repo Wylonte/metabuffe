@@ -141,25 +141,25 @@ export default function Home() {
                 </h1>
 
                 <p className="text-xl text-zinc-400 mb-10 leading-relaxed max-w-lg font-medium">
-                  Metabuffed breaks down your gameplay, exposes mistakes, and helps you improve through real competitive analysis.
+                  Ask the Coach for Fight Night and UFC 6 meta advice, or upload a clip for a competitive report card.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-5">
                   <Button
                     size="lg"
                     className="bg-[#3B82F6] hover:bg-[#2563EB] text-white font-bold text-sm h-14 px-10 uppercase tracking-widest w-full sm:w-auto rounded-[11px] border-0 transition-all duration-200 shadow-[0_0_18px_rgba(59,130,246,0.45)] hover:shadow-[0_0_28px_rgba(59,130,246,0.65)]"
-                    data-testid="btn-hero-upload"
-                    onClick={() => setLocation('/upload')}
+                    data-testid="btn-hero-coach"
+                    onClick={() => setLocation('/coach')}
                   >
-                    Analyze Gameplay
+                    Ask the Coach
                   </Button>
                   <Button
                     size="lg"
                     className="bg-transparent border border-white/25 hover:border-white/50 hover:bg-white/[0.07] text-white font-bold text-sm h-14 px-10 uppercase tracking-widest rounded-[11px] transition-all duration-200 backdrop-blur-sm"
-                    data-testid="btn-hero-explore"
-                    onClick={() => { document.getElementById('games')?.scrollIntoView({ behavior: 'smooth' }); }}
+                    data-testid="btn-hero-upload"
+                    onClick={() => setLocation('/upload')}
                   >
-                    Explore Games
+                    Upload Match
                   </Button>
                 </div>
               </motion.div>
@@ -188,7 +188,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 className="group relative h-[240px] rounded-2xl overflow-hidden bg-zinc-900 cursor-pointer border border-white/5"
                 data-testid="game-tile-fight-night"
-                onClick={() => setLocation('/upload?game=fight-night')}
+                onClick={() => setLocation('/coach?game=fight-night')}
               >
                 <img src={fightNightImg} alt="Fight Night Champion" className="absolute inset-0 w-full h-full object-cover object-[40%_top] opacity-80 group-hover:scale-105 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/20" />
@@ -205,7 +205,7 @@ export default function Home() {
                 transition={{ delay: 0.1 }}
                 className="group relative h-[240px] rounded-2xl overflow-hidden bg-zinc-900 cursor-pointer border border-white/5"
                 data-testid="game-tile-ufc6"
-                onClick={() => setLocation('/upload?game=ufc6')}
+                onClick={() => setLocation('/coach?game=ufc6')}
               >
                 <img src={ufc6Img} alt="UFC 6" className="absolute inset-0 w-full h-full object-cover object-center opacity-80 group-hover:scale-105 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/20" />
@@ -502,16 +502,16 @@ export default function Home() {
                   <div className="w-14 h-14 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center mb-6 shadow-[0_0_15px_rgba(255,28,139,0.3)]">
                     <span className="font-bold text-primary">01</span>
                   </div>
-                  <h4 className="text-white font-bold uppercase tracking-wider mb-2">Upload & Analyze</h4>
+                  <h4 className="text-white font-bold uppercase tracking-wider mb-2">Ask the Coach</h4>
                   <Badge variant="outline" className="bg-primary/10 text-primary border-primary/20 uppercase tracking-widest text-[10px]">Now</Badge>
                 </div>
                 
                 <div className="flex flex-col items-center w-1/3">
-                  <div className="w-14 h-14 rounded-full bg-black border-2 border-white/20 flex items-center justify-center mb-6">
-                    <span className="font-bold text-zinc-500">02</span>
+                  <div className="w-14 h-14 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center mb-6 shadow-[0_0_15px_rgba(255,28,139,0.3)]">
+                    <span className="font-bold text-primary">02</span>
                   </div>
-                  <h4 className="text-zinc-400 font-bold uppercase tracking-wider mb-2">Live Match Feedback</h4>
-                  <Badge variant="outline" className="bg-white/5 text-zinc-400 border-white/10 uppercase tracking-widest text-[10px]">Next</Badge>
+                  <h4 className="text-white font-bold uppercase tracking-wider mb-2">Upload & Report Card</h4>
+                  <Badge variant="outline" className="bg-primary/10 text-primary border-primary/20 uppercase tracking-widest text-[10px]">Now</Badge>
                 </div>
 
                 <div className="flex flex-col items-center w-1/3">
@@ -550,11 +550,11 @@ export default function Home() {
               </p>
               
               <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-16">
-                <Button size="lg" className="bg-[#3B82F6] hover:bg-[#2563EB] text-white font-bold border-0 text-sm h-16 px-12 uppercase tracking-widest rounded-[11px] shadow-[0_0_18px_rgba(59,130,246,0.45)] hover:shadow-[0_0_28px_rgba(59,130,246,0.65)] transition-all duration-200" onClick={() => setLocation('/upload')}>
-                  Analyze Gameplay
+                <Button size="lg" className="bg-[#3B82F6] hover:bg-[#2563EB] text-white font-bold border-0 text-sm h-16 px-12 uppercase tracking-widest rounded-[11px] shadow-[0_0_18px_rgba(59,130,246,0.45)] hover:shadow-[0_0_28px_rgba(59,130,246,0.65)] transition-all duration-200" onClick={() => setLocation('/coach')}>
+                  Ask the Coach
                 </Button>
-                <Button size="lg" className="bg-transparent border border-white/25 hover:border-white/50 hover:bg-white/[0.07] text-white font-bold text-sm h-16 px-12 uppercase tracking-widest rounded-[11px] transition-all duration-200 backdrop-blur-sm" onClick={() => setLocation('/coach')}>
-                  Enter the Platform
+                <Button size="lg" className="bg-transparent border border-white/25 hover:border-white/50 hover:bg-white/[0.07] text-white font-bold text-sm h-16 px-12 uppercase tracking-widest rounded-[11px] transition-all duration-200 backdrop-blur-sm" onClick={() => setLocation('/upload')}>
+                  Upload Match
                 </Button>
               </div>
 
@@ -587,7 +587,7 @@ export default function Home() {
                 <img src={logoImg} alt="Metabuffed" className="h-[88px] w-auto" />
               </div>
               <p className="text-sm text-zinc-500 leading-relaxed mb-6">
-                AI-powered gameplay analysis for competitive gamers. Upload. Analyze. Improve.
+                AI-powered competitive coaching for console fighters. Ask the Coach, upload a clip, improve.
               </p>
               <div className="flex items-center gap-4">
                 <a href="https://twitter.com/Metabuffed" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all" data-testid="link-twitter">

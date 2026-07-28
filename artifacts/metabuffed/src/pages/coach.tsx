@@ -30,9 +30,13 @@ const COMING_SOON = listComingSoonGamesWithImages();
 export default function CoachPage() {
   const { openModal } = useModals();
   const coachChat = useCoachChat();
-  const [selectedGame, setSelectedGame] = useState<CoachGameId>("fight-night");
+  const searchParams = new URLSearchParams(window.location.search);
+  const initialGameParam = searchParams.get("game");
+  const initialGame: CoachGameId =
+    initialGameParam && isCoachGameId(initialGameParam) ? initialGameParam : "fight-night";
+  const [selectedGame, setSelectedGame] = useState<CoachGameId>(initialGame);
   const [messages, setMessages] = useState<Message[]>([
-    { id: "welcome", role: "ai", content: getCoachWelcome("fight-night") },
+    { id: "welcome", role: "ai", content: getCoachWelcome(initialGame) },
   ]);
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
