@@ -7,8 +7,6 @@
  */
 
 export interface AnalyzeResponse {
-  grade: string;
-  archetype: string;
   strengths: string[];
   weaknesses: string[];
   summary: string;

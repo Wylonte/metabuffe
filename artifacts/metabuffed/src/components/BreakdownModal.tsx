@@ -38,15 +38,9 @@ export function BreakdownModal({ isOpen, onClose }: BreakdownModalProps) {
               className="bg-[#111] border border-white/10 rounded-2xl overflow-hidden shadow-2xl mb-8"
             >
               <div className="h-32 bg-gradient-to-r from-[rgba(10,50,20,0.8)] to-black border-b border-white/5 flex items-end px-8 pb-6">
-                <div className="flex items-end justify-between w-full">
-                  <div>
-                    <h3 className="text-3xl font-black text-white uppercase tracking-tight">Pressure Counter Fighter</h3>
-                    <p className="text-sm font-mono text-zinc-400">Fight Night Champion • Ranked Match</p>
-                  </div>
-                  <div className="text-right">
-                    <p className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest mb-1">Global Grade</p>
-                    <p className="text-6xl font-black text-primary leading-none drop-shadow-[0_0_15px_rgba(255,28,139,0.5)]">B+</p>
-                  </div>
+                <div>
+                  <h3 className="text-3xl font-black text-white uppercase tracking-tight">Pressure Counter Fighter</h3>
+                  <p className="text-sm font-mono text-zinc-400">Fight Night Champion • Example Breakdown</p>
                 </div>
               </div>
 
@@ -73,27 +67,17 @@ export function BreakdownModal({ isOpen, onClose }: BreakdownModalProps) {
                 {activeTab === "overview" && (
                   <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-8">
                     <div>
-                      <h4 className="text-xs font-mono text-zinc-500 uppercase tracking-widest font-bold mb-6">Performance Score</h4>
+                      <h4 className="text-xs font-mono text-zinc-500 uppercase tracking-widest font-bold mb-6">Key Meta Reads</h4>
                       <div className="space-y-4">
                         {[
-                          { label: "Pressure", value: 81, color: "bg-green-500" },
-                          { label: "Timing", value: 72, color: "bg-blue-500" },
-                          { label: "Stamina Management", value: 45, color: "bg-pink-500" },
-                          { label: "Counter Defense", value: 38, color: "bg-orange-500" },
+                          { label: "Pressure", note: "Strong early-round pressure, but over-commitment after first exchange" },
+                          { label: "Timing", note: "Good counter reads when opponent throws predictable combos" },
+                          { label: "Stamina Management", note: "Stamina dips after extended combinations — shorten chains" },
+                          { label: "Counter Defense", note: "Guard reset missed under body pressure in mid rounds" },
                         ].map((stat) => (
-                          <div key={stat.label}>
-                            <div className="flex justify-between text-sm font-medium mb-2">
-                              <span className="text-white uppercase tracking-wider">{stat.label}</span>
-                              <span className="text-zinc-400 font-mono">{stat.value}%</span>
-                            </div>
-                            <div className="h-2 w-full bg-zinc-900 rounded-full overflow-hidden">
-                              <motion.div 
-                                initial={{ width: 0 }}
-                                animate={{ width: `${stat.value}%` }}
-                                transition={{ duration: 1, ease: "easeOut" }}
-                                className={`h-full ${stat.color}`}
-                              />
-                            </div>
+                          <div key={stat.label} className="rounded-xl border border-white/10 bg-white/5 p-4">
+                            <p className="text-white uppercase tracking-wider text-sm font-bold mb-1">{stat.label}</p>
+                            <p className="text-zinc-400 text-sm leading-relaxed">{stat.note}</p>
                           </div>
                         ))}
                       </div>
@@ -167,7 +151,7 @@ export function BreakdownModal({ isOpen, onClose }: BreakdownModalProps) {
             {/* Bottom Actions */}
             <div className="flex justify-between items-center pb-12">
               <Button variant="outline" className="border-white/20 text-white hover:bg-white/10 font-bold uppercase tracking-widest px-8 h-12" data-testid="btn-share-card">
-                Share Card
+                Share Feedback
               </Button>
               <Button className="bg-primary text-black hover:bg-primary/90 font-bold uppercase tracking-widest px-8 h-12 flex gap-2" onClick={onClose} data-testid="btn-upload-another">
                 <Upload className="w-4 h-4" /> Upload Another Match

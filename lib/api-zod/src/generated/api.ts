@@ -49,8 +49,6 @@ export const AnalyzeGameplayBody = zod.object({
 })
 
 export const AnalyzeGameplayResponse = zod.object({
-  "grade": zod.string(),
-  "archetype": zod.string(),
   "strengths": zod.array(zod.string()),
   "weaknesses": zod.array(zod.string()),
   "summary": zod.string(),

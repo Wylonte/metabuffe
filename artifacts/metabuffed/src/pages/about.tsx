@@ -27,7 +27,7 @@ const PILLARS = [
   {
     icon: TrendingUp,
     title: "Tracks Your Growth",
-    body: "Improvement is invisible without data. Every analysis builds your performance record. Watch your stamina management climb, your counter-defense tighten, your grade rise week over week."
+    body: "Improvement is invisible without data. Every analysis builds your performance record. Watch your stamina management climb, your counter-defense tighten, and your meta reads sharpen week over week."
   },
   {
     icon: Shield,

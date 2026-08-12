@@ -1,6 +1,4 @@
 export interface AnalyzeResult {
-  grade: string;
-  archetype: string;
   strengths: string[];
   weaknesses: string[];
   summary: string;

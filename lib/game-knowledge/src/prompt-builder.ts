@@ -82,8 +82,10 @@ export function buildAnalysisPrompt(input: {
     `You are Metabuffed analyzing ${game.manifest.name} gameplay.`,
     game.manifest.voice.persona,
     "",
-    "Produce a competitive breakdown: grade, archetype, strengths, weaknesses, and actionable meta reads.",
+    "Produce a competitive coaching breakdown: strengths, weaknesses, and actionable meta reads.",
+    "Do NOT assign letter grades (A–F), numeric scores, or player archetype labels.",
     "Ground every claim in the observations and knowledge below.",
+    "Format your response with clear Strengths and Weaknesses sections using bullet points.",
     "",
     "## Meta overview",
     input.retrieved.metaOverview,
@@ -100,7 +102,7 @@ export function buildAnalysisPrompt(input: {
     messages: [
       {
         role: "user",
-        content: "Generate the match analysis breakdown.",
+        content: "Generate the match coaching feedback (strengths, weaknesses, and meta advice only — no grades or archetypes).",
       },
     ],
   };

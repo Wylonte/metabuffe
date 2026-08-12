@@ -69,8 +69,6 @@ export async function handleCoachChat(input: {
 }
 
 export interface AnalyzeResult {
-  grade: string;
-  archetype: string;
   strengths: string[];
   weaknesses: string[];
   summary: string;
@@ -302,8 +300,6 @@ export async function handleAnalyze(input: {
 
   const topConcepts = retrieved.concepts.slice(0, 3).map((c) => c.name);
   return {
-    grade: "B+",
-    archetype: input.gameId === "fight-night" ? "Counter Puncher" : "Pressure Striker",
     strengths: [
       topConcepts[0]
         ? `Strong reads around ${topConcepts[0].toLowerCase()}`
@@ -316,7 +312,7 @@ export async function handleAnalyze(input: {
         : "Stamina collapse after combo chains",
       "Predictable reset timing under pressure",
     ],
-    summary: `Grounded ${game.manifest.name} analysis using competitive meta concepts: ${retrieved.matchedConceptIds.join(", ") || "general meta overview"}.`,
+    summary: `Grounded ${game.manifest.name} coaching feedback using competitive meta concepts: ${retrieved.matchedConceptIds.join(", ") || "general meta overview"}.`,
     conceptsUsed: retrieved.matchedConceptIds,
   };
 }
@@ -325,12 +321,7 @@ function parseAnalysisResponse(
   raw: string,
   conceptsUsed: string[],
 ): AnalyzeResult {
-  const gradeMatch = raw.match(/grade[:\s]+([A-F][+-]?)/i);
-  const archetypeMatch = raw.match(/archetype[:\s]+(.+)/i);
-
   return {
-    grade: gradeMatch?.[1] ?? "B",
-    archetype: archetypeMatch?.[1]?.trim() ?? "Adaptive Fighter",
     strengths: extractBullets(raw, "strength"),
     weaknesses: extractBullets(raw, "weakness"),
     summary: raw.trim(),

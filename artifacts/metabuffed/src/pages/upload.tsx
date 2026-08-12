@@ -24,7 +24,7 @@ const FILE_PROCESSING_STEPS = [
   "Analyzing gameplay visuals",
   "Detecting key exchanges",
   "Reviewing stamina and pressure patterns",
-  "Generating meta breakdown",
+  "Generating coaching feedback",
 ];
 
 const LINK_PROCESSING_STEPS = [
@@ -33,7 +33,7 @@ const LINK_PROCESSING_STEPS = [
   "Extracting gameplay context",
   "Detecting key exchanges",
   "Reviewing stamina and pressure patterns",
-  "Generating meta breakdown",
+  "Generating coaching feedback",
 ];
 
 type InputMode = "file" | "link";
@@ -484,7 +484,7 @@ export default function UploadPage() {
           <div className="lg:sticky lg:top-28">
             <div className="bg-zinc-950 border border-white/8 rounded-2xl overflow-hidden">
               <div className="border-b border-white/5 px-5 py-4 flex items-center justify-between">
-                <p className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest font-bold">Report Card</p>
+                <p className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest font-bold">Coaching Feedback</p>
                 {uploadState !== "idle" && uploadState !== "error" && (
                   <div className={`w-2 h-2 rounded-full ${uploadState === "ready" ? "bg-primary shadow-[0_0_6px_rgba(255,28,139,0.8)]" : "bg-yellow-500 animate-pulse"}`} />
                 )}
@@ -505,7 +505,7 @@ export default function UploadPage() {
                       </div>
                       <div>
                         <p className="text-white font-bold text-sm mb-2">Waiting for footage</p>
-                        <p className="text-xs text-zinc-500 leading-relaxed">Upload a file or paste a YouTube/Twitch link to get your report card.</p>
+                        <p className="text-xs text-zinc-500 leading-relaxed">Upload a file or paste a YouTube/Twitch link for strengths, weaknesses, and meta advice.</p>
                       </div>
                     </motion.div>
                   )}
@@ -563,29 +563,36 @@ export default function UploadPage() {
                     >
                       <div className="flex items-center gap-2 text-primary">
                         <CheckCircle2 className="w-4 h-4" />
-                        <span className="text-[10px] font-bold uppercase tracking-widest">Analysis Ready</span>
-                      </div>
-
-                      <div className="grid grid-cols-2 gap-2.5">
-                        <div className="bg-black/60 border border-white/5 rounded-xl p-3.5">
-                          <p className="text-[9px] font-mono text-zinc-600 uppercase tracking-widest mb-1">Grade</p>
-                          <p className="text-2xl font-black text-primary">{analysis?.grade ?? "B+"}</p>
-                        </div>
-                        <div className="bg-black/60 border border-white/5 rounded-xl p-3.5">
-                          <p className="text-[9px] font-mono text-zinc-600 uppercase tracking-widest mb-1">Archetype</p>
-                          <p className="text-sm font-black text-white leading-tight">{analysis?.archetype ?? "Counter Puncher"}</p>
-                        </div>
+                        <span className="text-[10px] font-bold uppercase tracking-widest">Feedback Ready</span>
                       </div>
 
                       <div className="space-y-2">
-                        <div className="bg-black/60 border border-white/5 rounded-xl p-3.5">
-                          <p className="text-[9px] font-mono text-zinc-600 uppercase tracking-widest mb-1.5">Main Strength</p>
-                          <p className="text-xs font-semibold text-white">{analysis?.strengths[0] ?? "Strong counter-timing in early rounds"}</p>
-                        </div>
-                        <div className="bg-black/60 border border-pink-900/20 rounded-xl p-3.5">
-                          <p className="text-[9px] font-mono text-zinc-600 uppercase tracking-widest mb-1.5">Main Weakness</p>
-                          <p className="text-xs font-semibold text-white">{analysis?.weaknesses[0] ?? "Stamina collapse after combo exchanges"}</p>
-                        </div>
+                        {analysis?.strengths && analysis.strengths.length > 0 && (
+                          <div className="bg-black/60 border border-white/5 rounded-xl p-3.5">
+                            <p className="text-[9px] font-mono text-zinc-600 uppercase tracking-widest mb-2">Strengths</p>
+                            <ul className="space-y-1.5">
+                              {analysis.strengths.map((item) => (
+                                <li key={item} className="text-xs font-semibold text-white leading-relaxed flex gap-2">
+                                  <span className="text-primary shrink-0">•</span>
+                                  <span>{item}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+                        {analysis?.weaknesses && analysis.weaknesses.length > 0 && (
+                          <div className="bg-black/60 border border-pink-900/20 rounded-xl p-3.5">
+                            <p className="text-[9px] font-mono text-zinc-600 uppercase tracking-widest mb-2">Weaknesses</p>
+                            <ul className="space-y-1.5">
+                              {analysis.weaknesses.map((item) => (
+                                <li key={item} className="text-xs font-semibold text-white leading-relaxed flex gap-2">
+                                  <span className="text-pink-400 shrink-0">•</span>
+                                  <span>{item}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
                         {analysis?.summary && (
                           <div className="bg-black/60 border border-white/5 rounded-xl p-3.5">
                             <p className="text-[9px] font-mono text-zinc-600 uppercase tracking-widest mb-1.5">Coach Advice</p>

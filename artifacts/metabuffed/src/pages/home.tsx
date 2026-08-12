@@ -141,7 +141,7 @@ export default function Home() {
                 </h1>
 
                 <p className="text-xl text-zinc-400 mb-10 leading-relaxed max-w-lg font-medium">
-                  Ask the Coach for Fight Night and UFC 6 meta advice, or upload a clip for a competitive report card.
+                  Ask the Coach for Fight Night and UFC 6 meta advice, or upload a clip for strengths, weaknesses, and coaching feedback.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-5">
@@ -421,15 +421,9 @@ export default function Home() {
                 className="group relative bg-[#111] border border-white/10 rounded-2xl overflow-hidden shadow-2xl sweep-hover"
               >
                 <div className="h-32 bg-gradient-to-r from-[rgba(10,50,20,0.8)] to-black border-b border-white/5 flex items-end px-8 pb-6">
-                  <div className="flex items-end justify-between w-full">
-                    <div>
-                      <h3 className="text-2xl font-black text-white uppercase tracking-tight">Pressure Counter Fighter</h3>
-                      <p className="text-sm font-mono text-zinc-400">Fight Night Champion</p>
-                    </div>
-                    <div className="text-right">
-                      <p className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest mb-1">Global Grade</p>
-                      <p className="text-5xl font-black text-primary leading-none drop-shadow-[0_0_15px_rgba(255,28,139,0.5)]">B+</p>
-                    </div>
+                  <div>
+                    <h3 className="text-2xl font-black text-white uppercase tracking-tight">Pressure Counter Fighter</h3>
+                    <p className="text-sm font-mono text-zinc-400">Fight Night Champion • Example Profile</p>
                   </div>
                 </div>
 
@@ -510,7 +504,7 @@ export default function Home() {
                   <div className="w-14 h-14 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center mb-6 shadow-[0_0_15px_rgba(255,28,139,0.3)]">
                     <span className="font-bold text-primary">02</span>
                   </div>
-                  <h4 className="text-white font-bold uppercase tracking-wider mb-2">Upload & Report Card</h4>
+                  <h4 className="text-white font-bold uppercase tracking-wider mb-2">Upload & Coaching Feedback</h4>
                   <Badge variant="outline" className="bg-primary/10 text-primary border-primary/20 uppercase tracking-widest text-[10px]">Now</Badge>
                 </div>
 
@@ -609,7 +603,7 @@ export default function Home() {
             <div>
               <h4 className="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-5 font-bold">Platform</h4>
               <ul className="space-y-3">
-                {["Upload Gameplay", "AI Meta Breakdown", "Ask the Coach", "Player Card"].map(item => (
+                {["Upload Gameplay", "AI Meta Breakdown", "Ask the Coach", "Coaching Feedback"].map(item => (
                   <li key={item}><a href="#" className="text-sm text-zinc-400 hover:text-white transition-colors">{item}</a></li>
                 ))}
                 <li><a href="/ebooks" className="text-sm text-zinc-400 hover:text-white transition-colors">Ebooks</a></li>
