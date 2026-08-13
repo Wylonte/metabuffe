@@ -1,0 +1,28 @@
+id: scoring-anomaly
+name: Broken 10-8 / Scoring Anomaly
+aliases:
+  - broken 10-8
+  - scoring anomaly
+  - fnc scoring bug
+category: mechanic
+definition: >-
+  FNC can produce rounds inconsistent with conventional boxing scoring expectations.
+  Do not say "you clearly won because you landed more punches" when stats and
+  scorecard diverge.
+whyItWorks: >-
+  Impact moments, stuns, and momentum weight heavily. Statistical dominance does
+  not guarantee the round — flag uncertainty when footage suggests an anomaly.
+whenEffective:
+  - Round where punch totals favor one player but scorecard favors the other
+  - Unexpected 10-8 or wide round margins
+counters:
+  - name: Scorecard manipulation
+    explanation: Play for impact moments FNC actually rewards
+overuseSignals:
+  - Blaming lag or "robbed" without identifying impact differential
+related:
+  - scorecard-manipulation
+  - meaningful-offense
+communityTerms:
+  - broken 10-8
+  - scoring anomaly

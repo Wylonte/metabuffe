@@ -1,0 +1,27 @@
+id: meaningful-offense
+name: Meaningful Offense
+aliases:
+  - meaningful offense
+  - impact offense
+category: mechanic
+definition: >-
+  Offense producing clean impact, damage, counter value, stun, positional advantage,
+  scorecard value, or forced defensive reaction — not mere volume.
+whyItWorks: >-
+  FNC scoring weights impact and momentum. Meaningful offense wins close rounds
+  even when punch totals favor the opponent.
+whenEffective:
+  - Power straight through recovery window
+  - Sidestep uppercut on straight-line entry
+  - Round steal sequences in final 20–30 seconds
+counters:
+  - name: Stamina tax
+    explanation: Force them to work for every meaningful shot
+overuseSignals:
+  - Calling offense meaningful when it only touches guard
+related:
+  - power-straight
+  - recovery-punish
+  - round-steal
+communityTerms:
+  - meaningful offense

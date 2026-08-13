@@ -1,0 +1,28 @@
+id: free-offense
+name: Free Offense
+aliases:
+  - free offense
+  - free shot
+  - low risk offense
+category: mechanic
+definition: >-
+  Offensive opportunity with unusually low retaliation risk — opponent in recovery,
+  badly out of position, stamina compromised, or predictable defensive reset.
+whyItWorks: >-
+  Elite FNC players search for free offense instead of forcing exchanges. Free
+  shots swing rounds without stamina cost.
+whenEffective:
+  - Recovery window after whiff or overextended combo
+  - After bad block refresh punish
+  - When opponent is in panic defense
+counters:
+  - name: Don't create free offense
+    explanation: Reset guard safely and reposition after combos
+overuseSignals:
+  - Missing free offense while throwing forced combinations
+related:
+  - recovery-window
+  - recovery-punish
+  - whiff-punish
+communityTerms:
+  - free offense

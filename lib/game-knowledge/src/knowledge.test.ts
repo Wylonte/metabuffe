@@ -75,5 +75,30 @@ describe("prompt builder", () => {
   it("loads fight-night manifest voice", () => {
     const game = getGameBundle("fight-night");
     assert.ok(game?.manifest.voice.persona.includes("OWC"));
+    assert.ok(game?.manifest.voice.avoid.some((a) => a.includes("high guard")));
+  });
+
+  it("includes FNC analysis language guide", () => {
+    const game = getGameBundle("fight-night") as { analysisLanguage?: string };
+    assert.ok(game?.analysisLanguage?.includes("Money Team"));
+    assert.ok(game?.analysisLanguage?.includes("BANNED generic language"));
+  });
+
+  it("maps recovery window terminology", () => {
+    const result = retrieve("fight-night", "recovery window punish");
+    assert.ok(result.matchedConceptIds.includes("recovery-window"));
+  });
+
+  it("maps whiff punish and panic offense terminology", () => {
+    const whiff = retrieve("fight-night", "whiff punish timing");
+    assert.ok(whiff.matchedConceptIds.includes("whiff-punish"));
+
+    const panic = retrieve("fight-night", "panic offense after getting countered");
+    assert.ok(panic.matchedConceptIds.includes("panic-offense"));
+  });
+
+  it("maps straight-line retreat separately from pressure", () => {
+    const result = retrieve("fight-night", "straight line retreat under pressure");
+    assert.ok(result.matchedConceptIds.includes("straight-line-retreat"));
   });
 });

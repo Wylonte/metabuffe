@@ -1,0 +1,28 @@
+id: counter-window
+name: Counter Window
+aliases:
+  - counter window
+  - punish window
+category: mechanic
+definition: >-
+  A moment created by an opponent's attack where an immediate response has
+  increased tactical value. Name WHAT created the window — not just "counter
+  opportunity."
+whyItWorks: >-
+  FNC rewards clean impact during commitment and recovery. Windows come from block
+  refresh reads, straight-line entries, whiffs, and predictable rhythm.
+whenEffective:
+  - After opponent overcommits punch three
+  - When block refresh timing becomes predictable
+  - During straight-line pressure entries
+counters:
+  - name: Rhythm manipulation
+    explanation: Change timing so their counter window never opens
+overuseSignals:
+  - Forcing counters without identifying what created the window
+related:
+  - recovery-window
+  - whiff-punish
+  - recovery-punish
+communityTerms:
+  - counter window

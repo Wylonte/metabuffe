@@ -10,59 +10,126 @@
         "locked": false,
         "allowExploits": true,
         "voice": {
-          "persona": "Underground OWC/H2H meta analyst for Fight Night Champion",
+          "persona": "Underground OWC/H2H meta analyst for Fight Night Champion — speaks FNC community terminology only",
           "avoid": [
             "generic real-world boxing coaching",
+            "high guard maintenance",
+            "good defense",
+            "body work as generic praise",
+            "pressure application",
+            "use of feints",
+            "good combinations",
+            "counter opportunities",
+            "reaction time",
+            "ring generalship",
+            "textbook boxing language",
             "vague motivational advice",
-            "ignoring FNC scorecard mechanics"
+            "inventing mechanics not supported by footage"
           ],
           "emphasize": [
-            "OWC builds",
-            "stamina",
-            "rhythm manipulation",
+            "Money Team defense",
+            "block refresh vs static block",
+            "power straight reads",
+            "sidestep uppercut",
+            "straight-line pressure",
+            "recovery window and recovery punish",
+            "rhythm read and adaptation check",
             "scorecard manipulation",
-            "controlled cheese",
-            "Money Team block meta"
+            "controlled cheese vs spam",
+            "OWC vs H2H context"
           ],
           "responseStructure": [
-            "direct competitive read",
+            "what happened",
+            "FNC meta term",
             "why it works in FNC",
-            "how top players counter it",
-            "when it is overused"
+            "what read created it",
+            "how to stop or punish it",
+            "adaptation check"
           ]
         },
-        "metaOverview": "Fight Night Champion competitive meta is built around impact scoring, stamina wars, and rhythm control — not punch totals. Elite OWC/H2H play centers on Money Team block rhythms, power straight timing, sidestep uppercuts, body work, and scorecard manipulation in the final 20–30 seconds of close rounds. Top players win meaningful moments, control timing, and punish commitment rather than chasing volume.",
+        "metaOverview": "Fight Night Champion competitive meta is built around impact scoring, stamina wars, and rhythm control — not punch totals. Elite OWC/H2H play centers on Money Team block rhythms, power straight timing, sidestep uppercuts, recovery punishes, and scorecard manipulation in the final 20–30 seconds of close rounds. Top players win meaningful moments, control timing, and punish commitment rather than chasing volume.",
         "terminology": {
           "mtb": "money-team-block",
           "money team": "money-team-block",
           "shell": "money-team-block",
           "power straight": "power-straight",
+          "push straight": "push-straight",
           "sidestep uppercut": "sidestep-uppercut",
-          "push straight": "back-step-straight",
+          "recovery window": "recovery-window",
+          "whiff punish": "whiff-punish",
+          "panic offense": "panic-offense",
+          "stamina fraud": "stamina-fraud",
+          "round steal": "round-steal",
           "body spam": "body-spam",
           "cheese": "controlled-cheese",
           "fear loop": "fear-loop",
           "owc": "owc-meta"
         },
-        "welcome": "Welcome to Metabuffed Coach. I analyze Fight Night Champion at a competitive level — stamina management, pressure defense, body work, and combo timing. Upload a match for a personalized breakdown, or ask me anything.",
-        "fallback": "Based on the current Fight Night Champion meta, I'd need to see your gameplay footage to give you a precise breakdown. Upload a match and I'll analyze your stamina patterns, exchange timing, and punch selection in detail. If you have a specific situation in mind, describe it and I'll walk you through the read.",
-        "placeholder": "Ask the coach anything about Fight Night Champion..."
+        "welcome": "Welcome to Metabuffed Coach. I analyze Fight Night Champion at a competitive level — Money Team defense, power straight timing, sidestep uppercuts, recovery punishes, and scorecard reads. Upload a clip or ask me anything in FNC meta language.",
+        "fallback": "Based on the current Fight Night Champion meta, I'd need clearer footage to name the exact mechanic. Upload a match and I'll analyze with FNC terms — Money Team rhythm, recovery windows, straight-line pressure, adaptation — not generic boxing advice. Describe the situation and I'll walk you through the read.",
+        "placeholder": "Ask the coach anything about Fight Night Champion meta..."
       },
-      "metaOverview": "Fight Night Champion competitive meta is built around impact scoring, stamina wars, and rhythm control — not punch totals. Elite OWC/H2H play centers on Money Team block rhythms, power straight timing, sidestep uppercuts, body work, and scorecard manipulation in the final 20–30 seconds of close rounds. Top players win meaningful moments, control timing, and punish commitment rather than chasing volume.",
+      "metaOverview": "Fight Night Champion competitive meta is built around impact scoring, stamina wars, and rhythm control — not punch totals. Elite OWC/H2H play centers on Money Team defense rhythms, power straight timing, sidestep uppercuts, recovery punishes, and scorecard manipulation in the final 20–30 seconds of close rounds. Top players win meaningful moments, control timing, and punish commitment rather than chasing volume. Metabuffed analysis must use FNC community meta terms — never generic boxing coaching language.",
+      "analysisLanguage": "# Fight Night Champion — Metabuffed Meta Language System\r\n\r\n## Purpose\r\n\r\nSpeak in terminology used by experienced competitive Fight Night Champion (FNC) players.\r\nDo NOT analyze like a real-world boxing trainer.\r\n\r\n## BANNED generic language (never use as primary analysis)\r\n\r\nHigh Guard Maintenance, Good Defense, Body Work, Pressure Application, Use of Feints, Good Combinations, Counter Opportunities, Reaction Time, Ring Generalship, textbook defense, textbook boxing, improve your guard, work on feints, good pressure (without naming straight-line pressure), counterpunching (without recovery punish / whiff punish / counter window).\r\n\r\nIf you cannot name the specific FNC mechanic, say: \"I can't confidently identify the exact mechanic from this sequence.\"\r\n\r\n## Core rule\r\n\r\nNEVER claim a specific mechanic was present unless observations actually support it.\r\nAccuracy beats sounding knowledgeable.\r\n\r\n## Analysis output format (every upload analysis)\r\n\r\nFor each major read, cover when evidence supports it:\r\n1. WHAT HAPPENED — visible event\r\n2. FNC META TERM — name the mechanic\r\n3. WHY IT WORKED — game-specific interaction\r\n4. WHAT READ CREATED IT — pattern/behavior\r\n5. HOW TO STOP IT — counter\r\n6. HOW TO PUNISH IT — offensive conversion\r\n7. DID THE PLAYER ADAPT? — repeated mistake after sufficient info\r\n\r\n## Core FNC meta dictionary (use these terms)\r\n\r\n**Money Team Block / Money Team Defense** — Active block management, weaving, guard refreshing, positioning, counter readiness. Block → refresh → weave/movement → reset → counter (often power straight). NOT \"high guard.\"\r\n\r\n**Block Refresh / Block Reset** — Releasing and reapplying block. Good reset = deliberate refresh while safe. Bad reset = predictable/unsafe release getting punished. Never call all guard resets a weakness.\r\n\r\n**Static Block** — Holding guard without movement, refresh, counter threat, or repositioning. Different from Money Team defense.\r\n\r\n**Power Straight** — Central OWC/H2H weapon. Analyze setup, timing, counter timing, recovery, entry, scoring value, frequency, predictability.\r\n\r\n**Push Straight / Straight Spam** — Repeated straights to interrupt pressure, maintain distance, score centerline. Distinguish blind spam vs controlled interruption vs read-based use.\r\n\r\n**Controlled Cheese** — Powerful mechanics used on reads (timed power straight, sidestep uppercut on predictable entry, MTB into counter). Not mindless spam.\r\n\r\n**Sidestep Uppercut** — Lateral/off-line move into uppercut punishing forward commitment. \"He entered on the same line three times — sidestep uppercut is available.\"\r\n\r\n**Sidestep Spam** — Repeated sidesteps without reads. Different from timed sidestep counter.\r\n\r\n**Lean Back** — Head movement making punches fall short while staying in counter range. Predictable lean-backs are exploitable.\r\n\r\n**Back Step** — Distance creation by stepping back. NOT lean back (upper body vs distance change).\r\n\r\n**Straight-Line Pressure** — Entering directly without angle changes. Vulnerable to straights, sidesteps, sidestep uppercuts, intercepts.\r\n\r\n**Straight-Line Retreat** — Moving straight back; keeps alignment for pressure. Needs angles.\r\n\r\n**Chicken Wing Punch** — Community term for awkward punch animations creating unusual timing/trajectories.\r\n\r\n**Recovery Window** — Period after opponent throws/misses/finishes sequence before safe defensive state returns.\r\n\r\n**Recovery Punish** — Attacking during recovery window (more precise than generic counterpunching).\r\n\r\n**Whiff Punish** — Opponent misses → recognize → immediate punishment. Missing it = missed whiff punish.\r\n\r\n**Counter Window** — Moment where immediate response has high value; name what created it.\r\n\r\n**Rhythm Read** — Recognizing repeated timing (jab-straight cadence, attack-after-block, reset-after-two-punches).\r\n\r\n**Rhythm Manipulation** — Changing timing to make opponent react wrong (jab-pause-straight, entry-no-punch-attack). Not everything is a feint.\r\n\r\n**Timing Trap** — Establish pattern then break it to punish learned response.\r\n\r\n**Fear Loop** — Defense/punishment makes opponent hesitant; reduced output, panic power, unwillingness to initiate.\r\n\r\n**Panic Offense** — Frustration-driven offense (chasing, abandoned combos, forced power after being countered).\r\n\r\n**Panic Defense** — Pressure-driven defense (excessive lean, sidestep spam, static block, straight retreat).\r\n\r\n**Stamina Fraud** — Looks active early but unsustainable stamina spend for value produced.\r\n\r\n**Stamina Tax** — Making opponent spend stamina for little return (misses, chase, combos into defense).\r\n\r\n**Empty Offense** — Volume without impact, damage, positioning, or scorecard value.\r\n\r\n**Meaningful Offense** — Clean impact, damage, counter value, stun, positional advantage, scorecard value, forced defensive reaction.\r\n\r\n**Round Steal** — Late-round (final 20–30s) push for high-impact moments in close rounds.\r\n\r\n**Scorecard Manipulation** — Playing for FNC impact/momentum scoring, not punch totals. More punches ≠ winning round.\r\n\r\n**Broken 10–8 / Scoring Anomaly** — Statistically dominant round scored unexpectedly; flag uncertainty, don't say \"you clearly won on punches.\"\r\n\r\n**Jab Tax / Jab Setup** — Jab for distance, rhythm, setup, info — ask what the jab created; FNC may not reward jab volume proportionally.\r\n\r\n**Free Offense** — Low-risk offensive window (recovery trap, bad position, stamina dip, predictable reset).\r\n\r\n**Overcommitment** — Specify exactly what happened (e.g., punch three after opponent already out of range).\r\n\r\n**Spam Read** — Opponent repeating mechanic → anticipate → counter.\r\n\r\n**Adaptation Check** — Did player adjust after same opponent behavior repeated? \"By the fourth sidestep uppercut this is adaptation failure.\"\r\n\r\n## OWC vs H2H\r\n\r\n**OWC** — Custom build: archetype, attributes, punch power, style, stamina, toughness, meta construction.\r\n**H2H** — Roster fighter: animations, speed, power, movement, stamina, matchup disadvantage. Higher rating ≠ better competitive matchup.\r\n\r\n**Power Disadvantage** — Low-power fighter needs cleaner rounds/defense; don't tell them to throw more combos vs power threat.\r\n\r\n## Example — BAD\r\n\r\n\"Your opponent applied strong pressure. Improve your guard and use more feints. You missed counter opportunities and should work on reaction time.\"\r\n\r\n## Example — GOOD\r\n\r\n\"Your opponent's pressure became straight-line pressure by round two. He repeatedly entered behind the same two-punch rhythm. You continued straight-line retreat, staying aligned with his offense. The meta answer was break the line — sidestep the entry and threaten uppercut, or make punch two whiff and recovery punish. By the third repeated entry this was an adaptation issue.\"",
       "terminology": {
         "mtb": "money-team-block",
         "money team": "money-team-block",
+        "money team defense": "money-team-block",
+        "money team block": "money-team-block",
         "shell": "money-team-block",
+        "block refresh": "block-refresh",
+        "block reset": "block-refresh",
+        "guard refresh": "block-refresh",
+        "guard reset": "block-refresh",
+        "static block": "static-block",
+        "static guard": "static-block",
         "power straight": "power-straight",
+        "push straight": "push-straight",
+        "straight spam": "push-straight",
+        "push straight spam": "push-straight",
         "sidestep uppercut": "sidestep-uppercut",
-        "push straight": "back-step-straight",
-        "back step straight": "back-step-straight",
-        "body spam": "body-spam",
-        "cheese": "controlled-cheese",
+        "sidestep spam": "sidestep-spam",
+        "lean back": "lean-back",
+        "back step": "back-step",
+        "straight line pressure": "straight-line-pressure",
+        "linear pressure": "straight-line-pressure",
+        "straight line retreat": "straight-line-retreat",
+        "straight-line retreat": "straight-line-retreat",
+        "recovery window": "recovery-window",
+        "recovery punish": "recovery-punish",
+        "whiff punish": "whiff-punish",
+        "counter window": "counter-window",
+        "rhythm read": "rhythm-read",
+        "rhythm manipulation": "rhythm-manipulation",
+        "timing trap": "timing-trap",
         "fear loop": "fear-loop",
-        "owc": "owc-meta",
+        "panic offense": "panic-offense",
+        "panic defense": "panic-defense",
+        "stamina fraud": "stamina-fraud",
+        "stamina tax": "stamina-tax",
+        "empty offense": "empty-offense",
+        "meaningful offense": "meaningful-offense",
+        "round steal": "round-steal",
+        "scorecard manipulation": "scorecard-manipulation",
+        "broken 10-8": "scoring-anomaly",
+        "scoring anomaly": "scoring-anomaly",
+        "jab tax": "jab-setup",
+        "jab setup": "jab-setup",
+        "free offense": "free-offense",
+        "overcommit": "overcommitment",
+        "overcommitment": "overcommitment",
+        "spam read": "spam-read",
+        "adaptation": "adaptation-check",
+        "adaptation check": "adaptation-check",
+        "controlled cheese": "controlled-cheese",
+        "cheese": "controlled-cheese",
+        "body spam": "body-spam",
         "chicken wing": "chicken-wing",
-        "pull counter": "pull-counter"
+        "chicken wing punch": "chicken-wing",
+        "pull counter": "pull-counter",
+        "owc": "owc-meta",
+        "h2h": "owc-meta",
+        "power disadvantage": "owc-meta"
       },
       "quickQuestions": [
         {
@@ -250,25 +317,143 @@
       ],
       "concepts": [
         {
-          "id": "back-step-straight",
-          "name": "Push straight spam and how do I beat it",
+          "id": "adaptation-check",
+          "name": "Adaptation Check",
           "aliases": [
-            "back step straight"
+            "adaptation failure",
+            "failed to adapt"
           ],
-          "category": "strategy",
-          "definition": "Push straight spam works because people stand directly where the straight wants their head to be.",
-          "whyItWorks": "Push straight spam works because people stand directly where the straight wants their head to be.",
+          "category": "meta",
+          "definition": "Whether the player adjusted after seeing the same opponent behavior repeatedly. By the fourth repeated punish, it is adaptation failure not surprise.",
+          "whyItWorks": "Elite FNC is about reads and adjustments mid-fight, not repeating the same losing pattern.",
           "whenEffective": [
-            "When opponent shows predictable patterns",
-            "In ranked/OWC high-level exchanges"
+            "After repeated sidestep uppercuts on same entry",
+            "After same push straight rhythm every round"
           ],
-          "counters": [],
+          "counters": [
+            {
+              "name": "Change entry angle",
+              "explanation": "Break straight-line pattern once read is established"
+            }
+          ],
           "overuseSignals": [
-            "Repeating the same read without adaptation",
-            "Forcing the technique when stamina is low"
+            "Continuing same strategy after clear opponent counter established"
           ],
-          "related": [],
-          "communityTerms": []
+          "related": [
+            "spam-read",
+            "rhythm-read"
+          ],
+          "communityTerms": [
+            "adaptation check"
+          ]
+        },
+        {
+          "id": "back-step-straight",
+          "name": "Push Straight Counter Reads",
+          "aliases": [
+            "back step straight",
+            "beat push straight"
+          ],
+          "category": "counterplay",
+          "definition": "Countering push straight / straight spam by stepping off line or firing through recovery after the straight. Push straight spam works when opponents stay on the centerline — break the line or punish the recovery.",
+          "whyItWorks": "Push straights track linear paths. Sidestep uppercuts, power straights on recovery, and angle changes deny the centerline control push straight spam needs.",
+          "whenEffective": [
+            "Opponent repeating push straights without reading movement",
+            "After absorbing straight with block refresh"
+          ],
+          "counters": [
+            {
+              "name": "Sidestep uppercut",
+              "explanation": "Break linear tracking when push straight spam is predictable"
+            },
+            {
+              "name": "Power straight on recovery",
+              "explanation": "Fire after blocking the push straight"
+            }
+          ],
+          "overuseSignals": [
+            "Standing on centerline while opponent push straight spams"
+          ],
+          "related": [
+            "push-straight",
+            "sidestep-uppercut",
+            "power-straight"
+          ],
+          "communityTerms": [
+            "push straight spam"
+          ]
+        },
+        {
+          "id": "back-step",
+          "name": "Back Step",
+          "aliases": [
+            "back step",
+            "step back"
+          ],
+          "category": "mechanic",
+          "definition": "Creating immediate distance by stepping backward. Changes spacing — not the same as lean back, which changes upper-body positioning while staying in range.",
+          "whyItWorks": "Resets range for counter entries or breaks clinch pressure, but repeated straight-line retreat keeps alignment for the pressure fighter.",
+          "whenEffective": [
+            "Single reset after a combination to reload",
+            "Creating space before a power straight counter"
+          ],
+          "counters": [
+            {
+              "name": "Cut off angles",
+              "explanation": "Pressure along the line back-step creates — don't let them reset for free"
+            },
+            {
+              "name": "Push straight on retreat",
+              "explanation": "Track the backward step with centerline straights"
+            }
+          ],
+          "overuseSignals": [
+            "Straight-line retreat instead of angling off",
+            "Back stepping into the ropes without changing line"
+          ],
+          "related": [
+            "straight-line-pressure",
+            "lean-back",
+            "power-straight"
+          ],
+          "communityTerms": [
+            "back step"
+          ]
+        },
+        {
+          "id": "block-refresh",
+          "name": "Block Refresh / Block Reset",
+          "aliases": [
+            "block reset",
+            "guard refresh",
+            "guard reset"
+          ],
+          "category": "mechanic",
+          "definition": "Releasing and reapplying block instead of permanently holding guard. Good reset = deliberate refresh while safe. Bad reset = predictable or unsafe release getting hit.",
+          "whyItWorks": "Refreshes defensive state and enables Money Team rhythm. Bad timing turns refresh into a punishable window.",
+          "whenEffective": [
+            "During Money Team defensive sequences",
+            "When safely disengaging from pressure"
+          ],
+          "counters": [
+            {
+              "name": "Punish the release",
+              "explanation": "Attack the moment guard drops if refresh timing is predictable"
+            }
+          ],
+          "overuseSignals": [
+            "Calling every guard reset a weakness without context",
+            "Refreshing at unsafe moments repeatedly"
+          ],
+          "related": [
+            "money-team-block",
+            "static-block",
+            "recovery-punish"
+          ],
+          "communityTerms": [
+            "block refresh",
+            "block reset"
+          ]
         },
         {
           "id": "body-spam",
@@ -331,24 +516,111 @@
         },
         {
           "id": "controlled-cheese",
-          "name": "Controlled cheese",
+          "name": "Controlled Cheese",
           "aliases": [
-            "controlled cheese"
+            "controlled cheese",
+            "cheese"
           ],
           "category": "strategy",
-          "definition": "Controlled cheese is using strong mechanics intelligently instead of spamming blindly.",
-          "whyItWorks": "Controlled cheese is using strong mechanics intelligently instead of spamming blindly.",
+          "definition": "Deliberate use of powerful or exploitable FNC mechanics based on reads rather than blind repetition — timed power straights, sidestep uppercuts on predictable entry, Money Team defense into counter offense.",
+          "whyItWorks": "FNC rewards players who land high-impact mechanics at the right moment. Controlled cheese converts reads into round-swinging moments without stamina fraud.",
           "whenEffective": [
-            "When opponent shows predictable patterns",
-            "In ranked/OWC high-level exchanges"
+            "Sidestep uppercut after third straight-line entry",
+            "Power straight through block refresh punish",
+            "Money Team rhythm into counter"
           ],
-          "counters": [],
+          "counters": [
+            {
+              "name": "Adaptation check",
+              "explanation": "Stop repeating the entry that feeds the cheese"
+            },
+            {
+              "name": "Rhythm manipulation",
+              "explanation": "Break the pattern they are cheesing against"
+            }
+          ],
           "overuseSignals": [
-            "Repeating the same read without adaptation",
-            "Forcing the technique when stamina is low"
+            "Same cheese attempt without confirming the read still exists",
+            "Mindless repetition — that is spam, not controlled cheese"
           ],
-          "related": [],
-          "communityTerms": []
+          "related": [
+            "push-straight",
+            "sidestep-uppercut",
+            "money-team-block"
+          ],
+          "communityTerms": [
+            "controlled cheese",
+            "cheese"
+          ]
+        },
+        {
+          "id": "counter-window",
+          "name": "Counter Window",
+          "aliases": [
+            "counter window",
+            "punish window"
+          ],
+          "category": "mechanic",
+          "definition": "A moment created by an opponent's attack where an immediate response has increased tactical value. Name WHAT created the window — not just \"counter opportunity.\"",
+          "whyItWorks": "FNC rewards clean impact during commitment and recovery. Windows come from block refresh reads, straight-line entries, whiffs, and predictable rhythm.",
+          "whenEffective": [
+            "After opponent overcommits punch three",
+            "When block refresh timing becomes predictable",
+            "During straight-line pressure entries"
+          ],
+          "counters": [
+            {
+              "name": "Rhythm manipulation",
+              "explanation": "Change timing so their counter window never opens"
+            }
+          ],
+          "overuseSignals": [
+            "Forcing counters without identifying what created the window"
+          ],
+          "related": [
+            "recovery-window",
+            "whiff-punish",
+            "recovery-punish"
+          ],
+          "communityTerms": [
+            "counter window"
+          ]
+        },
+        {
+          "id": "empty-offense",
+          "name": "Empty Offense",
+          "aliases": [
+            "empty offense",
+            "volume without value"
+          ],
+          "category": "behavior",
+          "definition": "Punch volume producing little meaningful scoring, damage, positioning advantage, or strategic value. Do not praise activity because punches are being thrown.",
+          "whyItWorks": "It does NOT work for winning FNC rounds — impact and momentum matter more than totals. Empty offense feeds recovery punishes and scorecard manipulation.",
+          "whenEffective": [
+            "Flag as weakness when opponent lands the meaningful moments despite lower volume"
+          ],
+          "counters": [
+            {
+              "name": "Recovery punish",
+              "explanation": "Let volume create recovery windows and punish selectively"
+            },
+            {
+              "name": "Scorecard manipulation",
+              "explanation": "Win impact moments while they win punch stats"
+            }
+          ],
+          "overuseSignals": [
+            "High punch count with no stun or forced defensive reactions",
+            "Combinations that push opponent out of range before punch three"
+          ],
+          "related": [
+            "meaningful-offense",
+            "stamina-fraud",
+            "scorecard-manipulation"
+          ],
+          "communityTerms": [
+            "empty offense"
+          ]
         },
         {
           "id": "fear-loop",
@@ -372,6 +644,40 @@
           "communityTerms": []
         },
         {
+          "id": "free-offense",
+          "name": "Free Offense",
+          "aliases": [
+            "free offense",
+            "free shot",
+            "low risk offense"
+          ],
+          "category": "mechanic",
+          "definition": "Offensive opportunity with unusually low retaliation risk — opponent in recovery, badly out of position, stamina compromised, or predictable defensive reset.",
+          "whyItWorks": "Elite FNC players search for free offense instead of forcing exchanges. Free shots swing rounds without stamina cost.",
+          "whenEffective": [
+            "Recovery window after whiff or overextended combo",
+            "After bad block refresh punish",
+            "When opponent is in panic defense"
+          ],
+          "counters": [
+            {
+              "name": "Don't create free offense",
+              "explanation": "Reset guard safely and reposition after combos"
+            }
+          ],
+          "overuseSignals": [
+            "Missing free offense while throwing forced combinations"
+          ],
+          "related": [
+            "recovery-window",
+            "recovery-punish",
+            "whiff-punish"
+          ],
+          "communityTerms": [
+            "free offense"
+          ]
+        },
+        {
           "id": "inside-fighting",
           "name": "Beat pressure fighters",
           "aliases": [
@@ -393,25 +699,188 @@
           "communityTerms": []
         },
         {
-          "id": "money-team-block",
-          "name": "Beat the Money Team block",
+          "id": "jab-setup",
+          "name": "Jab Tax / Jab Setup",
           "aliases": [
-            "money team block"
+            "jab tax",
+            "jab setup",
+            "jab read"
           ],
-          "category": "strategy",
-          "definition": "The biggest mistake players make is attacking the guard instead of attacking the rhythm.",
-          "whyItWorks": "The biggest mistake players make is attacking the guard instead of attacking the rhythm.",
+          "category": "mechanic",
+          "definition": "Jab used to measure distance, disrupt rhythm, force defensive reactions, set up power straight, disguise entries, or gather information. FNC does not always reward jab dominance proportionally — ask what the jab created.",
+          "whyItWorks": "Elite jab use creates free offense windows. Jab tax is when jabs land but produce nothing — no setup, no info, no forced reaction.",
           "whenEffective": [
-            "When opponent shows predictable patterns",
-            "In ranked/OWC high-level exchanges"
+            "Jab-pause-power straight timing traps",
+            "Disrupting rhythm read before opponent's two-punch entry"
           ],
-          "counters": [],
+          "counters": [
+            {
+              "name": "Power straight over jab",
+              "explanation": "Fire through jab recovery when jab is predictable"
+            }
+          ],
           "overuseSignals": [
-            "Repeating the same read without adaptation",
-            "Forcing the technique when stamina is low"
+            "Jab volume without power straight follow-up",
+            "Praising jab lands when opponent ignores them"
           ],
-          "related": [],
-          "communityTerms": []
+          "related": [
+            "power-straight",
+            "rhythm-manipulation",
+            "free-offense"
+          ],
+          "communityTerms": [
+            "jab tax",
+            "jab setup"
+          ]
+        },
+        {
+          "id": "lean-back",
+          "name": "Lean Back",
+          "aliases": [
+            "lean back",
+            "head lean"
+          ],
+          "category": "mechanic",
+          "definition": "Defensive head movement that makes certain head punches fall short while keeping the player positioned to counter. Distinct from back step (distance) and pull counter (reactive lean into a specific shot).",
+          "whyItWorks": "FNC head punch tracking can whiff on lean-back timing, leaving the opponent in recovery while the defender stays in counter range.",
+          "whenEffective": [
+            "Against predictable head-hunting combinations",
+            "When opponent leads with jab-straight rhythm"
+          ],
+          "counters": [
+            {
+              "name": "Body attack",
+              "explanation": "Lean upstairs opens the body line"
+            },
+            {
+              "name": "Delay second punch",
+              "explanation": "Break the timing they lean against"
+            }
+          ],
+          "overuseSignals": [
+            "Predictable lean-back rhythm becomes readable",
+            "Leaning without counter threat attached"
+          ],
+          "related": [
+            "pull-counter",
+            "recovery-punish",
+            "panic-defense"
+          ],
+          "communityTerms": [
+            "lean back"
+          ]
+        },
+        {
+          "id": "meaningful-offense",
+          "name": "Meaningful Offense",
+          "aliases": [
+            "meaningful offense",
+            "impact offense"
+          ],
+          "category": "mechanic",
+          "definition": "Offense producing clean impact, damage, counter value, stun, positional advantage, scorecard value, or forced defensive reaction — not mere volume.",
+          "whyItWorks": "FNC scoring weights impact and momentum. Meaningful offense wins close rounds even when punch totals favor the opponent.",
+          "whenEffective": [
+            "Power straight through recovery window",
+            "Sidestep uppercut on straight-line entry",
+            "Round steal sequences in final 20–30 seconds"
+          ],
+          "counters": [
+            {
+              "name": "Stamina tax",
+              "explanation": "Force them to work for every meaningful shot"
+            }
+          ],
+          "overuseSignals": [
+            "Calling offense meaningful when it only touches guard"
+          ],
+          "related": [
+            "power-straight",
+            "recovery-punish",
+            "round-steal"
+          ],
+          "communityTerms": [
+            "meaningful offense"
+          ]
+        },
+        {
+          "id": "money-team-block",
+          "name": "Money Team Block / Money Team Defense",
+          "aliases": [
+            "money team defense",
+            "money team block",
+            "mtb",
+            "shell"
+          ],
+          "category": "mechanic",
+          "definition": "Active defensive system built around block management, weaving/head movement, guard refreshing, positioning, and immediate counter offense — not static high guard. Rhythm is block → refresh → weave/movement → reset → counter (often power straight).",
+          "whyItWorks": "Makes opponents attack the guard instead of the rhythm. Offensive threat out of defense forces hesitation and creates counter windows on commitment.",
+          "whenEffective": [
+            "OWC/H2H high-level exchanges",
+            "When opponent overextends into shell",
+            "When paired with power straight counter threat"
+          ],
+          "counters": [
+            {
+              "name": "Attack the rhythm",
+              "explanation": "Slow the fight, lateral movement without committing, body during reset — not emotional combos at the shell"
+            },
+            {
+              "name": "Make them refresh early",
+              "explanation": "Step into range without throwing to force premature block refresh"
+            }
+          ],
+          "overuseSignals": [
+            "Sitting in static block without counter threat",
+            "Predictable block-tap rhythm"
+          ],
+          "related": [
+            "power-straight",
+            "block-refresh",
+            "static-block"
+          ],
+          "communityTerms": [
+            "Money Team",
+            "MTB",
+            "shell"
+          ]
+        },
+        {
+          "id": "overcommitment",
+          "name": "Overcommitment",
+          "aliases": [
+            "overcommit",
+            "overcommitment",
+            "punch three miss"
+          ],
+          "category": "behavior",
+          "definition": "Specify exactly what happened — e.g., repeatedly throwing punch three after the first two already pushed the opponent outside effective range, creating the recovery window the opponent punished.",
+          "whyItWorks": "Overcommitment in FNC creates recovery windows and whiff punish opportunities. Never use \"overcommitment\" generically without naming the sequence.",
+          "whenEffective": [
+            "Flag as mistake when punch three misses and opponent power straight counters"
+          ],
+          "counters": [
+            {
+              "name": "Shorten combinations",
+              "explanation": "Stop at two when range is already wrong"
+            },
+            {
+              "name": "Recovery punish awareness",
+              "explanation": "Recognize when you are the one creating the window"
+            }
+          ],
+          "overuseSignals": [
+            "Chasing with punch three after opponent already back-stepped",
+            "Forcing power after combo already failed"
+          ],
+          "related": [
+            "recovery-window",
+            "recovery-punish",
+            "empty-offense"
+          ],
+          "communityTerms": [
+            "overcommitment"
+          ]
         },
         {
           "id": "owc-meta",
@@ -433,6 +902,78 @@
           ],
           "related": [],
           "communityTerms": []
+        },
+        {
+          "id": "panic-defense",
+          "name": "Panic Defense",
+          "aliases": [
+            "panic defense",
+            "scared defense"
+          ],
+          "category": "behavior",
+          "definition": "Defensive behavior caused by pressure rather than deliberate reads — excessive leaning, repeated predictable sidesteps, permanently holding static block, running straight backward.",
+          "whyItWorks": "Panic defense is exploitable — it creates predictable resets, straight-line retreat, and no counter threat. Different from Money Team defense.",
+          "whenEffective": [
+            "Not effective long-term — identify when pressure broke deliberate defense"
+          ],
+          "counters": [
+            {
+              "name": "Straight-line pressure",
+              "explanation": "Maintain alignment on straight retreat"
+            },
+            {
+              "name": "Body work into head",
+              "explanation": "Panic lean upstairs opens the body (name as body spam/setup, not generic praise)"
+            }
+          ],
+          "overuseSignals": [
+            "Static block held without refresh after taking damage",
+            "Sidestep spam without reading entry angle"
+          ],
+          "related": [
+            "static-block",
+            "straight-line-pressure",
+            "fear-loop"
+          ],
+          "communityTerms": [
+            "panic defense"
+          ]
+        },
+        {
+          "id": "panic-offense",
+          "name": "Panic Offense",
+          "aliases": [
+            "panic offense",
+            "frustration offense"
+          ],
+          "category": "behavior",
+          "definition": "Offense driven by frustration rather than reads — repeated power punches, chasing after losing exchanges, abandoning established combinations, forcing offense after getting countered.",
+          "whyItWorks": "It usually does NOT work — panic offense burns stamina, creates recovery windows, and feeds the opponent's fear loop in reverse.",
+          "whenEffective": [
+            "Rarely intentional — flag it as a behavioral transition to exploit"
+          ],
+          "counters": [
+            {
+              "name": "Block refresh into power straight",
+              "explanation": "Let panic power whiff and recovery punish"
+            },
+            {
+              "name": "Stamina tax",
+              "explanation": "Make them miss and chase until output drops"
+            }
+          ],
+          "overuseSignals": [
+            "Sudden power spam after being countered",
+            "Abandoning jab setup for chase hooks"
+          ],
+          "related": [
+            "fear-loop",
+            "empty-offense",
+            "stamina-fraud"
+          ],
+          "communityTerms": [
+            "panic offense"
+          ]
         },
         {
           "id": "power-straight",
@@ -493,6 +1034,46 @@
           ]
         },
         {
+          "id": "push-straight",
+          "name": "Push Straight",
+          "aliases": [
+            "push straight",
+            "straight spam",
+            "straight-line straight"
+          ],
+          "category": "mechanic",
+          "definition": "Repeated straight punches used to interrupt forward movement, maintain distance, score on the centerline, or exploit predictable entries — not every repeated straight is blind spam.",
+          "whyItWorks": "Straights track the centerline in FNC. Used on reads they interrupt pressure, steal momentum, and force defensive reactions without full combo commitment.",
+          "whenEffective": [
+            "Interrupting straight-line pressure",
+            "After defensive reads when opponent commits forward",
+            "Controlled distance maintenance between exchanges"
+          ],
+          "counters": [
+            {
+              "name": "Sidestep uppercut",
+              "explanation": "Break the line when push straights rely on linear tracking"
+            },
+            {
+              "name": "Block refresh into power straight",
+              "explanation": "Absorb the push straight and fire through recovery"
+            }
+          ],
+          "overuseSignals": [
+            "Blind repetition without reading opponent movement",
+            "Push straights thrown when opponent is already out of range"
+          ],
+          "related": [
+            "power-straight",
+            "straight-line-pressure",
+            "controlled-cheese"
+          ],
+          "communityTerms": [
+            "push straight",
+            "straight spam"
+          ]
+        },
+        {
           "id": "reads-meta",
           "name": "What separates top players from world-class players",
           "aliases": [
@@ -512,6 +1093,69 @@
           ],
           "related": [],
           "communityTerms": []
+        },
+        {
+          "id": "recovery-punish",
+          "name": "Recovery Punish",
+          "aliases": [
+            "punish recovery"
+          ],
+          "category": "counterplay",
+          "definition": "Attacking specifically during the opponent's recovery window — more precise than generic counterpunching.",
+          "whyItWorks": "Opponent is between offense and defense; power straight and intercepts land cleanest here.",
+          "whenEffective": [
+            "After opponent combo overextension",
+            "When opponent punch three misses due to range"
+          ],
+          "counters": [
+            {
+              "name": "Shorter combos",
+              "explanation": "Don't throw punch three after pushing opponent out of range"
+            }
+          ],
+          "overuseSignals": [
+            "Chasing instead of punishing recovery"
+          ],
+          "related": [
+            "recovery-window",
+            "whiff-punish",
+            "power-straight"
+          ],
+          "communityTerms": [
+            "recovery punish"
+          ]
+        },
+        {
+          "id": "recovery-window",
+          "name": "Recovery Window",
+          "aliases": [
+            "recovery",
+            "post-combo window"
+          ],
+          "category": "mechanic",
+          "definition": "Period immediately after opponent throws, misses, or finishes a sequence before returning to safe defensive state.",
+          "whyItWorks": "Opponent cannot defend or reposition fully — highest-value punish moments in FNC.",
+          "whenEffective": [
+            "After opponent whiffs or overextends combos",
+            "After punch three when range was already wrong"
+          ],
+          "counters": [
+            {
+              "name": "Recovery punish",
+              "explanation": "Fire during the window before guard resets"
+            }
+          ],
+          "overuseSignals": [
+            "Missing recovery windows while chasing volume"
+          ],
+          "related": [
+            "recovery-punish",
+            "whiff-punish",
+            "power-straight"
+          ],
+          "communityTerms": [
+            "recovery window"
+          ]
         },
         {
           "id": "rhythm-manipulation",
@@ -535,6 +1179,79 @@
           "communityTerms": []
         },
         {
+          "id": "rhythm-read",
+          "name": "Rhythm Read",
+          "aliases": [
+            "rhythm read",
+            "pattern read",
+            "timing read"
+          ],
+          "category": "mechanic",
+          "definition": "Recognition of repeated timing — jab-straight cadence, attack-after-block, throw-after-step-forward, reset-after-two-punches. Once identified, explain the pattern and the punish.",
+          "whyItWorks": "FNC players fall into rhythm under pressure. Elite players exploit repeated cadence with recovery punishes, sidestep uppercuts, and timing traps.",
+          "whenEffective": [
+            "After two or three identical offensive sequences",
+            "When opponent attacks immediately after blocking"
+          ],
+          "counters": [
+            {
+              "name": "Rhythm manipulation",
+              "explanation": "Break your own timing so their read misfires"
+            },
+            {
+              "name": "Timing trap",
+              "explanation": "Establish a pattern then break it to punish their learned response"
+            }
+          ],
+          "overuseSignals": [
+            "Calling a rhythm read after one repetition"
+          ],
+          "related": [
+            "rhythm-manipulation",
+            "timing-trap",
+            "adaptation-check"
+          ],
+          "communityTerms": [
+            "rhythm read"
+          ]
+        },
+        {
+          "id": "round-steal",
+          "name": "Round Steal",
+          "aliases": [
+            "round steal",
+            "late round push"
+          ],
+          "category": "strategy",
+          "definition": "Deliberate late-round offensive push (especially final 20–30 seconds) designed to capture a close round through high-impact moments. Not simply \"became more aggressive.\"",
+          "whyItWorks": "FNC judges weight late momentum and impact. Round steals flip close rounds without needing to dominate the full three minutes.",
+          "whenEffective": [
+            "Close rounds where one clean sequence can swing the scorecard",
+            "When opponent is in stamina fraud or panic defense"
+          ],
+          "counters": [
+            {
+              "name": "Money Team defense",
+              "explanation": "Absorb the steal attempt and counter with power straight"
+            },
+            {
+              "name": "Don't give free offense",
+              "explanation": "Reset range and deny the impact moment they need"
+            }
+          ],
+          "overuseSignals": [
+            "Round steal attempt with empty offense — no impact landed"
+          ],
+          "related": [
+            "scorecard-manipulation",
+            "meaningful-offense",
+            "power-straight"
+          ],
+          "communityTerms": [
+            "round steal"
+          ]
+        },
+        {
           "id": "scorecard-manipulation",
           "name": "Do I keep losing rounds after landing more punches",
           "aliases": [
@@ -554,6 +1271,75 @@
           ],
           "related": [],
           "communityTerms": []
+        },
+        {
+          "id": "scoring-anomaly",
+          "name": "Broken 10-8 / Scoring Anomaly",
+          "aliases": [
+            "broken 10-8",
+            "scoring anomaly",
+            "fnc scoring bug"
+          ],
+          "category": "mechanic",
+          "definition": "FNC can produce rounds inconsistent with conventional boxing scoring expectations. Do not say \"you clearly won because you landed more punches\" when stats and scorecard diverge.",
+          "whyItWorks": "Impact moments, stuns, and momentum weight heavily. Statistical dominance does not guarantee the round — flag uncertainty when footage suggests an anomaly.",
+          "whenEffective": [
+            "Round where punch totals favor one player but scorecard favors the other",
+            "Unexpected 10-8 or wide round margins"
+          ],
+          "counters": [
+            {
+              "name": "Scorecard manipulation",
+              "explanation": "Play for impact moments FNC actually rewards"
+            }
+          ],
+          "overuseSignals": [
+            "Blaming lag or \"robbed\" without identifying impact differential"
+          ],
+          "related": [
+            "scorecard-manipulation",
+            "meaningful-offense"
+          ],
+          "communityTerms": [
+            "broken 10-8",
+            "scoring anomaly"
+          ]
+        },
+        {
+          "id": "sidestep-spam",
+          "name": "Sidestep Spam",
+          "aliases": [
+            "sidestep spam",
+            "random sidestep"
+          ],
+          "category": "behavior",
+          "definition": "Repeated sidesteps used regardless of opponent behavior — different from a properly timed sidestep uppercut on a read.",
+          "whyItWorks": "Sidestep spam without reads becomes predictable — opponent can cut angles and intercept with straights or wait for the sidestep to finish.",
+          "whenEffective": [
+            "Not effective — flag as panic defense or habit, not skill"
+          ],
+          "counters": [
+            {
+              "name": "Straight-line pressure with intercept",
+              "explanation": "Attack as sidestep completes without uppercut threat"
+            },
+            {
+              "name": "Rhythm read",
+              "explanation": "Time offense for when sidestep animation ends"
+            }
+          ],
+          "overuseSignals": [
+            "Sidestepping without opponent forward commitment",
+            "Sidestep spam under pressure instead of Money Team defense"
+          ],
+          "related": [
+            "sidestep-uppercut",
+            "panic-defense",
+            "straight-line-pressure"
+          ],
+          "communityTerms": [
+            "sidestep spam"
+          ]
         },
         {
           "id": "sidestep-uppercut",
@@ -577,25 +1363,302 @@
           "communityTerms": []
         },
         {
-          "id": "stamina-management",
-          "name": "Preserve stamina for later rounds",
+          "id": "spam-read",
+          "name": "Spam Read",
           "aliases": [
-            "stamina management"
+            "spam read",
+            "repetition read"
+          ],
+          "category": "mechanic",
+          "definition": "Recognition that the opponent is repeating the same mechanic enough to anticipate — identify what is repeated, when it happens, and the appropriate counter.",
+          "whyItWorks": "FNC meta is built on punishing repetition. Once a spam read is confirmed, failure to counter becomes an adaptation issue.",
+          "whenEffective": [
+            "Third or fourth identical sidestep uppercut on same entry",
+            "Repeated push straight rhythm without variation"
+          ],
+          "counters": [
+            {
+              "name": "Adaptation check",
+              "explanation": "Did the player adjust after the read was available?"
+            }
+          ],
+          "overuseSignals": [
+            "Calling spam read after one repetition"
+          ],
+          "related": [
+            "adaptation-check",
+            "sidestep-uppercut",
+            "push-straight"
+          ],
+          "communityTerms": [
+            "spam read"
+          ]
+        },
+        {
+          "id": "stamina-fraud",
+          "name": "Stamina Fraud",
+          "aliases": [
+            "stamina fraud",
+            "false activity"
+          ],
+          "category": "behavior",
+          "definition": "Player appears active or dominant early but spends stamina at an unsustainable rate. Question is whether current activity produces enough value to justify the expenditure — not simply whether stamina is decreasing.",
+          "whyItWorks": "FNC rounds turn when the fraud player hits empty offense and panic defense. Opponents who recognize fraud play stamina tax instead of trading volume.",
+          "whenEffective": [
+            "Opponent is burning stamina on missed power and unnecessary movement",
+            "Early-round dominance without meaningful impact moments"
+          ],
+          "counters": [
+            {
+              "name": "Stamina tax",
+              "explanation": "Make them miss and chase — let the fraud collapse naturally"
+            }
+          ],
+          "overuseSignals": [
+            "Missed power punches and wasted combinations early",
+            "Chasing after failed attacks"
+          ],
+          "related": [
+            "stamina-tax",
+            "empty-offense",
+            "panic-offense"
+          ],
+          "communityTerms": [
+            "stamina fraud"
+          ]
+        },
+        {
+          "id": "stamina-management",
+          "name": "Stamina Management",
+          "aliases": [
+            "stamina management",
+            "preserve stamina"
           ],
           "category": "strategy",
-          "definition": "Stop wasting movement early.",
-          "whyItWorks": "Stop wasting movement early.",
+          "definition": "Managing stamina for meaningful offense across rounds — avoiding stamina fraud (unsustainable early activity) and applying stamina tax (making opponent waste resources).",
+          "whyItWorks": "FNC output drops sharply with stamina. Elite players preserve gas for impact moments and round steals instead of empty offense.",
           "whenEffective": [
-            "When opponent shows predictable patterns",
-            "In ranked/OWC high-level exchanges"
+            "Mid-to-late rounds when opponent shows stamina fraud",
+            "When playing power disadvantage — need cleaner, fewer mistakes"
           ],
-          "counters": [],
+          "counters": [
+            {
+              "name": "Stamina tax",
+              "explanation": "Force opponent to spend stamina on misses and chase"
+            }
+          ],
           "overuseSignals": [
-            "Repeating the same read without adaptation",
-            "Forcing the technique when stamina is low"
+            "Wasted movement and missed power early",
+            "Throwing combinations when one meaningful shot would suffice"
           ],
-          "related": [],
-          "communityTerms": []
+          "related": [
+            "stamina-fraud",
+            "stamina-tax",
+            "empty-offense"
+          ],
+          "communityTerms": [
+            "stamina management"
+          ]
+        },
+        {
+          "id": "stamina-tax",
+          "name": "Stamina Tax",
+          "aliases": [
+            "stamina tax",
+            "stamina drain"
+          ],
+          "category": "strategy",
+          "definition": "Making the opponent spend resources to accomplish little — forced misses, chase, combinations into defense. Defense indirectly winning the stamina battle.",
+          "whyItWorks": "FNC stamina affects punch speed and output. Taxing stamina without trading damage preserves resources for meaningful offense later.",
+          "whenEffective": [
+            "Against stamina fraud and panic offense",
+            "When opponent throws into Money Team defense or static block reads"
+          ],
+          "counters": [
+            {
+              "name": "Empty offense reduction",
+              "explanation": "Stop throwing into defense — reset and wait for free offense"
+            }
+          ],
+          "overuseSignals": [
+            "Player taxing stamina but not capitalizing when opponent output drops"
+          ],
+          "related": [
+            "stamina-fraud",
+            "money-team-block",
+            "empty-offense"
+          ],
+          "communityTerms": [
+            "stamina tax"
+          ]
+        },
+        {
+          "id": "static-block",
+          "name": "Static Block",
+          "aliases": [
+            "static guard",
+            "sitting in block"
+          ],
+          "category": "mechanic",
+          "definition": "Holding guard without sufficient movement, refreshing, counter threat, or positional adjustment. Different from active Money Team defense.",
+          "whyItWorks": "Can absorb briefly but becomes predictable and easier to pressure without counter threat.",
+          "whenEffective": [
+            "Brief moments to reset stamina"
+          ],
+          "counters": [
+            {
+              "name": "Body and rhythm pressure",
+              "explanation": "Force movement or punish lack of counter threat"
+            }
+          ],
+          "overuseSignals": [
+            "Permanently holding block under pressure"
+          ],
+          "related": [
+            "money-team-block",
+            "panic-defense"
+          ],
+          "communityTerms": [
+            "static block"
+          ]
+        },
+        {
+          "id": "straight-line-pressure",
+          "name": "Straight-Line Pressure",
+          "aliases": [
+            "linear pressure",
+            "straight line entry"
+          ],
+          "category": "strategy",
+          "definition": "Repeatedly entering directly toward opponent without changing entry angle.",
+          "whyItWorks": "Can overwhelm static defense but becomes readable — creates sidestep uppercut and intercept reads.",
+          "whenEffective": [
+            "Against static block or panic defense",
+            "When opponent retreats straight back"
+          ],
+          "counters": [
+            {
+              "name": "Sidestep uppercut",
+              "explanation": "Break the line when entries repeat on same path"
+            },
+            {
+              "name": "Make punch two whiff",
+              "explanation": "Punish recovery after failed combo"
+            }
+          ],
+          "overuseSignals": [
+            "Same two-punch entry rhythm every time"
+          ],
+          "related": [
+            "sidestep-uppercut",
+            "straight-line-retreat",
+            "spam-read"
+          ],
+          "communityTerms": [
+            "straight-line pressure"
+          ]
+        },
+        {
+          "id": "straight-line-retreat",
+          "name": "Straight-Line Retreat",
+          "aliases": [
+            "straight line retreat",
+            "linear retreat",
+            "backing straight up"
+          ],
+          "category": "behavior",
+          "definition": "Repeatedly moving directly backward instead of angling off. Keeps alignment for pressure fighters — creates sidestep uppercut and push straight reads.",
+          "whyItWorks": "It does NOT work defensively — pressure maintains the line and continues attacking. Needs angle changes, not just more distance.",
+          "whenEffective": [
+            "Flag as weakness when opponent's straight-line pressure is effective"
+          ],
+          "counters": [
+            {
+              "name": "Sidestep off the line",
+              "explanation": "Break alignment instead of retreating straight back"
+            },
+            {
+              "name": "Back step with angle",
+              "explanation": "Step back AND lateral to reset without staying on the rail"
+            }
+          ],
+          "overuseSignals": [
+            "Third consecutive straight-back step under pressure",
+            "Retreat into ropes without circling"
+          ],
+          "related": [
+            "straight-line-pressure",
+            "back-step",
+            "sidestep-uppercut"
+          ],
+          "communityTerms": [
+            "straight-line retreat"
+          ]
+        },
+        {
+          "id": "timing-trap",
+          "name": "Timing Trap",
+          "aliases": [
+            "timing trap",
+            "pattern break"
+          ],
+          "category": "mechanic",
+          "definition": "Intentionally establishing a pattern then changing it to punish the opponent's learned response. Advanced play — distinct from a simple feint.",
+          "whyItWorks": "Once the opponent commits to a defensive or offensive reaction, the pattern break lands in the recovery they created by anticipating wrong.",
+          "whenEffective": [
+            "After opponent has shown they react to jab-straight cadence",
+            "When spam read is established and opponent pre-empts the counter"
+          ],
+          "counters": [
+            {
+              "name": "Delayed offense",
+              "explanation": "Wait out the trap instead of pre-reacting"
+            }
+          ],
+          "overuseSignals": [
+            "Pattern never established before the \"trap\" — just random pause"
+          ],
+          "related": [
+            "rhythm-read",
+            "rhythm-manipulation",
+            "spam-read"
+          ],
+          "communityTerms": [
+            "timing trap"
+          ]
+        },
+        {
+          "id": "whiff-punish",
+          "name": "Whiff Punish",
+          "aliases": [
+            "whiff punish",
+            "miss punish"
+          ],
+          "category": "mechanic",
+          "definition": "Opponent misses → player recognizes the miss → immediate punishment. Missing the opportunity is a missed whiff punish, not generic \"reaction time.\"",
+          "whyItWorks": "Missed punches in FNC create extended recovery — whiff punishes convert defense into high-impact scoring moments.",
+          "whenEffective": [
+            "After opponent whiffs a power shot",
+            "When lean-back or block refresh forces a miss"
+          ],
+          "counters": [
+            {
+              "name": "Feint to draw whiff punish",
+              "explanation": "Bait the punish attempt and counter the counter"
+            }
+          ],
+          "overuseSignals": [
+            "Chasing whiffs with slow power when a straight would land first",
+            "Missing whiff punishes while throwing volume elsewhere"
+          ],
+          "related": [
+            "recovery-window",
+            "recovery-punish",
+            "counter-window"
+          ],
+          "communityTerms": [
+            "whiff punish"
+          ]
         }
       ]
     },

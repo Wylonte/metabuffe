@@ -1,0 +1,29 @@
+id: back-step
+name: Back Step
+aliases:
+  - back step
+  - step back
+category: mechanic
+definition: >-
+  Creating immediate distance by stepping backward. Changes spacing — not the same
+  as lean back, which changes upper-body positioning while staying in range.
+whyItWorks: >-
+  Resets range for counter entries or breaks clinch pressure, but repeated
+  straight-line retreat keeps alignment for the pressure fighter.
+whenEffective:
+  - Single reset after a combination to reload
+  - Creating space before a power straight counter
+counters:
+  - name: Cut off angles
+    explanation: Pressure along the line back-step creates — don't let them reset for free
+  - name: Push straight on retreat
+    explanation: Track the backward step with centerline straights
+overuseSignals:
+  - Straight-line retreat instead of angling off
+  - Back stepping into the ropes without changing line
+related:
+  - straight-line-pressure
+  - lean-back
+  - power-straight
+communityTerms:
+  - back step

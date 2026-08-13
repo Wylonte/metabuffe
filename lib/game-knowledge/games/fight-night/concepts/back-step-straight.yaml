@@ -1,18 +1,29 @@
 id: back-step-straight
-name: Push straight spam and how do I beat it
+name: Push Straight Counter Reads
 aliases:
   - back step straight
-category: strategy
-definition: Push straight spam works because people stand directly where the
-  straight wants their head to be.
-whyItWorks: Push straight spam works because people stand directly where the
-  straight wants their head to be.
+  - beat push straight
+category: counterplay
+definition: >-
+  Countering push straight / straight spam by stepping off line or firing through
+  recovery after the straight. Push straight spam works when opponents stay on the
+  centerline — break the line or punish the recovery.
+whyItWorks: >-
+  Push straights track linear paths. Sidestep uppercuts, power straights on
+  recovery, and angle changes deny the centerline control push straight spam needs.
 whenEffective:
-  - When opponent shows predictable patterns
-  - In ranked/OWC high-level exchanges
-counters: []
+  - Opponent repeating push straights without reading movement
+  - After absorbing straight with block refresh
+counters:
+  - name: Sidestep uppercut
+    explanation: Break linear tracking when push straight spam is predictable
+  - name: Power straight on recovery
+    explanation: Fire after blocking the push straight
 overuseSignals:
-  - Repeating the same read without adaptation
-  - Forcing the technique when stamina is low
-related: []
-communityTerms: []
+  - Standing on centerline while opponent push straight spams
+related:
+  - push-straight
+  - sidestep-uppercut
+  - power-straight
+communityTerms:
+  - push straight spam

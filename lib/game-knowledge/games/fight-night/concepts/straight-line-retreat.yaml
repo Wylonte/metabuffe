@@ -1,0 +1,29 @@
+id: straight-line-retreat
+name: Straight-Line Retreat
+aliases:
+  - straight line retreat
+  - linear retreat
+  - backing straight up
+category: behavior
+definition: >-
+  Repeatedly moving directly backward instead of angling off. Keeps alignment
+  for pressure fighters — creates sidestep uppercut and push straight reads.
+whyItWorks: >-
+  It does NOT work defensively — pressure maintains the line and continues
+  attacking. Needs angle changes, not just more distance.
+whenEffective:
+  - Flag as weakness when opponent's straight-line pressure is effective
+counters:
+  - name: Sidestep off the line
+    explanation: Break alignment instead of retreating straight back
+  - name: Back step with angle
+    explanation: Step back AND lateral to reset without staying on the rail
+overuseSignals:
+  - Third consecutive straight-back step under pressure
+  - Retreat into ropes without circling
+related:
+  - straight-line-pressure
+  - back-step
+  - sidestep-uppercut
+communityTerms:
+  - straight-line retreat

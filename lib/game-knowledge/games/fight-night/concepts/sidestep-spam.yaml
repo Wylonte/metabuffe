@@ -1,0 +1,28 @@
+id: sidestep-spam
+name: Sidestep Spam
+aliases:
+  - sidestep spam
+  - random sidestep
+category: behavior
+definition: >-
+  Repeated sidesteps used regardless of opponent behavior — different from a
+  properly timed sidestep uppercut on a read.
+whyItWorks: >-
+  Sidestep spam without reads becomes predictable — opponent can cut angles and
+  intercept with straights or wait for the sidestep to finish.
+whenEffective:
+  - Not effective — flag as panic defense or habit, not skill
+counters:
+  - name: Straight-line pressure with intercept
+    explanation: Attack as sidestep completes without uppercut threat
+  - name: Rhythm read
+    explanation: Time offense for when sidestep animation ends
+overuseSignals:
+  - Sidestepping without opponent forward commitment
+  - Sidestep spam under pressure instead of Money Team defense
+related:
+  - sidestep-uppercut
+  - panic-defense
+  - straight-line-pressure
+communityTerms:
+  - sidestep spam

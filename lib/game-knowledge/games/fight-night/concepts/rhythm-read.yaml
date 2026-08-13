@@ -1,0 +1,30 @@
+id: rhythm-read
+name: Rhythm Read
+aliases:
+  - rhythm read
+  - pattern read
+  - timing read
+category: mechanic
+definition: >-
+  Recognition of repeated timing — jab-straight cadence, attack-after-block,
+  throw-after-step-forward, reset-after-two-punches. Once identified, explain
+  the pattern and the punish.
+whyItWorks: >-
+  FNC players fall into rhythm under pressure. Elite players exploit repeated
+  cadence with recovery punishes, sidestep uppercuts, and timing traps.
+whenEffective:
+  - After two or three identical offensive sequences
+  - When opponent attacks immediately after blocking
+counters:
+  - name: Rhythm manipulation
+    explanation: Break your own timing so their read misfires
+  - name: Timing trap
+    explanation: Establish a pattern then break it to punish their learned response
+overuseSignals:
+  - Calling a rhythm read after one repetition
+related:
+  - rhythm-manipulation
+  - timing-trap
+  - adaptation-check
+communityTerms:
+  - rhythm read

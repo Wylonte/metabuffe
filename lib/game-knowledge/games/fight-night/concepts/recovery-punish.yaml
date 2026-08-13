@@ -1,0 +1,24 @@
+id: recovery-punish
+name: Recovery Punish
+aliases:
+  - punish recovery
+category: counterplay
+definition: >-
+  Attacking specifically during the opponent's recovery window — more precise than
+  generic counterpunching.
+whyItWorks: >-
+  Opponent is between offense and defense; power straight and intercepts land cleanest here.
+whenEffective:
+  - After opponent combo overextension
+  - When opponent punch three misses due to range
+counters:
+  - name: Shorter combos
+    explanation: Don't throw punch three after pushing opponent out of range
+overuseSignals:
+  - Chasing instead of punishing recovery
+related:
+  - recovery-window
+  - whiff-punish
+  - power-straight
+communityTerms:
+  - recovery punish

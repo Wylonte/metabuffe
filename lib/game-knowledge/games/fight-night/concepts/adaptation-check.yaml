@@ -1,0 +1,24 @@
+id: adaptation-check
+name: Adaptation Check
+aliases:
+  - adaptation failure
+  - failed to adapt
+category: meta
+definition: >-
+  Whether the player adjusted after seeing the same opponent behavior repeatedly.
+  By the fourth repeated punish, it is adaptation failure not surprise.
+whyItWorks: >-
+  Elite FNC is about reads and adjustments mid-fight, not repeating the same losing pattern.
+whenEffective:
+  - After repeated sidestep uppercuts on same entry
+  - After same push straight rhythm every round
+counters:
+  - name: Change entry angle
+    explanation: Break straight-line pattern once read is established
+overuseSignals:
+  - Continuing same strategy after clear opponent counter established
+related:
+  - spam-read
+  - rhythm-read
+communityTerms:
+  - adaptation check

@@ -1,0 +1,28 @@
+id: stamina-fraud
+name: Stamina Fraud
+aliases:
+  - stamina fraud
+  - false activity
+category: behavior
+definition: >-
+  Player appears active or dominant early but spends stamina at an unsustainable
+  rate. Question is whether current activity produces enough value to justify
+  the expenditure — not simply whether stamina is decreasing.
+whyItWorks: >-
+  FNC rounds turn when the fraud player hits empty offense and panic defense.
+  Opponents who recognize fraud play stamina tax instead of trading volume.
+whenEffective:
+  - Opponent is burning stamina on missed power and unnecessary movement
+  - Early-round dominance without meaningful impact moments
+counters:
+  - name: Stamina tax
+    explanation: Make them miss and chase — let the fraud collapse naturally
+overuseSignals:
+  - Missed power punches and wasted combinations early
+  - Chasing after failed attacks
+related:
+  - stamina-tax
+  - empty-offense
+  - panic-offense
+communityTerms:
+  - stamina fraud

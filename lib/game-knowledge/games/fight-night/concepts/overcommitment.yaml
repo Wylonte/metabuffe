@@ -1,0 +1,30 @@
+id: overcommitment
+name: Overcommitment
+aliases:
+  - overcommit
+  - overcommitment
+  - punch three miss
+category: behavior
+definition: >-
+  Specify exactly what happened — e.g., repeatedly throwing punch three after the
+  first two already pushed the opponent outside effective range, creating the
+  recovery window the opponent punished.
+whyItWorks: >-
+  Overcommitment in FNC creates recovery windows and whiff punish opportunities.
+  Never use "overcommitment" generically without naming the sequence.
+whenEffective:
+  - Flag as mistake when punch three misses and opponent power straight counters
+counters:
+  - name: Shorten combinations
+    explanation: Stop at two when range is already wrong
+  - name: Recovery punish awareness
+    explanation: Recognize when you are the one creating the window
+overuseSignals:
+  - Chasing with punch three after opponent already back-stepped
+  - Forcing power after combo already failed
+related:
+  - recovery-window
+  - recovery-punish
+  - empty-offense
+communityTerms:
+  - overcommitment

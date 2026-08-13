@@ -1,0 +1,29 @@
+id: panic-offense
+name: Panic Offense
+aliases:
+  - panic offense
+  - frustration offense
+category: behavior
+definition: >-
+  Offense driven by frustration rather than reads — repeated power punches,
+  chasing after losing exchanges, abandoning established combinations, forcing
+  offense after getting countered.
+whyItWorks: >-
+  It usually does NOT work — panic offense burns stamina, creates recovery windows,
+  and feeds the opponent's fear loop in reverse.
+whenEffective:
+  - Rarely intentional — flag it as a behavioral transition to exploit
+counters:
+  - name: Block refresh into power straight
+    explanation: Let panic power whiff and recovery punish
+  - name: Stamina tax
+    explanation: Make them miss and chase until output drops
+overuseSignals:
+  - Sudden power spam after being countered
+  - Abandoning jab setup for chase hooks
+related:
+  - fear-loop
+  - empty-offense
+  - stamina-fraud
+communityTerms:
+  - panic offense

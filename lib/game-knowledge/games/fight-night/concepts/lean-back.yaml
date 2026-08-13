@@ -1,0 +1,30 @@
+id: lean-back
+name: Lean Back
+aliases:
+  - lean back
+  - head lean
+category: mechanic
+definition: >-
+  Defensive head movement that makes certain head punches fall short while keeping
+  the player positioned to counter. Distinct from back step (distance) and pull
+  counter (reactive lean into a specific shot).
+whyItWorks: >-
+  FNC head punch tracking can whiff on lean-back timing, leaving the opponent in
+  recovery while the defender stays in counter range.
+whenEffective:
+  - Against predictable head-hunting combinations
+  - When opponent leads with jab-straight rhythm
+counters:
+  - name: Body attack
+    explanation: Lean upstairs opens the body line
+  - name: Delay second punch
+    explanation: Break the timing they lean against
+overuseSignals:
+  - Predictable lean-back rhythm becomes readable
+  - Leaning without counter threat attached
+related:
+  - pull-counter
+  - recovery-punish
+  - panic-defense
+communityTerms:
+  - lean back

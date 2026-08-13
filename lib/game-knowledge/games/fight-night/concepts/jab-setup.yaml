@@ -1,0 +1,30 @@
+id: jab-setup
+name: Jab Tax / Jab Setup
+aliases:
+  - jab tax
+  - jab setup
+  - jab read
+category: mechanic
+definition: >-
+  Jab used to measure distance, disrupt rhythm, force defensive reactions, set up
+  power straight, disguise entries, or gather information. FNC does not always
+  reward jab dominance proportionally — ask what the jab created.
+whyItWorks: >-
+  Elite jab use creates free offense windows. Jab tax is when jabs land but produce
+  nothing — no setup, no info, no forced reaction.
+whenEffective:
+  - Jab-pause-power straight timing traps
+  - Disrupting rhythm read before opponent's two-punch entry
+counters:
+  - name: Power straight over jab
+    explanation: Fire through jab recovery when jab is predictable
+overuseSignals:
+  - Jab volume without power straight follow-up
+  - Praising jab lands when opponent ignores them
+related:
+  - power-straight
+  - rhythm-manipulation
+  - free-offense
+communityTerms:
+  - jab tax
+  - jab setup

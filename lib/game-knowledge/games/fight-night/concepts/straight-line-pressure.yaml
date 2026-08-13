@@ -1,0 +1,26 @@
+id: straight-line-pressure
+name: Straight-Line Pressure
+aliases:
+  - linear pressure
+  - straight line entry
+category: strategy
+definition: >-
+  Repeatedly entering directly toward opponent without changing entry angle.
+whyItWorks: >-
+  Can overwhelm static defense but becomes readable — creates sidestep uppercut and intercept reads.
+whenEffective:
+  - Against static block or panic defense
+  - When opponent retreats straight back
+counters:
+  - name: Sidestep uppercut
+    explanation: Break the line when entries repeat on same path
+  - name: Make punch two whiff
+    explanation: Punish recovery after failed combo
+overuseSignals:
+  - Same two-punch entry rhythm every time
+related:
+  - sidestep-uppercut
+  - straight-line-retreat
+  - spam-read
+communityTerms:
+  - straight-line pressure

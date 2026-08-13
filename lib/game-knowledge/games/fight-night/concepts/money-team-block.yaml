@@ -1,18 +1,35 @@
 id: money-team-block
-name: Beat the Money Team block
+name: Money Team Block / Money Team Defense
 aliases:
+  - money team defense
   - money team block
-category: strategy
-definition: The biggest mistake players make is attacking the guard instead of
-  attacking the rhythm.
-whyItWorks: The biggest mistake players make is attacking the guard instead of
-  attacking the rhythm.
+  - mtb
+  - shell
+category: mechanic
+definition: >-
+  Active defensive system built around block management, weaving/head movement,
+  guard refreshing, positioning, and immediate counter offense — not static high guard.
+  Rhythm is block → refresh → weave/movement → reset → counter (often power straight).
+whyItWorks: >-
+  Makes opponents attack the guard instead of the rhythm. Offensive threat out of
+  defense forces hesitation and creates counter windows on commitment.
 whenEffective:
-  - When opponent shows predictable patterns
-  - In ranked/OWC high-level exchanges
-counters: []
+  - OWC/H2H high-level exchanges
+  - When opponent overextends into shell
+  - When paired with power straight counter threat
+counters:
+  - name: Attack the rhythm
+    explanation: Slow the fight, lateral movement without committing, body during reset — not emotional combos at the shell
+  - name: Make them refresh early
+    explanation: Step into range without throwing to force premature block refresh
 overuseSignals:
-  - Repeating the same read without adaptation
-  - Forcing the technique when stamina is low
-related: []
-communityTerms: []
+  - Sitting in static block without counter threat
+  - Predictable block-tap rhythm
+related:
+  - power-straight
+  - block-refresh
+  - static-block
+communityTerms:
+  - Money Team
+  - MTB
+  - shell

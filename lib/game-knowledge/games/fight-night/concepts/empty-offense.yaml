@@ -1,0 +1,28 @@
+id: empty-offense
+name: Empty Offense
+aliases:
+  - empty offense
+  - volume without value
+category: behavior
+definition: >-
+  Punch volume producing little meaningful scoring, damage, positioning advantage,
+  or strategic value. Do not praise activity because punches are being thrown.
+whyItWorks: >-
+  It does NOT work for winning FNC rounds — impact and momentum matter more than
+  totals. Empty offense feeds recovery punishes and scorecard manipulation.
+whenEffective:
+  - Flag as weakness when opponent lands the meaningful moments despite lower volume
+counters:
+  - name: Recovery punish
+    explanation: Let volume create recovery windows and punish selectively
+  - name: Scorecard manipulation
+    explanation: Win impact moments while they win punch stats
+overuseSignals:
+  - High punch count with no stun or forced defensive reactions
+  - Combinations that push opponent out of range before punch three
+related:
+  - meaningful-offense
+  - stamina-fraud
+  - scorecard-manipulation
+communityTerms:
+  - empty offense

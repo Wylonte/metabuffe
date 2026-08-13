@@ -93,9 +93,9 @@ export function BreakdownModal({ isOpen, onClose }: BreakdownModalProps) {
                 {activeTab === "mistakes" && (
                   <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-4">
                     {[
-                      { icon: AlertCircle, color: "text-pink-500", bg: "bg-pink-500/10", border: "border-pink-500/20", title: "Stamina Burn", desc: "Over-committing to power shots in early rounds depleted stamina below 40% by Round 5." },
-                      { icon: AlertTriangle, color: "text-orange-500", bg: "bg-orange-500/10", border: "border-orange-500/20", title: "Guard Drop", desc: "Failing to reset guard immediately after throwing a 1-2 combination." },
-                      { icon: Info, color: "text-yellow-500", bg: "bg-yellow-500/10", border: "border-yellow-500/20", title: "Predictable Movement", desc: "Circling into the opponent's lead hand consistently." }
+                      { icon: AlertCircle, color: "text-pink-500", bg: "bg-pink-500/10", border: "border-pink-500/20", title: "Stamina Fraud", desc: "Early-round empty offense burned stamina without meaningful impact — output collapsed by Round 5." },
+                      { icon: AlertTriangle, color: "text-orange-500", bg: "bg-orange-500/10", border: "border-orange-500/20", title: "Bad Block Refresh", desc: "Predictable guard release after combinations — opponent recovery punished the reset." },
+                      { icon: Info, color: "text-yellow-500", bg: "bg-yellow-500/10", border: "border-yellow-500/20", title: "Straight-Line Retreat", desc: "Repeated backward movement kept alignment for opponent's straight-line pressure and sidestep uppercut reads." }
                     ].map((mistake, i) => (
                       <div key={i} className={`flex gap-4 p-5 rounded-xl border ${mistake.border} ${mistake.bg}`}>
                         <mistake.icon className={`w-6 h-6 ${mistake.color} shrink-0`} />
@@ -111,9 +111,9 @@ export function BreakdownModal({ isOpen, onClose }: BreakdownModalProps) {
                 {activeTab === "strengths" && (
                   <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-4">
                     {[
-                      { title: "Aggressive Openings", desc: "Excellent pressure applied in the first 30 seconds of each round." },
-                      { title: "Counter Accuracy", desc: "Landed 68% of counter-punches when opponent missed heavy shots." },
-                      { title: "Ring Generalship", desc: "Effectively cut off the ring, forcing opponent to the ropes 12 times." }
+                      { title: "Recovery Punish", desc: "Consistently fired power straights through opponent recovery windows after combo overcommitment." },
+                      { title: "Money Team Defense", desc: "Active block refresh rhythm with counter readiness — not static high guard." },
+                      { title: "Rhythm Read", desc: "Identified opponent's jab-straight cadence by Round 2 and threatened sidestep uppercut on the third linear entry." }
                     ].map((strength, i) => (
                       <div key={i} className="flex gap-4 p-5 rounded-xl border border-green-500/20 bg-green-500/5">
                         <CheckCircle2 className="w-6 h-6 text-green-500 shrink-0" />
@@ -129,9 +129,9 @@ export function BreakdownModal({ isOpen, onClose }: BreakdownModalProps) {
                 {activeTab === "suggestions" && (
                   <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6">
                     {[
-                      { title: "Shorten Your Combos", desc: "Limit yourself to 2-3 punches per exchange to preserve stamina for later rounds." },
-                      { title: "Active Guard Reset", desc: "Consciously pull LT/L2 to reset your guard immediately after your last punch connects or misses." },
-                      { title: "Mix Up Directions", desc: "Practice circling away from the opponent's power hand to avoid walking into hooks." }
+                      { title: "Break Straight-Line Retreat", desc: "Sidestep off the line when pressured — straight back movement feeds sidestep uppercut and push straight reads." },
+                      { title: "Block Refresh on Reads", desc: "Use deliberate block refresh in Money Team rhythm — avoid predictable releases that create recovery punish windows." },
+                      { title: "Hunt Free Offense", desc: "Stop forcing exchanges. Wait for recovery windows and whiff punish moments instead of empty offense volume." }
                     ].map((sugg, i) => (
                       <div key={i} className="flex gap-4">
                         <div className="w-8 h-8 rounded-full bg-white/10 border border-white/20 flex items-center justify-center shrink-0 font-bold text-white">

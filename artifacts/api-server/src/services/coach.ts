@@ -75,12 +75,8 @@ export interface AnalyzeResult {
   conceptsUsed: string[];
 }
 
-const DEFAULT_OBSERVATIONS = [
-  "Opponent pressured in straight lines",
-  "Stamina dipped after extended combinations",
-  "Counter timing strong in early rounds",
-  "Guard reset missed under body pressure",
-];
+const INSUFFICIENT_FOOTAGE_NOTE =
+  "Insufficient footage observations to name specific mechanics — analysis should state uncertainty rather than invent FNC terms.";
 
 function buildMetadataObservations(input: {
   fileName?: string;
@@ -124,7 +120,10 @@ function buildObservationsFromUpload(input: {
   fileSizeBytes?: number;
   mimeType?: string;
 }): string[] {
-  return [...DEFAULT_OBSERVATIONS, ...buildMetadataObservations(input)];
+  const metadata = buildMetadataObservations(input);
+  return metadata.length > 0
+    ? [...metadata, INSUFFICIENT_FOOTAGE_NOTE]
+    : [INSUFFICIENT_FOOTAGE_NOTE];
 }
 
 function buildObservationsFromVision(input: {
@@ -166,7 +165,7 @@ function buildObservationsFromLink(input: {
     ];
   }
 
-  return [...DEFAULT_OBSERVATIONS, ...metadata];
+  return [...metadata, INSUFFICIENT_FOOTAGE_NOTE];
 }
 
 export async function handleAnalyzeFrames(input: {
@@ -302,17 +301,17 @@ export async function handleAnalyze(input: {
   return {
     strengths: [
       topConcepts[0]
-        ? `Strong reads around ${topConcepts[0].toLowerCase()}`
-        : "Clean early-round exchanges",
-      "Good discipline when not chasing",
+        ? `${topConcepts[0]} — visible in footage or clip context`
+        : "I can't confidently identify specific strengths without clearer footage.",
     ],
     weaknesses: [
       topConcepts[1]
-        ? `Leaks patterns around ${topConcepts[1].toLowerCase()}`
-        : "Stamina collapse after combo chains",
-      "Predictable reset timing under pressure",
+        ? `${topConcepts[1]} — check for adaptation failure if the pattern repeated`
+        : "Upload clearer match footage to name the exact FNC mechanic.",
     ],
-    summary: `Grounded ${game.manifest.name} coaching feedback using competitive meta concepts: ${retrieved.matchedConceptIds.join(", ") || "general meta overview"}.`,
+    summary: retrieved.matchedConceptIds.length
+      ? `Offline mode — concepts retrieved: ${retrieved.matchedConceptIds.join(", ")}. Set OPENAI_API_KEY for full FNC meta analysis (Money Team defense, recovery punish, straight-line pressure, etc.).`
+      : `I can't confidently identify the exact mechanic from this sequence. Upload footage or ask about a specific FNC read (MTB, power straight, sidestep uppercut, recovery window).`,
     conceptsUsed: retrieved.matchedConceptIds,
   };
 }

@@ -1,0 +1,29 @@
+id: round-steal
+name: Round Steal
+aliases:
+  - round steal
+  - late round push
+category: strategy
+definition: >-
+  Deliberate late-round offensive push (especially final 20–30 seconds) designed
+  to capture a close round through high-impact moments. Not simply "became more
+  aggressive."
+whyItWorks: >-
+  FNC judges weight late momentum and impact. Round steals flip close rounds
+  without needing to dominate the full three minutes.
+whenEffective:
+  - Close rounds where one clean sequence can swing the scorecard
+  - When opponent is in stamina fraud or panic defense
+counters:
+  - name: Money Team defense
+    explanation: Absorb the steal attempt and counter with power straight
+  - name: Don't give free offense
+    explanation: Reset range and deny the impact moment they need
+overuseSignals:
+  - Round steal attempt with empty offense — no impact landed
+related:
+  - scorecard-manipulation
+  - meaningful-offense
+  - power-straight
+communityTerms:
+  - round steal

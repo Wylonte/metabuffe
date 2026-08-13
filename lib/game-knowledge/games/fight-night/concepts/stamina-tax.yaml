@@ -1,0 +1,26 @@
+id: stamina-tax
+name: Stamina Tax
+aliases:
+  - stamina tax
+  - stamina drain
+category: strategy
+definition: >-
+  Making the opponent spend resources to accomplish little — forced misses,
+  chase, combinations into defense. Defense indirectly winning the stamina battle.
+whyItWorks: >-
+  FNC stamina affects punch speed and output. Taxing stamina without trading
+  damage preserves resources for meaningful offense later.
+whenEffective:
+  - Against stamina fraud and panic offense
+  - When opponent throws into Money Team defense or static block reads
+counters:
+  - name: Empty offense reduction
+    explanation: Stop throwing into defense — reset and wait for free offense
+overuseSignals:
+  - Player taxing stamina but not capitalizing when opponent output drops
+related:
+  - stamina-fraud
+  - money-team-block
+  - empty-offense
+communityTerms:
+  - stamina tax

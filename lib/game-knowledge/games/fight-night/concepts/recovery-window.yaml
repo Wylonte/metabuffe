@@ -1,0 +1,25 @@
+id: recovery-window
+name: Recovery Window
+aliases:
+  - recovery
+  - post-combo window
+category: mechanic
+definition: >-
+  Period immediately after opponent throws, misses, or finishes a sequence before
+  returning to safe defensive state.
+whyItWorks: >-
+  Opponent cannot defend or reposition fully — highest-value punish moments in FNC.
+whenEffective:
+  - After opponent whiffs or overextends combos
+  - After punch three when range was already wrong
+counters:
+  - name: Recovery punish
+    explanation: Fire during the window before guard resets
+overuseSignals:
+  - Missing recovery windows while chasing volume
+related:
+  - recovery-punish
+  - whiff-punish
+  - power-straight
+communityTerms:
+  - recovery window

@@ -1,0 +1,33 @@
+id: push-straight
+name: Push Straight
+aliases:
+  - push straight
+  - straight spam
+  - straight-line straight
+category: mechanic
+definition: >-
+  Repeated straight punches used to interrupt forward movement, maintain distance,
+  score on the centerline, or exploit predictable entries — not every repeated
+  straight is blind spam.
+whyItWorks: >-
+  Straights track the centerline in FNC. Used on reads they interrupt pressure,
+  steal momentum, and force defensive reactions without full combo commitment.
+whenEffective:
+  - Interrupting straight-line pressure
+  - After defensive reads when opponent commits forward
+  - Controlled distance maintenance between exchanges
+counters:
+  - name: Sidestep uppercut
+    explanation: Break the line when push straights rely on linear tracking
+  - name: Block refresh into power straight
+    explanation: Absorb the push straight and fire through recovery
+overuseSignals:
+  - Blind repetition without reading opponent movement
+  - Push straights thrown when opponent is already out of range
+related:
+  - power-straight
+  - straight-line-pressure
+  - controlled-cheese
+communityTerms:
+  - push straight
+  - straight spam

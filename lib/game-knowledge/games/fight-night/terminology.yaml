@@ -1,13 +1,59 @@
+# Fight Night Champion meta terminology → concept id
 mtb: money-team-block
 money team: money-team-block
+money team defense: money-team-block
+money team block: money-team-block
 shell: money-team-block
+block refresh: block-refresh
+block reset: block-refresh
+guard refresh: block-refresh
+guard reset: block-refresh
+static block: static-block
+static guard: static-block
 power straight: power-straight
+push straight: push-straight
+straight spam: push-straight
+push straight spam: push-straight
 sidestep uppercut: sidestep-uppercut
-push straight: back-step-straight
-back step straight: back-step-straight
-body spam: body-spam
-cheese: controlled-cheese
+sidestep spam: sidestep-spam
+lean back: lean-back
+back step: back-step
+straight line pressure: straight-line-pressure
+linear pressure: straight-line-pressure
+straight line retreat: straight-line-retreat
+straight-line retreat: straight-line-retreat
+recovery window: recovery-window
+recovery punish: recovery-punish
+whiff punish: whiff-punish
+counter window: counter-window
+rhythm read: rhythm-read
+rhythm manipulation: rhythm-manipulation
+timing trap: timing-trap
 fear loop: fear-loop
-owc: owc-meta
+panic offense: panic-offense
+panic defense: panic-defense
+stamina fraud: stamina-fraud
+stamina tax: stamina-tax
+empty offense: empty-offense
+meaningful offense: meaningful-offense
+round steal: round-steal
+scorecard manipulation: scorecard-manipulation
+broken 10-8: scoring-anomaly
+scoring anomaly: scoring-anomaly
+jab tax: jab-setup
+jab setup: jab-setup
+free offense: free-offense
+overcommit: overcommitment
+overcommitment: overcommitment
+spam read: spam-read
+adaptation: adaptation-check
+adaptation check: adaptation-check
+controlled cheese: controlled-cheese
+cheese: controlled-cheese
+body spam: body-spam
 chicken wing: chicken-wing
+chicken wing punch: chicken-wing
 pull counter: pull-counter
+owc: owc-meta
+h2h: owc-meta
+power disadvantage: owc-meta

@@ -1,0 +1,27 @@
+id: spam-read
+name: Spam Read
+aliases:
+  - spam read
+  - repetition read
+category: mechanic
+definition: >-
+  Recognition that the opponent is repeating the same mechanic enough to
+  anticipate — identify what is repeated, when it happens, and the appropriate
+  counter.
+whyItWorks: >-
+  FNC meta is built on punishing repetition. Once a spam read is confirmed,
+  failure to counter becomes an adaptation issue.
+whenEffective:
+  - Third or fourth identical sidestep uppercut on same entry
+  - Repeated push straight rhythm without variation
+counters:
+  - name: Adaptation check
+    explanation: Did the player adjust after the read was available?
+overuseSignals:
+  - Calling spam read after one repetition
+related:
+  - adaptation-check
+  - sidestep-uppercut
+  - push-straight
+communityTerms:
+  - spam read

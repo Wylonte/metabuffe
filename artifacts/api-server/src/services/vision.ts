@@ -1,4 +1,4 @@
-import { getGameBundle } from "@workspace/game-knowledge";
+import { getGameBundle, getVisionObservationInstructions } from "@workspace/game-knowledge";
 
 export interface VisionFrame {
   timestampSeconds: number;
@@ -65,6 +65,7 @@ function validateFrames(frames: VisionFrame[]): VisionFrame[] {
 }
 
 async function callOpenAiVision(input: {
+  gameId: string;
   gameName: string;
   promptIntro: string;
   images: Array<{ label: string; source: string }>;
@@ -77,6 +78,8 @@ async function callOpenAiVision(input: {
     process.env.OPENAI_MODEL ??
     "gpt-4o-mini";
 
+  const metaInstructions = getVisionObservationInstructions(input.gameId);
+
   const content: Array<
     | { type: "text"; text: string }
     | { type: "image_url"; image_url: { url: string; detail: "low" } }
@@ -87,11 +90,12 @@ async function callOpenAiVision(input: {
         `You are analyzing ${input.gameName} gameplay footage for Metabuffed.`,
         input.promptIntro,
         "",
+        metaInstructions,
+        "",
         "Return ONLY a JSON array of 4-8 short strings.",
-        "Each string must describe one specific, visible gameplay observation:",
-        "blocking habits, stamina pacing, pressure, counters, guard resets, body work, mistakes, or strong reads.",
-        "Use competitive fighting-game language. Do not mention JSON or frames in the observations.",
-        'Example: ["Opponent shells after every combo", "Player drops guard low in round 2"]',
+        "Each string = one specific visible behavior using FNC meta terms when confident.",
+        "If uncertain, describe what is visible without inventing a mechanic name.",
+        'Example: ["Straight-line pressure — opponent entered on same path three times", "Static block held without refresh or counter threat"]',
       ].join("\n"),
     },
   ];
@@ -145,6 +149,7 @@ export async function extractObservationsFromFrames(input: {
   }));
 
   return callOpenAiVision({
+    gameId: input.gameId,
     gameName: game.manifest.name,
     promptIntro:
       "These images are evenly sampled frames from the player's uploaded match footage.",
@@ -161,11 +166,12 @@ export async function extractObservationsFromImageUrl(input: {
   if (!game) throw new Error(`Unknown game: ${input.gameId}`);
 
   return callOpenAiVision({
+    gameId: input.gameId,
     gameName: game.manifest.name,
     promptIntro: [
       "This is a thumbnail/preview image from a shared clip link.",
       input.context ?? "",
-      "Infer likely gameplay patterns cautiously from what is visible.",
+      "Infer cautiously — only state what the preview supports.",
     ]
       .filter(Boolean)
       .join(" "),

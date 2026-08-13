@@ -1,0 +1,29 @@
+id: block-refresh
+name: Block Refresh / Block Reset
+aliases:
+  - block reset
+  - guard refresh
+  - guard reset
+category: mechanic
+definition: >-
+  Releasing and reapplying block instead of permanently holding guard. Good reset =
+  deliberate refresh while safe. Bad reset = predictable or unsafe release getting hit.
+whyItWorks: >-
+  Refreshes defensive state and enables Money Team rhythm. Bad timing turns refresh
+  into a punishable window.
+whenEffective:
+  - During Money Team defensive sequences
+  - When safely disengaging from pressure
+counters:
+  - name: Punish the release
+    explanation: Attack the moment guard drops if refresh timing is predictable
+overuseSignals:
+  - Calling every guard reset a weakness without context
+  - Refreshing at unsafe moments repeatedly
+related:
+  - money-team-block
+  - static-block
+  - recovery-punish
+communityTerms:
+  - block refresh
+  - block reset

@@ -1,0 +1,27 @@
+id: whiff-punish
+name: Whiff Punish
+aliases:
+  - whiff punish
+  - miss punish
+category: mechanic
+definition: >-
+  Opponent misses → player recognizes the miss → immediate punishment. Missing the
+  opportunity is a missed whiff punish, not generic "reaction time."
+whyItWorks: >-
+  Missed punches in FNC create extended recovery — whiff punishes convert defense
+  into high-impact scoring moments.
+whenEffective:
+  - After opponent whiffs a power shot
+  - When lean-back or block refresh forces a miss
+counters:
+  - name: Feint to draw whiff punish
+    explanation: Bait the punish attempt and counter the counter
+overuseSignals:
+  - Chasing whiffs with slow power when a straight would land first
+  - Missing whiff punishes while throwing volume elsewhere
+related:
+  - recovery-window
+  - recovery-punish
+  - counter-window
+communityTerms:
+  - whiff punish

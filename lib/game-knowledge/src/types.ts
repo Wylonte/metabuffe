@@ -74,6 +74,7 @@ export interface GameKnowledgeBundle {
   quickQuestions: QuickQuestion[];
   cannedResponses: CannedResponse[];
   concepts: GameConcept[];
+  analysisLanguage?: string;
 }
 
 export interface KnowledgeBundle {

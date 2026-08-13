@@ -1,16 +1,28 @@
 id: stamina-management
-name: Preserve stamina for later rounds
+name: Stamina Management
 aliases:
   - stamina management
+  - preserve stamina
 category: strategy
-definition: Stop wasting movement early.
-whyItWorks: Stop wasting movement early.
+definition: >-
+  Managing stamina for meaningful offense across rounds — avoiding stamina fraud
+  (unsustainable early activity) and applying stamina tax (making opponent waste
+  resources).
+whyItWorks: >-
+  FNC output drops sharply with stamina. Elite players preserve gas for impact
+  moments and round steals instead of empty offense.
 whenEffective:
-  - When opponent shows predictable patterns
-  - In ranked/OWC high-level exchanges
-counters: []
+  - Mid-to-late rounds when opponent shows stamina fraud
+  - When playing power disadvantage — need cleaner, fewer mistakes
+counters:
+  - name: Stamina tax
+    explanation: Force opponent to spend stamina on misses and chase
 overuseSignals:
-  - Repeating the same read without adaptation
-  - Forcing the technique when stamina is low
-related: []
-communityTerms: []
+  - Wasted movement and missed power early
+  - Throwing combinations when one meaningful shot would suffice
+related:
+  - stamina-fraud
+  - stamina-tax
+  - empty-offense
+communityTerms:
+  - stamina management

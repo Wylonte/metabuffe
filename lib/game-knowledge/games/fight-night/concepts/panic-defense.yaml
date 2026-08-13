@@ -1,0 +1,29 @@
+id: panic-defense
+name: Panic Defense
+aliases:
+  - panic defense
+  - scared defense
+category: behavior
+definition: >-
+  Defensive behavior caused by pressure rather than deliberate reads — excessive
+  leaning, repeated predictable sidesteps, permanently holding static block, running
+  straight backward.
+whyItWorks: >-
+  Panic defense is exploitable — it creates predictable resets, straight-line
+  retreat, and no counter threat. Different from Money Team defense.
+whenEffective:
+  - Not effective long-term — identify when pressure broke deliberate defense
+counters:
+  - name: Straight-line pressure
+    explanation: Maintain alignment on straight retreat
+  - name: Body work into head
+    explanation: Panic lean upstairs opens the body (name as body spam/setup, not generic praise)
+overuseSignals:
+  - Static block held without refresh after taking damage
+  - Sidestep spam without reading entry angle
+related:
+  - static-block
+  - straight-line-pressure
+  - fear-loop
+communityTerms:
+  - panic defense

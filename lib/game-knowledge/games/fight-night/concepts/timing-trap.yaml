@@ -1,0 +1,26 @@
+id: timing-trap
+name: Timing Trap
+aliases:
+  - timing trap
+  - pattern break
+category: mechanic
+definition: >-
+  Intentionally establishing a pattern then changing it to punish the opponent's
+  learned response. Advanced play — distinct from a simple feint.
+whyItWorks: >-
+  Once the opponent commits to a defensive or offensive reaction, the pattern break
+  lands in the recovery they created by anticipating wrong.
+whenEffective:
+  - After opponent has shown they react to jab-straight cadence
+  - When spam read is established and opponent pre-empts the counter
+counters:
+  - name: Delayed offense
+    explanation: Wait out the trap instead of pre-reacting
+overuseSignals:
+  - Pattern never established before the "trap" — just random pause
+related:
+  - rhythm-read
+  - rhythm-manipulation
+  - spam-read
+communityTerms:
+  - timing trap
