@@ -6,8 +6,8 @@ aliases:
 category: behavior
 definition: >-
   Defensive behavior caused by pressure rather than deliberate reads — excessive
-  leaning, repeated predictable sidesteps, permanently holding static block, running
-  straight backward.
+  leaning, repeated predictable sidesteps, holding block without refresh or counter
+  threat, running straight backward.
 whyItWorks: >-
   Panic defense is exploitable — it creates predictable resets, straight-line
   retreat, and no counter threat. Different from Money Team defense.
@@ -19,10 +19,10 @@ counters:
   - name: Body work into head
     explanation: Panic lean upstairs opens the body (name as body spam/setup, not generic praise)
 overuseSignals:
-  - Static block held without refresh after taking damage
+  - Holding block without refresh after taking damage
   - Sidestep spam without reading entry angle
 related:
-  - static-block
+  - block-hold-pattern
   - straight-line-pressure
   - fear-loop
 communityTerms:

@@ -69,14 +69,25 @@ export async function handleCoachChat(input: {
 }
 
 export interface AnalyzeResult {
-  strengths: string[];
-  weaknesses: string[];
+  matchRead: string;
+  whatYouWereAbusing: string[];
+  whatTheyWereAbusing: string[];
+  biggestTell: string;
+  staminaEconomy: string;
+  scoringBattle: string;
+  missedPunishes: string[];
+  metaAdjustment: string[];
+  clipEvidence: string[];
   summary: string;
   conceptsUsed: string[];
+  /** @deprecated Prefer tape sections — kept empty for older clients */
+  strengths: string[];
+  /** @deprecated Prefer tape sections — kept empty for older clients */
+  weaknesses: string[];
 }
 
 const INSUFFICIENT_FOOTAGE_NOTE =
-  "Insufficient footage observations to name specific mechanics — analysis should state uncertainty rather than invent FNC terms.";
+  "Insufficient footage observations — do not invent FNC terms or assign actions without left/right fighter evidence.";
 
 function buildMetadataObservations(input: {
   fileName?: string;
@@ -281,9 +292,10 @@ export async function handleAnalyze(input: {
       ? input.observations
       : buildObservationsFromUpload(input);
 
+  // Only retrieve concepts that observations actually mention — never pad with KB force-fills.
   const query = observations.join(" ");
   const retrieved = GameKnowledgeService.retrieve(input.gameId, query, {
-    limit: 8,
+    limit: 6,
   });
 
   const llm = createLlmClient();
@@ -294,46 +306,129 @@ export async function handleAnalyze(input: {
       observations,
     });
     const raw = await llm.chat(prompt);
-    return parseAnalysisResponse(raw, retrieved.matchedConceptIds);
+    return parseTapeAnalysisResponse(raw, retrieved.matchedConceptIds);
   }
 
-  const topConcepts = retrieved.concepts.slice(0, 3).map((c) => c.name);
+  return offlineTapeFallback(observations, retrieved.matchedConceptIds);
+}
+
+function offlineTapeFallback(
+  observations: string[],
+  conceptsUsed: string[],
+): AnalyzeResult {
+  const visual = observations.filter(
+    (o) =>
+      /player on the (left|right)/i.test(o) ||
+      /@\d/i.test(o) ||
+      /sidestep|uppercut|straight|block|jab|hook|stamina/i.test(o),
+  );
+
+  const matchRead =
+    visual.length > 0
+      ? `Limited offline mode. Observed ${visual.length} evidence line(s) from footage. Full tape breakdown requires OPENAI_API_KEY.`
+      : "Insufficient visual evidence to distinguish fighters or name mechanics. Upload clearer footage and ensure OPENAI_API_KEY is configured.";
+
   return {
-    strengths: [
-      topConcepts[0]
-        ? `${topConcepts[0]} — visible in footage or clip context`
-        : "I can't confidently identify specific strengths without clearer footage.",
+    matchRead,
+    whatYouWereAbusing: [],
+    whatTheyWereAbusing: [],
+    biggestTell:
+      "Cannot identify a tell without confident left/right fighter observations.",
+    staminaEconomy:
+      "Cannot evaluate stamina economy without verified exchange evidence.",
+    scoringBattle:
+      "Cannot call the scoring battle without verified meaningful exchanges.",
+    missedPunishes: [],
+    metaAdjustment: [
+      "Re-upload with clearer gameplay frames so Metabuffed can label Player on the left / Player on the right and only name mechanics that appear on screen.",
     ],
-    weaknesses: [
-      topConcepts[1]
-        ? `${topConcepts[1]} — check for adaptation failure if the pattern repeated`
-        : "Upload clearer match footage to name the exact FNC mechanic.",
-    ],
-    summary: retrieved.matchedConceptIds.length
-      ? `Offline mode — concepts retrieved: ${retrieved.matchedConceptIds.join(", ")}. Set OPENAI_API_KEY for full FNC meta analysis (Money Team defense, recovery punish, straight-line pressure, etc.).`
-      : `I can't confidently identify the exact mechanic from this sequence. Upload footage or ask about a specific FNC read (MTB, power straight, sidestep uppercut, recovery window).`,
-    conceptsUsed: retrieved.matchedConceptIds,
+    clipEvidence: visual.slice(0, 6),
+    summary: [
+      matchRead,
+      visual.length ? `Clip evidence:\n${visual.slice(0, 6).map((v) => `- ${v}`).join("\n")}` : "",
+    ]
+      .filter(Boolean)
+      .join("\n\n"),
+    conceptsUsed,
+    strengths: [],
+    weaknesses: [],
   };
 }
 
-function parseAnalysisResponse(
+function parseTapeAnalysisResponse(
   raw: string,
   conceptsUsed: string[],
 ): AnalyzeResult {
+  const matchRead = extractSectionProse(raw, "Match Read");
+  const whatYouWereAbusing = extractSectionBullets(raw, "What You Were Abusing");
+  const whatTheyWereAbusing = extractSectionBullets(
+    raw,
+    "What They Were Abusing",
+  );
+  const biggestTell = extractSectionProse(raw, "Your Biggest Tell");
+  const staminaEconomy = extractSectionProse(raw, "Stamina Economy");
+  const scoringBattle = extractSectionProse(raw, "Scoring Battle");
+  const missedPunishes = extractSectionBullets(raw, "Missed Punishes");
+  const metaAdjustment = extractSectionBullets(raw, "Meta Adjustment");
+  const clipEvidence = extractSectionBullets(raw, "Clip Evidence");
+
   return {
-    strengths: extractBullets(raw, "strength"),
-    weaknesses: extractBullets(raw, "weakness"),
+    matchRead:
+      matchRead ||
+      "I can't confidently produce a Match Read from the available observations.",
+    whatYouWereAbusing,
+    whatTheyWereAbusing,
+    biggestTell:
+      biggestTell ||
+      "No clear tell could be confirmed from the footage observations.",
+    staminaEconomy:
+      staminaEconomy ||
+      "Stamina economy could not be confirmed from the available observations.",
+    scoringBattle:
+      scoringBattle ||
+      "Scoring battle could not be confirmed from the available observations.",
+    missedPunishes,
+    metaAdjustment:
+      metaAdjustment.length > 0
+        ? metaAdjustment
+        : [
+            "Focus next match on adapting after the first repeated punish — only change what the footage clearly showed.",
+          ],
+    clipEvidence,
     summary: raw.trim(),
     conceptsUsed,
+    strengths: [],
+    weaknesses: [],
   };
 }
 
-function extractBullets(raw: string, label: string): string[] {
-  const section = raw.match(new RegExp(`${label}[^\\n]*\\n([\\s\\S]*?)(\\n\\n|$)`, "i"));
-  if (!section) return [];
-  return section[1]
+function extractSectionBody(raw: string, heading: string): string {
+  const escaped = heading.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const re = new RegExp(
+    `##\\s*${escaped}\\s*\\n([\\s\\S]*?)(?=\\n##\\s+|$)`,
+    "i",
+  );
+  const match = raw.match(re);
+  return match?.[1]?.trim() ?? "";
+}
+
+function extractSectionProse(raw: string, heading: string): string {
+  const body = extractSectionBody(raw, heading);
+  if (!body) return "";
+  return body
     .split("\n")
     .map((line) => line.replace(/^[-*•]\s*/, "").trim())
     .filter(Boolean)
-    .slice(0, 4);
+    .join(" ")
+    .trim();
+}
+
+function extractSectionBullets(raw: string, heading: string): string[] {
+  const body = extractSectionBody(raw, heading);
+  if (!body) return [];
+  const lines = body
+    .split("\n")
+    .map((line) => line.replace(/^[-*•]\s*/, "").trim())
+    .filter(Boolean);
+  return lines.slice(0, 8);
 }

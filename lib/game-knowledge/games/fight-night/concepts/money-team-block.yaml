@@ -23,12 +23,12 @@ counters:
   - name: Make them refresh early
     explanation: Step into range without throwing to force premature block refresh
 overuseSignals:
-  - Sitting in static block without counter threat
+  - Holding block without counter threat or refresh
   - Predictable block-tap rhythm
 related:
   - power-straight
   - block-refresh
-  - static-block
+  - block-hold-pattern
 communityTerms:
   - Money Team
   - MTB

@@ -7,7 +7,7 @@ import {
   getQuickQuestions,
   resolveCoachReply,
 } from "./compat.js";
-import { buildCoachPrompt } from "./prompt-builder.js";
+import { buildCoachPrompt, buildAnalysisPrompt } from "./prompt-builder.js";
 import { getGameBundle } from "./registry.js";
 
 describe("game knowledge retrieval", () => {
@@ -74,14 +74,17 @@ describe("prompt builder", () => {
 
   it("loads fight-night manifest voice", () => {
     const game = getGameBundle("fight-night");
-    assert.ok(game?.manifest.voice.persona.includes("OWC"));
+    assert.ok(game?.manifest.voice.persona.includes("FNC"));
     assert.ok(game?.manifest.voice.avoid.some((a) => a.includes("high guard")));
+    assert.ok(game?.manifest.voice.avoid.some((a) => a.toLowerCase().includes("static block")));
   });
 
   it("includes FNC analysis language guide", () => {
     const game = getGameBundle("fight-night") as { analysisLanguage?: string };
     assert.ok(game?.analysisLanguage?.includes("Money Team"));
-    assert.ok(game?.analysisLanguage?.includes("BANNED generic language"));
+    assert.ok(game?.analysisLanguage?.includes("ACCURACY"));
+    assert.ok(game?.analysisLanguage?.includes("Player on the left"));
+    assert.ok(game?.analysisLanguage?.includes("FORBIDDEN INVENTED LABELS"));
   });
 
   it("maps recovery window terminology", () => {
@@ -100,5 +103,29 @@ describe("prompt builder", () => {
   it("maps straight-line retreat separately from pressure", () => {
     const result = retrieve("fight-night", "straight line retreat under pressure");
     assert.ok(result.matchedConceptIds.includes("straight-line-retreat"));
+  });
+
+  it("does not treat Static Block as an established concept id", () => {
+    const game = getGameBundle("fight-night");
+    assert.ok(!game?.concepts.some((c) => c.id === "static-block"));
+    assert.ok(!game?.concepts.some((c) => c.id === "controlled-cheese"));
+    assert.ok(!game?.concepts.some((c) => c.id === "rhythm-read"));
+  });
+
+  it("builds evidence-first analysis prompt with tape sections", () => {
+    const retrieved = retrieve("fight-night", "sidestep uppercut");
+    const prompt = buildAnalysisPrompt({
+      gameId: "fight-night",
+      retrieved,
+      observations: [
+        "@8.2s Player on the left: linear entry behind jab-straight.",
+        "@8.4s Player on the right: sidestep then immediate uppercut.",
+      ],
+    });
+    assert.ok(prompt.system.includes("Match Read"));
+    assert.ok(prompt.system.includes("Clip Evidence"));
+    assert.ok(prompt.system.includes("Player on the left"));
+    assert.ok(!prompt.system.includes("## Strengths"));
+    assert.ok(prompt.system.includes("FORBIDDEN invented labels"));
   });
 });

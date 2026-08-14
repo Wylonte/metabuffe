@@ -1,34 +1,46 @@
 # Fight Night Champion meta terminology → concept id
+# Only map ESTABLISHED terms. Forbidden invented labels are not mapped as formal mechanics.
 mtb: money-team-block
 money team: money-team-block
 money team defense: money-team-block
 money team block: money-team-block
 shell: money-team-block
+philly shell: money-team-block
 block refresh: block-refresh
 block reset: block-refresh
 guard refresh: block-refresh
-guard reset: block-refresh
-static block: static-block
-static guard: static-block
+pump blocking: block-refresh
+predictable block release: block-hold-pattern
+holding block: block-hold-pattern
 power straight: power-straight
 push straight: push-straight
 straight spam: push-straight
 push straight spam: push-straight
+step back straight: back-step-straight
+step-back straight: back-step-straight
+step-back spam: back-step-straight
 sidestep uppercut: sidestep-uppercut
+sidestep uppercut spam: sidestep-uppercut
 sidestep spam: sidestep-spam
 lean back: lean-back
 back step: back-step
+backstep: back-step
 straight line pressure: straight-line-pressure
 linear pressure: straight-line-pressure
 straight line retreat: straight-line-retreat
 straight-line retreat: straight-line-retreat
+pull counter: pull-counter
+sidestep counter: sidestep-uppercut
+backstep counter: back-step-straight
 recovery window: recovery-window
 recovery punish: recovery-punish
+recovery punishment: recovery-punish
 whiff punish: whiff-punish
 counter window: counter-window
-rhythm read: rhythm-read
 rhythm manipulation: rhythm-manipulation
 timing trap: timing-trap
+repeated timing: timing-pattern
+same cadence: timing-pattern
 fear loop: fear-loop
 panic offense: panic-offense
 panic defense: panic-defense
@@ -48,12 +60,11 @@ overcommitment: overcommitment
 spam read: spam-read
 adaptation: adaptation-check
 adaptation check: adaptation-check
-controlled cheese: controlled-cheese
-cheese: controlled-cheese
 body spam: body-spam
 chicken wing: chicken-wing
 chicken wing punch: chicken-wing
-pull counter: pull-counter
+mechanic on read: mechanic-on-read
 owc: owc-meta
 h2h: owc-meta
 power disadvantage: owc-meta
+cab: owc-meta

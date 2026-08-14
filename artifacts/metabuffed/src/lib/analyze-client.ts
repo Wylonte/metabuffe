@@ -1,8 +1,17 @@
 export interface AnalyzeResult {
-  strengths: string[];
-  weaknesses: string[];
+  matchRead: string;
+  whatYouWereAbusing: string[];
+  whatTheyWereAbusing: string[];
+  biggestTell: string;
+  staminaEconomy: string;
+  scoringBattle: string;
+  missedPunishes: string[];
+  metaAdjustment: string[];
+  clipEvidence: string[];
   summary: string;
   conceptsUsed: string[];
+  strengths?: string[];
+  weaknesses?: string[];
   uploadId?: string;
   fileName?: string;
   fileSizeBytes?: number;

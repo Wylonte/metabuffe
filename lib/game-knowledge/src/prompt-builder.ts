@@ -1,5 +1,8 @@
 import { requireGameBundle } from "./registry.js";
-import { getAnalysisLanguageGuide } from "./meta-language.js";
+import {
+  getAnalysisLanguageGuide,
+  TAPE_SECTION_HEADERS,
+} from "./meta-language.js";
 import type { CoachPrompt, CoachPromptInput, GameConcept } from "./types.js";
 
 function formatConcept(concept: GameConcept): string {
@@ -30,7 +33,7 @@ function formatConcept(concept: GameConcept): string {
 function buildMetaLanguageSection(gameId: string): string {
   const guide = getAnalysisLanguageGuide(gameId);
   if (!guide) return "";
-  return ["## FNC meta language system (mandatory)", guide].join("\n\n");
+  return ["## FNC analysis language system (mandatory)", guide].join("\n\n");
 }
 
 export function buildCoachPrompt(input: CoachPromptInput): CoachPrompt {
@@ -49,10 +52,11 @@ export function buildCoachPrompt(input: CoachPromptInput): CoachPrompt {
     "Grounding rules:",
     "- Answer ONLY using the game knowledge below and conversation context.",
     "- Sound like a top-ranked FNC community player, NOT a real-world boxing coach.",
-    "- Name specific FNC meta terms (Money Team defense, recovery punish, straight-line pressure, etc.).",
-    "- NEVER use banned generic terms as your primary analysis.",
-    "- If footage/knowledge does not support a specific mechanic, say: \"I can't confidently identify the exact mechanic from this sequence.\"",
-    "- Explain what happened, the FNC meta term, why it works in FNC, the read, how to stop/punish, and whether the player adapted.",
+    "- Accuracy before terminology. Never force a mechanic name without evidence from the user or footage context.",
+    "- When discussing footage, label fighters as Player on the left / Player on the right.",
+    "- NEVER use forbidden invented labels: Static Block, Controlled Cheese, Rhythm Read (as a formal mechanic).",
+    "- NEVER use banned generic boxing language as primary analysis.",
+    '- If unsure: "I can\'t confidently identify the exact mechanic from this sequence."',
     `- Avoid: ${voice.avoid.join("; ")}`,
     `- Emphasize: ${voice.emphasize.join("; ")}`,
     `- Structure: ${voice.responseStructure.join(" → ")}`,
@@ -62,11 +66,11 @@ export function buildCoachPrompt(input: CoachPromptInput): CoachPrompt {
     "## Game meta overview",
     input.retrieved.metaOverview,
     "",
-    "## Retrieved concepts",
+    "## Retrieved concepts (REFERENCE ONLY — use definitions only when the situation matches)",
     conceptBlock,
     "",
     input.retrieved.terminologyHits.length
-      ? `Terminology detected: ${input.retrieved.terminologyHits.join(", ")}`
+      ? `Terminology detected in question: ${input.retrieved.terminologyHits.join(", ")}`
       : "",
   ]
     .filter(Boolean)
@@ -93,50 +97,63 @@ export function buildAnalysisPrompt(input: {
   const conceptBlock =
     input.retrieved.concepts.length > 0
       ? input.retrieved.concepts.map(formatConcept).join("\n\n")
-      : "No specific concepts matched retrieval. Use observations only — do not invent mechanics.";
+      : "No concepts matched. Use observations only — do not invent mechanics from memory.";
 
   const hasObservations = input.observations.length > 0;
+  const sectionList = Object.values(TAPE_SECTION_HEADERS)
+    .map((h) => `## ${h}`)
+    .join("\n");
 
   const system = [
-    `You are Metabuffed analyzing ${game.manifest.name} gameplay.`,
+    `You are Metabuffed — a top-level Fight Night Champion player breaking down tape for ${game.manifest.name}.`,
     game.manifest.voice.persona,
     "",
-    "CRITICAL: Use Fight Night Champion competitive meta terminology ONLY.",
-    "Do NOT analyze like a real-world boxing trainer.",
-    "Do NOT assign letter grades, numeric scores, or archetype labels.",
+    "CORE RULE: Accuracy comes before terminology, depth, or sounding impressive.",
+    "Five verified observations beat fifteen advanced-sounding guesses.",
     "",
-    "BANNED generic primary language: high guard, good defense, body work, feints, good combinations, counter opportunities, reaction time, ring generalship, textbook.",
+    "PROCESS (mandatory):",
+    "1. Observe exactly what happened from the observations (fighter, movement, punch, defense, result, timing).",
+    "2. Confirm with confidence. If unsure — omit. Do not guess.",
+    "3. Only then apply FNC terminology that describes the footage.",
     "",
-    "For each strength and weakness bullet:",
-    "- Name the specific FNC mechanic or behavior (Money Team defense, block refresh, recovery punish, straight-line pressure, sidestep uppercut, etc.)",
-    "- Explain the game-specific interaction and what read created it",
-    "- Include how to stop/punish when relevant",
-    "- Note adaptation failure if the same mistake repeated",
+    "FIGHTER IDENTITY:",
+    "Every action claim must use 'Player on the left' / 'Player on the right'.",
+    "Keep fighter identity consistent even if they switch sides.",
+    "",
+    "FORBIDDEN invented labels: Static Block, Controlled Cheese, Rhythm Read.",
+    "BANNED generic boxing: high guard, good defense, feints, reaction time, ring generalship, textbook, counter opportunities.",
+    "",
+    "Retrieved concepts are REFERENCE ONLY for definitions.",
+    "Do NOT mention a mechanic (Money Team, sidestep uppercut, push straight, pull counter, spam patterns, etc.) unless observations clearly support it.",
+    "",
+    "If a habit worked early then became exploitable, explain that evolution in one narrative — do not duplicate it as opposite lists.",
+    "",
+    "Do NOT use Strengths / Weaknesses / Coach Advice sections.",
+    "Do NOT assign letter grades or numeric scores.",
     "",
     hasObservations
-      ? "Ground EVERY claim in the observations below. Do not claim mechanics not supported by observations."
-      : "Limited footage data available. Be conservative. Say when you cannot confidently identify the exact mechanic.",
+      ? "Ground EVERY claim in the observations below. No observation support = do not claim it."
+      : "Insufficient visual evidence. State that clearly. Do not invent mechanics or filler reads.",
     "",
-    "Format:",
-    "## Strengths",
-    "- (FNC meta term + specific read)",
-    "## Weaknesses",
-    "- (FNC meta term + specific read + adaptation note if repeated)",
-    "## Summary",
-    "(Actionable meta advice in FNC language — no generic boxing coaching)",
+    "Output EXACTLY these markdown sections (use headings verbatim):",
+    sectionList,
+    "",
+    "Under list-style sections use short evidence-backed bullets.",
+    "Under prose sections write 1-3 tight paragraphs.",
+    "Clip Evidence should cite timestamps from observations when present.",
     "",
     buildMetaLanguageSection(input.gameId),
     "",
-    "## Meta overview",
+    "## Meta overview (context only)",
     input.retrieved.metaOverview,
     "",
-    "## Relevant concepts",
+    "## Concept reference (use ONLY if observations support the mechanic)",
     conceptBlock,
     "",
-    "## Observations from footage",
+    "## Observations from footage (SOURCE OF TRUTH)",
     hasObservations
       ? input.observations.map((o) => `- ${o}`).join("\n")
-      : "- No specific visual observations available — provide conservative meta guidance only and state uncertainty.",
+      : "- No specific visual observations available — say so in Match Read and keep other sections honest about limited evidence.",
   ]
     .filter(Boolean)
     .join("\n");
@@ -147,7 +164,7 @@ export function buildAnalysisPrompt(input: {
       {
         role: "user",
         content:
-          "Generate FNC meta coaching feedback (Strengths, Weaknesses, Summary). Use community terminology from the meta language system. No grades. No generic boxing language.",
+          "Produce the tape breakdown using only the section headings specified. Evidence first. Left/right fighters. No invented labels. No forced terminology. No Strengths/Weaknesses sections.",
       },
     ],
   };

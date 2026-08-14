@@ -21,19 +21,19 @@ const MAX_UPLOAD_MB = 100;
 const FILE_PROCESSING_STEPS = [
   "Upload received",
   "Sampling video frames",
-  "Analyzing gameplay visuals",
-  "Detecting key exchanges",
-  "Reviewing stamina and pressure patterns",
-  "Generating coaching feedback",
+  "Identifying left/right fighters",
+  "Confirming visible actions only",
+  "Mapping proven patterns to FNC terms",
+  "Building tape breakdown",
 ];
 
 const LINK_PROCESSING_STEPS = [
   "Link received",
   "Fetching clip metadata",
-  "Extracting gameplay context",
-  "Detecting key exchanges",
-  "Reviewing stamina and pressure patterns",
-  "Generating coaching feedback",
+  "Identifying left/right fighters",
+  "Confirming visible actions only",
+  "Mapping proven patterns to FNC terms",
+  "Building tape breakdown",
 ];
 
 type InputMode = "file" | "link";
@@ -567,11 +567,17 @@ export default function UploadPage() {
                       </div>
 
                       <div className="space-y-2">
-                        {analysis?.strengths && analysis.strengths.length > 0 && (
+                        {analysis?.matchRead && (
                           <div className="bg-black/60 border border-white/5 rounded-xl p-3.5">
-                            <p className="text-[9px] font-mono text-zinc-600 uppercase tracking-widest mb-2">Strengths</p>
+                            <p className="text-[9px] font-mono text-zinc-600 uppercase tracking-widest mb-1.5">Match Read</p>
+                            <p className="text-xs text-zinc-300 leading-relaxed">{analysis.matchRead}</p>
+                          </div>
+                        )}
+                        {analysis?.whatYouWereAbusing && analysis.whatYouWereAbusing.length > 0 && (
+                          <div className="bg-black/60 border border-white/5 rounded-xl p-3.5">
+                            <p className="text-[9px] font-mono text-zinc-600 uppercase tracking-widest mb-2">What You Were Abusing</p>
                             <ul className="space-y-1.5">
-                              {analysis.strengths.map((item) => (
+                              {analysis.whatYouWereAbusing.map((item) => (
                                 <li key={item} className="text-xs font-semibold text-white leading-relaxed flex gap-2">
                                   <span className="text-primary shrink-0">•</span>
                                   <span>{item}</span>
@@ -580,11 +586,11 @@ export default function UploadPage() {
                             </ul>
                           </div>
                         )}
-                        {analysis?.weaknesses && analysis.weaknesses.length > 0 && (
+                        {analysis?.whatTheyWereAbusing && analysis.whatTheyWereAbusing.length > 0 && (
                           <div className="bg-black/60 border border-pink-900/20 rounded-xl p-3.5">
-                            <p className="text-[9px] font-mono text-zinc-600 uppercase tracking-widest mb-2">Weaknesses</p>
+                            <p className="text-[9px] font-mono text-zinc-600 uppercase tracking-widest mb-2">What They Were Abusing</p>
                             <ul className="space-y-1.5">
-                              {analysis.weaknesses.map((item) => (
+                              {analysis.whatTheyWereAbusing.map((item) => (
                                 <li key={item} className="text-xs font-semibold text-white leading-relaxed flex gap-2">
                                   <span className="text-pink-400 shrink-0">•</span>
                                   <span>{item}</span>
@@ -593,17 +599,68 @@ export default function UploadPage() {
                             </ul>
                           </div>
                         )}
-                        {analysis?.summary && (
+                        {analysis?.biggestTell && (
+                          <div className="bg-black/60 border border-orange-900/20 rounded-xl p-3.5">
+                            <p className="text-[9px] font-mono text-zinc-600 uppercase tracking-widest mb-1.5">Your Biggest Tell</p>
+                            <p className="text-xs text-zinc-300 leading-relaxed">{analysis.biggestTell}</p>
+                          </div>
+                        )}
+                        {analysis?.staminaEconomy && (
                           <div className="bg-black/60 border border-white/5 rounded-xl p-3.5">
-                            <p className="text-[9px] font-mono text-zinc-600 uppercase tracking-widest mb-1.5">Coach Advice</p>
-                            <p className="text-xs text-zinc-300 leading-relaxed whitespace-pre-line">{analysis.summary}</p>
+                            <p className="text-[9px] font-mono text-zinc-600 uppercase tracking-widest mb-1.5">Stamina Economy</p>
+                            <p className="text-xs text-zinc-300 leading-relaxed">{analysis.staminaEconomy}</p>
+                          </div>
+                        )}
+                        {analysis?.scoringBattle && (
+                          <div className="bg-black/60 border border-white/5 rounded-xl p-3.5">
+                            <p className="text-[9px] font-mono text-zinc-600 uppercase tracking-widest mb-1.5">Scoring Battle</p>
+                            <p className="text-xs text-zinc-300 leading-relaxed">{analysis.scoringBattle}</p>
+                          </div>
+                        )}
+                        {analysis?.missedPunishes && analysis.missedPunishes.length > 0 && (
+                          <div className="bg-black/60 border border-yellow-900/20 rounded-xl p-3.5">
+                            <p className="text-[9px] font-mono text-zinc-600 uppercase tracking-widest mb-2">Missed Punishes</p>
+                            <ul className="space-y-1.5">
+                              {analysis.missedPunishes.map((item) => (
+                                <li key={item} className="text-xs font-semibold text-white leading-relaxed flex gap-2">
+                                  <span className="text-yellow-400 shrink-0">•</span>
+                                  <span>{item}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+                        {analysis?.metaAdjustment && analysis.metaAdjustment.length > 0 && (
+                          <div className="bg-black/60 border border-primary/20 rounded-xl p-3.5">
+                            <p className="text-[9px] font-mono text-zinc-600 uppercase tracking-widest mb-2">Meta Adjustment</p>
+                            <ul className="space-y-1.5">
+                              {analysis.metaAdjustment.map((item) => (
+                                <li key={item} className="text-xs font-semibold text-white leading-relaxed flex gap-2">
+                                  <span className="text-primary shrink-0">•</span>
+                                  <span>{item}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+                        {analysis?.clipEvidence && analysis.clipEvidence.length > 0 && (
+                          <div className="bg-black/60 border border-white/5 rounded-xl p-3.5">
+                            <p className="text-[9px] font-mono text-zinc-600 uppercase tracking-widest mb-2">Clip Evidence</p>
+                            <ul className="space-y-1.5">
+                              {analysis.clipEvidence.map((item) => (
+                                <li key={item} className="text-xs text-zinc-400 leading-relaxed flex gap-2 font-mono">
+                                  <span className="text-zinc-600 shrink-0">•</span>
+                                  <span>{item}</span>
+                                </li>
+                              ))}
+                            </ul>
                           </div>
                         )}
                         {analysis?.visionUsed && (
                           <p className="text-[10px] font-mono text-primary/80 uppercase tracking-widest text-center">
                             {analysis.framesAnalyzed
-                              ? `Vision analysis from ${analysis.framesAnalyzed} frames`
-                              : "Vision analysis from clip preview"}
+                              ? `Vision analysis from ${analysis.framesAnalyzed} frames — evidence first`
+                              : "Vision analysis from clip preview — evidence first"}
                           </p>
                         )}
                       </div>

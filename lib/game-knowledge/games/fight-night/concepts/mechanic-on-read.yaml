@@ -1,0 +1,28 @@
+id: mechanic-on-read
+name: Mechanic Used on a Read
+aliases:
+  - using mechanics on reads
+  - read-based cheese
+  - timed mechanic
+category: strategy
+definition: >-
+  Classification: Descriptive Only (do NOT call this "Controlled Cheese"). Deliberate
+  use of a strong FNC mechanic after a clear read — timed power straight, sidestep
+  uppercut on linear entry, Money Team defense into counter. Different from blind spam.
+  Describe what was used and why the read existed.
+whyItWorks: >-
+  High-impact FNC mechanics win rounds when timed to opponent commitment, not when
+  repeated without a trigger.
+whenEffective:
+  - After opponent shows the same entry or release timing twice or more
+counters:
+  - name: Stop feeding the read
+    explanation: Change the trigger pattern they are waiting for
+overuseSignals:
+  - Same mechanic with no remaining read — that is spam, not a read-based use
+related:
+  - sidestep-uppercut
+  - power-straight
+  - money-team-block
+communityTerms:
+  - cheese (informal community slang — use carefully and only when describing spam/exploit discussion)

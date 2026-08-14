@@ -26,8 +26,8 @@
   conceptId: stamina-management
 - question: How do I know when my opponent is tired?
   conceptId: stamina-management
-- question: What is controlled cheese?
-  conceptId: controlled-cheese
+- question: When is using a strong mechanic a read vs spam?
+  conceptId: mechanic-on-read
 - question: What is scorecard manipulation?
   conceptId: scorecard-manipulation
 - question: How do I beat pressure fighters?

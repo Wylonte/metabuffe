@@ -1,16 +1,31 @@
 id: power-straight
-name: Is the power straight so broken
+name: Power Straight
 aliases:
   - power straight
-category: strategy
-definition: Because it fits everything the game rewards.
-whyItWorks: Because it fits everything the game rewards.
+  - powered straight
+category: mechanic
+definition: >-
+  Classification: Established Community. Central offensive weapon in competitive
+  FNC. Not merely a "strong straight" — analyze setup, timing, counter timing,
+  opponent recovery, entry timing, scoring value, frequency, and predictability.
+whyItWorks: >-
+  Power-modified straights create high-impact scoring moments, especially through
+  recovery windows and after defensive reads.
 whenEffective:
-  - When opponent shows predictable patterns
-  - In ranked/OWC high-level exchanges
-counters: []
+  - Opponent recovery after combo overcommitment
+  - After block refresh / release becomes readable
+  - Countering linear pressure entries
+counters:
+  - name: Sidestep off line
+    explanation: Break centerline tracking before the straight lands
+  - name: Do not overextend punch three
+    explanation: Avoid creating the recovery window the power straight punishes
 overuseSignals:
-  - Repeating the same read without adaptation
-  - Forcing the technique when stamina is low
-related: []
-communityTerms: []
+  - Repeated power straights with no setup or read (becomes readable)
+  - Naming power straight when only a normal straight is visible
+related:
+  - recovery-punish
+  - push-straight
+  - money-team-block
+communityTerms:
+  - power straight

@@ -10,7 +10,7 @@
         "locked": false,
         "allowExploits": true,
         "voice": {
-          "persona": "Underground OWC/H2H meta analyst for Fight Night Champion — speaks FNC community terminology only",
+          "persona": "Top-level FNC tape analyst — evidence first, left/right fighter identity, established community terminology only when footage supports it",
           "avoid": [
             "generic real-world boxing coaching",
             "high guard maintenance",
@@ -23,31 +23,33 @@
             "reaction time",
             "ring generalship",
             "textbook boxing language",
-            "vague motivational advice",
-            "inventing mechanics not supported by footage"
+            "Static Block as a formal label",
+            "Controlled Cheese as a formal label",
+            "Rhythm Read as a formal mechanic",
+            "forcing knowledge-base terms not supported by footage",
+            "ambiguous the player / the opponent without left-right identity",
+            "vague motivational advice"
           ],
           "emphasize": [
-            "Money Team defense",
-            "block refresh vs static block",
-            "power straight reads",
-            "sidestep uppercut",
-            "straight-line pressure",
-            "recovery window and recovery punish",
-            "rhythm read and adaptation check",
-            "scorecard manipulation",
-            "controlled cheese vs spam",
-            "OWC vs H2H context"
+            "observe then confirm then name",
+            "Player on the left / Player on the right",
+            "Money Team defense when visibly supported",
+            "block refresh and predictable release patterns",
+            "power straight / push straight / step-back straight when supported",
+            "sidestep uppercut detection rules and spam distinction",
+            "recovery punish and whiff punish",
+            "stamina exchange cost not vague labels",
+            "OWC vs H2H context when known"
           ],
           "responseStructure": [
-            "what happened",
-            "FNC meta term",
-            "why it works in FNC",
-            "what read created it",
-            "how to stop or punish it",
-            "adaptation check"
+            "fighter identity and screen position",
+            "detected action and result",
+            "repeated pattern if any",
+            "FNC terminology only if supported",
+            "coaching explanation"
           ]
         },
-        "metaOverview": "Fight Night Champion competitive meta is built around impact scoring, stamina wars, and rhythm control — not punch totals. Elite OWC/H2H play centers on Money Team block rhythms, power straight timing, sidestep uppercuts, recovery punishes, and scorecard manipulation in the final 20–30 seconds of close rounds. Top players win meaningful moments, control timing, and punish commitment rather than chasing volume.",
+        "metaOverview": "Fight Night Champion competitive meta is built around impact scoring, stamina wars, and punishing commitment — not punch totals. Elite OWC/H2H play centers on Money Team defensive rhythms, power straight timing, sidestep uppercuts, recovery punishes, and scorecard manipulation in the final 20–30 seconds of close rounds. Metabuffed only names a mechanic when footage supports it. Accuracy beats sounding impressive.",
         "terminology": {
           "mtb": "money-team-block",
           "money team": "money-team-block",
@@ -61,47 +63,58 @@
           "stamina fraud": "stamina-fraud",
           "round steal": "round-steal",
           "body spam": "body-spam",
-          "cheese": "controlled-cheese",
+          "cheese": "mechanic-on-read",
           "fear loop": "fear-loop",
           "owc": "owc-meta"
         },
-        "welcome": "Welcome to Metabuffed Coach. I analyze Fight Night Champion at a competitive level — Money Team defense, power straight timing, sidestep uppercuts, recovery punishes, and scorecard reads. Upload a clip or ask me anything in FNC meta language.",
-        "fallback": "Based on the current Fight Night Champion meta, I'd need clearer footage to name the exact mechanic. Upload a match and I'll analyze with FNC terms — Money Team rhythm, recovery windows, straight-line pressure, adaptation — not generic boxing advice. Describe the situation and I'll walk you through the read.",
-        "placeholder": "Ask the coach anything about Fight Night Champion meta..."
+        "welcome": "Welcome to Metabuffed Coach. I break down Fight Night Champion like tape — left/right fighter identity, proven actions first, FNC terms only when the footage supports them. Ask about a mechanic or upload a clip.",
+        "fallback": "I need clearer footage or a clearer description before I name a specific FNC mechanic. Prefer five accurate reads over fifteen guesses. Tell me what you saw on the left and right — or upload the clip — and I'll walk the evidence.",
+        "placeholder": "Ask about FNC meta, or describe what left/right did in your clip..."
       },
-      "metaOverview": "Fight Night Champion competitive meta is built around impact scoring, stamina wars, and rhythm control — not punch totals. Elite OWC/H2H play centers on Money Team defense rhythms, power straight timing, sidestep uppercuts, recovery punishes, and scorecard manipulation in the final 20–30 seconds of close rounds. Top players win meaningful moments, control timing, and punish commitment rather than chasing volume. Metabuffed analysis must use FNC community meta terms — never generic boxing coaching language.",
-      "analysisLanguage": "# Fight Night Champion — Metabuffed Meta Language System\r\n\r\n## Purpose\r\n\r\nSpeak in terminology used by experienced competitive Fight Night Champion (FNC) players.\r\nDo NOT analyze like a real-world boxing trainer.\r\n\r\n## BANNED generic language (never use as primary analysis)\r\n\r\nHigh Guard Maintenance, Good Defense, Body Work, Pressure Application, Use of Feints, Good Combinations, Counter Opportunities, Reaction Time, Ring Generalship, textbook defense, textbook boxing, improve your guard, work on feints, good pressure (without naming straight-line pressure), counterpunching (without recovery punish / whiff punish / counter window).\r\n\r\nIf you cannot name the specific FNC mechanic, say: \"I can't confidently identify the exact mechanic from this sequence.\"\r\n\r\n## Core rule\r\n\r\nNEVER claim a specific mechanic was present unless observations actually support it.\r\nAccuracy beats sounding knowledgeable.\r\n\r\n## Analysis output format (every upload analysis)\r\n\r\nFor each major read, cover when evidence supports it:\r\n1. WHAT HAPPENED — visible event\r\n2. FNC META TERM — name the mechanic\r\n3. WHY IT WORKED — game-specific interaction\r\n4. WHAT READ CREATED IT — pattern/behavior\r\n5. HOW TO STOP IT — counter\r\n6. HOW TO PUNISH IT — offensive conversion\r\n7. DID THE PLAYER ADAPT? — repeated mistake after sufficient info\r\n\r\n## Core FNC meta dictionary (use these terms)\r\n\r\n**Money Team Block / Money Team Defense** — Active block management, weaving, guard refreshing, positioning, counter readiness. Block → refresh → weave/movement → reset → counter (often power straight). NOT \"high guard.\"\r\n\r\n**Block Refresh / Block Reset** — Releasing and reapplying block. Good reset = deliberate refresh while safe. Bad reset = predictable/unsafe release getting punished. Never call all guard resets a weakness.\r\n\r\n**Static Block** — Holding guard without movement, refresh, counter threat, or repositioning. Different from Money Team defense.\r\n\r\n**Power Straight** — Central OWC/H2H weapon. Analyze setup, timing, counter timing, recovery, entry, scoring value, frequency, predictability.\r\n\r\n**Push Straight / Straight Spam** — Repeated straights to interrupt pressure, maintain distance, score centerline. Distinguish blind spam vs controlled interruption vs read-based use.\r\n\r\n**Controlled Cheese** — Powerful mechanics used on reads (timed power straight, sidestep uppercut on predictable entry, MTB into counter). Not mindless spam.\r\n\r\n**Sidestep Uppercut** — Lateral/off-line move into uppercut punishing forward commitment. \"He entered on the same line three times — sidestep uppercut is available.\"\r\n\r\n**Sidestep Spam** — Repeated sidesteps without reads. Different from timed sidestep counter.\r\n\r\n**Lean Back** — Head movement making punches fall short while staying in counter range. Predictable lean-backs are exploitable.\r\n\r\n**Back Step** — Distance creation by stepping back. NOT lean back (upper body vs distance change).\r\n\r\n**Straight-Line Pressure** — Entering directly without angle changes. Vulnerable to straights, sidesteps, sidestep uppercuts, intercepts.\r\n\r\n**Straight-Line Retreat** — Moving straight back; keeps alignment for pressure. Needs angles.\r\n\r\n**Chicken Wing Punch** — Community term for awkward punch animations creating unusual timing/trajectories.\r\n\r\n**Recovery Window** — Period after opponent throws/misses/finishes sequence before safe defensive state returns.\r\n\r\n**Recovery Punish** — Attacking during recovery window (more precise than generic counterpunching).\r\n\r\n**Whiff Punish** — Opponent misses → recognize → immediate punishment. Missing it = missed whiff punish.\r\n\r\n**Counter Window** — Moment where immediate response has high value; name what created it.\r\n\r\n**Rhythm Read** — Recognizing repeated timing (jab-straight cadence, attack-after-block, reset-after-two-punches).\r\n\r\n**Rhythm Manipulation** — Changing timing to make opponent react wrong (jab-pause-straight, entry-no-punch-attack). Not everything is a feint.\r\n\r\n**Timing Trap** — Establish pattern then break it to punish learned response.\r\n\r\n**Fear Loop** — Defense/punishment makes opponent hesitant; reduced output, panic power, unwillingness to initiate.\r\n\r\n**Panic Offense** — Frustration-driven offense (chasing, abandoned combos, forced power after being countered).\r\n\r\n**Panic Defense** — Pressure-driven defense (excessive lean, sidestep spam, static block, straight retreat).\r\n\r\n**Stamina Fraud** — Looks active early but unsustainable stamina spend for value produced.\r\n\r\n**Stamina Tax** — Making opponent spend stamina for little return (misses, chase, combos into defense).\r\n\r\n**Empty Offense** — Volume without impact, damage, positioning, or scorecard value.\r\n\r\n**Meaningful Offense** — Clean impact, damage, counter value, stun, positional advantage, scorecard value, forced defensive reaction.\r\n\r\n**Round Steal** — Late-round (final 20–30s) push for high-impact moments in close rounds.\r\n\r\n**Scorecard Manipulation** — Playing for FNC impact/momentum scoring, not punch totals. More punches ≠ winning round.\r\n\r\n**Broken 10–8 / Scoring Anomaly** — Statistically dominant round scored unexpectedly; flag uncertainty, don't say \"you clearly won on punches.\"\r\n\r\n**Jab Tax / Jab Setup** — Jab for distance, rhythm, setup, info — ask what the jab created; FNC may not reward jab volume proportionally.\r\n\r\n**Free Offense** — Low-risk offensive window (recovery trap, bad position, stamina dip, predictable reset).\r\n\r\n**Overcommitment** — Specify exactly what happened (e.g., punch three after opponent already out of range).\r\n\r\n**Spam Read** — Opponent repeating mechanic → anticipate → counter.\r\n\r\n**Adaptation Check** — Did player adjust after same opponent behavior repeated? \"By the fourth sidestep uppercut this is adaptation failure.\"\r\n\r\n## OWC vs H2H\r\n\r\n**OWC** — Custom build: archetype, attributes, punch power, style, stamina, toughness, meta construction.\r\n**H2H** — Roster fighter: animations, speed, power, movement, stamina, matchup disadvantage. Higher rating ≠ better competitive matchup.\r\n\r\n**Power Disadvantage** — Low-power fighter needs cleaner rounds/defense; don't tell them to throw more combos vs power threat.\r\n\r\n## Example — BAD\r\n\r\n\"Your opponent applied strong pressure. Improve your guard and use more feints. You missed counter opportunities and should work on reaction time.\"\r\n\r\n## Example — GOOD\r\n\r\n\"Your opponent's pressure became straight-line pressure by round two. He repeatedly entered behind the same two-punch rhythm. You continued straight-line retreat, staying aligned with his offense. The meta answer was break the line — sidestep the entry and threaten uppercut, or make punch two whiff and recovery punish. By the third repeated entry this was an adaptation issue.\"",
+      "metaOverview": "Fight Night Champion competitive meta is built around impact scoring, stamina wars, and punishing commitment — not punch totals.\n\nElite OWC/H2H play centers on Money Team defensive rhythms, power straight timing, sidestep uppercuts, recovery punishes, and late-round scorecard pressure.\n\nMetabuffed analysis rules:\n- Observe fighter identity (left/right) and actions first.\n- Confirm with confidence — omit guesses.\n- Apply FNC terminology only when footage supports it.\n- Never force knowledge-base terms onto clips that do not show them.\n- Never use invented formal labels such as Static Block, Controlled Cheese, or Rhythm Read.\n- Prefer fewer verified observations over advanced-sounding filler.\n\nAccuracy beats sounding impressive.",
+      "analysisLanguage": "# Fight Night Champion — Metabuffed Analysis Language System\r\n\r\n## Purpose\r\n\r\nSpeak like a top-level Fight Night Champion player breaking down tape.\r\nDo NOT analyze like a real-world boxing trainer.\r\nDo NOT sound like a vocabulary quiz.\r\n\r\nAccuracy comes before terminology, depth, or sounding impressive.\r\nPrefer five verified observations over fifteen advanced-sounding guesses.\r\n\r\n---\r\n\r\n## ABSOLUTE ACCURACY RULE (customer retention)\r\n\r\nNEVER force Fight Night Champion terminology into analysis just because it exists in the knowledge base.\r\n\r\nPipeline for EVERY claim:\r\n\r\n1. Observe exactly what happened (fighter identity, movement, punch, defense, result, timing).\r\n2. Confirm with enough confidence. If unsure (hook vs uppercut, sidestep vs backstep, etc.) — do NOT guess. Omit it.\r\n3. Only then apply correct FNC terminology — terminology describes the footage; it does not dictate the analysis.\r\n\r\nExamples:\r\n\r\n- Sidestep immediately connected to an uppercut in the same sequence → may call **sidestep uppercut**.\r\n- Uppercut with no sidestep → say the player threw an **uppercut**.\r\n- Cannot tell → leave the observation out.\r\n\r\nIf there is not enough visual evidence, do not force a term onto it.\r\n\r\n---\r\n\r\n## FIGHTER IDENTITY (mandatory)\r\n\r\nEvery observation must label who performed the action by screen position:\r\n\r\n- **Player on the left:**\r\n- **Player on the right:**\r\n\r\nNever use ambiguous \"the player\" / \"the opponent\" without establishing left/right identity first.\r\n\r\nTrack the SAME fighter across the clip even if they switch sides. Once assigned (e.g. Fighter A starts on left), keep referring to that fighter by consistent identity + current screen position when needed.\r\n\r\nFormat:\r\n\r\n```\r\nPlayer on the left: steps in behind the jab, then follows with the straight.\r\nPlayer on the right: backsteps the entry and answers with a counter straight.\r\n```\r\n\r\nLogic order:\r\n\r\nFighter identity → screen position → detected action → result of action → repeated pattern → correct FNC terminology (only if supported) → coaching explanation\r\n\r\nIf identity cannot be confirmed from the frames, say so and do not invent who did what.\r\n\r\n---\r\n\r\n## FORBIDDEN INVENTED LABELS (never use as formal mechanics)\r\n\r\nDo NOT use these as named formal mechanics:\r\n\r\n- Static Block\r\n- Controlled Cheese\r\n- Rhythm Read (as a formal mechanic name)\r\n- Any other invented label not established in FNC community / EA language\r\n\r\nIf describing the behavior, describe the PATTERN in plain FNC-accurate language:\r\n\r\n- Held block through multiple exchanges, released at a predictable point, opponent timed straights off the release.\r\n- Used a strong mechanic repeatedly after a clear read (not \"Controlled Cheese\").\r\n- Opponent kept attacking on the same timing after blocking (describe the pattern — do not invent \"Rhythm Read\").\r\n\r\n---\r\n\r\n## BANNED generic boxing language\r\n\r\nNever use as primary analysis:\r\n\r\nHigh Guard Maintenance, Good Defense, Body Work (as vague praise), Pressure Application, Use of Feints, Good Combinations, Counter Opportunities, Reaction Time, Ring Generalship, textbook defense/boxing, improve your guard, work on feints.\r\n\r\n---\r\n\r\n## ESTABLISHED TERMS (use only when footage supports)\r\n\r\nSource tags:\r\n\r\n- **Official EA** — game/UI language\r\n- **Established Community** — widely used by FNC competitive players\r\n- **Advanced Malky/FNC Meta** — advanced community meta language\r\n- **Descriptive Only** — describe the pattern; do not treat as a formal named mechanic\r\n\r\n### Core mechanics (Official EA / Descriptive)\r\n\r\nJab, straight, hooks, uppercuts, power modifier, stamina, blocking, head movement, sidestep, backstep, push, clinch, counters.\r\n\r\n### Defense (Established Community / Official EA)\r\n\r\nTextbook, Philly Shell, Cross Block, pump blocking, block refresh, perfect/timed blocking, lean back, slips, sidesteps, backsteps, defensive rhythm / Money Team defense (community).\r\n\r\n### Offensive meta (Established Community)\r\n\r\nPower straight, push straight, step-back straight, sidestep uppercut, chicken wing, body attacks, combination traps, power-modified attacks.\r\n\r\n### Counter meta (Established Community / Advanced)\r\n\r\nPull counter, sidestep counter, backstep counter, catch-and-shoot, counter windows, baiting, recovery punishment / recovery punish, whiff punish.\r\n\r\n### Spam taxonomy (Established Community) — only when repetition is clearly visible\r\n\r\nStraight spam, step-back spam, sidestep-uppercut spam, push-straight spam, body spam.\r\nSpam = repeated use of the same response especially when waiting for the same trigger (e.g. waiting for forward entry then same sidestep uppercut).\r\n\r\n### Stamina meta\r\n\r\nShort-term vs long-term stamina, whiffing, excessive powers, combination length, body work cost, recovery, conserving energy.\r\nExplain exchange cost (e.g. 4–5 punch combinations answered by 1–2 clean counters) — do not just slap a label.\r\n\r\n### Range / footwork\r\n\r\nOutside, mid-range, pocket, inside, back foot, pressure, ring cutting, backpedaling, entry distance.\r\nDescribe linear entries / linear retreat as patterns when visible — do not invent formal labels beyond established terms.\r\n\r\n### Scoring meta\r\n\r\nClean punches, counters, volume vs quality, stealing rounds (late-round activity), H2H vs OWC differences.\r\n\r\n### Archetypes (Descriptive — only if style is clear)\r\n\r\nPressure fighter, counter fighter, outside fighter, inside fighter, brawler, boxer-puncher, spam-heavy, defensive.\r\n\r\n### OWC vs H2H\r\n\r\nOWC: CAB builds, attributes, punch styles, blocking styles, power access, stamina builds, matchups.\r\nH2H: licensed boxer attributes, unusual power fighters, punch-style differences, matchup disadvantages.\r\nHigher overall rating ≠ better competitive matchup.\r\n\r\n---\r\n\r\n## ENTRY EXAMPLE — SIDESTEP UPPERCUT\r\n\r\nClassification: Established Community\r\n\r\nWhat it is: Sidestep immediately connected to an uppercut to evade a linear attack/entry while producing a countering attack.\r\n\r\nWhat Metabuffed must detect:\r\nPlayer shifts laterally as the opponent enters → avoids or changes the incoming punch line → uppercut follows immediately.\r\n\r\nDo NOT detect it just because:\r\nAn uppercut followed ordinary lateral movement several seconds earlier.\r\n\r\nSpam classification:\r\nRepeated use of the same sidestep-uppercut response, particularly when the player waits for forward engagement and repeatedly triggers the sequence.\r\n\r\nCorrect AI output:\r\n\"Three of your forward entries were answered by the same sidestep uppercut. By the third attempt he was no longer reacting—he was waiting for your entry.\"\r\n\r\nBad AI output:\r\n\"You should improve your lateral defense.\"\r\n\r\n---\r\n\r\n## TAPE BREAKDOWN OUTPUT FORMAT (mandatory)\r\n\r\nDo NOT use generic Strengths / Weaknesses / Coach Advice sections.\r\n\r\nWrite like a top FNC player breaking down tape:\r\n\r\n## Match Read\r\nWhat style both fighters were using (left vs right), grounded in observations.\r\n\r\n## What You Were Abusing\r\nMechanics/meta that were working for the uploader — with evidence.\r\n\r\n## What They Were Abusing\r\nOpponent patterns, cheese, or exploits — with evidence.\r\n\r\n## Your Biggest Tell\r\nThe most predictable habit — with evidence and how it was punished if visible.\r\n\r\n## Stamina Economy\r\nWho spent more stamina and WHY (exchange cost, combo length, whiffs, recovery) — not a vague label.\r\n\r\n## Scoring Battle\r\nWho won meaningful exchanges and why (impact/quality vs volume). Note H2H/OWC if known.\r\n\r\n## Missed Punishes\r\nSpecific counter opportunities the player failed to take — only if visible.\r\n\r\n## Meta Adjustment\r\nExact changes for the next match — concrete, FNC-specific.\r\n\r\n## Clip Evidence\r\nTimestamps or specific moments from observations when available.\r\n\r\n### Evolution rule\r\n\r\nIf a behavior started working then became exploitable, explain the arc in one place — do not duplicate the same habit under opposite lists.\r\n\r\nExample: \"Your block hold worked early, but once the opponent recognized your release timing, they started timing straights off the release.\"\r\n\r\n---\r\n\r\n## GOOD vs BAD ANALYSIS\r\n\r\nBAD:\r\n\"Your opponent applied strong pressure. Improve your guard and use more feints. You missed counter opportunities.\"\r\n\r\nGOOD:\r\n\"Player on the left kept entering on the same line behind a two-punch rhythm. Player on the right repeatedly answered with the same sidestep uppercut. By the third entry this was no longer a reaction — it was a wait. Break the line or change entry timing.\"",
       "terminology": {
         "mtb": "money-team-block",
         "money team": "money-team-block",
         "money team defense": "money-team-block",
         "money team block": "money-team-block",
         "shell": "money-team-block",
+        "philly shell": "money-team-block",
         "block refresh": "block-refresh",
         "block reset": "block-refresh",
         "guard refresh": "block-refresh",
-        "guard reset": "block-refresh",
-        "static block": "static-block",
-        "static guard": "static-block",
+        "pump blocking": "block-refresh",
+        "predictable block release": "block-hold-pattern",
+        "holding block": "block-hold-pattern",
         "power straight": "power-straight",
         "push straight": "push-straight",
         "straight spam": "push-straight",
         "push straight spam": "push-straight",
+        "step back straight": "back-step-straight",
+        "step-back straight": "back-step-straight",
+        "step-back spam": "back-step-straight",
         "sidestep uppercut": "sidestep-uppercut",
+        "sidestep uppercut spam": "sidestep-uppercut",
         "sidestep spam": "sidestep-spam",
         "lean back": "lean-back",
         "back step": "back-step",
+        "backstep": "back-step",
         "straight line pressure": "straight-line-pressure",
         "linear pressure": "straight-line-pressure",
         "straight line retreat": "straight-line-retreat",
         "straight-line retreat": "straight-line-retreat",
+        "pull counter": "pull-counter",
+        "sidestep counter": "sidestep-uppercut",
+        "backstep counter": "back-step-straight",
         "recovery window": "recovery-window",
         "recovery punish": "recovery-punish",
+        "recovery punishment": "recovery-punish",
         "whiff punish": "whiff-punish",
         "counter window": "counter-window",
-        "rhythm read": "rhythm-read",
         "rhythm manipulation": "rhythm-manipulation",
         "timing trap": "timing-trap",
+        "repeated timing": "timing-pattern",
+        "same cadence": "timing-pattern",
         "fear loop": "fear-loop",
         "panic offense": "panic-offense",
         "panic defense": "panic-defense",
@@ -121,15 +134,14 @@
         "spam read": "spam-read",
         "adaptation": "adaptation-check",
         "adaptation check": "adaptation-check",
-        "controlled cheese": "controlled-cheese",
-        "cheese": "controlled-cheese",
         "body spam": "body-spam",
         "chicken wing": "chicken-wing",
         "chicken wing punch": "chicken-wing",
-        "pull counter": "pull-counter",
+        "mechanic on read": "mechanic-on-read",
         "owc": "owc-meta",
         "h2h": "owc-meta",
-        "power disadvantage": "owc-meta"
+        "power disadvantage": "owc-meta",
+        "cab": "owc-meta"
       },
       "quickQuestions": [
         {
@@ -189,8 +201,8 @@
           "conceptId": "stamina-management"
         },
         {
-          "question": "What is controlled cheese?",
-          "conceptId": "controlled-cheese"
+          "question": "When is using a strong mechanic a read vs spam?",
+          "conceptId": "mechanic-on-read"
         },
         {
           "question": "What is scorecard manipulation?",
@@ -285,9 +297,9 @@
           "answer": "Watch their reactions.\n\nTired players recover slower, block late, move too much, stop throwing combinations, miss wider, and panic when pressured. Their counters come late and their footwork gets sloppy.\n\nWhen you see fatigue, do not rush. Make them work. Touch the body. Force them to reset. Let their stamina collapse before you force the finish."
         },
         {
-          "question": "What is controlled cheese?",
-          "conceptId": "controlled-cheese",
-          "answer": "Controlled cheese is using strong mechanics intelligently instead of spamming blindly.\n\nPower straight after a read is controlled cheese. Sidestep uppercut after predictable pressure is controlled cheese. Money Team block into reset straight is controlled cheese.\n\nMindless spam becomes readable. Controlled cheese stays dangerous because it has timing and purpose.\n\nThe best players weaponize the meta without becoming predictable."
+          "question": "When is using a strong mechanic a read vs spam?",
+          "conceptId": "mechanic-on-read",
+          "answer": "Do not call this \"Controlled Cheese\" as a formal label.\n\nDescribe what happened: a strong FNC mechanic used after a clear read — power straight after they overcommitted, sidestep uppercut after the same linear entry, Money Team defense into a counter — is different from blind spam.\n\nMindless repetition becomes readable. A mechanic timed to a trigger stays dangerous because it has purpose.\n\nMetabuffed should name the mechanic that was used and the read that created it — not invent a formal cheese label."
         },
         {
           "question": "What is scorecard manipulation?",
@@ -341,7 +353,7 @@
           ],
           "related": [
             "spam-read",
-            "rhythm-read"
+            "timing-pattern"
           ],
           "communityTerms": [
             "adaptation check"
@@ -421,6 +433,46 @@
           ]
         },
         {
+          "id": "block-hold-pattern",
+          "name": "Predictable Block Hold / Release",
+          "aliases": [
+            "holding block",
+            "block release timing",
+            "predictable block release",
+            "pump blocking"
+          ],
+          "category": "mechanic",
+          "definition": "Classification: Descriptive Only (do NOT call this \"Static Block\"). Player holds block through exchanges and/or releases at a predictable point. Opponent may begin timing straights or other shots off the release. Describe the pattern — never invent the formal label \"Static Block.\"",
+          "whyItWorks": "FNC block release creates a brief vulnerable window. When release timing becomes readable, opponents can recovery-punish or time straights through the open.",
+          "whenEffective": [
+            "Early rounds when opponent has not read the release yet",
+            "Becomes exploitable once release timing is recognized"
+          ],
+          "counters": [
+            {
+              "name": "Time straights off release",
+              "explanation": "Fire when they drop/release block on a predictable cadence"
+            },
+            {
+              "name": "Block refresh on safer timing",
+              "explanation": "Refresh when out of range — not mid-pressure on a readable beat"
+            }
+          ],
+          "overuseSignals": [
+            "Same release timing punished multiple times without adaptation"
+          ],
+          "related": [
+            "block-refresh",
+            "money-team-block",
+            "recovery-punish"
+          ],
+          "communityTerms": [
+            "block refresh",
+            "pump blocking",
+            "timed blocking"
+          ]
+        },
+        {
           "id": "block-refresh",
           "name": "Block Refresh / Block Reset",
           "aliases": [
@@ -447,7 +499,7 @@
           ],
           "related": [
             "money-team-block",
-            "static-block",
+            "block-hold-pattern",
             "recovery-punish"
           ],
           "communityTerms": [
@@ -512,45 +564,6 @@
           "communityTerms": [
             "inside cheese",
             "angle hooks"
-          ]
-        },
-        {
-          "id": "controlled-cheese",
-          "name": "Controlled Cheese",
-          "aliases": [
-            "controlled cheese",
-            "cheese"
-          ],
-          "category": "strategy",
-          "definition": "Deliberate use of powerful or exploitable FNC mechanics based on reads rather than blind repetition — timed power straights, sidestep uppercuts on predictable entry, Money Team defense into counter offense.",
-          "whyItWorks": "FNC rewards players who land high-impact mechanics at the right moment. Controlled cheese converts reads into round-swinging moments without stamina fraud.",
-          "whenEffective": [
-            "Sidestep uppercut after third straight-line entry",
-            "Power straight through block refresh punish",
-            "Money Team rhythm into counter"
-          ],
-          "counters": [
-            {
-              "name": "Adaptation check",
-              "explanation": "Stop repeating the entry that feeds the cheese"
-            },
-            {
-              "name": "Rhythm manipulation",
-              "explanation": "Break the pattern they are cheesing against"
-            }
-          ],
-          "overuseSignals": [
-            "Same cheese attempt without confirming the read still exists",
-            "Mindless repetition — that is spam, not controlled cheese"
-          ],
-          "related": [
-            "push-straight",
-            "sidestep-uppercut",
-            "money-team-block"
-          ],
-          "communityTerms": [
-            "controlled cheese",
-            "cheese"
           ]
         },
         {
@@ -804,6 +817,38 @@
           ]
         },
         {
+          "id": "mechanic-on-read",
+          "name": "Mechanic Used on a Read",
+          "aliases": [
+            "using mechanics on reads",
+            "read-based cheese",
+            "timed mechanic"
+          ],
+          "category": "strategy",
+          "definition": "Classification: Descriptive Only (do NOT call this \"Controlled Cheese\"). Deliberate use of a strong FNC mechanic after a clear read — timed power straight, sidestep uppercut on linear entry, Money Team defense into counter. Different from blind spam. Describe what was used and why the read existed.",
+          "whyItWorks": "High-impact FNC mechanics win rounds when timed to opponent commitment, not when repeated without a trigger.",
+          "whenEffective": [
+            "After opponent shows the same entry or release timing twice or more"
+          ],
+          "counters": [
+            {
+              "name": "Stop feeding the read",
+              "explanation": "Change the trigger pattern they are waiting for"
+            }
+          ],
+          "overuseSignals": [
+            "Same mechanic with no remaining read — that is spam, not a read-based use"
+          ],
+          "related": [
+            "sidestep-uppercut",
+            "power-straight",
+            "money-team-block"
+          ],
+          "communityTerms": [
+            "cheese (informal community slang — use carefully and only when describing spam/exploit discussion)"
+          ]
+        },
+        {
           "id": "money-team-block",
           "name": "Money Team Block / Money Team Defense",
           "aliases": [
@@ -831,13 +876,13 @@
             }
           ],
           "overuseSignals": [
-            "Sitting in static block without counter threat",
+            "Holding block without counter threat or refresh",
             "Predictable block-tap rhythm"
           ],
           "related": [
             "power-straight",
             "block-refresh",
-            "static-block"
+            "block-hold-pattern"
           ],
           "communityTerms": [
             "Money Team",
@@ -911,7 +956,7 @@
             "scared defense"
           ],
           "category": "behavior",
-          "definition": "Defensive behavior caused by pressure rather than deliberate reads — excessive leaning, repeated predictable sidesteps, permanently holding static block, running straight backward.",
+          "definition": "Defensive behavior caused by pressure rather than deliberate reads — excessive leaning, repeated predictable sidesteps, holding block without refresh or counter threat, running straight backward.",
           "whyItWorks": "Panic defense is exploitable — it creates predictable resets, straight-line retreat, and no counter threat. Different from Money Team defense.",
           "whenEffective": [
             "Not effective long-term — identify when pressure broke deliberate defense"
@@ -927,11 +972,11 @@
             }
           ],
           "overuseSignals": [
-            "Static block held without refresh after taking damage",
+            "Holding block without refresh after taking damage",
             "Sidestep spam without reading entry angle"
           ],
           "related": [
-            "static-block",
+            "block-hold-pattern",
             "straight-line-pressure",
             "fear-loop"
           ],
@@ -977,60 +1022,80 @@
         },
         {
           "id": "power-straight",
-          "name": "Is the power straight so broken",
+          "name": "Power Straight",
           "aliases": [
-            "power straight"
+            "power straight",
+            "powered straight"
           ],
-          "category": "strategy",
-          "definition": "Because it fits everything the game rewards.",
-          "whyItWorks": "Because it fits everything the game rewards.",
+          "category": "mechanic",
+          "definition": "Classification: Established Community. Central offensive weapon in competitive FNC. Not merely a \"strong straight\" — analyze setup, timing, counter timing, opponent recovery, entry timing, scoring value, frequency, and predictability.",
+          "whyItWorks": "Power-modified straights create high-impact scoring moments, especially through recovery windows and after defensive reads.",
           "whenEffective": [
-            "When opponent shows predictable patterns",
-            "In ranked/OWC high-level exchanges"
+            "Opponent recovery after combo overcommitment",
+            "After block refresh / release becomes readable",
+            "Countering linear pressure entries"
           ],
-          "counters": [],
+          "counters": [
+            {
+              "name": "Sidestep off line",
+              "explanation": "Break centerline tracking before the straight lands"
+            },
+            {
+              "name": "Do not overextend punch three",
+              "explanation": "Avoid creating the recovery window the power straight punishes"
+            }
+          ],
           "overuseSignals": [
-            "Repeating the same read without adaptation",
-            "Forcing the technique when stamina is low"
+            "Repeated power straights with no setup or read (becomes readable)",
+            "Naming power straight when only a normal straight is visible"
           ],
-          "related": [],
-          "communityTerms": []
+          "related": [
+            "recovery-punish",
+            "push-straight",
+            "money-team-block"
+          ],
+          "communityTerms": [
+            "power straight"
+          ]
         },
         {
           "id": "pull-counter",
-          "name": "Pull counters",
+          "name": "Pull Counter",
           "aliases": [
             "pull counter",
             "pull straight"
           ],
           "category": "counterplay",
-          "definition": "Pull counters use a slight backward pull or lean to make an opponent's jab or straight miss, then fire a straight or power shot through the recovery window.\n",
-          "whyItWorks": "FNC rewards clean counter impact. Pull counters steal rounds by landing power shots while the opponent is still committed forward.\n",
+          "definition": "Classification: Established Community. Slight backward pull or lean to make an opponent's jab or straight miss, then fire a straight or power shot through the recovery window. Distinct from a plain backstep (distance) and from lean-back without an immediate counter.",
+          "whyItWorks": "FNC rewards clean counter impact. Pull counters steal rounds by landing power while the opponent is still committed forward.",
           "whenEffective": [
             "Against predictable jab-straight rhythm",
             "When opponent pressures in straight lines",
-            "In close rounds where one power counter swings judges"
+            "Close rounds where one power counter swings judges"
           ],
           "counters": [
             {
-              "name": "Feint and delay second punch",
+              "name": "Delay second punch",
               "explanation": "Break the timing they are pulling against"
             },
             {
-              "name": "Body attack on pull",
-              "explanation": "Pulling upstairs opens the body line"
+              "name": "Attack body on pull",
+              "explanation": "Pulling upstairs can open the body line"
             }
           ],
           "overuseSignals": [
             "Pulling without reading the entry",
-            "Repeated pulls when opponent stops leading"
+            "Repeated pulls when opponent stops leading",
+            "Calling pull counter when only lean-back with no counter is visible"
           ],
           "related": [
             "power-straight",
-            "rhythm-manipulation"
+            "lean-back",
+            "recovery-punish"
           ],
           "communityTerms": [
-            "pull straight meta"
+            "pull counter",
+            "pull straight"
           ]
         },
         {
@@ -1066,7 +1131,7 @@
           "related": [
             "power-straight",
             "straight-line-pressure",
-            "controlled-cheese"
+            "mechanic-on-read"
           ],
           "communityTerms": [
             "push straight",
@@ -1177,43 +1242,6 @@
           ],
           "related": [],
           "communityTerms": []
-        },
-        {
-          "id": "rhythm-read",
-          "name": "Rhythm Read",
-          "aliases": [
-            "rhythm read",
-            "pattern read",
-            "timing read"
-          ],
-          "category": "mechanic",
-          "definition": "Recognition of repeated timing — jab-straight cadence, attack-after-block, throw-after-step-forward, reset-after-two-punches. Once identified, explain the pattern and the punish.",
-          "whyItWorks": "FNC players fall into rhythm under pressure. Elite players exploit repeated cadence with recovery punishes, sidestep uppercuts, and timing traps.",
-          "whenEffective": [
-            "After two or three identical offensive sequences",
-            "When opponent attacks immediately after blocking"
-          ],
-          "counters": [
-            {
-              "name": "Rhythm manipulation",
-              "explanation": "Break your own timing so their read misfires"
-            },
-            {
-              "name": "Timing trap",
-              "explanation": "Establish a pattern then break it to punish their learned response"
-            }
-          ],
-          "overuseSignals": [
-            "Calling a rhythm read after one repetition"
-          ],
-          "related": [
-            "rhythm-manipulation",
-            "timing-trap",
-            "adaptation-check"
-          ],
-          "communityTerms": [
-            "rhythm read"
-          ]
         },
         {
           "id": "round-steal",
@@ -1343,24 +1371,42 @@
         },
         {
           "id": "sidestep-uppercut",
-          "name": "Use the sidestep uppercut",
+          "name": "Sidestep Uppercut",
           "aliases": [
-            "sidestep uppercut"
+            "sidestep uppercut",
+            "sidestep-uppercut",
+            "sidestep uppercut spam"
           ],
-          "category": "strategy",
-          "definition": "Use it when your opponent enters predictably.",
-          "whyItWorks": "Use it when your opponent enters predictably.",
+          "category": "mechanic",
+          "definition": "Classification: Established Community. Sidestep immediately connected to an uppercut to evade a linear attack/entry while producing a countering attack. Widely used by competitive FNC players.",
+          "whyItWorks": "Linear entries track into the uppercut path after the defender changes the punch line with a lateral step. High impact when the opponent repeats the same forward entry.",
           "whenEffective": [
-            "When opponent shows predictable patterns",
-            "In ranked/OWC high-level exchanges"
+            "Opponent enters on a straight line behind jab/straight rhythm",
+            "Opponent keeps repeating the same entry after being punished once"
           ],
-          "counters": [],
+          "counters": [
+            {
+              "name": "Change entry angle",
+              "explanation": "Step off line or delay the second punch so the wait-for-entry uppercut whiffs"
+            },
+            {
+              "name": "Feint entry",
+              "explanation": "Draw the sidestep uppercut then punish the recovery"
+            }
+          ],
           "overuseSignals": [
-            "Repeating the same read without adaptation",
-            "Forcing the technique when stamina is low"
+            "Same sidestep-uppercut response waiting for every forward engagement (spam)",
+            "Sidestep without an immediate uppercut in the same sequence — that is not this mechanic"
           ],
-          "related": [],
-          "communityTerms": []
+          "related": [
+            "push-straight",
+            "recovery-punish",
+            "sidestep-spam"
+          ],
+          "communityTerms": [
+            "sidestep uppercut",
+            "sidestep uppercut spam"
+          ]
         },
         {
           "id": "spam-read",
@@ -1493,36 +1539,6 @@
           ]
         },
         {
-          "id": "static-block",
-          "name": "Static Block",
-          "aliases": [
-            "static guard",
-            "sitting in block"
-          ],
-          "category": "mechanic",
-          "definition": "Holding guard without sufficient movement, refreshing, counter threat, or positional adjustment. Different from active Money Team defense.",
-          "whyItWorks": "Can absorb briefly but becomes predictable and easier to pressure without counter threat.",
-          "whenEffective": [
-            "Brief moments to reset stamina"
-          ],
-          "counters": [
-            {
-              "name": "Body and rhythm pressure",
-              "explanation": "Force movement or punish lack of counter threat"
-            }
-          ],
-          "overuseSignals": [
-            "Permanently holding block under pressure"
-          ],
-          "related": [
-            "money-team-block",
-            "panic-defense"
-          ],
-          "communityTerms": [
-            "static block"
-          ]
-        },
-        {
           "id": "straight-line-pressure",
           "name": "Straight-Line Pressure",
           "aliases": [
@@ -1596,6 +1612,36 @@
           ]
         },
         {
+          "id": "timing-pattern",
+          "name": "Repeated Timing Pattern",
+          "aliases": [
+            "repeated timing",
+            "same cadence",
+            "attack after block pattern"
+          ],
+          "category": "mechanic",
+          "definition": "Classification: Descriptive Only (do NOT call this \"Rhythm Read\" as a formal mechanic). Opponent repeats the same timing — jab-straight cadence, attack immediately after blocking, throw after stepping forward, reset after two punches. Describe the pattern and the punish — never invent \"Rhythm Read\" as a named mechanic.",
+          "whyItWorks": "Repeated timing lets the other player wait for the trigger instead of reacting.",
+          "whenEffective": [
+            "After two or three identical sequences"
+          ],
+          "counters": [
+            {
+              "name": "Change cadence",
+              "explanation": "Pause, feint, or delay the second punch so their wait mistimes"
+            }
+          ],
+          "overuseSignals": [
+            "Calling a formal \"Rhythm Read\" label instead of describing the actual pattern"
+          ],
+          "related": [
+            "rhythm-manipulation",
+            "timing-trap",
+            "spam-read"
+          ],
+          "communityTerms": []
+        },
+        {
           "id": "timing-trap",
           "name": "Timing Trap",
           "aliases": [
@@ -1619,7 +1665,7 @@
             "Pattern never established before the \"trap\" — just random pause"
           ],
           "related": [
-            "rhythm-read",
+            "timing-pattern",
             "rhythm-manipulation",
             "spam-read"
           ],

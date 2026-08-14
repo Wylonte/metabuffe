@@ -22,7 +22,7 @@ overuseSignals:
   - Refreshing at unsafe moments repeatedly
 related:
   - money-team-block
-  - static-block
+  - block-hold-pattern
   - recovery-punish
 communityTerms:
   - block refresh

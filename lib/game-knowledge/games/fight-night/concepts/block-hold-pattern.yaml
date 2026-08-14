@@ -1,0 +1,34 @@
+id: block-hold-pattern
+name: Predictable Block Hold / Release
+aliases:
+  - holding block
+  - block release timing
+  - predictable block release
+  - pump blocking
+category: mechanic
+definition: >-
+  Classification: Descriptive Only (do NOT call this "Static Block"). Player holds
+  block through exchanges and/or releases at a predictable point. Opponent may begin
+  timing straights or other shots off the release. Describe the pattern — never invent
+  the formal label "Static Block."
+whyItWorks: >-
+  FNC block release creates a brief vulnerable window. When release timing becomes
+  readable, opponents can recovery-punish or time straights through the open.
+whenEffective:
+  - Early rounds when opponent has not read the release yet
+  - Becomes exploitable once release timing is recognized
+counters:
+  - name: Time straights off release
+    explanation: Fire when they drop/release block on a predictable cadence
+  - name: Block refresh on safer timing
+    explanation: Refresh when out of range — not mid-pressure on a readable beat
+overuseSignals:
+  - Same release timing punished multiple times without adaptation
+related:
+  - block-refresh
+  - money-team-block
+  - recovery-punish
+communityTerms:
+  - block refresh
+  - pump blocking
+  - timed blocking

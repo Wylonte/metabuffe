@@ -111,9 +111,9 @@ export function BreakdownModal({ isOpen, onClose }: BreakdownModalProps) {
                 {activeTab === "strengths" && (
                   <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-4">
                     {[
-                      { title: "Recovery Punish", desc: "Consistently fired power straights through opponent recovery windows after combo overcommitment." },
-                      { title: "Money Team Defense", desc: "Active block refresh rhythm with counter readiness — not static high guard." },
-                      { title: "Rhythm Read", desc: "Identified opponent's jab-straight cadence by Round 2 and threatened sidestep uppercut on the third linear entry." }
+                      { title: "Recovery Punish", desc: "Player on the right fired power straights through recovery after the left-side player overextended punch three." },
+                      { title: "Money Team Defense", desc: "Player on the left used active block refresh with counter readiness — not sitting in a held guard." },
+                      { title: "Sidestep Uppercut Spam Read", desc: "Three linear entries from the left were answered by the same sidestep uppercut — by the third he was waiting for the entry." }
                     ].map((strength, i) => (
                       <div key={i} className="flex gap-4 p-5 rounded-xl border border-green-500/20 bg-green-500/5">
                         <CheckCircle2 className="w-6 h-6 text-green-500 shrink-0" />

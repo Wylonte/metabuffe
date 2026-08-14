@@ -141,7 +141,7 @@ export default function Home() {
                 </h1>
 
                 <p className="text-xl text-zinc-400 mb-10 leading-relaxed max-w-lg font-medium">
-                  Ask the Coach for Fight Night and UFC 6 meta advice, or upload a clip for strengths, weaknesses, and coaching feedback.
+                  Ask the Coach for Fight Night and UFC 6 meta advice, or upload a clip for an evidence-first tape breakdown.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-5">
@@ -429,9 +429,9 @@ export default function Home() {
 
                 <div className="p-8 grid md:grid-cols-3 gap-8">
                   <div>
-                    <h4 className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest font-bold mb-4">Strengths</h4>
+                    <h4 className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest font-bold mb-4">What You Were Abusing</h4>
                     <ul className="space-y-3">
-                      {["Pressure", "Timing", "Counter Reads"].map(s => (
+                      {["Power straight on recovery", "Money Team into counters", "Late-round impact"].map(s => (
                         <li key={s} className="flex items-center gap-2 text-sm text-zinc-300 font-medium">
                           <div className="w-1.5 h-1.5 rounded-full bg-primary" /> {s}
                         </li>
@@ -439,9 +439,9 @@ export default function Home() {
                     </ul>
                   </div>
                   <div>
-                    <h4 className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest font-bold mb-4">Weaknesses</h4>
+                    <h4 className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest font-bold mb-4">Biggest Tell</h4>
                     <ul className="space-y-3">
-                      {["Stamina Control", "Predictability", "Late Resets"].map(w => (
+                      {["Linear entries", "Predictable release", "Same two-punch cadence"].map(w => (
                         <li key={w} className="flex items-center gap-2 text-sm text-zinc-300 font-medium">
                           <div className="w-1.5 h-1.5 rounded-full bg-pink-500" /> {w}
                         </li>
@@ -449,9 +449,9 @@ export default function Home() {
                     </ul>
                   </div>
                   <div>
-                    <h4 className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest font-bold mb-4">Tendencies</h4>
+                    <h4 className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest font-bold mb-4">Meta Adjustment</h4>
                     <ul className="space-y-3">
-                      {["Aggressive Opener", "Round 2 Rush", "Guard Drop"].map(t => (
+                      {["Change entry angle", "Refresh block off timing", "Hunt whiff punishes"].map(t => (
                         <li key={t} className="flex items-center gap-2 text-sm text-zinc-400 font-medium">
                           <div className="w-1.5 h-1.5 rounded-full bg-zinc-600" /> {t}
                         </li>

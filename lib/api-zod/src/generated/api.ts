@@ -49,10 +49,19 @@ export const AnalyzeGameplayBody = zod.object({
 })
 
 export const AnalyzeGameplayResponse = zod.object({
-  "strengths": zod.array(zod.string()),
-  "weaknesses": zod.array(zod.string()),
+  "matchRead": zod.string(),
+  "whatYouWereAbusing": zod.array(zod.string()),
+  "whatTheyWereAbusing": zod.array(zod.string()),
+  "biggestTell": zod.string(),
+  "staminaEconomy": zod.string(),
+  "scoringBattle": zod.string(),
+  "missedPunishes": zod.array(zod.string()),
+  "metaAdjustment": zod.array(zod.string()),
+  "clipEvidence": zod.array(zod.string()),
   "summary": zod.string(),
-  "conceptsUsed": zod.array(zod.string())
+  "conceptsUsed": zod.array(zod.string()),
+  "strengths": zod.array(zod.string()),
+  "weaknesses": zod.array(zod.string())
 })
 
 

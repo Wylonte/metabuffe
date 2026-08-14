@@ -7,8 +7,19 @@
  */
 
 export interface AnalyzeResponse {
-  strengths: string[];
-  weaknesses: string[];
+  matchRead: string;
+  whatYouWereAbusing: string[];
+  whatTheyWereAbusing: string[];
+  biggestTell: string;
+  staminaEconomy: string;
+  scoringBattle: string;
+  missedPunishes: string[];
+  metaAdjustment: string[];
+  clipEvidence: string[];
   summary: string;
   conceptsUsed: string[];
+  /** @deprecated Prefer tape sections */
+  strengths: string[];
+  /** @deprecated Prefer tape sections */
+  weaknesses: string[];
 }

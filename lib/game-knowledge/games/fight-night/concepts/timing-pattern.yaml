@@ -1,0 +1,26 @@
+id: timing-pattern
+name: Repeated Timing Pattern
+aliases:
+  - repeated timing
+  - same cadence
+  - attack after block pattern
+category: mechanic
+definition: >-
+  Classification: Descriptive Only (do NOT call this "Rhythm Read" as a formal
+  mechanic). Opponent repeats the same timing — jab-straight cadence, attack
+  immediately after blocking, throw after stepping forward, reset after two punches.
+  Describe the pattern and the punish — never invent "Rhythm Read" as a named mechanic.
+whyItWorks: >-
+  Repeated timing lets the other player wait for the trigger instead of reacting.
+whenEffective:
+  - After two or three identical sequences
+counters:
+  - name: Change cadence
+    explanation: Pause, feint, or delay the second punch so their wait mistimes
+overuseSignals:
+  - Calling a formal "Rhythm Read" label instead of describing the actual pattern
+related:
+  - rhythm-manipulation
+  - timing-trap
+  - spam-read
+communityTerms: []

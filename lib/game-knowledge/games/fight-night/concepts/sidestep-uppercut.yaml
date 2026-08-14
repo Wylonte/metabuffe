@@ -1,16 +1,33 @@
 id: sidestep-uppercut
-name: Use the sidestep uppercut
+name: Sidestep Uppercut
 aliases:
   - sidestep uppercut
-category: strategy
-definition: Use it when your opponent enters predictably.
-whyItWorks: Use it when your opponent enters predictably.
+  - sidestep-uppercut
+  - sidestep uppercut spam
+category: mechanic
+definition: >-
+  Classification: Established Community. Sidestep immediately connected to an
+  uppercut to evade a linear attack/entry while producing a countering attack.
+  Widely used by competitive FNC players.
+whyItWorks: >-
+  Linear entries track into the uppercut path after the defender changes the
+  punch line with a lateral step. High impact when the opponent repeats the same
+  forward entry.
 whenEffective:
-  - When opponent shows predictable patterns
-  - In ranked/OWC high-level exchanges
-counters: []
+  - Opponent enters on a straight line behind jab/straight rhythm
+  - Opponent keeps repeating the same entry after being punished once
+counters:
+  - name: Change entry angle
+    explanation: Step off line or delay the second punch so the wait-for-entry uppercut whiffs
+  - name: Feint entry
+    explanation: Draw the sidestep uppercut then punish the recovery
 overuseSignals:
-  - Repeating the same read without adaptation
-  - Forcing the technique when stamina is low
-related: []
-communityTerms: []
+  - Same sidestep-uppercut response waiting for every forward engagement (spam)
+  - Sidestep without an immediate uppercut in the same sequence — that is not this mechanic
+related:
+  - push-straight
+  - recovery-punish
+  - sidestep-spam
+communityTerms:
+  - sidestep uppercut
+  - sidestep uppercut spam

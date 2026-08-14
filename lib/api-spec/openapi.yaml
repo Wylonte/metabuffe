@@ -146,11 +146,31 @@ components:
     AnalyzeResponse:
       type: object
       properties:
-        strengths:
+        matchRead:
+          type: string
+        whatYouWereAbusing:
           type: array
           items:
             type: string
-        weaknesses:
+        whatTheyWereAbusing:
+          type: array
+          items:
+            type: string
+        biggestTell:
+          type: string
+        staminaEconomy:
+          type: string
+        scoringBattle:
+          type: string
+        missedPunishes:
+          type: array
+          items:
+            type: string
+        metaAdjustment:
+          type: array
+          items:
+            type: string
+        clipEvidence:
           type: array
           items:
             type: string
@@ -160,11 +180,30 @@ components:
           type: array
           items:
             type: string
+        strengths:
+          type: array
+          items:
+            type: string
+          description: Deprecated — kept for older clients; prefer tape sections
+        weaknesses:
+          type: array
+          items:
+            type: string
+          description: Deprecated — kept for older clients; prefer tape sections
       required:
-        - strengths
-        - weaknesses
+        - matchRead
+        - whatYouWereAbusing
+        - whatTheyWereAbusing
+        - biggestTell
+        - staminaEconomy
+        - scoringBattle
+        - missedPunishes
+        - metaAdjustment
+        - clipEvidence
         - summary
         - conceptsUsed
+        - strengths
+        - weaknesses
     ErrorResponse:
       type: object
       properties:
