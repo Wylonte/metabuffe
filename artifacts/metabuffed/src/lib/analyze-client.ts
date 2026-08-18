@@ -1,3 +1,12 @@
+export interface GameplayEvent {
+  timestampSeconds: number;
+  actor: "left" | "right" | "unknown";
+  action: string;
+  result: "landed" | "missed" | "blocked" | "unknown";
+  confidence: number;
+  visibleEvidence: string;
+}
+
 export interface AnalyzeResult {
   matchRead: string;
   whatYouWereAbusing: string[];
@@ -12,6 +21,11 @@ export interface AnalyzeResult {
   conceptsUsed: string[];
   strengths?: string[];
   weaknesses?: string[];
+  eventLog?: GameplayEvent[];
+  evidenceMode?: "frames" | "thumbnail" | "none";
+  analysisLimits?: string;
+  confidenceThreshold?: number;
+  viewerSide?: "left" | "right" | "unknown";
   uploadId?: string;
   fileName?: string;
   fileSizeBytes?: number;
@@ -114,6 +128,7 @@ export async function analyzeGameplayFrames(input: {
   fileName?: string;
   durationSeconds?: number;
   fileSizeBytes?: number;
+  viewerSide?: "left" | "right" | "unknown";
   frames: Array<{ timestampSeconds: number; imageBase64: string }>;
 }): Promise<AnalyzeResult> {
   const response = await fetch("/api/analyze/frames", {
@@ -139,6 +154,7 @@ export async function analyzeGameplayFrames(input: {
 export async function analyzeGameplayLink(input: {
   gameId: string;
   url: string;
+  viewerSide?: "left" | "right" | "unknown";
 }): Promise<AnalyzeResult> {
   const response = await fetch("/api/analyze/link", {
     method: "POST",

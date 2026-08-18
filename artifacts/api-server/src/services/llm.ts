@@ -1,7 +1,7 @@
 import type { CoachPrompt } from "@workspace/game-knowledge";
 
 export interface LlmClient {
-  chat(prompt: CoachPrompt): Promise<string>;
+  chat(prompt: CoachPrompt, options?: { temperature?: number }): Promise<string>;
 }
 
 export function createLlmClient(): LlmClient | null {
@@ -23,7 +23,7 @@ export function createLlmClient(): LlmClient | null {
 
 function createOpenAiClient(apiKey: string, model: string): LlmClient {
   return {
-    async chat(prompt) {
+    async chat(prompt, options) {
       const response = await fetch("https://api.openai.com/v1/chat/completions", {
         method: "POST",
         headers: {
@@ -32,7 +32,7 @@ function createOpenAiClient(apiKey: string, model: string): LlmClient {
         },
         body: JSON.stringify({
           model,
-          temperature: 0.4,
+          temperature: options?.temperature ?? 0.4,
           messages: [
             { role: "system", content: prompt.system },
             ...prompt.messages.map((m) => ({
@@ -60,7 +60,7 @@ function createOpenAiClient(apiKey: string, model: string): LlmClient {
 
 function createAnthropicClient(apiKey: string, model: string): LlmClient {
   return {
-    async chat(prompt) {
+    async chat(prompt, options) {
       const response = await fetch("https://api.anthropic.com/v1/messages", {
         method: "POST",
         headers: {
@@ -71,6 +71,7 @@ function createAnthropicClient(apiKey: string, model: string): LlmClient {
         body: JSON.stringify({
           model,
           max_tokens: 1200,
+          temperature: options?.temperature ?? 0.4,
           system: prompt.system,
           messages: prompt.messages.map((m) => ({
             role: m.role === "assistant" ? "assistant" : "user",

@@ -92,68 +92,65 @@ export function buildAnalysisPrompt(input: {
   gameId: string;
   retrieved: CoachPromptInput["retrieved"];
   observations: string[];
+  evidenceMode?: "frames" | "thumbnail" | "none";
+  viewerSide?: "left" | "right" | "unknown";
+  allowFrequencyClaims?: boolean;
 }): CoachPrompt {
   const game = requireGameBundle(input.gameId);
   const conceptBlock =
     input.retrieved.concepts.length > 0
       ? input.retrieved.concepts.map(formatConcept).join("\n\n")
-      : "No concepts matched. Use observations only — do not invent mechanics from memory.";
+      : "No concepts matched. Use the verified event log only — do not invent mechanics.";
 
   const hasObservations = input.observations.length > 0;
   const sectionList = Object.values(TAPE_SECTION_HEADERS)
     .map((h) => `## ${h}`)
     .join("\n");
+  const viewerSide = input.viewerSide ?? "unknown";
+  const evidenceMode = input.evidenceMode ?? "frames";
 
   const system = [
-    `You are Metabuffed — a top-level Fight Night Champion player breaking down tape for ${game.manifest.name}.`,
-    game.manifest.voice.persona,
+    `You are Metabuffed writing a tape note from a VERIFIED EVENT LOG for ${game.manifest.name}.`,
+    "You did not watch the video. You may only restate events listed below.",
     "",
-    "CORE RULE: Accuracy comes before terminology, depth, or sounding impressive.",
-    "Five verified observations beat fifteen advanced-sounding guesses.",
+    `Evidence mode: ${evidenceMode}.`,
+    evidenceMode !== "frames"
+      ? "Evidence is NOT gameplay video. Do not describe a fight. Say we could not verify events."
+      : "",
     "",
-    "PROCESS (mandatory):",
-    "1. Observe exactly what happened from the observations (fighter, movement, punch, defense, result, timing).",
-    "2. Confirm with confidence. If unsure — omit. Do not guess.",
-    "3. Only then apply FNC terminology that describes the footage.",
-    "",
-    "FIGHTER IDENTITY:",
-    "Every action claim must use 'Player on the left' / 'Player on the right'.",
-    "Keep fighter identity consistent even if they switch sides.",
+    "HARD RULES:",
+    "- Every factual claim must quote an event from the log (timestamp + left/right + action).",
+    "- If the log does not contain it, the section must say: Not enough verified events.",
+    "- Do not invent punches, movement, styles, stamina, scoring, or missed punishes.",
+    "- Do not reverse who was pressing or who was moving in and out.",
+    "- Do not use frequently / repeatedly / tendency / abusing / mixing unless the log has 3+ matching events.",
+    input.allowFrequencyClaims
+      ? "- Frequency words are allowed only for actions that appear 3+ times in the log."
+      : "- Frequency words are BANNED for this clip (not enough repeated events).",
+    viewerSide === "unknown"
+      ? "- Viewer side unknown: never say you/your. Use Player on the left / Player on the right only."
+      : `- The uploader is Player on the ${viewerSide}. "You" means that side only.`,
     "",
     "FORBIDDEN invented labels: Static Block, Controlled Cheese, Rhythm Read.",
-    "BANNED generic boxing: high guard, good defense, feints, reaction time, ring generalship, textbook, counter opportunities.",
-    "",
-    "Retrieved concepts are REFERENCE ONLY for definitions.",
-    "Do NOT mention a mechanic (Money Team, sidestep uppercut, push straight, pull counter, spam patterns, etc.) unless observations clearly support it.",
-    "",
-    "If a habit worked early then became exploitable, explain that evolution in one narrative — do not duplicate it as opposite lists.",
+    "Do NOT mention Money Team, sidestep uppercut, push straight, pull counter unless an event action matches that sequence.",
     "",
     "Do NOT use Strengths / Weaknesses / Coach Advice sections.",
-    "Do NOT assign letter grades or numeric scores.",
+    "Empty sections are better than guessed sections.",
     "",
-    hasObservations
-      ? "Ground EVERY claim in the observations below. No observation support = do not claim it."
-      : "Insufficient visual evidence. State that clearly. Do not invent mechanics or filler reads.",
-    "",
-    "Output EXACTLY these markdown sections (use headings verbatim):",
+    "Output EXACTLY these markdown sections (headings verbatim):",
     sectionList,
     "",
-    "Under list-style sections use short evidence-backed bullets.",
-    "Under prose sections write 1-3 tight paragraphs.",
-    "Clip Evidence should cite timestamps from observations when present.",
+    "Clip Evidence must copy timestamps from the event log only.",
     "",
     buildMetaLanguageSection(input.gameId),
     "",
-    "## Meta overview (context only)",
-    input.retrieved.metaOverview,
-    "",
-    "## Concept reference (use ONLY if observations support the mechanic)",
+    "## Concept reference (definitions only — do not introduce unused terms)",
     conceptBlock,
     "",
-    "## Observations from footage (SOURCE OF TRUTH)",
+    "## VERIFIED EVENT LOG (ONLY source of truth)",
     hasObservations
       ? input.observations.map((o) => `- ${o}`).join("\n")
-      : "- No specific visual observations available — say so in Match Read and keep other sections honest about limited evidence.",
+      : "- No verified visual events. Every section must say Not enough verified events.",
   ]
     .filter(Boolean)
     .join("\n");
@@ -164,7 +161,7 @@ export function buildAnalysisPrompt(input: {
       {
         role: "user",
         content:
-          "Produce the tape breakdown using only the section headings specified. Evidence first. Left/right fighters. No invented labels. No forced terminology. No Strengths/Weaknesses sections.",
+          "Write the tape note using ONLY the verified event log. If a section cannot be filled from the log, write: Not enough verified events. Do not invent a fight.",
       },
     ],
   };

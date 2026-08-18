@@ -122,10 +122,10 @@ describe("prompt builder", () => {
         "@8.4s Player on the right: sidestep then immediate uppercut.",
       ],
     });
-    assert.ok(prompt.system.includes("Match Read"));
+    assert.ok(prompt.system.includes("VERIFIED EVENT LOG"));
     assert.ok(prompt.system.includes("Clip Evidence"));
-    assert.ok(prompt.system.includes("Player on the left"));
+    assert.ok(prompt.system.includes("Player on the left") || prompt.system.includes("event log"));
     assert.ok(!prompt.system.includes("## Strengths"));
-    assert.ok(prompt.system.includes("FORBIDDEN invented labels"));
+    assert.ok(prompt.system.includes("Do not invent"));
   });
 });

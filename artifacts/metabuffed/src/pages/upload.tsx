@@ -20,24 +20,22 @@ const MAX_UPLOAD_MB = 100;
 
 const FILE_PROCESSING_STEPS = [
   "Upload received",
-  "Sampling video frames",
-  "Identifying left/right fighters",
-  "Confirming visible actions only",
-  "Mapping proven patterns to FNC terms",
-  "Building tape breakdown",
+  "Sampling still frames (not watching the full video)",
+  "Extracting high-confidence events only",
+  "Dropping guesses below confidence 0.70",
+  "Writing tape from the event log only",
 ];
 
 const LINK_PROCESSING_STEPS = [
   "Link received",
-  "Fetching clip metadata",
-  "Identifying left/right fighters",
-  "Confirming visible actions only",
-  "Mapping proven patterns to FNC terms",
-  "Building tape breakdown",
+  "Fetching title and thumbnail only",
+  "Checking for actual gameplay video",
+  "Gameplay video not available from a link",
 ];
 
 type InputMode = "file" | "link";
 type UploadState = "idle" | "uploading" | "processing" | "ready" | "error";
+type ViewerSide = "left" | "right" | "unknown";
 
 export default function UploadPage() {
   const searchParams = new URLSearchParams(window.location.search);
@@ -53,6 +51,7 @@ export default function UploadPage() {
   const [isDragOver, setIsDragOver] = useState(false);
   const [analysis, setAnalysis] = useState<AnalyzeResult | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [viewerSide, setViewerSide] = useState<ViewerSide>("unknown");
   const inputRef = useRef<HTMLInputElement>(null);
   const processIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
@@ -123,6 +122,7 @@ export default function UploadPage() {
           fileName: file.name,
           durationSeconds,
           fileSizeBytes: file.size,
+          viewerSide,
           frames,
         });
       } else {
@@ -167,6 +167,7 @@ export default function UploadPage() {
       const result = await analyzeGameplayLink({
         gameId: selectedGame,
         url: videoUrl.trim(),
+        viewerSide,
       });
 
       clearProcessInterval();
@@ -214,7 +215,7 @@ export default function UploadPage() {
           <p className="text-xs font-mono text-primary uppercase tracking-[0.3em] mb-3 font-bold">Metabuffed Analysis</p>
           <h1 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tighter">Upload Your Match</h1>
           <p className="text-sm text-zinc-500 mt-3 max-w-2xl">
-            Console players: paste a YouTube or Twitch clip link, or upload an exported MP4 from Share Factory / Xbox Game DVR.
+            Console players: upload an MP4 from Share Factory / Xbox Game DVR. YouTube and Twitch links cannot watch the fight — they only return a thumbnail, so we will not invent a breakdown from them.
           </p>
         </div>
 
@@ -275,6 +276,32 @@ export default function UploadPage() {
                   ● {selectedGameData?.name} selected
                 </motion.p>
               )}
+              <div className="mt-5">
+                <p className="text-[10px] font-mono text-zinc-500 uppercase tracking-[0.25em] font-bold mb-3">You were</p>
+                <div className="flex flex-wrap gap-2">
+                  {([
+                    { id: "left", label: "Player on the left" },
+                    { id: "right", label: "Player on the right" },
+                    { id: "unknown", label: "Not sure" },
+                  ] as const).map((option) => (
+                    <button
+                      key={option.id}
+                      type="button"
+                      onClick={() => setViewerSide(option.id)}
+                      className={`px-3 py-1.5 text-[10px] font-mono uppercase tracking-widest rounded-md border transition-colors ${
+                        viewerSide === option.id
+                          ? "bg-primary text-white border-primary"
+                          : "border-white/10 text-zinc-500 hover:text-white"
+                      }`}
+                    >
+                      {option.label}
+                    </button>
+                  ))}
+                </div>
+                <p className="text-[11px] text-zinc-600 mt-2">
+                  Required so “you / they” is not guessed. If unsure, analysis stays left vs right only.
+                </p>
+              </div>
             </div>
 
             <div>
@@ -368,6 +395,9 @@ export default function UploadPage() {
                 </div>
                 ) : (
                 <div className="relative flex flex-col gap-5 w-full rounded-2xl bg-zinc-950 border-2 border-dashed border-zinc-800 p-8" data-testid="link-zone">
+                  <div className="rounded-xl border border-yellow-500/30 bg-yellow-500/10 px-4 py-3 text-xs text-yellow-100 leading-relaxed">
+                    YouTube / Twitch links do not include the actual video. We only get a title and thumbnail, so we will not generate a fake fight breakdown. Upload the MP4 for still-frame event analysis.
+                  </div>
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 bg-primary/10 border border-primary/30 rounded-xl flex items-center justify-center">
                       <Link2 className="w-5 h-5 text-primary" />
@@ -481,7 +511,7 @@ export default function UploadPage() {
             </div>
           </div>
 
-          <div className="lg:sticky lg:top-28">
+          <div className="lg:sticky lg:top-28 min-w-0">
             <div className="bg-zinc-950 border border-white/8 rounded-2xl overflow-hidden">
               <div className="border-b border-white/5 px-5 py-4 flex items-center justify-between">
                 <p className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest font-bold">Coaching Feedback</p>
@@ -563,14 +593,22 @@ export default function UploadPage() {
                     >
                       <div className="flex items-center gap-2 text-primary">
                         <CheckCircle2 className="w-4 h-4" />
-                        <span className="text-[10px] font-bold uppercase tracking-widest">Feedback Ready</span>
+                        <span className="text-[10px] font-bold uppercase tracking-widest">
+                          {analysis?.evidenceMode === "thumbnail" ? "Link checked — no video" : "Tape note ready"}
+                        </span>
                       </div>
 
-                      <div className="space-y-2">
+                      <div className="space-y-2 overflow-hidden">
+                        {analysis?.analysisLimits && (
+                          <div className="bg-yellow-500/10 border border-yellow-500/20 rounded-xl p-3.5">
+                            <p className="text-[9px] font-mono text-yellow-500/80 uppercase tracking-widest mb-1.5">What was actually analyzed</p>
+                            <p className="text-xs text-yellow-100/90 leading-relaxed break-words">{analysis.analysisLimits}</p>
+                          </div>
+                        )}
                         {analysis?.matchRead && (
                           <div className="bg-black/60 border border-white/5 rounded-xl p-3.5">
                             <p className="text-[9px] font-mono text-zinc-600 uppercase tracking-widest mb-1.5">Match Read</p>
-                            <p className="text-xs text-zinc-300 leading-relaxed">{analysis.matchRead}</p>
+                            <p className="text-xs text-zinc-300 leading-relaxed break-words">{analysis.matchRead}</p>
                           </div>
                         )}
                         {analysis?.whatYouWereAbusing && analysis.whatYouWereAbusing.length > 0 && (
@@ -580,7 +618,7 @@ export default function UploadPage() {
                               {analysis.whatYouWereAbusing.map((item) => (
                                 <li key={item} className="text-xs font-semibold text-white leading-relaxed flex gap-2">
                                   <span className="text-primary shrink-0">•</span>
-                                  <span>{item}</span>
+                                  <span className="break-words min-w-0">{item}</span>
                                 </li>
                               ))}
                             </ul>
@@ -593,7 +631,7 @@ export default function UploadPage() {
                               {analysis.whatTheyWereAbusing.map((item) => (
                                 <li key={item} className="text-xs font-semibold text-white leading-relaxed flex gap-2">
                                   <span className="text-pink-400 shrink-0">•</span>
-                                  <span>{item}</span>
+                                  <span className="break-words min-w-0">{item}</span>
                                 </li>
                               ))}
                             </ul>
@@ -602,19 +640,19 @@ export default function UploadPage() {
                         {analysis?.biggestTell && (
                           <div className="bg-black/60 border border-orange-900/20 rounded-xl p-3.5">
                             <p className="text-[9px] font-mono text-zinc-600 uppercase tracking-widest mb-1.5">Your Biggest Tell</p>
-                            <p className="text-xs text-zinc-300 leading-relaxed">{analysis.biggestTell}</p>
+                            <p className="text-xs text-zinc-300 leading-relaxed break-words">{analysis.biggestTell}</p>
                           </div>
                         )}
                         {analysis?.staminaEconomy && (
                           <div className="bg-black/60 border border-white/5 rounded-xl p-3.5">
                             <p className="text-[9px] font-mono text-zinc-600 uppercase tracking-widest mb-1.5">Stamina Economy</p>
-                            <p className="text-xs text-zinc-300 leading-relaxed">{analysis.staminaEconomy}</p>
+                            <p className="text-xs text-zinc-300 leading-relaxed break-words">{analysis.staminaEconomy}</p>
                           </div>
                         )}
                         {analysis?.scoringBattle && (
                           <div className="bg-black/60 border border-white/5 rounded-xl p-3.5">
                             <p className="text-[9px] font-mono text-zinc-600 uppercase tracking-widest mb-1.5">Scoring Battle</p>
-                            <p className="text-xs text-zinc-300 leading-relaxed">{analysis.scoringBattle}</p>
+                            <p className="text-xs text-zinc-300 leading-relaxed break-words">{analysis.scoringBattle}</p>
                           </div>
                         )}
                         {analysis?.missedPunishes && analysis.missedPunishes.length > 0 && (
@@ -624,7 +662,7 @@ export default function UploadPage() {
                               {analysis.missedPunishes.map((item) => (
                                 <li key={item} className="text-xs font-semibold text-white leading-relaxed flex gap-2">
                                   <span className="text-yellow-400 shrink-0">•</span>
-                                  <span>{item}</span>
+                                  <span className="break-words min-w-0">{item}</span>
                                 </li>
                               ))}
                             </ul>
@@ -637,7 +675,19 @@ export default function UploadPage() {
                               {analysis.metaAdjustment.map((item) => (
                                 <li key={item} className="text-xs font-semibold text-white leading-relaxed flex gap-2">
                                   <span className="text-primary shrink-0">•</span>
-                                  <span>{item}</span>
+                                  <span className="break-words min-w-0">{item}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+                        {analysis?.eventLog && analysis.eventLog.length > 0 && (
+                          <div className="bg-black/60 border border-white/5 rounded-xl p-3.5">
+                            <p className="text-[9px] font-mono text-zinc-600 uppercase tracking-widest mb-2">Verified event log</p>
+                            <ul className="space-y-1.5">
+                              {analysis.eventLog.map((event) => (
+                                <li key={`${event.timestampSeconds}-${event.actor}-${event.action}`} className="text-[11px] text-zinc-400 leading-relaxed font-mono break-words">
+                                  {event.timestampSeconds.toFixed(1)}s · {event.actor} · {event.action} · {event.result} · {event.confidence.toFixed(2)} — {event.visibleEvidence}
                                 </li>
                               ))}
                             </ul>
@@ -650,19 +700,19 @@ export default function UploadPage() {
                               {analysis.clipEvidence.map((item) => (
                                 <li key={item} className="text-xs text-zinc-400 leading-relaxed flex gap-2 font-mono">
                                   <span className="text-zinc-600 shrink-0">•</span>
-                                  <span>{item}</span>
+                                  <span className="break-words min-w-0">{item}</span>
                                 </li>
                               ))}
                             </ul>
                           </div>
                         )}
-                        {analysis?.visionUsed && (
-                          <p className="text-[10px] font-mono text-primary/80 uppercase tracking-widest text-center">
-                            {analysis.framesAnalyzed
-                              ? `Vision analysis from ${analysis.framesAnalyzed} frames — evidence first`
-                              : "Vision analysis from clip preview — evidence first"}
-                          </p>
-                        )}
+                        <p className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest text-center break-words">
+                          {analysis?.evidenceMode === "thumbnail"
+                            ? "No gameplay video was processed"
+                            : analysis?.framesAnalyzed
+                            ? `${analysis.framesAnalyzed} still frames · confidence ≥ ${analysis.confidenceThreshold ?? 0.7}`
+                            : "Still-frame analysis only — not full video"}
+                        </p>
                       </div>
 
                       <Button

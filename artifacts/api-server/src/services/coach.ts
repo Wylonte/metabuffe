@@ -9,12 +9,19 @@ import {
   type VideoPlatform,
 } from "./video-link.js";
 import {
-  extractObservationsFromFrames,
-  extractObservationsFromImageUrl,
+  extractEventLogFromFrames,
+  formatEventLogLines,
+  MIN_EVENTS_FOR_PATTERN,
+  VISION_CONFIDENCE_THRESHOLD,
+  type FighterSide,
+  type GameplayEvent,
+  type VisionEventLog,
   type VisionFrame,
 } from "./vision.js";
 
 export type CoachChatSource = "llm" | "knowledge" | "canned";
+export type EvidenceMode = "frames" | "thumbnail" | "none";
+export type ViewerSide = "left" | "right" | "unknown";
 
 export interface CoachChatResult {
   reply: string;
@@ -80,103 +87,96 @@ export interface AnalyzeResult {
   clipEvidence: string[];
   summary: string;
   conceptsUsed: string[];
-  /** @deprecated Prefer tape sections — kept empty for older clients */
   strengths: string[];
-  /** @deprecated Prefer tape sections — kept empty for older clients */
   weaknesses: string[];
+  eventLog?: GameplayEvent[];
+  evidenceMode?: EvidenceMode;
+  analysisLimits?: string;
+  confidenceThreshold?: number;
+  viewerSide?: ViewerSide;
 }
 
-const INSUFFICIENT_FOOTAGE_NOTE =
-  "Insufficient footage observations — do not invent FNC terms or assign actions without left/right fighter evidence.";
-
-function buildMetadataObservations(input: {
-  fileName?: string;
-  durationSeconds?: number;
-  fileSizeBytes?: number;
-  mimeType?: string;
-}): string[] {
-  const observations: string[] = [];
-
-  if (input.fileName) {
-    observations.push(`Footage label: ${input.fileName}`);
-  }
-
-  if (typeof input.durationSeconds === "number" && input.durationSeconds > 0) {
-    const rounded = Math.round(input.durationSeconds);
-    if (rounded < 45) {
-      observations.push("Short highlight clip — likely one exchange or sequence");
-    } else if (rounded < 180) {
-      observations.push("Mid-length clip — partial round or short session");
-    } else {
-      observations.push("Extended match footage — multiple rounds or full session");
-    }
-    observations.push(`Clip duration approximately ${rounded} seconds`);
-  }
-
-  if (typeof input.fileSizeBytes === "number" && input.fileSizeBytes > 0) {
-    const sizeMb = (input.fileSizeBytes / (1024 * 1024)).toFixed(1);
-    observations.push(`Uploaded file size ${sizeMb} MB`);
-  }
-
-  if (input.mimeType) {
-    observations.push(`Video format ${input.mimeType}`);
-  }
-
-  return observations;
+function parseViewerSide(value: unknown): ViewerSide {
+  if (value === "left" || value === "right") return value;
+  return "unknown";
 }
 
-function buildObservationsFromUpload(input: {
-  fileName?: string;
-  durationSeconds?: number;
-  fileSizeBytes?: number;
-  mimeType?: string;
-}): string[] {
-  const metadata = buildMetadataObservations(input);
-  return metadata.length > 0
-    ? [...metadata, INSUFFICIENT_FOOTAGE_NOTE]
-    : [INSUFFICIENT_FOOTAGE_NOTE];
+function emptyTape(partial: Partial<AnalyzeResult> & { matchRead: string }): AnalyzeResult {
+  return {
+    matchRead: partial.matchRead,
+    whatYouWereAbusing: partial.whatYouWereAbusing ?? [],
+    whatTheyWereAbusing: partial.whatTheyWereAbusing ?? [],
+    biggestTell: partial.biggestTell ?? "Not enough verified events.",
+    staminaEconomy: partial.staminaEconomy ?? "Not enough verified events.",
+    scoringBattle: partial.scoringBattle ?? "Not enough verified events.",
+    missedPunishes: partial.missedPunishes ?? [],
+    metaAdjustment: partial.metaAdjustment ?? [],
+    clipEvidence: partial.clipEvidence ?? [],
+    summary: partial.summary ?? partial.matchRead,
+    conceptsUsed: partial.conceptsUsed ?? [],
+    strengths: [],
+    weaknesses: [],
+    eventLog: partial.eventLog ?? [],
+    evidenceMode: partial.evidenceMode ?? "none",
+    analysisLimits: partial.analysisLimits,
+    confidenceThreshold: partial.confidenceThreshold ?? VISION_CONFIDENCE_THRESHOLD,
+    viewerSide: partial.viewerSide ?? "unknown",
+  };
 }
 
-function buildObservationsFromVision(input: {
-  visionObservations: string[];
-  metadataObservations: string[];
-}): string[] {
-  if (input.visionObservations.length === 0) {
-    return [];
-  }
-
-  return [
-    ...input.visionObservations,
-    "Observations generated from sampled gameplay frames",
-    ...input.metadataObservations,
-  ];
-}
-
-function buildObservationsFromLink(input: {
+function linkInsufficientResult(input: {
   platform: VideoPlatform;
-  url: string;
   title?: string;
-  author?: string;
-  visionObservations?: string[];
-}): string[] {
+  url: string;
+}): AnalyzeResult {
   const platformLabel = input.platform === "youtube" ? "YouTube" : "Twitch";
-  const metadata = [
-    `Shared via ${platformLabel} link (console-friendly upload)`,
-    `Source URL: ${input.url}`,
-    input.title ? `Clip title: ${input.title}` : "",
-    input.author ? `Channel or creator: ${input.author}` : "",
-    "Player submitted a streaming platform clip instead of a raw file export",
-  ].filter(Boolean);
+  const matchRead = `${platformLabel} links do not give Metabuffed the gameplay video — only a preview thumbnail. We cannot detect punches, movement, who was pressuring, or who was using in-and-out movement from a still image. Upload the MP4 (Share Factory / Xbox Game DVR export) for still-frame event analysis.`;
 
-  if (input.visionObservations && input.visionObservations.length > 0) {
-    return [
-      ...input.visionObservations,
-      "Observations generated from clip preview imagery",
-      ...metadata,
-    ];
-  }
+  return emptyTape({
+    matchRead,
+    whatYouWereAbusing: [],
+    whatTheyWereAbusing: [],
+    biggestTell: "Not analyzed — no gameplay video was available.",
+    staminaEconomy: "Not analyzed — stamina cannot be read from a thumbnail.",
+    scoringBattle: "Not analyzed — scoring cannot be read from a thumbnail.",
+    missedPunishes: [],
+    metaAdjustment: [
+      "Export the clip as an MP4 and use the File tab. Link analysis cannot watch the fight.",
+    ],
+    clipEvidence: [
+      input.title ? `${platformLabel} title: ${input.title}` : `${platformLabel} URL: ${input.url}`,
+      "0 verified gameplay events (thumbnail is not video).",
+    ],
+    summary: matchRead,
+    evidenceMode: "thumbnail",
+    analysisLimits:
+      "Link path: oEmbed metadata + thumbnail only. No temporal video, no fighter tracking, no punch detection. Coaching from this source is disabled.",
+  });
+}
 
-  return [...metadata, INSUFFICIENT_FOOTAGE_NOTE];
+function insufficientFrameResult(input: {
+  log: VisionEventLog;
+  viewerSide: ViewerSide;
+  fileName?: string;
+}): AnalyzeResult {
+  const lines = formatEventLogLines(input.log);
+  const matchRead =
+    lines.length === 0
+      ? "Still frames were sampled, but no actions passed the confidence filter. Metabuffed will not invent a fight from guesses. Re-upload a clearer, closer gameplay export (HUD visible, both fighters in frame)."
+      : `Only ${lines.length} verified still-frame event(s). That is not enough to call styles, pressure vs in-and-out, stamina, or repeated patterns. Showing the event log only — no guessed coaching.`;
+
+  return emptyTape({
+    matchRead,
+    clipEvidence: lines,
+    eventLog: input.log.events,
+    evidenceMode: "frames",
+    viewerSide: input.viewerSide,
+    analysisLimits: `Still-frame inspection only (${input.log.framesInspected} frames). Confidence threshold ${VISION_CONFIDENCE_THRESHOLD}. No temporal video model. Pattern words require ${MIN_EVENTS_FOR_PATTERN}+ matching events.`,
+    metaAdjustment: [
+      "Use a longer, clearer MP4 so more stills can be sampled. Select which side you were (left/right).",
+    ],
+    summary: matchRead,
+  });
 }
 
 export async function handleAnalyzeFrames(input: {
@@ -185,30 +185,52 @@ export async function handleAnalyzeFrames(input: {
   durationSeconds?: number;
   fileSizeBytes?: number;
   frames: VisionFrame[];
+  viewerSide?: ViewerSide;
 }): Promise<AnalyzeResult & { framesAnalyzed: number; visionUsed: boolean }> {
-  const metadataObservations = buildMetadataObservations({
-    fileName: input.fileName,
-    durationSeconds: input.durationSeconds,
-    fileSizeBytes: input.fileSizeBytes,
-  });
-
-  let visionObservations: string[] = [];
+  const viewerSide = parseViewerSide(input.viewerSide);
+  let log: VisionEventLog;
   try {
-    visionObservations = await extractObservationsFromFrames({
+    log = await extractEventLogFromFrames({
       gameId: input.gameId,
       frames: input.frames,
     });
   } catch {
-    visionObservations = [];
+    log = {
+      events: [],
+      leftAppearance: "",
+      rightAppearance: "",
+      insufficientEvidence: true,
+      source: "frames",
+      framesInspected: input.frames.length,
+      confidenceThreshold: VISION_CONFIDENCE_THRESHOLD,
+    };
   }
 
-  const observations =
-    buildObservationsFromVision({ visionObservations, metadataObservations }) ||
-    buildObservationsFromUpload({
-      fileName: input.fileName,
-      durationSeconds: input.durationSeconds,
-      fileSizeBytes: input.fileSizeBytes,
-    });
+  if (log.insufficientEvidence || log.events.length < 2) {
+    const result = insufficientFrameResult({ log, viewerSide, fileName: input.fileName });
+    return {
+      ...result,
+      framesAnalyzed: input.frames.length,
+      visionUsed: log.events.length > 0,
+    };
+  }
+
+  const observations = formatEventLogLines(log);
+  if (log.leftAppearance) {
+    observations.unshift(`Appearance — Player on the left: ${log.leftAppearance}`);
+  }
+  if (log.rightAppearance) {
+    observations.unshift(`Appearance — Player on the right: ${log.rightAppearance}`);
+  }
+
+  const actionCounts = new Map<string, number>();
+  for (const event of log.events) {
+    const key = `${event.actor}:${event.action}`;
+    actionCounts.set(key, (actionCounts.get(key) ?? 0) + 1);
+  }
+  const allowFrequencyClaims = [...actionCounts.values()].some(
+    (count) => count >= MIN_EVENTS_FOR_PATTERN,
+  );
 
   const result = await handleAnalyze({
     gameId: input.gameId,
@@ -216,18 +238,28 @@ export async function handleAnalyzeFrames(input: {
     durationSeconds: input.durationSeconds,
     fileSizeBytes: input.fileSizeBytes,
     observations,
+    evidenceMode: "frames",
+    viewerSide,
+    allowFrequencyClaims,
+    eventLog: log.events,
+    analysisLimits: `Still-frame inspection only (${log.framesInspected} frames, not full video). Events kept at confidence ≥ ${VISION_CONFIDENCE_THRESHOLD}. LLM may not add events. Frequency language only if an action appears ${MIN_EVENTS_FOR_PATTERN}+ times.`,
   });
 
   return {
     ...result,
+    eventLog: log.events,
+    evidenceMode: "frames",
     framesAnalyzed: input.frames.length,
-    visionUsed: visionObservations.length > 0,
+    visionUsed: true,
+    confidenceThreshold: VISION_CONFIDENCE_THRESHOLD,
+    viewerSide,
   };
 }
 
 export async function handleAnalyzeLink(input: {
   gameId: string;
   url: string;
+  viewerSide?: ViewerSide;
 }): Promise<
   AnalyzeResult & {
     sourceUrl: string;
@@ -237,40 +269,19 @@ export async function handleAnalyzeLink(input: {
   }
 > {
   const metadata = await resolveVideoLink(input.url);
-
-  let visionObservations: string[] = [];
-  if (metadata.thumbnailUrl) {
-    try {
-      visionObservations = await extractObservationsFromImageUrl({
-        gameId: input.gameId,
-        imageUrl: metadata.thumbnailUrl,
-        context: metadata.title ? `Clip titled "${metadata.title}".` : undefined,
-      });
-    } catch {
-      visionObservations = [];
-    }
-  }
-
-  const observations = buildObservationsFromLink({
+  const result = linkInsufficientResult({
     platform: metadata.platform,
-    url: metadata.canonicalUrl,
     title: metadata.title,
-    author: metadata.author,
-    visionObservations,
-  });
-
-  const result = await handleAnalyze({
-    gameId: input.gameId,
-    fileName: metadata.title ?? `${metadata.platform}-${metadata.id}`,
-    observations,
+    url: metadata.canonicalUrl,
   });
 
   return {
     ...result,
+    viewerSide: parseViewerSide(input.viewerSide),
     sourceUrl: metadata.canonicalUrl,
     sourcePlatform: metadata.platform,
     sourceTitle: metadata.title,
-    visionUsed: visionObservations.length > 0,
+    visionUsed: false,
   };
 }
 
@@ -281,21 +292,40 @@ export async function handleAnalyze(input: {
   fileSizeBytes?: number;
   mimeType?: string;
   observations?: string[];
+  evidenceMode?: EvidenceMode;
+  viewerSide?: ViewerSide;
+  allowFrequencyClaims?: boolean;
+  eventLog?: GameplayEvent[];
+  analysisLimits?: string;
 }): Promise<AnalyzeResult> {
   const game = getGameBundle(input.gameId);
   if (!game) {
     throw new Error(`Unknown game: ${input.gameId}`);
   }
 
-  const observations =
-    input.observations && input.observations.length > 0
-      ? input.observations
-      : buildObservationsFromUpload(input);
+  const evidenceMode = input.evidenceMode ?? "none";
+  const viewerSide = parseViewerSide(input.viewerSide);
+  const observations = input.observations ?? [];
 
-  // Only retrieve concepts that observations actually mention — never pad with KB force-fills.
+  if (evidenceMode !== "frames" || observations.length === 0) {
+    return emptyTape({
+      matchRead:
+        "No verified gameplay events. Metabuffed will not invent Fight Night analysis from a filename, duration, or thumbnail.",
+      metaAdjustment: [
+        "Upload an MP4 on the File tab so still frames can be inspected.",
+      ],
+      evidenceMode,
+      viewerSide,
+      analysisLimits:
+        input.analysisLimits ??
+        "No vision event log. Coaching from metadata only is disabled.",
+      eventLog: input.eventLog ?? [],
+    });
+  }
+
   const query = observations.join(" ");
   const retrieved = GameKnowledgeService.retrieve(input.gameId, query, {
-    limit: 6,
+    limit: 4,
   });
 
   const llm = createLlmClient();
@@ -304,55 +334,34 @@ export async function handleAnalyze(input: {
       gameId: input.gameId,
       retrieved,
       observations,
+      evidenceMode,
+      viewerSide,
+      allowFrequencyClaims: input.allowFrequencyClaims ?? false,
     });
-    const raw = await llm.chat(prompt);
-    return parseTapeAnalysisResponse(raw, retrieved.matchedConceptIds);
+    const raw = await llm.chat(prompt, { temperature: 0 });
+    const parsed = parseTapeAnalysisResponse(raw, retrieved.matchedConceptIds);
+    return {
+      ...parsed,
+      eventLog: input.eventLog ?? [],
+      evidenceMode,
+      analysisLimits: input.analysisLimits,
+      confidenceThreshold: VISION_CONFIDENCE_THRESHOLD,
+      viewerSide,
+      clipEvidence:
+        parsed.clipEvidence.length > 0 ? parsed.clipEvidence : observations.slice(0, 8),
+    };
   }
 
-  return offlineTapeFallback(observations, retrieved.matchedConceptIds);
-}
-
-function offlineTapeFallback(
-  observations: string[],
-  conceptsUsed: string[],
-): AnalyzeResult {
-  const visual = observations.filter(
-    (o) =>
-      /player on the (left|right)/i.test(o) ||
-      /@\d/i.test(o) ||
-      /sidestep|uppercut|straight|block|jab|hook|stamina/i.test(o),
-  );
-
-  const matchRead =
-    visual.length > 0
-      ? `Limited offline mode. Observed ${visual.length} evidence line(s) from footage. Full tape breakdown requires OPENAI_API_KEY.`
-      : "Insufficient visual evidence to distinguish fighters or name mechanics. Upload clearer footage and ensure OPENAI_API_KEY is configured.";
-
-  return {
-    matchRead,
-    whatYouWereAbusing: [],
-    whatTheyWereAbusing: [],
-    biggestTell:
-      "Cannot identify a tell without confident left/right fighter observations.",
-    staminaEconomy:
-      "Cannot evaluate stamina economy without verified exchange evidence.",
-    scoringBattle:
-      "Cannot call the scoring battle without verified meaningful exchanges.",
-    missedPunishes: [],
-    metaAdjustment: [
-      "Re-upload with clearer gameplay frames so Metabuffed can label Player on the left / Player on the right and only name mechanics that appear on screen.",
-    ],
-    clipEvidence: visual.slice(0, 6),
-    summary: [
-      matchRead,
-      visual.length ? `Clip evidence:\n${visual.slice(0, 6).map((v) => `- ${v}`).join("\n")}` : "",
-    ]
-      .filter(Boolean)
-      .join("\n\n"),
-    conceptsUsed,
-    strengths: [],
-    weaknesses: [],
-  };
+  return emptyTape({
+    matchRead:
+      "Verified still-frame events were captured, but OPENAI_API_KEY is not set so coaching text was not generated. Event log is shown as Clip Evidence.",
+    clipEvidence: observations.slice(0, 8),
+    eventLog: input.eventLog ?? [],
+    evidenceMode: "frames",
+    viewerSide,
+    analysisLimits: input.analysisLimits,
+    conceptsUsed: retrieved.matchedConceptIds,
+  });
 }
 
 function parseTapeAnalysisResponse(
@@ -374,26 +383,14 @@ function parseTapeAnalysisResponse(
 
   return {
     matchRead:
-      matchRead ||
-      "I can't confidently produce a Match Read from the available observations.",
+      matchRead || "Not enough verified events to produce a Match Read.",
     whatYouWereAbusing,
     whatTheyWereAbusing,
-    biggestTell:
-      biggestTell ||
-      "No clear tell could be confirmed from the footage observations.",
-    staminaEconomy:
-      staminaEconomy ||
-      "Stamina economy could not be confirmed from the available observations.",
-    scoringBattle:
-      scoringBattle ||
-      "Scoring battle could not be confirmed from the available observations.",
+    biggestTell: biggestTell || "Not enough verified events.",
+    staminaEconomy: staminaEconomy || "Not enough verified events.",
+    scoringBattle: scoringBattle || "Not enough verified events.",
     missedPunishes,
-    metaAdjustment:
-      metaAdjustment.length > 0
-        ? metaAdjustment
-        : [
-            "Focus next match on adapting after the first repeated punish — only change what the footage clearly showed.",
-          ],
+    metaAdjustment,
     clipEvidence,
     summary: raw.trim(),
     conceptsUsed,
@@ -426,9 +423,9 @@ function extractSectionProse(raw: string, heading: string): string {
 function extractSectionBullets(raw: string, heading: string): string[] {
   const body = extractSectionBody(raw, heading);
   if (!body) return [];
-  const lines = body
+  return body
     .split("\n")
     .map((line) => line.replace(/^[-*•]\s*/, "").trim())
-    .filter(Boolean);
-  return lines.slice(0, 8);
+    .filter((line) => line.length > 0 && !/^not enough verified events\.?$/i.test(line))
+    .slice(0, 8);
 }

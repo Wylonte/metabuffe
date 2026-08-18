@@ -58,34 +58,21 @@ export function getAnalysisLanguageGuide(gameId: string): string | undefined {
 export function getVisionObservationInstructions(gameId: string): string {
   if (gameId === "fight-night") {
     return [
-      "You are observing Fight Night Champion (FNC) gameplay footage — NOT real boxing.",
+      "You are inspecting still screenshots from Fight Night Champion — NOT watching video, NOT tracking motion.",
+      "Produce a verified event log only. Do not write coaching.",
       "",
-      "ACCURACY FIRST:",
-      "- Only report what you can clearly see. Prefer fewer correct observations over many guesses.",
-      "- NEVER force FNC meta terms (sidestep uppercut, Money Team, push straight, pull counter, etc.) unless the frames clearly show that sequence.",
-      "- If unsure of punch type, movement, or who acted — OMIT that claim.",
-      "",
-      "FIGHTER IDENTITY (mandatory):",
-      "- Label every observation as 'Player on the left:' or 'Player on the right:'.",
-      "- Track the same fighter across frames even if they switch sides.",
-      "- Never use ambiguous 'the player' / 'the opponent' without left/right.",
-      "",
-      "OBSERVATION FORMAT:",
-      "Include timestamp when provided. State: who → action → result. Only then optional FNC term if clearly supported.",
-      "Example: '@12.4s Player on the left: steps in behind jab then straight. Player on the right: backsteps and answers with counter straight.'",
-      "",
-      "FORBIDDEN invented labels: Static Block, Controlled Cheese, Rhythm Read.",
-      "BANNED generic boxing: high guard, good defense, feints, reaction time, ring generalship, textbook.",
-      "",
-      "Describe visible patterns in plain accurate language when no established term fits.",
-      "Do NOT invent mechanics. Do NOT fill space with knowledge-base terms that are not on screen.",
+      "Each image is one freeze-frame. You cannot see punches travel, stamina bars tick, or actions between frames.",
+      "If punch type is not obvious from pose, use punch_unspecified.",
+      "If you cannot see whether it landed, missed, or was blocked, result = unknown.",
+      "Actor must be left or right from THIS frame's screen position. If you cannot tell, actor = unknown.",
+      "Never output FNC meta terms (Money Team, sidestep uppercut, push straight, pull counter) unless that exact sequence is visible in the same still.",
+      "Forbidden invented labels: Static Block, Controlled Cheese, Rhythm Read.",
+      "Do not invent timestamps. Do not pad events to look complete.",
     ].join("\n");
   }
 
   return [
-    "Use competitive game-specific language for this title.",
-    "Label fighters clearly (left/right or side) for every action.",
-    "Avoid generic real-world sports coaching clichés.",
-    "If unsure, describe only what is visibly happening — or omit.",
+    "Inspect still frames only. Do not invent motion or punch results.",
+    "Label fighters left/right when visible. If unsure, omit.",
   ].join("\n");
 }

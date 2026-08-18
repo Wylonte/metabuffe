@@ -3,9 +3,9 @@ export interface VideoFrame {
   imageBase64: string;
 }
 
-const MAX_FRAMES = 6;
-const MAX_WIDTH = 480;
-const JPEG_QUALITY = 0.62;
+const MAX_FRAMES = 8;
+const MAX_WIDTH = 640;
+const JPEG_QUALITY = 0.72;
 
 function seekVideo(video: HTMLVideoElement, time: number): Promise<void> {
   return new Promise((resolve, reject) => {
@@ -59,7 +59,7 @@ export async function extractVideoFrames(file: File): Promise<VideoFrame[]> {
     canvas.height = Math.max(1, Math.round(video.videoHeight * scale));
 
     const frames: VideoFrame[] = [];
-    const sampleCount = Math.min(MAX_FRAMES, Math.max(3, Math.floor(duration / 8)));
+    const sampleCount = Math.min(MAX_FRAMES, Math.max(4, Math.floor(duration / 12)));
 
     for (let i = 0; i < sampleCount; i++) {
       const timestamp = ((i + 1) / (sampleCount + 1)) * duration;

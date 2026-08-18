@@ -48,7 +48,7 @@ export const AnalyzeGameplayBody = zod.object({
   "observations": zod.array(zod.string()).optional()
 })
 
-export const AnalyzeGameplayResponse = zod.object({
+export const     AnalyzeGameplayResponse = zod.object({
   "matchRead": zod.string(),
   "whatYouWereAbusing": zod.array(zod.string()),
   "whatTheyWereAbusing": zod.array(zod.string()),
@@ -61,7 +61,11 @@ export const AnalyzeGameplayResponse = zod.object({
   "summary": zod.string(),
   "conceptsUsed": zod.array(zod.string()),
   "strengths": zod.array(zod.string()),
-  "weaknesses": zod.array(zod.string())
+  "weaknesses": zod.array(zod.string()),
+  "analysisLimits": zod.string().optional(),
+  "confidenceThreshold": zod.number().optional(),
+  "viewerSide": zod.enum(['left', 'right', 'unknown']).optional(),
+  "evidenceMode": zod.enum(['frames', 'thumbnail', 'none']).optional()
 })
 
 

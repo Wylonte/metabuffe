@@ -180,6 +180,33 @@ components:
           type: array
           items:
             type: string
+        analysisLimits:
+          type: string
+        confidenceThreshold:
+          type: number
+        viewerSide:
+          type: string
+          enum: [left, right, unknown]
+        evidenceMode:
+          type: string
+          enum: [frames, thumbnail, none]
+        eventLog:
+          type: array
+          items:
+            type: object
+            properties:
+              timestampSeconds:
+                type: number
+              actor:
+                type: string
+              action:
+                type: string
+              result:
+                type: string
+              confidence:
+                type: number
+              visibleEvidence:
+                type: string
         strengths:
           type: array
           items:

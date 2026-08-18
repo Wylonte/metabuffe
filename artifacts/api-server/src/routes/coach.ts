@@ -138,7 +138,7 @@ coachRouter.post(
 
 coachRouter.post("/analyze/frames", async (req, res) => {
   try {
-    const { gameId, fileName, durationSeconds, fileSizeBytes, frames } =
+    const { gameId, fileName, durationSeconds, fileSizeBytes, frames, viewerSide } =
       req.body ?? {};
 
     if (!gameId || typeof gameId !== "string") {
@@ -162,6 +162,8 @@ coachRouter.post("/analyze/frames", async (req, res) => {
       fileSizeBytes:
         typeof fileSizeBytes === "number" ? fileSizeBytes : undefined,
       frames,
+      viewerSide:
+        viewerSide === "left" || viewerSide === "right" ? viewerSide : "unknown",
     });
 
     res.json(result);
@@ -175,7 +177,7 @@ coachRouter.post("/analyze/frames", async (req, res) => {
 
 coachRouter.post("/analyze/link", async (req, res) => {
   try {
-    const { gameId, url } = req.body ?? {};
+    const { gameId, url, viewerSide } = req.body ?? {};
     if (!gameId || typeof gameId !== "string") {
       res.status(400).json({ error: "gameId is required" });
       return;
@@ -187,7 +189,12 @@ coachRouter.post("/analyze/link", async (req, res) => {
 
     logger.info({ gameId, url }, "Gameplay link received");
 
-    const result = await handleAnalyzeLink({ gameId, url });
+    const result = await handleAnalyzeLink({
+      gameId,
+      url,
+      viewerSide:
+        viewerSide === "left" || viewerSide === "right" ? viewerSide : "unknown",
+    });
     res.json(result);
   } catch (err) {
     logger.error({ err }, "Analyze link failed");
