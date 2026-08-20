@@ -65,7 +65,7 @@ export const     AnalyzeGameplayResponse = zod.object({
   "analysisLimits": zod.string().optional(),
   "confidenceThreshold": zod.number().optional(),
   "viewerSide": zod.enum(['left', 'right', 'unknown']).optional(),
-  "evidenceMode": zod.enum(['frames', 'thumbnail', 'none']).optional()
+  "evidenceMode": zod.enum(['video', 'youtube', 'frames', 'thumbnail', 'none']).optional()
 })
 
 

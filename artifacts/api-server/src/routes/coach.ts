@@ -1,6 +1,12 @@
 import { Router } from "express";
 import type { Request, Response, NextFunction } from "express";
-import { handleAnalyze, handleAnalyzeFrames, handleAnalyzeLink, handleCoachChat } from "../services/coach.js";
+import {
+  handleAnalyze,
+  handleAnalyzeFrames,
+  handleAnalyzeLink,
+  handleAnalyzeVideoFile,
+  handleCoachChat,
+} from "../services/coach.js";
 import { logger } from "../lib/logger.js";
 import { gameplayUpload } from "../lib/upload.js";
 import { cleanupUpload } from "../lib/upload-storage.js";
@@ -101,22 +107,30 @@ coachRouter.post(
         return;
       }
 
+      const viewerSide =
+        req.body?.viewerSide === "left" || req.body?.viewerSide === "right"
+          ? req.body.viewerSide
+          : "unknown";
+
       logger.info(
         {
           gameId,
           fileName: req.file.originalname,
           bytes: req.file.size,
           mimeType: req.file.mimetype,
+          viewerSide,
         },
-        "Gameplay video received",
+        "Gameplay video received for temporal analysis",
       );
 
-      const result = await handleAnalyze({
+      const result = await handleAnalyzeVideoFile({
         gameId,
+        filePath: req.file.path,
         fileName: req.file.originalname,
         durationSeconds: parseDurationSeconds(req.body?.durationSeconds),
         fileSizeBytes: req.file.size,
         mimeType: req.file.mimetype,
+        viewerSide,
       });
 
       res.json({

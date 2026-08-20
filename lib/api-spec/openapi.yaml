@@ -189,7 +189,7 @@ components:
           enum: [left, right, unknown]
         evidenceMode:
           type: string
-          enum: [frames, thumbnail, none]
+          enum: [video, youtube, frames, thumbnail, none]
         eventLog:
           type: array
           items:

@@ -9,18 +9,22 @@ import {
   type VideoPlatform,
 } from "./video-link.js";
 import {
+  extractEventLogFromVideo,
+  isGeminiVideoConfigured,
+  type VideoEvidenceMode,
+} from "./video-analysis.js";
+import {
   extractEventLogFromFrames,
   formatEventLogLines,
   MIN_EVENTS_FOR_PATTERN,
   VISION_CONFIDENCE_THRESHOLD,
-  type FighterSide,
   type GameplayEvent,
   type VisionEventLog,
   type VisionFrame,
 } from "./vision.js";
 
 export type CoachChatSource = "llm" | "knowledge" | "canned";
-export type EvidenceMode = "frames" | "thumbnail" | "none";
+export type EvidenceMode = VideoEvidenceMode;
 export type ViewerSide = "left" | "right" | "unknown";
 
 export interface CoachChatResult {
@@ -94,6 +98,7 @@ export interface AnalyzeResult {
   analysisLimits?: string;
   confidenceThreshold?: number;
   viewerSide?: ViewerSide;
+  modelUsed?: string;
 }
 
 function parseViewerSide(value: unknown): ViewerSide {
@@ -121,7 +126,52 @@ function emptyTape(partial: Partial<AnalyzeResult> & { matchRead: string }): Ana
     analysisLimits: partial.analysisLimits,
     confidenceThreshold: partial.confidenceThreshold ?? VISION_CONFIDENCE_THRESHOLD,
     viewerSide: partial.viewerSide ?? "unknown",
+    modelUsed: partial.modelUsed,
   };
+}
+
+function isTemporalMode(mode: EvidenceMode): boolean {
+  return mode === "video" || mode === "youtube" || mode === "frames";
+}
+
+function buildObservationsFromTemporalLog(input: {
+  log: VisionEventLog & {
+    matchDynamics?: { leftStyle: string; rightStyle: string; summary: string };
+    repeatedPatterns?: Array<{
+      description: string;
+      count: number;
+      actor: string;
+      evidenceTimestamps: number[];
+    }>;
+  };
+}): string[] {
+  const observations = formatEventLogLines(input.log);
+  if (input.log.leftAppearance) {
+    observations.unshift(`Appearance — Player on the left: ${input.log.leftAppearance}`);
+  }
+  if (input.log.rightAppearance) {
+    observations.unshift(`Appearance — Player on the right: ${input.log.rightAppearance}`);
+  }
+  if (input.log.matchDynamics?.summary) {
+    observations.unshift(
+      `Match dynamics — left: ${input.log.matchDynamics.leftStyle}; right: ${input.log.matchDynamics.rightStyle}. ${input.log.matchDynamics.summary}`,
+    );
+  }
+  for (const pattern of input.log.repeatedPatterns ?? []) {
+    observations.push(
+      `Repeated pattern (${pattern.count}x, ${pattern.actor}): ${pattern.description} @ ${pattern.evidenceTimestamps.map((t) => `${t.toFixed(1)}s`).join(", ")}`,
+    );
+  }
+  return observations;
+}
+
+function allowFrequencyFromLog(log: VisionEventLog): boolean {
+  const actionCounts = new Map<string, number>();
+  for (const event of log.events) {
+    const key = `${event.actor}:${event.action}`;
+    actionCounts.set(key, (actionCounts.get(key) ?? 0) + 1);
+  }
+  return [...actionCounts.values()].some((count) => count >= MIN_EVENTS_FOR_PATTERN);
 }
 
 function linkInsufficientResult(input: {
@@ -130,53 +180,173 @@ function linkInsufficientResult(input: {
   url: string;
 }): AnalyzeResult {
   const platformLabel = input.platform === "youtube" ? "YouTube" : "Twitch";
-  const matchRead = `${platformLabel} links do not give Metabuffed the gameplay video — only a preview thumbnail. We cannot detect punches, movement, who was pressuring, or who was using in-and-out movement from a still image. Upload the MP4 (Share Factory / Xbox Game DVR export) for still-frame event analysis.`;
+  const matchRead =
+    platformLabel === "YouTube"
+      ? "YouTube temporal analysis is unavailable right now (missing GEMINI_API_KEY or the video could not be processed). Upload the MP4 for full temporal video analysis."
+      : "Twitch links cannot be watched as video yet. Export the clip as an MP4 and use the File tab for temporal analysis.";
 
   return emptyTape({
     matchRead,
-    whatYouWereAbusing: [],
-    whatTheyWereAbusing: [],
-    biggestTell: "Not analyzed — no gameplay video was available.",
-    staminaEconomy: "Not analyzed — stamina cannot be read from a thumbnail.",
-    scoringBattle: "Not analyzed — scoring cannot be read from a thumbnail.",
-    missedPunishes: [],
     metaAdjustment: [
-      "Export the clip as an MP4 and use the File tab. Link analysis cannot watch the fight.",
+      "Upload an MP4 (Share Factory / Xbox Game DVR export) on the File tab for temporal gameplay analysis.",
+      "Set GEMINI_API_KEY so Metabuffed can watch YouTube/video with Gemini.",
     ],
     clipEvidence: [
       input.title ? `${platformLabel} title: ${input.title}` : `${platformLabel} URL: ${input.url}`,
-      "0 verified gameplay events (thumbnail is not video).",
+      "0 verified gameplay events.",
     ],
     summary: matchRead,
     evidenceMode: "thumbnail",
     analysisLimits:
-      "Link path: oEmbed metadata + thumbnail only. No temporal video, no fighter tracking, no punch detection. Coaching from this source is disabled.",
+      "No temporal video processed. Coaching from thumbnail/metadata only is disabled.",
   });
 }
 
-function insufficientFrameResult(input: {
+function insufficientTemporalResult(input: {
   log: VisionEventLog;
   viewerSide: ViewerSide;
-  fileName?: string;
+  evidenceMode: EvidenceMode;
+  modelUsed?: string;
 }): AnalyzeResult {
   const lines = formatEventLogLines(input.log);
   const matchRead =
     lines.length === 0
-      ? "Still frames were sampled, but no actions passed the confidence filter. Metabuffed will not invent a fight from guesses. Re-upload a clearer, closer gameplay export (HUD visible, both fighters in frame)."
-      : `Only ${lines.length} verified still-frame event(s). That is not enough to call styles, pressure vs in-and-out, stamina, or repeated patterns. Showing the event log only — no guessed coaching.`;
+      ? "The video was processed, but no actions passed the confidence filter. Metabuffed will not invent a fight. Re-upload a clearer gameplay export with both fighters visible."
+      : `Only ${lines.length} verified event(s) from temporal video. That is not enough for full style/pattern coaching. Showing the event log only.`;
 
   return emptyTape({
     matchRead,
     clipEvidence: lines,
     eventLog: input.log.events,
-    evidenceMode: "frames",
+    evidenceMode: input.evidenceMode,
     viewerSide: input.viewerSide,
-    analysisLimits: `Still-frame inspection only (${input.log.framesInspected} frames). Confidence threshold ${VISION_CONFIDENCE_THRESHOLD}. No temporal video model. Pattern words require ${MIN_EVENTS_FOR_PATTERN}+ matching events.`,
+    modelUsed: input.modelUsed,
+    analysisLimits: `Temporal video analysis (${input.evidenceMode}). Confidence ≥ ${VISION_CONFIDENCE_THRESHOLD}. Model: ${input.modelUsed ?? "unknown"}.`,
     metaAdjustment: [
-      "Use a longer, clearer MP4 so more stills can be sampled. Select which side you were (left/right).",
+      "Use a longer, clearer MP4 and select which side you were (left/right).",
     ],
     summary: matchRead,
   });
+}
+
+async function analyzeFromTemporalLog(input: {
+  gameId: string;
+  fileName?: string;
+  durationSeconds?: number;
+  fileSizeBytes?: number;
+  log: VisionEventLog & {
+    matchDynamics?: { leftStyle: string; rightStyle: string; summary: string };
+    repeatedPatterns?: Array<{
+      description: string;
+      count: number;
+      actor: string;
+      evidenceTimestamps: number[];
+    }>;
+  };
+  evidenceMode: EvidenceMode;
+  viewerSide: ViewerSide;
+  modelUsed?: string;
+  analysisLimits: string;
+}): Promise<AnalyzeResult> {
+  if (input.log.insufficientEvidence || input.log.events.length < 3) {
+    return insufficientTemporalResult({
+      log: input.log,
+      viewerSide: input.viewerSide,
+      evidenceMode: input.evidenceMode,
+      modelUsed: input.modelUsed,
+    });
+  }
+
+  const observations = buildObservationsFromTemporalLog({ log: input.log });
+  const result = await handleAnalyze({
+    gameId: input.gameId,
+    fileName: input.fileName,
+    durationSeconds: input.durationSeconds,
+    fileSizeBytes: input.fileSizeBytes,
+    observations,
+    evidenceMode: input.evidenceMode,
+    viewerSide: input.viewerSide,
+    allowFrequencyClaims:
+      allowFrequencyFromLog(input.log) ||
+      (input.log.repeatedPatterns?.length ?? 0) > 0,
+    eventLog: input.log.events,
+    analysisLimits: input.analysisLimits,
+  });
+
+  return {
+    ...result,
+    eventLog: input.log.events,
+    evidenceMode: input.evidenceMode,
+    modelUsed: input.modelUsed,
+    confidenceThreshold: VISION_CONFIDENCE_THRESHOLD,
+    viewerSide: input.viewerSide,
+  };
+}
+
+export async function handleAnalyzeVideoFile(input: {
+  gameId: string;
+  filePath: string;
+  fileName?: string;
+  durationSeconds?: number;
+  fileSizeBytes?: number;
+  mimeType?: string;
+  viewerSide?: ViewerSide;
+}): Promise<AnalyzeResult & { visionUsed: boolean }> {
+  const viewerSide = parseViewerSide(input.viewerSide);
+
+  if (!isGeminiVideoConfigured()) {
+    return {
+      ...emptyTape({
+        matchRead:
+          "Temporal video analysis requires GEMINI_API_KEY. Without it, Metabuffed cannot watch the uploaded fight video.",
+        metaAdjustment: [
+          "Add GEMINI_API_KEY on the API server, then re-upload the MP4.",
+        ],
+        evidenceMode: "none",
+        viewerSide,
+        analysisLimits:
+          "Video file received but Gemini is not configured. No temporal analysis ran.",
+      }),
+      visionUsed: false,
+    };
+  }
+
+  try {
+    const log = await extractEventLogFromVideo({
+      gameId: input.gameId,
+      filePath: input.filePath,
+      mimeType: input.mimeType,
+      durationSeconds: input.durationSeconds,
+      viewerSide,
+    });
+
+    const result = await analyzeFromTemporalLog({
+      gameId: input.gameId,
+      fileName: input.fileName,
+      durationSeconds: input.durationSeconds,
+      fileSizeBytes: input.fileSizeBytes,
+      log,
+      evidenceMode: "video",
+      viewerSide,
+      modelUsed: log.modelUsed,
+      analysisLimits: `Temporal video analysis via Gemini (${log.modelUsed ?? "gemini"}). Full gameplay video watched — not still screenshots. Events kept at confidence ≥ ${VISION_CONFIDENCE_THRESHOLD}. Coaching may only restate verified events.`,
+    });
+
+    return { ...result, visionUsed: log.events.length > 0 };
+  } catch (err) {
+    return {
+      ...emptyTape({
+        matchRead: `Temporal video analysis failed: ${err instanceof Error ? err.message : "unknown error"}. Upload again or check GEMINI_API_KEY / model access.`,
+        evidenceMode: "none",
+        viewerSide,
+        analysisLimits: "Gemini temporal video call failed.",
+        metaAdjustment: [
+          "Confirm GEMINI_API_KEY and GEMINI_VIDEO_MODEL (default gemini-2.5-flash).",
+        ],
+      }),
+      visionUsed: false,
+    };
+  }
 }
 
 export async function handleAnalyzeFrames(input: {
@@ -188,6 +358,22 @@ export async function handleAnalyzeFrames(input: {
   viewerSide?: ViewerSide;
 }): Promise<AnalyzeResult & { framesAnalyzed: number; visionUsed: boolean }> {
   const viewerSide = parseViewerSide(input.viewerSide);
+
+  if (isGeminiVideoConfigured()) {
+    const result = emptyTape({
+      matchRead:
+        "This request used still-frame sampling. Temporal video analysis is available — re-upload the MP4 on the File tab so Gemini can watch the full fight.",
+      metaAdjustment: [
+        "Use Begin Analysis with the full video file (not frame-only fallback).",
+      ],
+      evidenceMode: "frames",
+      viewerSide,
+      analysisLimits:
+        "Still-frame path used while Gemini temporal video is configured. Prefer full-video upload.",
+    });
+    return { ...result, framesAnalyzed: input.frames.length, visionUsed: false };
+  }
+
   let log: VisionEventLog;
   try {
     log = await extractEventLogFromFrames({
@@ -206,53 +392,21 @@ export async function handleAnalyzeFrames(input: {
     };
   }
 
-  if (log.insufficientEvidence || log.events.length < 2) {
-    const result = insufficientFrameResult({ log, viewerSide, fileName: input.fileName });
-    return {
-      ...result,
-      framesAnalyzed: input.frames.length,
-      visionUsed: log.events.length > 0,
-    };
-  }
-
-  const observations = formatEventLogLines(log);
-  if (log.leftAppearance) {
-    observations.unshift(`Appearance — Player on the left: ${log.leftAppearance}`);
-  }
-  if (log.rightAppearance) {
-    observations.unshift(`Appearance — Player on the right: ${log.rightAppearance}`);
-  }
-
-  const actionCounts = new Map<string, number>();
-  for (const event of log.events) {
-    const key = `${event.actor}:${event.action}`;
-    actionCounts.set(key, (actionCounts.get(key) ?? 0) + 1);
-  }
-  const allowFrequencyClaims = [...actionCounts.values()].some(
-    (count) => count >= MIN_EVENTS_FOR_PATTERN,
-  );
-
-  const result = await handleAnalyze({
+  const result = await analyzeFromTemporalLog({
     gameId: input.gameId,
     fileName: input.fileName,
     durationSeconds: input.durationSeconds,
     fileSizeBytes: input.fileSizeBytes,
-    observations,
+    log,
     evidenceMode: "frames",
     viewerSide,
-    allowFrequencyClaims,
-    eventLog: log.events,
-    analysisLimits: `Still-frame inspection only (${log.framesInspected} frames, not full video). Events kept at confidence ≥ ${VISION_CONFIDENCE_THRESHOLD}. LLM may not add events. Frequency language only if an action appears ${MIN_EVENTS_FOR_PATTERN}+ times.`,
+    analysisLimits: `Fallback still-frame inspection only (${input.frames.length} frames). Set GEMINI_API_KEY for full temporal video analysis.`,
   });
 
   return {
     ...result,
-    eventLog: log.events,
-    evidenceMode: "frames",
     framesAnalyzed: input.frames.length,
-    visionUsed: true,
-    confidenceThreshold: VISION_CONFIDENCE_THRESHOLD,
-    viewerSide,
+    visionUsed: log.events.length > 0,
   };
 }
 
@@ -269,6 +423,38 @@ export async function handleAnalyzeLink(input: {
   }
 > {
   const metadata = await resolveVideoLink(input.url);
+  const viewerSide = parseViewerSide(input.viewerSide);
+
+  if (metadata.platform === "youtube" && isGeminiVideoConfigured()) {
+    try {
+      const log = await extractEventLogFromVideo({
+        gameId: input.gameId,
+        youtubeUrl: metadata.canonicalUrl,
+        viewerSide,
+      });
+
+      const result = await analyzeFromTemporalLog({
+        gameId: input.gameId,
+        fileName: metadata.title ?? `youtube-${metadata.id}`,
+        log,
+        evidenceMode: "youtube",
+        viewerSide,
+        modelUsed: log.modelUsed,
+        analysisLimits: `Temporal YouTube video analysis via Gemini (${log.modelUsed ?? "gemini"}). Gemini watches the public YouTube video temporally. Events kept at confidence ≥ ${VISION_CONFIDENCE_THRESHOLD}.`,
+      });
+
+      return {
+        ...result,
+        sourceUrl: metadata.canonicalUrl,
+        sourcePlatform: metadata.platform,
+        sourceTitle: metadata.title,
+        visionUsed: log.events.length > 0,
+      };
+    } catch {
+      // fall through
+    }
+  }
+
   const result = linkInsufficientResult({
     platform: metadata.platform,
     title: metadata.title,
@@ -277,7 +463,7 @@ export async function handleAnalyzeLink(input: {
 
   return {
     ...result,
-    viewerSide: parseViewerSide(input.viewerSide),
+    viewerSide,
     sourceUrl: metadata.canonicalUrl,
     sourcePlatform: metadata.platform,
     sourceTitle: metadata.title,
@@ -307,12 +493,12 @@ export async function handleAnalyze(input: {
   const viewerSide = parseViewerSide(input.viewerSide);
   const observations = input.observations ?? [];
 
-  if (evidenceMode !== "frames" || observations.length === 0) {
+  if (!isTemporalMode(evidenceMode) || observations.length === 0) {
     return emptyTape({
       matchRead:
         "No verified gameplay events. Metabuffed will not invent Fight Night analysis from a filename, duration, or thumbnail.",
       metaAdjustment: [
-        "Upload an MP4 on the File tab so still frames can be inspected.",
+        "Upload an MP4 so Gemini can watch the fight temporally.",
       ],
       evidenceMode,
       viewerSide,
@@ -348,16 +534,16 @@ export async function handleAnalyze(input: {
       confidenceThreshold: VISION_CONFIDENCE_THRESHOLD,
       viewerSide,
       clipEvidence:
-        parsed.clipEvidence.length > 0 ? parsed.clipEvidence : observations.slice(0, 8),
+        parsed.clipEvidence.length > 0 ? parsed.clipEvidence : observations.slice(0, 12),
     };
   }
 
   return emptyTape({
     matchRead:
-      "Verified still-frame events were captured, but OPENAI_API_KEY is not set so coaching text was not generated. Event log is shown as Clip Evidence.",
-    clipEvidence: observations.slice(0, 8),
+      "Verified gameplay events were captured, but no coaching LLM key is set. Event log is shown as Clip Evidence.",
+    clipEvidence: observations.slice(0, 12),
     eventLog: input.eventLog ?? [],
-    evidenceMode: "frames",
+    evidenceMode,
     viewerSide,
     analysisLimits: input.analysisLimits,
     conceptsUsed: retrieved.matchedConceptIds,

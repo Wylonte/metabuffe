@@ -22,10 +22,11 @@ export interface AnalyzeResult {
   strengths?: string[];
   weaknesses?: string[];
   eventLog?: GameplayEvent[];
-  evidenceMode?: "frames" | "thumbnail" | "none";
+  evidenceMode?: "video" | "youtube" | "frames" | "thumbnail" | "none";
   analysisLimits?: string;
   confidenceThreshold?: number;
   viewerSide?: "left" | "right" | "unknown";
+  modelUsed?: string;
   uploadId?: string;
   fileName?: string;
   fileSizeBytes?: number;
@@ -78,6 +79,7 @@ export function uploadGameplayVideo(input: {
   gameId: string;
   file: File;
   durationSeconds?: number;
+  viewerSide?: "left" | "right" | "unknown";
   onProgress?: (percent: number) => void;
 }): Promise<AnalyzeResult> {
   return new Promise((resolve, reject) => {
@@ -88,6 +90,9 @@ export function uploadGameplayVideo(input: {
     form.append("video", input.file);
     if (input.durationSeconds != null) {
       form.append("durationSeconds", String(input.durationSeconds));
+    }
+    if (input.viewerSide) {
+      form.append("viewerSide", input.viewerSide);
     }
 
     xhr.upload.onprogress = (event) => {

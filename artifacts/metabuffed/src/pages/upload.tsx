@@ -6,13 +6,11 @@ import { Upload, FileVideo, CheckCircle2, Lock, Loader2, ChevronRight, Link2 } f
 import { Input } from "@/components/ui/input";
 import { listGamesForUpload } from "@/lib/games";
 import {
-  analyzeGameplayFrames,
   analyzeGameplayLink,
   readVideoDuration,
   uploadGameplayVideo,
   type AnalyzeResult,
 } from "@/lib/analyze-client";
-import { extractVideoFrames } from "@/lib/video-frames";
 import { isSupportedVideoLink } from "@/lib/video-link";
 
 const GAMES = listGamesForUpload();
@@ -20,17 +18,17 @@ const MAX_UPLOAD_MB = 100;
 
 const FILE_PROCESSING_STEPS = [
   "Upload received",
-  "Sampling still frames (not watching the full video)",
-  "Extracting high-confidence events only",
-  "Dropping guesses below confidence 0.70",
-  "Writing tape from the event log only",
+  "Sending full gameplay video to temporal analyzer",
+  "Gemini watching both fighters over time",
+  "Building verified event log",
+  "Writing tape note from events only",
 ];
 
 const LINK_PROCESSING_STEPS = [
   "Link received",
-  "Fetching title and thumbnail only",
-  "Checking for actual gameplay video",
-  "Gameplay video not available from a link",
+  "Checking YouTube temporal access",
+  "Gemini watching the public video when available",
+  "Building verified event log or refusing if unavailable",
 ];
 
 type InputMode = "file" | "link";
@@ -103,38 +101,19 @@ export default function UploadPage() {
 
     try {
       const durationSeconds = await readVideoDuration(file);
-      setUploadProgress(15);
-
-      let frames: Awaited<ReturnType<typeof extractVideoFrames>> = [];
-      try {
-        frames = await extractVideoFrames(file);
-      } catch {
-        frames = [];
-      }
-      setUploadProgress(45);
+      setUploadProgress(20);
       setUploadState("processing");
       startProcessingAnimation();
 
-      let result: AnalyzeResult;
-      if (frames.length > 0) {
-        result = await analyzeGameplayFrames({
-          gameId: selectedGame,
-          fileName: file.name,
-          durationSeconds,
-          fileSizeBytes: file.size,
-          viewerSide,
-          frames,
-        });
-      } else {
-        result = await uploadGameplayVideo({
-          gameId: selectedGame,
-          file,
-          durationSeconds,
-          onProgress: (percent) => {
-            setUploadProgress(45 + percent * 0.55);
-          },
-        });
-      }
+      const result = await uploadGameplayVideo({
+        gameId: selectedGame,
+        file,
+        durationSeconds,
+        viewerSide,
+        onProgress: (percent) => {
+          setUploadProgress(20 + percent * 0.75);
+        },
+      });
 
       clearProcessInterval();
       setProcessStep(processingSteps.length);
@@ -215,7 +194,7 @@ export default function UploadPage() {
           <p className="text-xs font-mono text-primary uppercase tracking-[0.3em] mb-3 font-bold">Metabuffed Analysis</p>
           <h1 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tighter">Upload Your Match</h1>
           <p className="text-sm text-zinc-500 mt-3 max-w-2xl">
-            Console players: upload an MP4 from Share Factory / Xbox Game DVR. YouTube and Twitch links cannot watch the fight — they only return a thumbnail, so we will not invent a breakdown from them.
+            Console players: upload an MP4 from Share Factory / Xbox Game DVR. Metabuffed watches the full gameplay video temporally (Gemini). YouTube public links work when Gemini is configured; Twitch still needs an MP4 export.
           </p>
         </div>
 
@@ -395,8 +374,8 @@ export default function UploadPage() {
                 </div>
                 ) : (
                 <div className="relative flex flex-col gap-5 w-full rounded-2xl bg-zinc-950 border-2 border-dashed border-zinc-800 p-8" data-testid="link-zone">
-                  <div className="rounded-xl border border-yellow-500/30 bg-yellow-500/10 px-4 py-3 text-xs text-yellow-100 leading-relaxed">
-                    YouTube / Twitch links do not include the actual video. We only get a title and thumbnail, so we will not generate a fake fight breakdown. Upload the MP4 for still-frame event analysis.
+                  <div className="rounded-xl border border-primary/30 bg-primary/10 px-4 py-3 text-xs text-zinc-200 leading-relaxed">
+                    YouTube: Gemini can watch public videos temporally when <span className="font-mono text-primary">GEMINI_API_KEY</span> is set. Twitch still needs an MP4 export. Prefer File upload for the most reliable fight analysis.
                   </div>
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 bg-primary/10 border border-primary/30 rounded-xl flex items-center justify-center">
@@ -594,7 +573,11 @@ export default function UploadPage() {
                       <div className="flex items-center gap-2 text-primary">
                         <CheckCircle2 className="w-4 h-4" />
                         <span className="text-[10px] font-bold uppercase tracking-widest">
-                          {analysis?.evidenceMode === "thumbnail" ? "Link checked — no video" : "Tape note ready"}
+                          {analysis?.evidenceMode === "thumbnail" || analysis?.evidenceMode === "none"
+                            ? "Link checked — no temporal video"
+                            : analysis?.evidenceMode === "video" || analysis?.evidenceMode === "youtube"
+                            ? "Temporal tape note ready"
+                            : "Tape note ready"}
                         </span>
                       </div>
 
@@ -707,11 +690,13 @@ export default function UploadPage() {
                           </div>
                         )}
                         <p className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest text-center break-words">
-                          {analysis?.evidenceMode === "thumbnail"
+                          {analysis?.evidenceMode === "thumbnail" || analysis?.evidenceMode === "none"
                             ? "No gameplay video was processed"
+                            : analysis?.evidenceMode === "video" || analysis?.evidenceMode === "youtube"
+                            ? `Temporal video · ${analysis.modelUsed ?? "Gemini"} · confidence ≥ ${analysis.confidenceThreshold ?? 0.7}`
                             : analysis?.framesAnalyzed
-                            ? `${analysis.framesAnalyzed} still frames · confidence ≥ ${analysis.confidenceThreshold ?? 0.7}`
-                            : "Still-frame analysis only — not full video"}
+                            ? `${analysis.framesAnalyzed} still frames fallback · confidence ≥ ${analysis.confidenceThreshold ?? 0.7}`
+                            : "Analysis complete"}
                         </p>
                       </div>
 

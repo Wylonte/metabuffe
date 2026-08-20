@@ -92,7 +92,7 @@ export function buildAnalysisPrompt(input: {
   gameId: string;
   retrieved: CoachPromptInput["retrieved"];
   observations: string[];
-  evidenceMode?: "frames" | "thumbnail" | "none";
+  evidenceMode?: "video" | "youtube" | "frames" | "thumbnail" | "none";
   viewerSide?: "left" | "right" | "unknown";
   allowFrequencyClaims?: boolean;
 }): CoachPrompt {
@@ -108,13 +108,16 @@ export function buildAnalysisPrompt(input: {
     .join("\n");
   const viewerSide = input.viewerSide ?? "unknown";
   const evidenceMode = input.evidenceMode ?? "frames";
+  const temporal = evidenceMode === "video" || evidenceMode === "youtube";
 
   const system = [
     `You are Metabuffed writing a tape note from a VERIFIED EVENT LOG for ${game.manifest.name}.`,
-    "You did not watch the video. You may only restate events listed below.",
+    temporal
+      ? "The event log was produced by temporal video analysis (Gemini watched the gameplay). You may only restate those events."
+      : "You may only restate events listed below. Do not invent gameplay.",
     "",
     `Evidence mode: ${evidenceMode}.`,
-    evidenceMode !== "frames"
+    evidenceMode === "thumbnail" || evidenceMode === "none"
       ? "Evidence is NOT gameplay video. Do not describe a fight. Say we could not verify events."
       : "",
     "",
@@ -123,9 +126,9 @@ export function buildAnalysisPrompt(input: {
     "- If the log does not contain it, the section must say: Not enough verified events.",
     "- Do not invent punches, movement, styles, stamina, scoring, or missed punishes.",
     "- Do not reverse who was pressing or who was moving in and out.",
-    "- Do not use frequently / repeatedly / tendency / abusing / mixing unless the log has 3+ matching events.",
+    "- Do not use frequently / repeatedly / tendency / abusing / mixing unless the log has 3+ matching events or an explicit Repeated pattern line.",
     input.allowFrequencyClaims
-      ? "- Frequency words are allowed only for actions that appear 3+ times in the log."
+      ? "- Frequency words are allowed only for actions that appear 3+ times in the log or listed repeated patterns."
       : "- Frequency words are BANNED for this clip (not enough repeated events).",
     viewerSide === "unknown"
       ? "- Viewer side unknown: never say you/your. Use Player on the left / Player on the right only."
