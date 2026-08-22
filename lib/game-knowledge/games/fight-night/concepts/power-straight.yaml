@@ -5,27 +5,32 @@ aliases:
   - powered straight
 category: mechanic
 definition: >-
-  Classification: Established Community. Central offensive weapon in competitive
-  FNC. Not merely a "strong straight" — analyze setup, timing, counter timing,
-  opponent recovery, entry timing, scoring value, frequency, and predictability.
+  Central offensive meta weapon. Value comes from impact, interruption, scoring,
+  counter potential, entry punishment, and recovery punishment — not merely "a hard
+  straight." Best when engineered during commitment windows.
 whyItWorks: >-
   Power-modified straights create high-impact scoring moments, especially through
-  recovery windows and after defensive reads.
+  recovery windows and after defensive reads / Money Team free offense.
 whenEffective:
   - Opponent recovery after combo overcommitment
   - After block refresh / release becomes readable
   - Countering linear pressure entries
+  - Late-round steal windows
 counters:
   - name: Sidestep off line
     explanation: Break centerline tracking before the straight lands
   - name: Do not overextend punch three
     explanation: Avoid creating the recovery window the power straight punishes
 overuseSignals:
-  - Repeated power straights with no setup or read (becomes readable)
+  - Repeated power straights with no setup or read (power punch waste / mindless spam)
   - Naming power straight when only a normal straight is visible
 related:
+  - power-straight-engineering
   - recovery-punish
   - push-straight
   - money-team-block
+  - commitment-window
+  - impact-moment
+  - controlled-cheese
 communityTerms:
   - power straight

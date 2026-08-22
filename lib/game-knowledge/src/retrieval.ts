@@ -56,7 +56,7 @@ export class KeywordRetriever implements Retriever {
     query: string,
     options: RetrievalOptions = {},
   ): RetrievalResult {
-    const limit = options.limit ?? 6;
+    const limit = options.limit ?? 8;
     const includeRelated = options.includeRelated ?? true;
     const game = getGameBundle(gameId);
     if (!game) {
@@ -70,16 +70,24 @@ export class KeywordRetriever implements Retriever {
     for (const [term, conceptId] of Object.entries(game.terminology)) {
       const normTerm = normalize(term);
       const normQuery = normalize(query);
-      if (normQuery.includes(normTerm) || tokens.includes(normTerm.replace(/\s+/g, ""))) {
+      if (
+        normQuery.includes(normTerm) ||
+        tokens.includes(normTerm.replace(/\s+/g, ""))
+      ) {
         terminologyHits.push(term);
-        terminologyBoost.set(conceptId, (terminologyBoost.get(conceptId) ?? 0) + 12);
+        terminologyBoost.set(
+          conceptId,
+          (terminologyBoost.get(conceptId) ?? 0) + 12,
+        );
       }
     }
 
     const scored = game.concepts
       .map((concept) => ({
         concept,
-        score: scoreConcept(concept, query, tokens) + (terminologyBoost.get(concept.id) ?? 0),
+        score:
+          scoreConcept(concept, query, tokens) +
+          (terminologyBoost.get(concept.id) ?? 0),
       }))
       .filter((entry) => entry.score > 0)
       .sort((a, b) => b.score - a.score);
@@ -90,16 +98,17 @@ export class KeywordRetriever implements Retriever {
     }
 
     if (includeRelated) {
+      const relatedCap = limit + 4;
       for (const concept of [...selected.values()]) {
         for (const relatedId of concept.related) {
-          if (selected.size >= limit + 2) break;
+          if (selected.size >= relatedCap) break;
           const related = game.concepts.find((c) => c.id === relatedId);
           if (related) selected.set(related.id, related);
         }
       }
     }
 
-    const concepts = [...selected.values()].slice(0, limit + 2);
+    const concepts = [...selected.values()].slice(0, limit + 4);
 
     return {
       gameId,

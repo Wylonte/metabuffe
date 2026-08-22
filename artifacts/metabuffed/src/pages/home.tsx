@@ -141,7 +141,7 @@ export default function Home() {
                 </h1>
 
                 <p className="text-xl text-zinc-400 mb-10 leading-relaxed max-w-lg font-medium">
-                  Ask the Coach for Fight Night and UFC 6 meta advice, or upload a clip for an evidence-first tape breakdown.
+                  Ask the Coach anything about Fight Night and UFC 6 — suggested questions or freeform. Match upload is locked for now and returns later.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-5">
@@ -159,7 +159,7 @@ export default function Home() {
                     data-testid="btn-hero-upload"
                     onClick={() => setLocation('/upload')}
                   >
-                    Upload Match
+                    Upload Match · Locked
                   </Button>
                 </div>
               </motion.div>
@@ -548,7 +548,7 @@ export default function Home() {
                   Ask the Coach
                 </Button>
                 <Button size="lg" className="bg-transparent border border-white/25 hover:border-white/50 hover:bg-white/[0.07] text-white font-bold text-sm h-16 px-12 uppercase tracking-widest rounded-[11px] transition-all duration-200 backdrop-blur-sm" onClick={() => setLocation('/upload')}>
-                  Upload Match
+                  Upload Match · Locked
                 </Button>
               </div>
 
@@ -581,7 +581,7 @@ export default function Home() {
                 <img src={logoImg} alt="Metabuffed" className="h-[88px] w-auto" />
               </div>
               <p className="text-sm text-zinc-500 leading-relaxed mb-6">
-                AI-powered competitive coaching for console fighters. Ask the Coach, upload a clip, improve.
+                AI-powered competitive coaching for console fighters. Ask the Coach anything — freeform or suggested. Match upload returns later.
               </p>
               <div className="flex items-center gap-4">
                 <a href="https://twitter.com/Metabuffed" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all" data-testid="link-twitter">
@@ -603,8 +603,17 @@ export default function Home() {
             <div>
               <h4 className="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-5 font-bold">Platform</h4>
               <ul className="space-y-3">
-                {["Upload Gameplay", "AI Meta Breakdown", "Ask the Coach", "Coaching Feedback"].map(item => (
-                  <li key={item}><a href="#" className="text-sm text-zinc-400 hover:text-white transition-colors">{item}</a></li>
+                {[
+                  { label: "Ask the Coach", href: "/coach" },
+                  { label: "Suggested Questions", href: "/coach" },
+                  { label: "Upload Match (Locked)", href: "/upload" },
+                  { label: "Coaching Feedback", href: "/coach" },
+                ].map((item) => (
+                  <li key={item.label}>
+                    <a href={item.href} className="text-sm text-zinc-400 hover:text-white transition-colors">
+                      {item.label}
+                    </a>
+                  </li>
                 ))}
                 <li><a href="/ebooks" className="text-sm text-zinc-400 hover:text-white transition-colors">Ebooks</a></li>
               </ul>

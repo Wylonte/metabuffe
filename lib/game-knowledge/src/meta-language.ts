@@ -16,13 +16,6 @@ export const FNC_BANNED_GENERIC_PHRASES = [
   "counterpunching",
 ] as const;
 
-/** Invented formal labels — never output as named mechanics. */
-export const FNC_FORBIDDEN_INVENTED_LABELS = [
-  "static block",
-  "controlled cheese",
-  "rhythm read",
-] as const;
-
 export const TAPE_SECTION_KEYS = [
   "matchRead",
   "whatYouWereAbusing",
@@ -55,6 +48,11 @@ export function getAnalysisLanguageGuide(gameId: string): string | undefined {
   return bundle?.analysisLanguage;
 }
 
+export function getCoachReasoningGuide(gameId: string): string | undefined {
+  const game = getGameBundle(gameId);
+  return game?.coachReasoning;
+}
+
 export function getVisionObservationInstructions(gameId: string): string {
   if (gameId === "fight-night") {
     return [
@@ -65,8 +63,7 @@ export function getVisionObservationInstructions(gameId: string): string {
       "If punch type is not obvious from pose, use punch_unspecified.",
       "If you cannot see whether it landed, missed, or was blocked, result = unknown.",
       "Actor must be left or right from THIS frame's screen position. If you cannot tell, actor = unknown.",
-      "Never output FNC meta terms (Money Team, sidestep uppercut, push straight, pull counter) unless that exact sequence is visible in the same still.",
-      "Forbidden invented labels: Static Block, Controlled Cheese, Rhythm Read.",
+      "Never output FNC meta terms (Money Team, Static Block, Controlled Cheese, Rhythm Read, sidestep uppercut, push straight) unless that exact sequence is visible in the same still.",
       "Do not invent timestamps. Do not pad events to look complete.",
     ].join("\n");
   }

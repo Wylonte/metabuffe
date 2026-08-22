@@ -74,17 +74,18 @@ describe("prompt builder", () => {
 
   it("loads fight-night manifest voice", () => {
     const game = getGameBundle("fight-night");
-    assert.ok(game?.manifest.voice.persona.includes("FNC"));
+    assert.ok(game?.manifest.voice.persona.includes("FNC") || game?.manifest.voice.persona.includes("Fight Night"));
     assert.ok(game?.manifest.voice.avoid.some((a) => a.includes("high guard")));
-    assert.ok(game?.manifest.voice.avoid.some((a) => a.toLowerCase().includes("static block")));
+    assert.ok(game?.manifest.voice.emphasize.some((a) => a.toLowerCase().includes("money team")));
   });
 
   it("includes FNC analysis language guide", () => {
-    const game = getGameBundle("fight-night") as { analysisLanguage?: string };
+    const game = getGameBundle("fight-night") as { analysisLanguage?: string; coachReasoning?: string };
     assert.ok(game?.analysisLanguage?.includes("Money Team"));
     assert.ok(game?.analysisLanguage?.includes("ACCURACY"));
     assert.ok(game?.analysisLanguage?.includes("Player on the left"));
-    assert.ok(game?.analysisLanguage?.includes("FORBIDDEN INVENTED LABELS"));
+    assert.ok(game?.analysisLanguage?.includes("Static Block"));
+    assert.ok(game?.coachReasoning?.includes("Master"));
   });
 
   it("maps recovery window terminology", () => {
@@ -105,11 +106,55 @@ describe("prompt builder", () => {
     assert.ok(result.matchedConceptIds.includes("straight-line-retreat"));
   });
 
-  it("does not treat Static Block as an established concept id", () => {
+  it("loads Master Spec terms as established concepts", () => {
     const game = getGameBundle("fight-night");
-    assert.ok(!game?.concepts.some((c) => c.id === "static-block"));
-    assert.ok(!game?.concepts.some((c) => c.id === "controlled-cheese"));
-    assert.ok(!game?.concepts.some((c) => c.id === "rhythm-read"));
+    assert.ok(game?.concepts.some((c) => c.id === "static-block"));
+    assert.ok(game?.concepts.some((c) => c.id === "controlled-cheese"));
+    assert.ok(game?.concepts.some((c) => c.id === "rhythm-read"));
+    assert.ok(game?.concepts.some((c) => c.id === "stamina-collapse"));
+    assert.ok(game?.concepts.some((c) => c.id === "low-power-disadvantage"));
+    assert.ok((game?.concepts.length ?? 0) >= 100);
+  });
+
+  it("chains freeform stamina collapse questions", () => {
+    const result = retrieve(
+      "fight-night",
+      "why does my boxer feel good for three rounds then fall apart",
+    );
+    const ids = result.matchedConceptIds;
+    assert.ok(
+      ids.includes("stamina-collapse") ||
+        ids.includes("stamina-fraud") ||
+        ids.includes("combination-waste") ||
+        ids.includes("stamina-management"),
+    );
+  });
+
+  it("chains power-guy vs speed-boxer matchup questions", () => {
+    const result = retrieve(
+      "fight-night",
+      "why can I beat people with Ali but get cooked when they use a power guy",
+    );
+    const ids = result.matchedConceptIds;
+    assert.ok(
+      ids.includes("low-power-disadvantage") ||
+        ids.includes("heavy-impact-fighter") ||
+        ids.includes("speed-based-fighter") ||
+        ids.includes("speed-trap") ||
+        ids.includes("h2h-meta"),
+    );
+  });
+
+  it("includes freeform reasoning coach instructions", () => {
+    const retrieved = retrieve("fight-night", "he keeps entering straight and uppercutting me");
+    const prompt = buildCoachPrompt({
+      gameId: "fight-night",
+      userMessage: "he keeps entering straight and uppercutting me",
+      retrieved,
+    });
+    assert.ok(prompt.system.includes("NOT a basic FAQ"));
+    assert.ok(prompt.system.includes("living FNC brain") || prompt.system.includes("REASON") || prompt.system.includes("Master Spec"));
+    assert.ok(prompt.system.includes("Every answer should try to identify") || prompt.system.includes("coach reasoning"));
   });
 
   it("builds evidence-first analysis prompt with tape sections", () => {

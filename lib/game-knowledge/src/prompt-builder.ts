@@ -1,6 +1,7 @@
 import { requireGameBundle } from "./registry.js";
 import {
   getAnalysisLanguageGuide,
+  getCoachReasoningGuide,
   TAPE_SECTION_HEADERS,
 } from "./meta-language.js";
 import type { CoachPrompt, CoachPromptInput, GameConcept } from "./types.js";
@@ -36,6 +37,12 @@ function buildMetaLanguageSection(gameId: string): string {
   return ["## FNC analysis language system (mandatory)", guide].join("\n\n");
 }
 
+function buildCoachReasoningSection(gameId: string): string {
+  const guide = getCoachReasoningGuide(gameId);
+  if (!guide) return "";
+  return ["## Master Spec coach reasoning (mandatory)", guide].join("\n\n");
+}
+
 export function buildCoachPrompt(input: CoachPromptInput): CoachPrompt {
   const game = requireGameBundle(input.gameId);
   const voice = game.manifest.voice;
@@ -43,30 +50,38 @@ export function buildCoachPrompt(input: CoachPromptInput): CoachPrompt {
   const conceptBlock =
     input.retrieved.concepts.length > 0
       ? input.retrieved.concepts.map(formatConcept).join("\n\n")
-      : "No specific concepts matched. Use the game meta overview. If you cannot name the exact FNC mechanic, say so — do not invent one or use generic boxing language.";
+      : "No exact concept match. Reason from the meta overview, coach reasoning rules, and related knowledge. Do not invent mechanics that are not in the knowledge base.";
 
   const system = [
     `You are Metabuffed Coach for ${game.manifest.name}.`,
     `Persona: ${voice.persona}`,
     "",
+    "This is NOT a basic FAQ bot — it is a living FNC brain.",
+    "Users ask in their own words, including situations never written as canned questions.",
+    "Chain related concepts: e.g. late-round collapse may connect stamina waste → combination waste → power-punch waste → body damage → stamina fraud → collapse.",
+    "Combine multiple retrieved concepts when the question spans several ideas.",
+    "",
     "Grounding rules:",
     "- Answer ONLY using the game knowledge below and conversation context.",
-    "- Sound like a top-ranked FNC community player, NOT a real-world boxing coach.",
-    "- Accuracy before terminology. Never force a mechanic name without evidence from the user or footage context.",
-    "- When discussing footage, label fighters as Player on the left / Player on the right.",
-    "- NEVER use forbidden invented labels: Static Block, Controlled Cheese, Rhythm Read (as a formal mechanic).",
-    "- NEVER use banned generic boxing language as primary analysis.",
-    '- If unsure: "I can\'t confidently identify the exact mechanic from this sequence."',
+    "- Sound like a top-ranked competitive FNC community player — not a real-world boxing trainer.",
+    "- Accuracy before terminology. Prefer precise FNC terms from the knowledge when they fit.",
+    "- Established Master Spec terms include Static Block, Controlled Cheese, and Rhythm Read — use them when the situation matches; do not force them.",
+    "- NEVER use banned generic boxing language as primary analysis for Fight Night.",
+    '- Prefer specific language over "use feints" — timing pause, false entry, bait, reaction bait, rhythm break.',
+    '- Never say "overcommitment" alone — specify what they overcommitted to.',
+    '- If the knowledge does not cover it: reason from related meta and ask a clarifying question — do not invent exploits.',
     `- Avoid: ${voice.avoid.join("; ")}`,
     `- Emphasize: ${voice.emphasize.join("; ")}`,
     `- Structure: ${voice.responseStructure.join(" → ")}`,
+    "",
+    buildCoachReasoningSection(input.gameId),
     "",
     buildMetaLanguageSection(input.gameId),
     "",
     "## Game meta overview",
     input.retrieved.metaOverview,
     "",
-    "## Retrieved concepts (REFERENCE ONLY — use definitions only when the situation matches)",
+    "## Retrieved concepts (use these to reason — follow Related links mentally)",
     conceptBlock,
     "",
     input.retrieved.terminologyHits.length
@@ -134,8 +149,7 @@ export function buildAnalysisPrompt(input: {
       ? "- Viewer side unknown: never say you/your. Use Player on the left / Player on the right only."
       : `- The uploader is Player on the ${viewerSide}. "You" means that side only.`,
     "",
-    "FORBIDDEN invented labels: Static Block, Controlled Cheese, Rhythm Read.",
-    "Do NOT mention Money Team, sidestep uppercut, push straight, pull counter unless an event action matches that sequence.",
+    "Only apply FNC terms (Money Team, Static Block, Controlled Cheese, Rhythm Read, sidestep uppercut, etc.) when the event log supports that exact pattern.",
     "",
     "Do NOT use Strengths / Weaknesses / Coach Advice sections.",
     "Empty sections are better than guessed sections.",

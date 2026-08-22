@@ -6,10 +6,9 @@ aliases:
   - timed mechanic
 category: strategy
 definition: >-
-  Classification: Descriptive Only (do NOT call this "Controlled Cheese"). Deliberate
-  use of a strong FNC mechanic after a clear read — timed power straight, sidestep
-  uppercut on linear entry, Money Team defense into counter. Different from blind spam.
-  Describe what was used and why the read existed.
+  Deliberate use of a strong FNC mechanic after a clear read — timed power straight,
+  sidestep uppercut on linear entry, Money Team defense into counter. Master Spec
+  preferred term when this fits: Controlled Cheese. Different from mindless spam.
 whyItWorks: >-
   High-impact FNC mechanics win rounds when timed to opponent commitment, not when
   repeated without a trigger.
@@ -19,10 +18,13 @@ counters:
   - name: Stop feeding the read
     explanation: Change the trigger pattern they are waiting for
 overuseSignals:
-  - Same mechanic with no remaining read — that is spam, not a read-based use
+  - Same mechanic with no remaining read — that is mindless spam, not a read-based use
 related:
+  - controlled-cheese
   - sidestep-uppercut
   - power-straight
   - money-team-block
+  - mindless-spam
 communityTerms:
-  - cheese (informal community slang — use carefully and only when describing spam/exploit discussion)
+  - Controlled Cheese
+  - cheese on a read

@@ -279,14 +279,14 @@ export default function AboutPage() {
               Every competitive player deserves to know what they're doing wrong and how to fix it. That's not a privilege for the few with access to real coaches. That's a right for anyone willing to improve.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/upload">
-                <Button size="lg" className="bg-[#3B82F6] hover:bg-[#2563EB] text-white font-bold border-0 text-sm h-14 px-12 uppercase tracking-widest w-full sm:w-auto rounded-[11px] shadow-[0_0_18px_rgba(59,130,246,0.45)] hover:shadow-[0_0_28px_rgba(59,130,246,0.65)] transition-all duration-200" data-testid="btn-about-upload">
-                  Upload Your First Match
+              <Link href="/coach">
+                <Button size="lg" className="bg-[#3B82F6] hover:bg-[#2563EB] text-white font-bold border-0 text-sm h-14 px-12 uppercase tracking-widest w-full sm:w-auto rounded-[11px] shadow-[0_0_18px_rgba(59,130,246,0.45)] hover:shadow-[0_0_28px_rgba(59,130,246,0.65)] transition-all duration-200" data-testid="btn-about-coach">
+                  Ask the Coach
                 </Button>
               </Link>
-              <Link href="/coach">
-                <Button size="lg" className="bg-transparent border border-white/25 hover:border-white/50 hover:bg-white/[0.07] text-white font-bold text-sm h-14 px-12 uppercase tracking-widest w-full sm:w-auto rounded-[11px] transition-all duration-200 backdrop-blur-sm" data-testid="btn-about-coach">
-                  Talk to Coach Meta
+              <Link href="/upload">
+                <Button size="lg" className="bg-transparent border border-white/25 hover:border-white/50 hover:bg-white/[0.07] text-white font-bold text-sm h-14 px-12 uppercase tracking-widest w-full sm:w-auto rounded-[11px] transition-all duration-200 backdrop-blur-sm" data-testid="btn-about-upload">
+                  Upload Match · Locked
                 </Button>
               </Link>
             </div>

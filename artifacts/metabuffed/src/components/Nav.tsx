@@ -18,8 +18,11 @@ export function Nav() {
         <div className="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-400">
           <Link href="/" className={`${location === "/" ? "text-white" : "hover:text-white"} transition-colors`}>Home</Link>
           <Link href="/about" className={`${location === "/about" ? "text-white" : "hover:text-white"} transition-colors`}>About</Link>
-          <Link href="/coach" className={`${location === "/coach" ? "text-white" : "hover:text-white"} transition-colors`}>Coach Meta</Link>
-          <Link href="/upload" className={`${location === "/upload" ? "text-white" : "hover:text-white"} transition-colors`}>Upload Match</Link>
+          <Link href="/coach" className={`${location === "/coach" ? "text-white" : "hover:text-white"} transition-colors`}>Ask Coach</Link>
+          <Link href="/upload" className={`${location === "/upload" ? "text-white" : "hover:text-white"} transition-colors flex items-center gap-1.5`}>
+            Upload Match
+            <span className="text-[9px] font-mono uppercase tracking-wider text-zinc-500 border border-white/10 rounded px-1.5 py-0.5">Locked</span>
+          </Link>
           <Link href="/ebooks" className={`${location === "/ebooks" ? "text-white" : "hover:text-white"} transition-colors`}>Ebooks</Link>
         </div>
         <div className="flex items-center gap-3">

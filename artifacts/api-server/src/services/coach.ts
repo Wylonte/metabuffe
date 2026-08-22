@@ -48,7 +48,9 @@ export async function handleCoachChat(input: {
     throw new Error("Message is required");
   }
 
-  const retrieved = GameKnowledgeService.retrieve(input.gameId, trimmed);
+  const retrieved = GameKnowledgeService.retrieve(input.gameId, trimmed, {
+    limit: 10,
+  });
   const conceptsUsed = retrieved.matchedConceptIds;
 
   const canned = GameKnowledgeService.getCompatCoachReply(input.gameId, trimmed);

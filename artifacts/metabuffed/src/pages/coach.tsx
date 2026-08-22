@@ -130,23 +130,27 @@ export default function CoachPage() {
             <div className="flex flex-col items-center gap-2 py-5 px-2 text-center">
               <MessageSquare className="w-5 h-5 text-zinc-800" />
               <p className="text-[10px] text-zinc-600 font-mono leading-relaxed">No recent analyses yet.</p>
-              <p className="text-[10px] text-zinc-700 font-mono leading-relaxed">Upload gameplay or start a coaching session.</p>
+              <p className="text-[10px] text-zinc-700 font-mono leading-relaxed">Ask freeform or tap a suggested question.</p>
             </div>
           </div>
 
           <div>
-            <h3 className="text-[9px] font-mono text-zinc-600 uppercase tracking-widest font-bold mb-3">Quick Questions</h3>
+            <h3 className="text-[9px] font-mono text-zinc-600 uppercase tracking-widest font-bold mb-3">Suggested Questions</h3>
             <div className="space-y-1">
               {quickQuestions.map((q) => (
                 <button
                   key={q}
                   onClick={() => void sendMessage(q)}
                   className="w-full text-left px-2.5 py-2 rounded-lg text-[11px] text-zinc-400 hover:text-white hover:bg-white/5 transition-all duration-150 leading-snug"
+                  data-testid={`quick-q-${q.slice(0, 24)}`}
                 >
                   {q}
                 </button>
               ))}
             </div>
+            <p className="mt-3 text-[9px] font-mono text-zinc-700 leading-relaxed">
+              Or type anything below — situations, matchups, counters, stamina, scoring.
+            </p>
           </div>
         </div>
 
@@ -180,7 +184,7 @@ export default function CoachPage() {
             </div>
             <div>
               <p className="text-xs font-bold text-white uppercase tracking-wider">{game.fullName}</p>
-              <p className="text-[9px] font-mono text-primary uppercase tracking-widest">Active · Meta Analysis</p>
+              <p className="text-[9px] font-mono text-primary uppercase tracking-widest">Active · Freeform Meta Coach</p>
             </div>
           </div>
           <div className="md:hidden">
@@ -227,11 +231,27 @@ export default function CoachPage() {
 
         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/95 to-transparent pt-12 pb-6 px-5 sm:px-8">
           <div className="max-w-2xl mx-auto">
+            <div className="md:hidden mb-3 flex gap-2 overflow-x-auto pb-1 scrollbar-none">
+              {quickQuestions.slice(0, 4).map((q) => (
+                <button
+                  key={q}
+                  type="button"
+                  onClick={() => void sendMessage(q)}
+                  className="shrink-0 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[10px] text-zinc-300 hover:text-white hover:bg-white/10 transition-colors max-w-[220px] truncate"
+                >
+                  {q}
+                </button>
+              ))}
+            </div>
             <form onSubmit={handleSend} className="relative flex items-center">
               <Input
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder={game.id === "fight-night" ? "Ask the coach anything about Fight Night Champion..." : "Ask the coach anything about UFC 6..."}
+                placeholder={
+                  game.id === "fight-night"
+                    ? "Ask anything — Money Team, counters, stamina, matchups, or describe your situation..."
+                    : "Ask anything about UFC 6 meta, or describe your situation..."
+                }
                 className="w-full bg-[#111] border-white/10 text-white placeholder:text-zinc-600 h-13 pl-5 pr-14 rounded-xl focus-visible:ring-primary shadow-2xl text-sm"
                 data-testid="input-chat"
               />
@@ -245,7 +265,9 @@ export default function CoachPage() {
                 <Send className="w-4 h-4" />
               </Button>
             </form>
-            <p className="text-center text-[9px] font-mono text-zinc-700 mt-3">Metabuffed · Coach Meta · Competitive Analysis AI</p>
+            <p className="text-center text-[9px] font-mono text-zinc-700 mt-3">
+              Suggested questions + freeform · Not a basic FAQ · Metabuffed Coach
+            </p>
           </div>
         </div>
       </main>

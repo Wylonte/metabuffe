@@ -57,20 +57,14 @@ If identity cannot be confirmed from the frames, say so and do not invent who di
 
 ---
 
-## FORBIDDEN INVENTED LABELS (never use as formal mechanics)
+## ESTABLISHED MASTER SPEC TERMS (use when situation matches)
 
-Do NOT use these as named formal mechanics:
+These are established FNC meta/community terms from the Master Training Spec —
+not invented filler. Use them when the behavior matches; do not force them.
 
-- Static Block
-- Controlled Cheese
-- Rhythm Read (as a formal mechanic name)
-- Any other invented label not established in FNC community / EA language
-
-If describing the behavior, describe the PATTERN in plain FNC-accurate language:
-
-- Held block through multiple exchanges, released at a predictable point, opponent timed straights off the release.
-- Used a strong mechanic repeatedly after a clear read (not "Controlled Cheese").
-- Opponent kept attacking on the same timing after blocking (describe the pattern — do not invent "Rhythm Read").
+- **Static Block** — holding guard without meaningful movement, block rhythm, counter threat, or repositioning (different from Money Team).
+- **Controlled Cheese** — powerful meta mechanics used from a confirmed read (not blind spam).
+- **Rhythm Read** — recognizing a repeated timing pattern after enough evidence.
 
 ---
 
@@ -80,60 +74,60 @@ Never use as primary analysis:
 
 High Guard Maintenance, Good Defense, Body Work (as vague praise), Pressure Application, Use of Feints, Good Combinations, Counter Opportunities, Reaction Time, Ring Generalship, textbook defense/boxing, improve your guard, work on feints.
 
+Prefer specific FNC language: timing pause, false entry, bait, reaction bait, rhythm break — not generic "feints."
+
 ---
 
-## ESTABLISHED TERMS (use only when footage supports)
+## ESTABLISHED TERMS (use only when footage / question supports)
 
 Source tags:
 
 - **Official EA** — game/UI language
 - **Established Community** — widely used by FNC competitive players
-- **Advanced Malky/FNC Meta** — advanced community meta language
-- **Descriptive Only** — describe the pattern; do not treat as a formal named mechanic
+- **Advanced Malky/FNC Meta** — advanced community meta language / Master Spec
+- **Descriptive Only** — describe the pattern carefully
 
 ### Core mechanics (Official EA / Descriptive)
 
 Jab, straight, hooks, uppercuts, power modifier, stamina, blocking, head movement, sidestep, backstep, push, clinch, counters.
 
-### Defense (Established Community / Official EA)
+### Defense (Established Community / Official EA / Master Spec)
 
-Textbook, Philly Shell, Cross Block, pump blocking, block refresh, perfect/timed blocking, lean back, slips, sidesteps, backsteps, defensive rhythm / Money Team defense (community).
+Textbook, Philly Shell, Cross Block, pump blocking, block refresh, Static Block, perfect/timed blocking, lean back, micro-lean, slips, sidesteps, backsteps, defensive rhythm / Money Team defense (community).
 
 ### Offensive meta (Established Community)
 
-Power straight, push straight, step-back straight, sidestep uppercut, chicken wing, body attacks, combination traps, power-modified attacks.
+Power straight, power straight engineering, push straight, step-back straight, sidestep uppercut, chicken wing, body attacks, combination traps, power-modified attacks, Controlled Cheese.
 
 ### Counter meta (Established Community / Advanced)
 
-Pull counter, sidestep counter, backstep counter, catch-and-shoot, counter windows, baiting, recovery punishment / recovery punish, whiff punish.
+Pull counter, sidestep counter, backstep counter, catch-and-shoot, counter windows, baiting, recovery punishment / recovery punish, whiff punish, Rhythm Read.
 
 ### Spam taxonomy (Established Community) — only when repetition is clearly visible
 
-Straight spam, step-back spam, sidestep-uppercut spam, push-straight spam, body spam.
-Spam = repeated use of the same response especially when waiting for the same trigger (e.g. waiting for forward entry then same sidestep uppercut).
+Straight spam, step-back spam, sidestep-uppercut spam, push-straight spam, body spam, mindless spam.
+Spam = repeated use of the same response especially when waiting for the same trigger.
 
 ### Stamina meta
 
-Short-term vs long-term stamina, whiffing, excessive powers, combination length, body work cost, recovery, conserving energy.
-Explain exchange cost (e.g. 4–5 punch combinations answered by 1–2 clean counters) — do not just slap a label.
+Short-term vs long-term stamina, whiffing, excessive powers, combination length, body investment, recovery, stamina fraud, stamina tax, stamina collapse, movement waste, combination waste, power-punch waste.
 
 ### Range / footwork
 
-Outside, mid-range, pocket, inside, back foot, pressure, ring cutting, backpedaling, entry distance.
-Describe linear entries / linear retreat as patterns when visible — do not invent formal labels beyond established terms.
+Outside, mid-range, pocket, inside, pressure range, counter range, centerline, off-center, micro-positioning, half-step, cutting the ring vs chasing, straight-line pressure / retreat.
 
 ### Scoring meta
 
-Clean punches, counters, volume vs quality, stealing rounds (late-round activity), H2H vs OWC differences.
+Impact moments, winning statistical fight vs winning impact fight, scorecard manipulation, late-round steal window, broken 10-8 / scoring anomaly, H2H vs OWC differences.
 
-### Archetypes (Descriptive — only if style is clear)
+### Archetypes
 
-Pressure fighter, counter fighter, outside fighter, inside fighter, brawler, boxer-puncher, spam-heavy, defensive.
+Pressure fighter, real vs fake pressure, pressure-counter, counter puncher, outfighter, inside fighter, brawler, speed-based fighter, heavy-impact fighter.
 
 ### OWC vs H2H
 
-OWC: CAB builds, attributes, punch styles, blocking styles, power access, stamina builds, matchups.
-H2H: licensed boxer attributes, unusual power fighters, punch-style differences, matchup disadvantages.
+OWC builds, meta builds, power/toughness priority, speed trap, reach advantage/disadvantage.
+H2H: licensed boxer attributes, matchup advantage, low-power disadvantage, matchup discipline, boxing mode vs fighting mode vs switching modes.
 Higher overall rating ≠ better competitive matchup.
 
 ---

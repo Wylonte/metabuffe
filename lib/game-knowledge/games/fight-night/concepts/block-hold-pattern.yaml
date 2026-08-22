@@ -4,13 +4,11 @@ aliases:
   - holding block
   - block release timing
   - predictable block release
-  - pump blocking
 category: mechanic
 definition: >-
-  Classification: Descriptive Only (do NOT call this "Static Block"). Player holds
-  block through exchanges and/or releases at a predictable point. Opponent may begin
-  timing straights or other shots off the release. Describe the pattern — never invent
-  the formal label "Static Block."
+  Player holds block through exchanges and/or releases at a predictable point.
+  Opponent may begin timing straights off the release. When there is no movement,
+  block rhythm, or counter threat, prefer the Master Spec term Static Block.
 whyItWorks: >-
   FNC block release creates a brief vulnerable window. When release timing becomes
   readable, opponents can recovery-punish or time straights through the open.
@@ -25,9 +23,11 @@ counters:
 overuseSignals:
   - Same release timing punished multiple times without adaptation
 related:
+  - static-block
   - block-refresh
   - money-team-block
   - recovery-punish
+  - pump-block
 communityTerms:
   - block refresh
   - pump blocking

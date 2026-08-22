@@ -75,6 +75,7 @@ export interface GameKnowledgeBundle {
   cannedResponses: CannedResponse[];
   concepts: GameConcept[];
   analysisLanguage?: string;
+  coachReasoning?: string;
 }
 
 export interface KnowledgeBundle {

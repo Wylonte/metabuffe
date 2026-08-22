@@ -1,70 +1,168 @@
 # Fight Night Champion meta terminology → concept id
-# Only map ESTABLISHED terms. Forbidden invented labels are not mapped as formal mechanics.
+# Master Spec + established community terms
+
 mtb: money-team-block
 money team: money-team-block
 money team defense: money-team-block
 money team block: money-team-block
+money team rhythm: money-team-rhythm
 shell: money-team-block
-philly shell: money-team-block
+shell loop: money-team-rhythm
+calculated annoyance: calculated-annoyance
+philly shell: philly-shell
+cross block: cross-block
+static block: static-block
 block refresh: block-refresh
 block reset: block-refresh
 guard refresh: block-refresh
-pump blocking: block-refresh
+pump block: pump-block
+pump blocking: pump-block
+block rhythm: block-rhythm
 predictable block release: block-hold-pattern
 holding block: block-hold-pattern
+weave reset: weave-reset
 power straight: power-straight
+power straight engineering: power-straight-engineering
 push straight: push-straight
-straight spam: push-straight
+straight spam: straight-spam
 push straight spam: push-straight
 step back straight: back-step-straight
 step-back straight: back-step-straight
 step-back spam: back-step-straight
+backstep straight: back-step-straight
+sidestep: sidestep
 sidestep uppercut: sidestep-uppercut
-sidestep uppercut spam: sidestep-uppercut
+sidestep uppercut read: sidestep-uppercut-read
+sidestep uppercut spam: sidestep-spam
 sidestep spam: sidestep-spam
 lean back: lean-back
+micro lean: micro-lean
+predictable lean: predictable-lean
 back step: back-step
 backstep: back-step
+half step: half-step
+half-step: half-step
+micro positioning: micro-positioning
+centerline: centerline
+off center: off-center-positioning
+off-center: off-center-positioning
 straight line pressure: straight-line-pressure
 linear pressure: straight-line-pressure
 straight line retreat: straight-line-retreat
 straight-line retreat: straight-line-retreat
+straight line trap: straight-line-trap
+cutting the ring: cutting-the-ring
+cut the ring: cutting-the-ring
+chasing: chasing
+chase: chasing
+fake pressure: fake-pressure
+real pressure: real-pressure
+pressure range: pressure-range
+counter range: counter-range
+distance management: distance-management
 pull counter: pull-counter
 sidestep counter: sidestep-uppercut
 backstep counter: back-step-straight
 recovery window: recovery-window
 recovery punish: recovery-punish
 recovery punishment: recovery-punish
+animation recovery: animation-recovery-exploitation
+whiff: whiff
 whiff punish: whiff-punish
+missed whiff punish: missed-whiff-punish
 counter window: counter-window
+missed counter: missed-counter-window
+missed recovery punish: missed-recovery-punish
+commitment window: commitment-window
+interruption: interruption-offense
+escape punch: escape-punch
+rhythm: rhythm
+rhythm read: rhythm-read
 rhythm manipulation: rhythm-manipulation
+rhythm break: rhythm-break
 timing trap: timing-trap
 repeated timing: timing-pattern
 same cadence: timing-pattern
+pattern speed: pattern-speed
+fight iq: fight-iq
+bait: bait
+reaction bait: reaction-bait
 fear loop: fear-loop
+hesitation: hesitation
+mental break: mental-break
+defensive frustration: defensive-frustration
 panic offense: panic-offense
 panic defense: panic-defense
+emotional aggression: emotional-aggression
+controlled aggression: controlled-aggression
 stamina fraud: stamina-fraud
 stamina tax: stamina-tax
+stamina collapse: stamina-collapse
+movement waste: movement-waste
+combination waste: combination-waste
+power punch waste: power-punch-waste
 empty offense: empty-offense
 meaningful offense: meaningful-offense
+impact moment: impact-moment
+free offense: free-offense
 round steal: round-steal
+late round steal: late-round-steal-window
 scorecard manipulation: scorecard-manipulation
+winning on stats: winning-statistical-fight
+winning on impact: winning-impact-fight
 broken 10-8: scoring-anomaly
 scoring anomaly: scoring-anomaly
+jab: jab
 jab tax: jab-setup
 jab setup: jab-setup
-free offense: free-offense
-overcommit: overcommitment
-overcommitment: overcommitment
-spam read: spam-read
-adaptation: adaptation-check
-adaptation check: adaptation-check
+jab as data: jab-as-data
+empty jab: empty-jab-volume
 body spam: body-spam
+body pressure: body-pressure
+body investment: body-investment
 chicken wing: chicken-wing
 chicken wing punch: chicken-wing
+cheese: cheese
+controlled cheese: controlled-cheese
+mindless spam: mindless-spam
+meta abuse: meta-abuse
+ultimate cheeser: ultimate-cheeser
 mechanic on read: mechanic-on-read
+spam read: spam-read
+adaptation: adaptation
+adaptation failure: adaptation-failure
+adaptation check: adaptation-check
+adaptation successful: adaptation-successful
+read confirmed: read-confirmed
+read unconfirmed: read-unconfirmed
+overcommit: overcommitment
+overcommitment: overcommitment
 owc: owc-meta
-h2h: owc-meta
-power disadvantage: owc-meta
-cab: owc-meta
+owc build: owc-build
+meta build: meta-build
+cab: owc-build
+h2h: h2h-meta
+head to head: h2h-meta
+matchup: matchup-advantage
+power disadvantage: low-power-disadvantage
+low power: low-power-disadvantage
+speed trap: speed-trap
+power guy: heavy-impact-fighter
+brawler: brawler
+inside fighter: inside-fighting
+outfighter: outfighter
+counter puncher: counter-puncher
+pressure fighter: pressure-fighter
+boxing mode: boxing-mode
+fighting mode: fighting-mode
+switching modes: switching-modes
+stun: stun-state
+intelligent finish: intelligent-finish
+panic chase: panic-chase-after-stun
+momentum: momentum
+controlled efficiency: controlled-efficiency
+defensive discipline: defensive-discipline
+offensive discipline: offensive-discipline
+stationary defense: stationary-defense
+reach advantage: reach-advantage
+reach disadvantage: reach-disadvantage

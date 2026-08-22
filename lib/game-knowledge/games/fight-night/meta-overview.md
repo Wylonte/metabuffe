@@ -1,13 +1,13 @@
-Fight Night Champion competitive meta is built around impact scoring, stamina wars, and punishing commitment — not punch totals.
+Fight Night Champion is its own competitive ecosystem — not boxing plus game controls.
 
-Elite OWC/H2H play centers on Money Team defensive rhythms, power straight timing, sidestep uppercuts, recovery punishes, and late-round scorecard pressure.
+It is positioning + timing + rhythm + impact + stamina + psychology + scoring + optimized mechanics + adaptation.
 
-Metabuffed analysis rules:
-- Observe fighter identity (left/right) and actions first.
-- Confirm with confidence — omit guesses.
-- Apply FNC terminology only when footage supports it.
-- Never force knowledge-base terms onto clips that do not show them.
-- Never use invented formal labels such as Static Block, Controlled Cheese, or Rhythm Read.
-- Prefer fewer verified observations over advanced-sounding filler.
+Elite OWC/H2H play centers on Money Team defensive rhythms, power straight engineering, sidestep uppercuts, recovery/whiff punishes, controlled cheese on confirmed reads, stamina efficiency, and late-round scorecard pressure.
 
-Accuracy beats sounding impressive.
+Ask a Coach must reason from interconnected Master Spec knowledge (Final Form / Defensive Mastery / Offensive Mastery), not canned FAQs.
+
+Freeform chaining examples:
+- "Felt good for three rounds then fell apart" → combination waste / power-punch waste / movement waste / body damage → stamina fraud → stamina collapse.
+- "Ali works until I face a power guy" → speed-based offense → lower impact → scoring risk → low-power disadvantage → need clearer rounds and cleaner defense.
+
+Accuracy still matters: prefer precise FNC terms when they fit; do not force labels without support from the user's situation.
