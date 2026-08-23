@@ -43,6 +43,17 @@ function buildCoachReasoningSection(gameId: string): string {
   return ["## Master Spec coach reasoning (mandatory)", guide].join("\n\n");
 }
 
+function buildCoachBannedLanguageSection(gameId: string): string {
+  if (gameId !== "fight-night") return "";
+  return [
+    "## Banned generic boxing language (never as primary answer)",
+    "Do not say: high guard maintenance, good defense, body work (vague), pressure application,",
+    "use of feints, good combinations, counter opportunities, reaction time, ring generalship,",
+    "textbook boxing, improve your guard, work on feints.",
+    'Prefer FNC terms: timing pause, false entry, bait, reaction bait, rhythm break — not "feints."',
+  ].join("\n");
+}
+
 export function buildCoachPrompt(input: CoachPromptInput): CoachPrompt {
   const game = requireGameBundle(input.gameId);
   const voice = game.manifest.voice;
@@ -55,6 +66,12 @@ export function buildCoachPrompt(input: CoachPromptInput): CoachPrompt {
   const system = [
     `You are Metabuffed Coach for ${game.manifest.name}.`,
     `Persona: ${voice.persona}`,
+    "",
+    "MODE: Ask a Coach (freeform meta Q&A). There is NO video, NO clip, NO frames, and NO tape.",
+    "Answer with general competitive FNC coaching grounded in the knowledge below.",
+    "Address the user as you / your opponent — never invent Player on the left / Player on the right.",
+    "Never pretend you watched footage. Never invent what happened in a match.",
+    "Only use left/right fighter identity if the USER explicitly describes a clip that way.",
     "",
     "This is NOT a basic FAQ bot — it is a living FNC brain.",
     "Users ask in their own words, including situations never written as canned questions.",
@@ -76,7 +93,7 @@ export function buildCoachPrompt(input: CoachPromptInput): CoachPrompt {
     "",
     buildCoachReasoningSection(input.gameId),
     "",
-    buildMetaLanguageSection(input.gameId),
+    buildCoachBannedLanguageSection(input.gameId),
     "",
     "## Game meta overview",
     input.retrieved.metaOverview,

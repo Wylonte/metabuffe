@@ -177,20 +177,30 @@ export default function CoachPage() {
           <div className="absolute bottom-0 right-1/4 w-[400px] h-[300px] bg-[radial-gradient(ellipse_at_center,rgba(0,229,255,0.07)_0%,transparent_70%)]" />
         </div>
 
-        <header className="border-b border-white/5 bg-[#080808]/90 backdrop-blur-md px-6 py-3.5 shrink-0 z-10 flex items-center justify-between">
-          <div className="flex items-center gap-3">
+        <header className="border-b border-white/5 bg-[#080808]/90 backdrop-blur-md px-6 py-3.5 shrink-0 z-10 flex items-center justify-between gap-3">
+          <div className="flex items-center gap-3 min-w-0">
             <div className="w-6 h-6 rounded-md overflow-hidden border border-primary/30 shrink-0 shadow-[0_0_8px_rgba(255,28,139,0.2)]">
               <img src={game.img} alt={game.fullName} className="w-full h-full object-cover" />
             </div>
-            <div>
-              <p className="text-xs font-bold text-white uppercase tracking-wider">{game.fullName}</p>
+            <div className="min-w-0">
+              <p className="text-xs font-bold text-white uppercase tracking-wider truncate">{game.fullName}</p>
               <p className="text-[9px] font-mono text-primary uppercase tracking-widest">Active · Freeform Meta Coach</p>
             </div>
           </div>
-          <div className="md:hidden">
-            <Link href="/">
-              <img src={logoImg} alt="Metabuffed" className="h-8 w-auto cursor-pointer" />
+          <div className="flex items-center gap-3 shrink-0">
+            <Link
+              href="/upload"
+              className="inline-flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-wider text-zinc-500 hover:text-zinc-300 transition-colors"
+              data-testid="coach-upload-locked"
+            >
+              <Lock className="w-3.5 h-3.5" aria-hidden />
+              Upload Match
             </Link>
+            <div className="md:hidden">
+              <Link href="/">
+                <img src={logoImg} alt="Metabuffed" className="h-8 w-auto cursor-pointer" />
+              </Link>
+            </div>
           </div>
         </header>
 

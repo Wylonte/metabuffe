@@ -1,6 +1,7 @@
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { useModals } from "@/hooks/use-modals";
+import { Lock } from "lucide-react";
 import logoImg from "@assets/1000028977_1779456146886.png";
 
 export function Nav() {
@@ -19,9 +20,16 @@ export function Nav() {
           <Link href="/" className={`${location === "/" ? "text-white" : "hover:text-white"} transition-colors`}>Home</Link>
           <Link href="/about" className={`${location === "/about" ? "text-white" : "hover:text-white"} transition-colors`}>About</Link>
           <Link href="/coach" className={`${location === "/coach" ? "text-white" : "hover:text-white"} transition-colors`}>Ask Coach</Link>
-          <Link href="/upload" className={`${location === "/upload" ? "text-white" : "hover:text-white"} transition-colors flex items-center gap-1.5`}>
+          <Link
+            href="/upload"
+            className={`${location === "/upload" ? "text-white" : "hover:text-white"} transition-colors inline-flex items-center gap-1.5`}
+            data-testid="nav-upload-locked"
+          >
+            <Lock className="w-3.5 h-3.5 text-zinc-500 shrink-0" aria-hidden />
             Upload Match
-            <span className="text-[9px] font-mono uppercase tracking-wider text-zinc-500 border border-white/10 rounded px-1.5 py-0.5">Locked</span>
+            <span className="text-[9px] font-mono uppercase tracking-wider text-zinc-500 border border-white/10 rounded px-1.5 py-0.5">
+              Locked
+            </span>
           </Link>
           <Link href="/ebooks" className={`${location === "/ebooks" ? "text-white" : "hover:text-white"} transition-colors`}>Ebooks</Link>
         </div>

@@ -155,11 +155,12 @@ export default function Home() {
                   </Button>
                   <Button
                     size="lg"
-                    className="bg-transparent border border-white/25 hover:border-white/50 hover:bg-white/[0.07] text-white font-bold text-sm h-14 px-10 uppercase tracking-widest rounded-[11px] transition-all duration-200 backdrop-blur-sm"
+                    className="bg-transparent border border-white/25 hover:border-white/50 hover:bg-white/[0.07] text-white font-bold text-sm h-14 px-10 uppercase tracking-widest rounded-[11px] transition-all duration-200 backdrop-blur-sm inline-flex items-center gap-2"
                     data-testid="btn-hero-upload"
                     onClick={() => setLocation('/upload')}
                   >
-                    Upload Match · Locked
+                    <Lock className="w-4 h-4" />
+                    Upload Match
                   </Button>
                 </div>
               </motion.div>
@@ -547,8 +548,9 @@ export default function Home() {
                 <Button size="lg" className="bg-[#3B82F6] hover:bg-[#2563EB] text-white font-bold border-0 text-sm h-16 px-12 uppercase tracking-widest rounded-[11px] shadow-[0_0_18px_rgba(59,130,246,0.45)] hover:shadow-[0_0_28px_rgba(59,130,246,0.65)] transition-all duration-200" onClick={() => setLocation('/coach')}>
                   Ask the Coach
                 </Button>
-                <Button size="lg" className="bg-transparent border border-white/25 hover:border-white/50 hover:bg-white/[0.07] text-white font-bold text-sm h-16 px-12 uppercase tracking-widest rounded-[11px] transition-all duration-200 backdrop-blur-sm" onClick={() => setLocation('/upload')}>
-                  Upload Match · Locked
+                <Button size="lg" className="bg-transparent border border-white/25 hover:border-white/50 hover:bg-white/[0.07] text-white font-bold text-sm h-16 px-12 uppercase tracking-widest rounded-[11px] transition-all duration-200 backdrop-blur-sm inline-flex items-center gap-2" onClick={() => setLocation('/upload')}>
+                  <Lock className="w-4 h-4" />
+                  Upload Match
                 </Button>
               </div>
 

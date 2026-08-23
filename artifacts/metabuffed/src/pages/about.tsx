@@ -4,7 +4,7 @@ import { Link } from "wouter";
 import { Nav } from "@/components/Nav";
 import { Button } from "@/components/ui/button";
 import { CrimsonFlow } from "@/components/CrimsonFlow";
-import { Brain, Target, TrendingUp, Users, Zap, Shield } from "lucide-react";
+import { Brain, Target, TrendingUp, Users, Zap, Shield, Lock } from "lucide-react";
 
 const STATS = [
   { value: "600M+", label: "Competitive Gamers Worldwide" },
@@ -285,8 +285,9 @@ export default function AboutPage() {
                 </Button>
               </Link>
               <Link href="/upload">
-                <Button size="lg" className="bg-transparent border border-white/25 hover:border-white/50 hover:bg-white/[0.07] text-white font-bold text-sm h-14 px-12 uppercase tracking-widest w-full sm:w-auto rounded-[11px] transition-all duration-200 backdrop-blur-sm" data-testid="btn-about-upload">
-                  Upload Match · Locked
+                <Button size="lg" className="bg-transparent border border-white/25 hover:border-white/50 hover:bg-white/[0.07] text-white font-bold text-sm h-14 px-12 uppercase tracking-widest w-full sm:w-auto rounded-[11px] transition-all duration-200 backdrop-blur-sm inline-flex items-center gap-2" data-testid="btn-about-upload">
+                  <Lock className="w-4 h-4" />
+                  Upload Match
                 </Button>
               </Link>
             </div>

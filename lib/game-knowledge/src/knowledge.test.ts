@@ -157,6 +157,20 @@ describe("prompt builder", () => {
     assert.ok(prompt.system.includes("Every answer should try to identify") || prompt.system.includes("coach reasoning"));
   });
 
+  it("coach freeform prompt does not invent tape/video left-right framing", () => {
+    const retrieved = retrieve("fight-night", "Why do I keep getting hit with power straights");
+    const prompt = buildCoachPrompt({
+      gameId: "fight-night",
+      userMessage: "Why do I keep getting hit with power straights",
+      retrieved,
+    });
+    assert.ok(prompt.system.includes("NO video") || prompt.system.includes("Ask a Coach"));
+    assert.ok(prompt.system.includes("Never invent") || prompt.system.includes("never invent"));
+    assert.ok(!prompt.system.includes("## FNC analysis language system"));
+    assert.ok(prompt.system.includes("you / your opponent") || prompt.system.includes("you / your opponent"));
+    assert.ok(prompt.system.includes("Freeform Ask a Coach mode") || prompt.system.includes("NO video"));
+  });
+
   it("builds evidence-first analysis prompt with tape sections", () => {
     const retrieved = retrieve("fight-night", "sidestep uppercut");
     const prompt = buildAnalysisPrompt({
